@@ -1,0 +1,26 @@
+/* line 3, base.css.scss */
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 11, base.css.scss */
+body {
+  font: normal 12px HelveticaNeue, Helvetica, Arial; }
+
+/* line 15, base.css.scss */
+a {
+  cursor: pointer;
+  color: #78808a; }
+
+/* line 20, base.css.scss */
+a:hover {
+  text-decoration: none; }
+
+/* line 24, base.css.scss */
+.container-fluid {
+  overflow-x: hidden; }

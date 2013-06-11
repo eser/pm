@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <title>Plastique Theme</title>
+
+  <link href="../../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <!--[if lt IE 9]>
+<script src="../../javascripts/html5shiv.js" type="text/javascript"></script><script src="../../javascripts/excanvas.js" type="text/javascript"></script><script src="../../javascripts/iefix.js" type="text/javascript"></script><link href="../../stylesheets/iefix.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+</head>
+<body>
+
+<div id="modal" class="black-box modal hide fade">
+  <div class="modal-header tab-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <span>Some modal title</span>
+  </div>
+  <div class="modal-body separator">
+    <h4>Text in a modal</h4>
+    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+  </div>
+  <div class="modal-footer">
+    <div class="inner-well">
+      <a class="button mini rounded light-gray" data-dismiss="modal">Close</a>
+      <a class="button mini rounded blue">Save changes</a>
+    </div>
+  </div>
+</div>
+
+<div id="modal-gallery" class="black-box modal modal-gallery hide fade">
+  <div class="modal-header tab-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <span class="modal-title"></span>
+  </div>
+  <div class="modal-body"><div class="modal-image"></div></div>
+  <div class="modal-footer">
+    <div class="pull-left">
+      You can also change the images<br/> by scrolling the mouse wheel!
+    </div>
+    <div class="pull-right">
+      <a class="button blue modal-next">Next <i class="icon-arrow-right icon-white"></i></a>
+      <a class="button gray modal-prev"><i class="icon-arrow-left icon-white"></i> Previous</a>
+      <a class="button green modal-play modal-slideshow" data-slideshow="5000"><i class="icon-play icon-white"></i> Slideshow</a>
+      <a class="button black" target="_blank"><i class="icon-download"></i> Download</a>
+    </div>
+  </div>
+</div>
+<nav id="primary" class="main-nav">
+  <ul>
+
+    <li class="">
+      <a href="../dashboard/stats.html">
+        <i class="icon-dashboard"></i> Dashboard
+      </a>
+    </li>
+
+    <li class="">
+      <a href="../form_elements/standard.html">
+        <i class="icon-list-alt"></i> Forms
+      </a>
+    </li>
+
+    <li class="">
+      <a href="../user_interface/buttons_dropdowns.html">
+          <i class="icon-beaker"></i> UI Lab
+      </a>
+    </li>
+
+    <li class="active">
+      <a href="widgets.html">
+          <i class="icon-plus-sign"></i> Widgets
+      </a>
+    </li>
+
+    <li class="">
+      <a href="../charts/charts.html">
+          <i class="icon-bar-chart"></i> Charts
+      </a>
+    </li>
+
+
+
+
+
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt"></i>More <span class="caret"></span></a>
+
+      <ul class="dropdown-menu">
+        <li>
+          <a href="../error_404.html">
+              <i class="icon-warning-sign"></i> Error 404
+          </a>
+        </li>
+
+        
+
+        <li>
+          <a href="../docs/docs.html">
+              <i class="icon-book"></i> Documentation
+          </a>
+        </li>
+
+        
+        <li class="divider"></li>
+        <li>
+          <a href="../login/login.html">
+              <i class="icon-off"></i> Log out (login page)
+          </a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav><nav id="secondary" class="main-nav">
+
+  <div class="profile-menu">
+
+    <div class="pull-left">
+      <div class="avatar">
+        <img src="../../images/avatar.png" />
+      </div>
+    </div>
+
+    <div class="pull-left">
+      <div class="title">
+        Plastique
+      </div>
+      <div class="btn-group">
+        <button class="button mini inset black"><i class="icon-search"></i></button>
+        <button class="button mini inset black">Projects</button>
+        <button class="button mini inset black dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
+        <ul class="dropdown-menu black-box-dropdown">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="pull-right profile-menu-nav-collapse">
+      <button class="button black"><i class="icon-reorder"></i></button>
+    </div>
+
+  </div>
+
+  <ul class="secondary-nav-menu">
+    <li class="">
+  <a href="widgets.html">
+      <i class="icon-plus-sign"></i> Widgets
+  </a>
+</li>
+
+<li class="">
+  <a href="fullcalendar.html">
+      <i class="icon-calendar"></i> Full calendar
+  </a>
+</li>
+
+<li class="active">
+  <a href="faq.html">
+      <i class="icon-question-sign"></i> FAQ page
+  </a>
+</li>
+
+<li class="">
+  <a href="gallery.html">
+      <i class="icon-picture"></i> Gallery
+  </a>
+</li>
+  </ul>
+
+</nav>
+
+
+
+<section id="main">
+  <div class="top-nav">
+  <div class="container-fluid">
+    <div class="row-fluid search-button-bar-container">
+      <div class="span12">
+        <ul class="breadcrumb">
+          <li><a href="#"><i class="icon-home"></i> Some</a></li>
+          <li><a href="#">Nice</a></li>
+          <li><a href="#">Breadcrumbs</a></li>
+          <li class="active"><a href="#">Here</a></li>
+        </ul>
+        <a class="search-button-trigger" href="#"><i class="icon-search"></i></a>
+      </div>
+    </div>
+
+    <div class="row-fluid search-bar-nav">
+      <div class="span12">
+        <form>
+          <input type="text" class="search" placeholder="Search...">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+  <div class="span12">
+
+    <div class="box">
+      <div class="tab-header">FAQ</div>
+      <div class="padded">
+        <ol class="faq-list">
+          <li>
+            <h4>How do we work?</h4>
+            <p>Just fill out our briefing form. This will only take about 5 minutes. Based on that basic information, we will create a design sample in a way we feel best suits your company's focus and vision. You need not waste anymore time on meetings.</p>
+          </li>
+
+          <li>
+            <h4>Why should I use this service?</h4>
+            <p>Technically oriented Internet companies often do not possess a feeling for design and usability while print-design oriented companies do not have the know-how regarding specific requirements and various technical possibilities. Fortunately, we have the advantages of both.</p>
+          </li>
+
+          <li>
+            <h4>What do I do if I don't like the design?</h4>
+            <p>Your current designer can continue working with our original files. You are free to use only parts of our design or not use it at all.</p>
+          </li>
+          <li>
+            <h4>How much does it cost?</h4>
+            <p>We charge 900 USD per design sample. For 200 USD more you get a 3 day express service. Customer from Switzerland add 7.6% VAT.</p>
+          </li>
+          <li>
+            <h4>How do I pay?</h4>
+            <p>After you have completed our briefing form you will receive an invoice by email. As soon as the money has been received, we will start working for you.</p>
+          </li>
+          <li>
+            <h4>How long does it take?</h4>
+            <p>After your payment has arrived on our bank account, it takes about 14 days. If you choose our "Express service" it takes 3 days.</p>
+          </li>
+          <li>
+            <h4>Who does the design?</h4>
+            <p>All designs are done by Oliver Schmid. An experienced designer who worked for two of the largest internet companies in Switzerland for seven years before starting the design studio Webgarten GmbH in Widen near Zurich.</p>
+          </li>
+          <li>
+            <h4>What do I get?</h4>
+            <p>You get a design sample as a graphic document. It usually contains a front and second page. In addition, we will include the original workfiles. Naturally, you are free to use these any way you choose.</p>
+          </li>
+          <li>
+            <h4>How much time does it take you to do a design sample?</h4>
+            <p>We will work until we have found the perfect design for you. This can take anywhere from 4 to 12 hours, but on average 8.</p>
+          </li>
+
+          <li>
+            <h4>Where do you get the content from?</h4>
+            <p>We use the content you send us on our briefing form. When information is lacking we will use "dummy texts" such as "Lorem ipsum" and "dummy images".</p>
+          </li>
+          <li>
+            <h4>When do I need this service?</h4>
+            <p>If you are unhappy with the current design of your website, if you are considering another vision for your website design, or would like to improve the "look and feel" of your site, if you are planning a new website and want to see a second design sample before you spend a lot of money on development, if you are a design company with no more ideas and want someone else to have a try.</p>
+          </li>
+          <li>
+            <h4>Will my design be shown on your references?</h4>
+            <p>Yes. But if you choose our "Keep secret" service we will not add you to our reference list. In that case, you will be charged an additional fee of we charge 200 USD.</p>
+          </li>
+          <li>
+            <h4>What happen with the files and information I'm sending to you?</h4>
+            <p>All files and information we receive will be treated confidentially and be deleted after use.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="row-fluid">
+  <div class="span12">
+    <div class="footer">
+      <div>2012 &copy; Plastique Admin Theme</div>
+      <div>Carefully crafted by <a href="https://wrapbootstrap.com/user/andrei4002">andrei4002</a></div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<script type="text/html" id="template-notification">
+  <div class="notification animated fadeInLeftMiddle fast{{ item.itemClass }}">
+    <div class="left">
+      <div style="background-image: url({{ item.imagePath }})" class="{{ item.imageClass }}"></div>
+    </div>
+    <div class="right">
+      <div class="inner">{{ item.text }}</div>
+      <div class="time">{{ item.time }}</div>
+    </div>
+
+    <i class="icon-remove-sign hide"></i>
+  </div>
+</script>
+<script type="text/html" id="template-notifications">
+  <div class="container">
+    <div class="row" id="notifications-wrapper">
+      <div id="notifications" class="{{ bootstrapPositionClass }} notifications animated">
+        <div id="dismiss-all" class="dismiss-all button blue">Dismiss all</div>
+        <div id="content">
+          <div id="notes"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script src="../../javascripts/application.js" type="text/javascript"></script><script src="../../javascripts/docs.js" type="text/javascript"></script><script src="../../javascripts/docs_charts.js" type="text/javascript"></script><script src="../../javascripts/documentation.js" type="text/javascript"></script><script src="../../javascripts/prettify.js" type="text/javascript"></script><link href="../../stylesheets/prettify.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    prettyPrint()
+</script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35778683-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* line 31, badges.css.scss */
+.badge {
+  background: #e7e7e7;
+  -webkit-box-shadow: 0 1px 0 white;
+  -moz-box-shadow: 0 1px 0 white;
+  box-shadow: 0 1px 0 white;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+  color: #888;
+  border: 1px solid #989898;
+  line-height: 14px;
+  padding: 1px 9px 1px; }
+  /* line 36, badges.css.scss */
+  .badge.blue {
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: #236ea4;
+    border: 1px solid #17496d;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }
+  /* line 40, badges.css.scss */
+  .badge.red {
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: #cc0000;
+    border: 1px solid #8a0000;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }
+  /* line 44, badges.css.scss */
+  .badge.purple {
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: purple;
+    border: 1px solid #3e003e;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }
+  /* line 48, badges.css.scss */
+  .badge.yellow {
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: #cccc00;
+    border: 1px solid #8a8a00;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }
+  /* line 52, badges.css.scss */
+  .badge.green {
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: green;
+    border: 1px solid #003e00;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }
+  /* line 56, badges.css.scss */
+  .badge.black {
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: #262626;
+    border: 1px solid #050505;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }
+  /* line 60, badges.css.scss */
+  .badge.light-gray {
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: #46464d;
+    border: 1px solid #27272b;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }

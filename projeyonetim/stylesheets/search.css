@@ -1,0 +1,107 @@
+/*
+Syntax error: Undefined mixin 'std-bg'.
+        on line 29 of /home/andrei/dev/plastique-middleman-release/source/stylesheets/search.css.scss, in `std-bg'
+        from line 29 of /home/andrei/dev/plastique-middleman-release/source/stylesheets/search.css.scss
+
+24:   width: 100%;
+25:   margin-top: 5px;
+26:   margin-bottom: 10px;
+27:   height: 25px;
+28:   border: none;
+29:   @include std-bg(#666670, #46464D);
+30:   font-size: 12px;
+31:   line-height: 25px;
+32:   @include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.7) inset);
+33:   color: #fff;
+34:   @include transition(width, .3s);
+
+Backtrace:
+/home/andrei/dev/plastique-middleman-release/source/stylesheets/search.css.scss:29:in `std-bg'
+/home/andrei/dev/plastique-middleman-release/source/stylesheets/search.css.scss:29
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/root_node.rb:20:in `render'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:315:in `_render'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:262:in `render'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-sass-0.8.0/lib/sprockets/sass/sass_template.rb:40:in `evaluate'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-sprockets-3.0.4/lib/middleman-sprockets/sass.rb:45:in `evaluate'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/tilt-1.3.3/lib/tilt/template.rb:76:in `render'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/context.rb:197:in `block in evaluate'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/context.rb:194:in `each'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/context.rb:194:in `evaluate'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/processed_asset.rb:12:in `initialize'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:350:in `new'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:350:in `block in build_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:371:in `circular_call_protection'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:349:in `build_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/index.rb:93:in `block in build_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/caching.rb:51:in `cache_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/index.rb:92:in `build_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:270:in `find_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/index.rb:60:in `find_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/bundled_asset.rb:16:in `initialize'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:353:in `new'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:353:in `build_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/index.rb:93:in `block in build_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/caching.rb:51:in `cache_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/index.rb:92:in `build_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/base.rb:270:in `find_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/index.rb:60:in `find_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/environment.rb:74:in `find_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-sprockets-3.0.4/lib/middleman-sprockets/extension.rb:118:in `find_asset'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/sprockets-2.4.5/lib/sprockets/server.rb:47:in `call'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-1.4.1/lib/rack/builder.rb:134:in `call'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-1.4.1/lib/rack/urlmap.rb:64:in `block in call'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-1.4.1/lib/rack/urlmap.rb:49:in `each'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-1.4.1/lib/rack/urlmap.rb:49:in `call'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-1.4.1/lib/rack/builder.rb:134:in `call'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-test-0.6.2/lib/rack/mock_session.rb:30:in `request'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-test-0.6.2/lib/rack/test.rb:230:in `process_request'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/rack-test-0.6.2/lib/rack/test.rb:57:in `get'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/lib/middleman-core/cli/build.rb:235:in `block in execute!'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/lib/middleman-core/cli/build.rb:232:in `each'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/lib/middleman-core/cli/build.rb:232:in `execute!'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/lib/middleman-core/cli/build.rb:174:in `invoke!'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/actions.rb:95:in `action'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/lib/middleman-core/cli/build.rb:64:in `build'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/task.rb:27:in `run'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/invocation.rb:120:in `invoke_task'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor.rb:275:in `dispatch'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/base.rb:425:in `start'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/lib/middleman-core/cli.rb:77:in `method_missing'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/task.rb:29:in `run'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/task.rb:126:in `run'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/invocation.rb:120:in `invoke_task'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor.rb:275:in `dispatch'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/thor-0.15.4/lib/thor/base.rb:425:in `start'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/lib/middleman-core/cli.rb:22:in `start'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/lib/ruby/gems/1.9.1/gems/middleman-core-3.0.6/bin/middleman:18:in `<top (required)>'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/bin/middleman:23:in `load'
+/home/andrei/.rbenv/versions/1.9.3-p327-perf/bin/middleman:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'std-bg'.\A         on line 29 of /home/andrei/dev/plastique-middleman-release/source/stylesheets/search.css.scss, in `std-bg'\A         from line 29 of /home/andrei/dev/plastique-middleman-release/source/stylesheets/search.css.scss\A \A 24:   width: 100%;\A 25:   margin-top: 5px;\A 26:   margin-bottom: 10px;\A 27:   height: 25px;\A 28:   border: none;\A 29:   @include std-bg(#666670, #46464D);\A 30:   font-size: 12px;\A 31:   line-height: 25px;\A 32:   @include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.7) inset);\A 33:   color: #fff;\A 34:   @include transition(width, .3s);"; }

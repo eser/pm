@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <title>Plastique Theme</title>
+
+  <link href="../../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <!--[if lt IE 9]>
+<script src="../../javascripts/html5shiv.js" type="text/javascript"></script><script src="../../javascripts/excanvas.js" type="text/javascript"></script><script src="../../javascripts/iefix.js" type="text/javascript"></script><link href="../../stylesheets/iefix.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+</head>
+<body>
+
+<div id="modal" class="black-box modal hide fade">
+  <div class="modal-header tab-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <span>Some modal title</span>
+  </div>
+  <div class="modal-body separator">
+    <h4>Text in a modal</h4>
+    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+  </div>
+  <div class="modal-footer">
+    <div class="inner-well">
+      <a class="button mini rounded light-gray" data-dismiss="modal">Close</a>
+      <a class="button mini rounded blue">Save changes</a>
+    </div>
+  </div>
+</div>
+
+<div id="modal-gallery" class="black-box modal modal-gallery hide fade">
+  <div class="modal-header tab-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <span class="modal-title"></span>
+  </div>
+  <div class="modal-body"><div class="modal-image"></div></div>
+  <div class="modal-footer">
+    <div class="pull-left">
+      You can also change the images<br/> by scrolling the mouse wheel!
+    </div>
+    <div class="pull-right">
+      <a class="button blue modal-next">Next <i class="icon-arrow-right icon-white"></i></a>
+      <a class="button gray modal-prev"><i class="icon-arrow-left icon-white"></i> Previous</a>
+      <a class="button green modal-play modal-slideshow" data-slideshow="5000"><i class="icon-play icon-white"></i> Slideshow</a>
+      <a class="button black" target="_blank"><i class="icon-download"></i> Download</a>
+    </div>
+  </div>
+</div>
+<nav id="primary" class="main-nav">
+  <ul>
+
+    <li class="">
+      <a href="../dashboard/stats.html">
+        <i class="icon-dashboard"></i> Dashboard
+      </a>
+    </li>
+
+    <li class="">
+      <a href="../form_elements/standard.html">
+        <i class="icon-list-alt"></i> Forms
+      </a>
+    </li>
+
+    <li class="">
+      <a href="../user_interface/buttons_dropdowns.html">
+          <i class="icon-beaker"></i> UI Lab
+      </a>
+    </li>
+
+    <li class="">
+      <a href="../widgets/widgets.html">
+          <i class="icon-plus-sign"></i> Widgets
+      </a>
+    </li>
+
+    <li class="">
+      <a href="../charts/charts.html">
+          <i class="icon-bar-chart"></i> Charts
+      </a>
+    </li>
+
+
+
+
+
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt"></i>More <span class="caret"></span></a>
+
+      <ul class="dropdown-menu">
+        <li>
+          <a href="../error_404.html">
+              <i class="icon-warning-sign"></i> Error 404
+          </a>
+        </li>
+
+        
+
+        <li>
+          <a href="docs.html">
+              <i class="icon-book"></i> Documentation
+          </a>
+        </li>
+
+        
+        <li class="divider"></li>
+        <li>
+          <a href="../login/login.html">
+              <i class="icon-off"></i> Log out (login page)
+          </a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav><nav id="secondary" class="main-nav">
+
+  <div class="profile-menu">
+
+    <div class="pull-left">
+      <div class="avatar">
+        <img src="../../images/avatar.png" />
+      </div>
+    </div>
+
+    <div class="pull-left">
+      <div class="title">
+        Plastique
+      </div>
+      <div class="btn-group">
+        <button class="button mini inset black"><i class="icon-search"></i></button>
+        <button class="button mini inset black">Projects</button>
+        <button class="button mini inset black dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
+        <ul class="dropdown-menu black-box-dropdown">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="pull-right profile-menu-nav-collapse">
+      <button class="button black"><i class="icon-reorder"></i></button>
+    </div>
+
+  </div>
+
+  <ul class="secondary-nav-menu">
+    <li class="active">
+  <a href="#">
+    <i class="icon-book"></i> Documentation
+  </a>
+</li>
+
+  </ul>
+
+</nav>
+
+
+
+<section id="main">
+  <div class="top-nav">
+  <div class="container-fluid">
+    <div class="row-fluid search-button-bar-container">
+      <div class="span12">
+        <ul class="breadcrumb">
+          <li><a href="#"><i class="icon-home"></i> Some</a></li>
+          <li><a href="#">Nice</a></li>
+          <li><a href="#">Breadcrumbs</a></li>
+          <li class="active"><a href="#">Here</a></li>
+        </ul>
+        <a class="search-button-trigger" href="#"><i class="icon-search"></i></a>
+      </div>
+    </div>
+
+    <div class="row-fluid search-bar-nav">
+      <div class="span12">
+        <form>
+          <input type="text" class="search" placeholder="Search...">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container-fluid">
+    <div class="row-fluid" id="plastique-documentation">
+  <div class="span3">
+    <div class="nav-menu box">
+  <ul class="nav nav-list" id="documentation-menu">
+
+    <li class="nav-header">Layout</li>
+    <li><a href="#" data-link="docs-primary-menu"><i class="icon-list"></i> Main Menus & Layout</a></li>
+    <li><a href="#" data-link="docs-breadcrumbs-search"><i class="icon-search"></i> Breadcrumbs & Search</a></li>
+    <li><a href="#" data-link="docs-boxes"><i class="icon-columns"></i> Boxes</a></li>
+
+    <li class="nav-header">Forms</li>
+    <li><a href="#" data-link="docs-forms-textfields"><i class="icon-list-alt"></i> Forms & Textfields</a></li>
+    <li><a href="#" data-link="docs-radios-checkboxes"><i class="icon-check"></i> Radios & Checkboxes</a></li>
+    <li><a href="#" data-link="docs-select-tags"><i class="icon-tag"></i> Select & tags</a></li>
+
+    <li class="nav-header">UI Lab</li>
+    <li><a href="#" data-link="docs-notifications"><i class="icon-info-sign"></i> Notifications</a></li>
+    <li><a href="#" data-link="docs-buttons-icons"><i class="icon-hand-up"></i> Buttons & icons</a></li>
+    <li><a href="#" data-link="docs-modals"><i class="icon-share"></i> Modals</a></li>
+    <li><a href="#" data-link="docs-tables"><i class="icon-table"></i> Tables</a></li>
+    <li><a href="#" data-link="docs-other-ui"><i class="icon-table"></i> Other UI</a></li>
+
+    <li class="nav-header">Widgets</li>
+    <li><a href="#" data-link="docs-tabbable"><i class="icon-th-large"></i> Tabbable</a></li>
+    <li><a href="#" data-link="docs-nav-menu"><i class="icon-list"></i> Nav menu</a></li>
+    <li><a href="#" data-link="docs-recent-comments"><i class="icon-comment"></i> Recent Comments</a></li>
+    <li><a href="#" data-link="docs-faq-page"><i class="icon-question-sign"></i> FAQ Page</a></li>
+    <li><a href="#" data-link="docs-gallery"><i class="icon-picture"></i> Gallery</a></li>
+    <li><a href="#" data-link="docs-charts"><i class="icon-signal"></i> Charts</a></li>
+
+    <li class="nav-header">Other</li>
+    <li><a href="#" data-link="docs-login-page"><i class="icon-user"></i> Login Page</a></li>
+    <li><a href="#" data-link="docs-error-page"><i class="icon-remove"></i> Error 404 page</a></li>
+  </ul>
+</div>
+  </div>
+  <div class="span9">
+    <div class="box">
+      <div class="tab-header light" id="docs-title"></div>
+      <div class="padded" id="docs-content">
+        <section id="docs-primary-menu">
+
+  <h3>Layout</h3>
+
+  <p>The layout structure is built like this:</p>
+
+  <pre class="prettyprint">
+    
+    &lt;nav id=&quot;primary&quot; class=&quot;main-nav&quot;&gt; ... &lt;&#x2F;nav&gt;
+    &lt;nav id=&quot;secondary&quot; class=&quot;main-nav&quot;&gt; ... &lt;&#x2F;nav&gt;
+    &lt;section id=&quot;main&quot;&gt;
+        &lt;div class=&quot;top-nav&quot;&gt; here go the breadcrumbs and search, in fluid containers &lt;&#x2F;div&gt;
+        &lt;div class=&quot;container-fluid&quot;&gt; here goes the main content &lt;&#x2F;div&gt;
+    &lt;&#x2F;section&gt;
+  </pre>
+
+  <h3>Primary menu</h3>
+
+  <p>The primary menu has the following structure:</p>
+
+  <pre class="prettyprint">
+    
+  &lt;nav id=&quot;primary&quot; class=&quot;main-nav&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;&#x2F;path&#x2F;to&#x2F;dashboard&quot;&gt;&lt;i class=&quot;icon-dashboard&quot;&gt;&lt;&#x2F;i&gt; Dashboard&lt;&#x2F;a&gt;
+        &lt;&#x2F;li&gt;
+
+        &lt;li class=&quot;active&quot;&gt;
+          &lt;a href=&quot;&#x2F;path&#x2F;to&#x2F;active&quot;&gt;&lt;i class=&quot;icon-list-alt&quot;&gt;&lt;&#x2F;i&gt; Forms&lt;&#x2F;a&gt;
+        &lt;&#x2F;li&gt;
+
+        &#x2F;&#x2F;you can add a dropdown menu here. the theme is built on a multiple of 3 buttons to gain a 3-grid button menu when resized to mobile
+        &lt;li class=&quot;dropdown&quot;&gt;
+            &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;icon-share-alt&quot;&gt;&lt;&#x2F;i&gt;More &lt;span class=&quot;caret&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+            &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                &lt;li&gt;
+                    &lt;a href=&quot;&#x2F;page&#x2F;in&#x2F;dropdown&quot;&gt;&lt;i class=&quot;icon-warning-sign&quot;&gt;&lt;&#x2F;i&gt; Error 404&lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+            &lt;&#x2F;ul&gt;
+        &lt;&#x2F;li&gt;
+    &lt;&#x2F;ul&gt;
+  &lt;&#x2F;nav&gt;
+  </pre>
+
+  <h3>Secondary Menu</h3>
+
+  <p>And here's the secondary menu structure</p>
+
+  <pre class="prettyprint">
+    
+    &lt;nav id=&quot;secondary&quot; class=&quot;main-nav&quot;&gt;
+
+      &#x2F;&#x2F;the profile menu at the top:
+      &lt;div class=&quot;profile-menu&quot;&gt;
+        &lt;div class=&quot;pull-left&quot;&gt;
+          &lt;div class=&quot;avatar&quot;&gt;
+            &lt;img src=&quot;&#x2F;path&#x2F;to&#x2F;avatar&#x2F;48x48&quot;&gt;
+          &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;pull-left&quot;&gt;
+          &lt;div class=&quot;title&quot;&gt;Plastique&lt;&#x2F;div&gt;
+          &lt;div class=&quot;btn-group&quot;&gt;
+            &lt;button class=&quot;button mini inset black&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;button&gt;
+            &lt;button class=&quot;button mini inset black&quot;&gt;Projects&lt;&#x2F;button&gt;
+            &#x2F;&#x2F;here&#x27;s a dropdown menu
+            &lt;button class=&quot;button mini inset black dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;icon-cog&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;button&gt;
+            &lt;ul class=&quot;dropdown-menu black-box-dropdown&quot;&gt;
+              ...
+            &lt;&#x2F;ul&gt;
+          &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+
+        &#x2F;&#x2F;add this for responsive secondary menu
+        &lt;div class=&quot;pull-right profile-menu-nav-collapse&quot;&gt;
+          &lt;button class=&quot;button black&quot;&gt;&lt;i class=&quot;icon-reorder&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;button&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+
+      &lt;ul class=&quot;secondary-nav-menu&quot;&gt;
+        &lt;li class=&quot;active&quot;&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-book&quot;&gt;&lt;&#x2F;i&gt; Documentation&lt;&#x2F;a&gt;
+        &lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+    &lt;&#x2F;nav&gt;
+  </pre>
+
+
+</section>
+        <section id="docs-breadcrumbs-search">
+
+  <h3>Top nav container</h3>
+
+  <pre class="prettyprint">
+  
+    &#x2F;&#x2F;search bar and breadcrumbs sit in the top-nav
+    &lt;div class=&quot;top-nav&quot;&gt; .. &lt;&#x2F;div&gt;
+  </pre>
+
+  <h3>Breadcrumbs</h3>
+
+  <pre class="prettyprint">
+  
+    &lt;ul class=&quot;breadcrumb&quot;&gt;
+      &lt;li&gt;..&lt;&#x2F;li&gt;
+      &lt;li class=&quot;active&quot;&gt;..&lt;&#x2F;li&gt;
+    &lt;&#x2F;ul&gt;
+  </pre>
+
+  <h3>Top bar search</h3>
+
+  <pre class="prettyprint">
+  
+    &#x2F;&#x2F;add search-button-bar-container
+    &lt;div class=&quot;row-fluid search-button-bar-container&quot;&gt;
+      &lt;div class=&quot;span12&quot;&gt;
+        &lt;ul class=&quot;breadcrumb&quot;&gt; ... &lt;&#x2F;ul&gt;
+        &lt;a class=&quot;search-button-trigger&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+
+    &#x2F;&#x2F;note the search-bar-nav to the next container
+    &lt;div class=&quot;row-fluid search-bar-nav&quot;&gt;
+      &lt;div class=&quot;span12&quot;&gt;
+        &lt;form&gt;
+          &lt;input type=&quot;text&quot; class=&quot;search&quot; placeholder=&quot;Search...&quot;&gt;
+        &lt;&#x2F;form&gt;
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+  </pre>
+
+</section>
+        <section id="docs-boxes">
+
+  <h3>box vs black-box</h3>
+
+  <pre class="prettyprint">
+  
+  &#x2F;&#x2F;you can surround anything with a div.box like this (adding class padded will add a 20px padding all sides)
+  &#x2F;&#x2F;there are also vpadded (for vertical padding only) and hpadded (for horizontal padding only) classes to use if needed
+
+  &lt;div class=&quot;box padded&quot;&gt; .. &lt;&#x2F;div&gt;
+
+  &#x2F;&#x2F;a box can have a title
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;tab-header&quot;&gt;Some title&lt;&#x2F;div&gt;
+    &lt;div class=&quot;padded&quot;&gt; your awesome content here &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+
+  &#x2F;&#x2F;a title header can also have a right icon
+  &lt;div class=&quot;tab-header&quot;&gt;
+    Some title
+    &lt;span class=&quot;pull-right&quot;&gt;
+      &lt;span class=&quot;options&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-cog&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;
+      &lt;&#x2F;span&gt;
+    &lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+
+  &#x2F;&#x2F;a box can be dark
+  &lt;div class=&quot;black-box padded&quot;&gt; .. &lt;&#x2F;div&gt;
+
+  &#x2F;&#x2F;and have a title too
+  &lt;div class=&quot;black-box&quot;&gt;
+    &lt;div class=&quot;tab-header&quot;&gt;Some title&lt;&#x2F;div&gt;
+    &lt;div class=&quot;padded&quot;&gt; some more content here &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+
+  &#x2F;&#x2F;and even a dropdown to the right
+  &lt;div class=&quot;tab-header&quot;&gt;
+      &lt;span class=&quot;pull-right&quot;&gt;
+          &lt;span class=&quot;options&quot;&gt;
+            &lt;div class=&quot;btn-group&quot;&gt;
+              &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;icon-cog&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;
+              &lt;ul class=&quot;dropdown-menu black-box-dropdown dropdown-left&quot;&gt;
+                ...
+              &lt;&#x2F;ul&gt;
+            &lt;&#x2F;div&gt;
+          &lt;&#x2F;span&gt;
+      &lt;&#x2F;span&gt;
+  &lt;div&gt;
+
+
+  
+  </pre>
+
+</section>
+        <section id="docs-radios-checkboxes">
+
+  <h3>Radios</h3>
+
+  <pre class="prettyprint">
+  
+  &#x2F;&#x2F;add a class normal-radio to the input, and surround the input and label with a div.input
+  &lt;div class=&quot;input&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;radios[]&quot; id=&quot;rd1&quot; class=&quot;normal-radio&quot;&gt;
+    &lt;label for=&quot;rd1&quot;&gt;The number one option&lt;&#x2F;label&gt;
+  &lt;&#x2F;div&gt;
+  </pre>
+
+  <h3>Checkboxes</h3>
+
+  <pre class="prettyprint">
+  
+  &#x2F;&#x2F;add a class normal-check to the input, and surround the input and label with a div.input
+  &lt;div class=&quot;input&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; id=&quot;ch1&quot; class=&quot;normal-check&quot;&gt;
+    &lt;label for=&quot;ch1&quot;&gt;The number one option&lt;&#x2F;label&gt;
+  &lt;&#x2F;div&gt;
+  </pre>
+
+  <h3>Checky Checkboxes</h3>
+
+  <pre class="prettyprint">
+  
+  &#x2F;&#x2F;add a class checky to the input and the label
+    &lt;input type=&quot;checkbox&quot; id=&quot;3W5kH&quot; class=&quot;checky&quot;&gt;
+    &lt;label for=&quot;3W5kH&quot; class=&quot;checky&quot;&gt;&lt;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;label&gt;
+
+  &#x2F;&#x2F;you can set a text label in a span to the left or right of the input by adding a span before&#x2F;after the control like this:
+    &lt;span class=&quot;checky-label-left&quot;&gt;label to the left&lt;&#x2F;span&gt;
+    &lt;span class=&quot;checky-label-right&quot;&gt;label to the right&lt;&#x2F;span&gt;
+  
+  </pre>
+
+</section>
+        <section id="docs-forms-textfields">
+
+  <h3>Form fill inputs</h3>
+
+  <pre class="prettyprint">
+  
+  &#x2F;&#x2F;add a class fill-up to a form and all inputs will span to the full width of their parent container
+  &lt;form class=&quot;fill-up&quot;&gt; ... &lt;&#x2F;form&gt;
+  </pre>
+
+  <h3>Classic textfield</h3>
+
+  <pre class="prettyprint">
+  
+  &lt;div class=&quot;input&quot;&gt;&lt;input type=&quot;text&quot; placeholder=&quot;Email&quot;&gt;&lt;&#x2F;div&gt;
+  </pre>
+
+  <h3>Transparent textfield (prepended - optional)</h3>
+
+  <pre class="prettyprint">
+  
+    &lt;div class=&quot;prepend-transparent&quot;&gt;
+      &lt;span class=&quot;add-on button&quot;&gt;@&lt;&#x2F;span&gt;&lt;input class=&quot;input-transparent&quot; id=&quot;prependedInput&quot; size=&quot;16&quot; type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;
+    &lt;&#x2F;div&gt;
+  </pre>
+
+  <h3>Transparent textfield (appended - optional)</h3>
+
+  <pre class="prettyprint">
+  
+  &lt;div class=&quot;append-transparent&quot;&gt;
+    &lt;input class=&quot;input-transparent&quot; id=&quot;appendedInput&quot; size=&quot;16&quot; type=&quot;text&quot;&gt;&lt;span class=&quot;add-on button&quot;&gt;.00&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  </pre>
+
+  <h3>Error textfield</h3>
+
+  <pre class="prettyprint">
+  
+  &lt;div class=&quot;input&quot;&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot; class=&quot;error&quot;&gt;
+    &lt;span class=&quot;input-error&quot; data-title=&quot;please write a valid username&quot;&gt;
+      &lt;i class=&quot;icon-warning-sign&quot;&gt;&lt;&#x2F;i&gt;
+    &lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  </pre>
+
+  <h3>Date picker</h3>
+
+  <pre class="prettyprint">
+  &lt;input id=&quot;datetimepicker&quot; type=&quot;text&quot; class=&quot;fill-up&quot;&gt;
+  </pre>
+
+  <h3>Form note</h3>
+
+  <pre class="prettyprint">
+  
+  &#x2F;&#x2F;small note you can use below an input for example
+  &lt;div class=&quot;note large&quot;&gt;
+    &lt;i class=&quot;icon-warning-sign&quot;&gt;&lt;&#x2F;i&gt; Warning: You have to complete all fields
+  &lt;&#x2F;div&gt;
+  </pre>
+
+
+</section>
+        <section id="docs-select-tags">
+
+  <h3>Chosen select/multiselect</h3>
+
+  <pre class="prettyprint">
+  
+    &#x2F;&#x2F;the theme uses Chosen to style and enhance the select boxes. use class fill-up to go 100%, and chzn-select to activate chosen
+    &#x2F;&#x2F;same goes for multiple=&quot;multiple&quot;
+    &lt;select name=&quot;city&quot; id=&quot;city&quot; placeholder=&quot;City&quot; class=&quot;fill-up chzn-select&quot;&gt;
+      &lt;option&gt;Seattle&lt;&#x2F;option&gt;
+      &lt;option&gt;Chicago&lt;&#x2F;option&gt;
+      &lt;option&gt;New York&lt;&#x2F;option&gt;
+    &lt;&#x2F;select&gt;
+  </pre>
+
+  <h3>Tags</h3>
+
+  <pre class="prettyprint">
+  
+  &#x2F;&#x2F;add class tagme to a textarea to get a tags control
+  &lt;div class=&quot;input&quot;&gt;
+    &lt;textarea class=&quot;tagme&quot; placeholder=&quot;This is a textarea&quot;&gt;&lt;&#x2F;textarea&gt;
+  &lt;&#x2F;div&gt;
+  </pre>
+
+</section>
+        <section id="docs-notifications">
+
+  <h3>Initialization</h3>
+
+  <p>The notifications plugin uses underscore.js to render javascript templates. To use the notification system, the page must include the html templates for the notification plugin, which you'll find in the package (look for a file called notification_templates)</p>
+
+  <p>You can optionally initialize the notifications plugin on the page with a parent container and a custom class for sizing like this:</p>
+
+  <pre class="prettyprint">
+    
+    new Notifications({
+      container: $(&quot;body&quot;),
+      bootstrapPositionClass: &quot;span6 offset3&quot;
+    });
+  </pre>
+
+  <p>These are actually the default options, which inject the plugin template at the beginning of the <b>container</b>, with a <b>span6 offset3</b> class for position and size. You should only initialize the plugin if the defaults don't suit your purpose</p>
+
+  <p>To push a notification, just call <code>Notifications.push</code> with the following arguments:</p>
+
+  <table class="table table-bordered">
+    <tr>
+      <td><code>imagePath</code></td>
+      <td>(optional) string</td>
+      <td>the url to your image path. use it if you want an image to the left of your notification</td>
+    </tr>
+
+    <tr>
+      <td><code>fillImage</code></td>
+      <td>(optional) boolean</td>
+      <td>defaults to false. use it if you want to expand the image in the whole assigned space, otherwise it will stay centered</td>
+    </tr>
+
+    <tr>
+      <td><code>text</code></td>
+      <td>string</td>
+      <td>the message you want inside the notification. can be a html snippet too!</td>
+    </tr>
+
+    <tr>
+      <td><code>time</code></td>
+      <td>(optional) string</td>
+      <td>can be used as a timestamp below the text</td>
+    </tr>
+
+    <tr>
+      <td><code>autoDismiss</code></td>
+      <td>(optional) integer</td>
+      <td>number of seconds after the notification automatically dismisses itself. if a dismiss count is not provided, the notification must be manually closed by the user</td>
+    </tr>
+
+    <tr>
+      <td><code>dismiss</code></td>
+      <td>(optional) function</td>
+      <td>a function that gets called after the notification is dismissed</td>
+    </tr>
+  </table>
+</section>
+        <section id="docs-buttons-icons">
+
+  <h3>Buttons</h3>
+
+  <p>To style something as a button, use <code>class="button"</code></p>
+
+  <p>
+    Optional classes are for <b>colors</b>, and you get by default
+
+    <span style="margin-bottom: 10px; display: inline-block;">
+      <a href="#" class="button">default</a>
+    </span>
+
+    
+        <span style="margin-bottom: 10px; display: inline-block;">
+          <a href="#" class="button blue">blue</a>
+        </span>
+    
+        <span style="margin-bottom: 10px; display: inline-block;">
+          <a href="#" class="button red">red</a>
+        </span>
+    
+        <span style="margin-bottom: 10px; display: inline-block;">
+          <a href="#" class="button green">green</a>
+        </span>
+    
+        <span style="margin-bottom: 10px; display: inline-block;">
+          <a href="#" class="button black">black</a>
+        </span>
+    
+        <span style="margin-bottom: 10px; display: inline-block;">
+          <a href="#" class="button gray">gray</a>
+        </span>
+    
+  </p>
+
+  <p>
+    Other classes you can apply:
+    <span style="margin-bottom: 10px; display: inline-block;">
+      <a href="#" class="button light-gray rounded">rounded</a>
+    </span>
+
+    <span style="margin-bottom: 10px; display: inline-block;">
+      <a href="#" class="button light-gray mini rounded">mini rounded</a>
+    </span>
+
+    <span style="margin-bottom: 10px; display: inline-block;">
+      <a href="#" class="button light-gray mini rounded inset">mini rounded inset</a>
+    </span>
+
+    <span style="margin-bottom: 10px; display: inline-block;">
+      <a href="#" class="button light-gray disabled">disabled</a>
+    </span>
+
+  </p>
+
+  <p>
+    <b>All button colors are generated via scss mixins. You can basically create a new button color by using a single color</b>
+  </p>
+
+  <h3>Dropdowns</h3>
+
+  <p>Dropdown menus have exactly the same syntax as the ones in the original bootstrap. The difference is of course that instead of
+    <code>btn</code> classes, you use the ones above. For example:</p>
+
+  <pre class="prettyprint">
+    
+    &lt;div class=&quot;btn-group&quot;&gt;
+        &lt;button class=&quot;button&quot;&gt;Action&lt;&#x2F;button&gt;
+        &lt;button class=&quot;button dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+          &lt;span class=&quot;caret&quot;&gt;&lt;&#x2F;span&gt;
+        &lt;&#x2F;button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+          &lt;li class=&quot;divider&quot;&gt;&lt;&#x2F;li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+        &lt;&#x2F;ul&gt;
+    &lt;&#x2F;div&gt;
+  </pre>
+
+  <p>You can use class <code>dropdown-left</code> on a button toggle to make it open in the left side of the toggle (right aligned)</p>
+
+  <h3>Button groups</h3>
+
+  <p>The button groups also have the same syntax as original bootstrap.</p>
+
+  <div class="btn-group">
+    
+        <a href="#" class="button">A button</a>
+    
+        <a href="#" class="button">A button</a>
+    
+        <a href="#" class="button">A button</a>
+    
+        <a href="#" class="button">A button</a>
+    
+  </div>
+
+  <h3>Icons</h3>
+
+  <p>This theme includes font-awesome for icons</p>
+
+</section>
+        <section id="docs-modals">
+  <h3>Modals</h3>
+
+  <p>Basically the same structure, uses <code>black-box</code> class as a base for styling, and <code>tab-header</code> class for title</p>
+
+  <pre class="prettyprint">
+    
+    &lt;div id=&quot;modal&quot; class=&quot;black-box modal hide fade&quot;&gt;
+      &lt;div class=&quot;modal-header tab-header&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt;&amp;times;&lt;&#x2F;button&gt;
+        &lt;span&gt;Some modal title&lt;&#x2F;span&gt;
+      &lt;&#x2F;div&gt;
+      &lt;div class=&quot;modal-body separator&quot;&gt;
+        &lt;h4&gt;Text in a modal&lt;&#x2F;h4&gt;
+        &lt;p&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.&lt;&#x2F;p&gt;
+      &lt;&#x2F;div&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;div class=&quot;inner-well&quot;&gt;
+          &lt;a class=&quot;button mini rounded light-gray&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;&#x2F;a&gt;
+          &lt;a class=&quot;button mini rounded blue&quot;&gt;Save changes&lt;&#x2F;a&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+  </pre>
+
+  <p>use class <code>inner-well</code> for a slick container of the buttons</p>
+</section>
+        <section id="docs-tables">
+  <h3>Tables</h3>
+
+  <p>You can add class <code>box</code> to a table to give it the same effect as a normal container</p>
+  <p>Use a <code>thead</code> and a <code>tfoot</code> to get a table header and a table footer. They integrate well with the box!</p>
+
+  <pre class="prettyprint">
+    
+    &lt;table class=&quot;table table-bordered box&quot;&gt; ... &lt;&#x2F;table&gt;
+  </pre>
+
+  <h3>Interactive tables</h3>
+
+  <p>The <a href="http://datatables.net/" target="_blank">dataTables</a> library is included and customized to this theme. No custom classes to be added. Just plug'n'play</p>
+
+</section>
+        <section id="docs-other-ui">
+  <h3>Badges</h3>
+
+  <p>Badges can be used with the same syntax as in normal bootstrap</p>
+
+      <p>
+        <span class="badge">1</span>
+  
+        <span class="badge blue">1</span>
+  
+        <span class="badge red">1</span>
+  
+        <span class="badge green">1</span>
+  
+        <span class="badge black">1</span>
+  
+        <span class="badge gray">1</span>
+  
+      </p>
+
+  <pre class="prettyprint">
+    &lt;span class=&quot;badge&quot;&gt;1&lt;&#x2F;span&gt;
+  </pre>
+
+  <p>Badges have the same color classes like buttons</p>
+</section>
+        <section id="docs-tabbable">
+  <h3>Tabbable</h3>
+
+  <p>Add class <code>black-box</code> to a tabbable</p>
+
+  <p>This theme adds a title bar (class <code>tab-header</code>) to the original tabbable component</p>
+  <p>If you want the tabbable title bar to include a dropdown menu, the dropdown <code>ul</code> needs a <code>black-box-dropdown</code> class</p>
+  <p>You should also wrap the <code>btn-group</code> element with a span class <code>options</code></p>
+
+  <pre class="prettyprint">
+    
+    &lt;div class=&quot;tabbable black-box&quot; style=&quot;margin-bottom: 18px;&quot;&gt;
+
+      &lt;div class=&quot;tab-header&quot;&gt;
+        Some Title here
+            &lt;span class=&quot;pull-right&quot;&gt;
+              &lt;span class=&quot;options&quot;&gt;
+                &lt;div class=&quot;btn-group&quot;&gt;
+                  &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;icon-cog&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;
+                  &lt;ul class=&quot;dropdown-menu black-box-dropdown dropdown-left&quot;&gt;
+                    ...
+                  &lt;&#x2F;ul&gt;
+                &lt;&#x2F;div&gt;
+              &lt;&#x2F;span&gt;
+            &lt;&#x2F;span&gt;
+      &lt;&#x2F;div&gt;
+
+      &lt;ul class=&quot;nav nav-tabs&quot;&gt;
+        &lt;li class=&quot;&quot;&gt;&lt;a href=&quot;#tab1&quot; data-toggle=&quot;tab&quot;&gt;Section 1&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+        &lt;li class=&quot;&quot;&gt;&lt;a href=&quot;#tab2&quot; data-toggle=&quot;tab&quot;&gt;Section 2&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#tab3&quot; data-toggle=&quot;tab&quot;&gt;Section 3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+
+      &lt;div class=&quot;tab-content&quot;&gt;
+        &lt;div class=&quot;padded&quot;&gt;
+            some content goes here
+            &lt;div class=&quot;separator&quot;&gt;&lt;&#x2F;div&gt;
+            other content in the same tab pane
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+      ....
+    &lt;&#x2F;div&gt;
+  </pre>
+
+  <p>Use class <code>separator</code> to break the contents in the same pane</p>
+  <p>You can wrap content in a <code>inner-well</code> element to add some cool depth</p>
+</section>
+        <section id="docs-nav-menu">
+  <h3>Nav menu</h3>
+
+  <p>Wrap boostrap's <code>nav-list</code> control in a <code>nav-menu box</code> element</p>
+  <p>You can add a <code>badge</code> in a <code>pull-right</code> element to align it to the right on a nav list row</p>
+
+  <pre class="prettyprint">
+    
+    &lt;div class=&quot;nav-menu box&quot;&gt;
+      &lt;ul class=&quot;nav nav-list&quot;&gt;
+        &lt;li class=&quot;active&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;icon-home&quot;&gt;&lt;&#x2F;i&gt; Home
+            &lt;span class=&quot;pull-right badge blue&quot;&gt;1&lt;&#x2F;span&gt;
+          &lt;&#x2F;a&gt;
+        &lt;&#x2F;li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-folder-close&quot;&gt;&lt;&#x2F;i&gt; Stuff&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+        &lt;li class=&quot;nav-header&quot;&gt;List header&lt;&#x2F;li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-home&quot;&gt;&lt;&#x2F;i&gt; Home&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+    &lt;&#x2F;div&gt;
+  </pre>
+
+
+</section>
+        <section id="docs-recent-comments">
+  <h3>Recent Comments</h3>
+
+  <p>Basically this is a new html component, so here's the structure</p>
+
+  <pre class="prettyprint">
+    
+    &lt;div class=&quot;black-box tex&quot;&gt;
+      &lt;div class=&quot;tab-header&quot;&gt;
+        Recent comments
+      &lt;&#x2F;div&gt;
+      &lt;ul class=&quot;recent-comments&quot;&gt;
+
+        &lt;li class=&quot;separator&quot;&gt;
+          &#x2F;&#x2F;add an avatar in the comment
+          &lt;div class=&quot;avatar pull-left&quot;&gt;
+            &lt;img src&quot;&#x2F;avatar.png&quot;&#x2F;&gt;
+          &lt;&#x2F;div&gt;
+
+          &#x2F;&#x2F;add the actual post
+          &lt;div class=&quot;article-post&quot;&gt;
+            &lt;div class=&quot;user-info&quot;&gt; Posted by jordan, 3 days ago &lt;&#x2F;div&gt;
+            &lt;div class=&quot;user-content&quot;&gt;
+              Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...
+            &lt;&#x2F;div&gt;
+
+            &#x2F;&#x2F;add comment options
+            &lt;div class=&quot;btn-group&quot;&gt;
+              &lt;button class=&quot;button black mini&quot;&gt;&lt;i class=&quot;icon-pencil&quot;&gt;&lt;&#x2F;i&gt; Edit&lt;&#x2F;button&gt;
+              &lt;button class=&quot;button black mini&quot;&gt;&lt;i class=&quot;icon-remove&quot;&gt;&lt;&#x2F;i&gt; Delete&lt;&#x2F;button&gt;
+              &lt;button class=&quot;button black mini&quot;&gt;&lt;i class=&quot;icon-ok&quot;&gt;&lt;&#x2F;i&gt; Approve&lt;&#x2F;button&gt;
+            &lt;&#x2F;div&gt;
+          &lt;&#x2F;div&gt;
+        &lt;&#x2F;li&gt;
+
+        ...
+
+        &#x2F;&#x2F;add a view all button
+        &lt;li class=&quot;separator&quot; style=&quot;text-align: center&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;View all&lt;&#x2F;a&gt;
+        &lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+    &lt;&#x2F;div&gt;
+  </pre>
+
+
+
+</section>
+        <section id="docs-faq-page">
+  <h3>FAQ page</h3>
+
+  <p>This is a new html/coffeescript based component for displaying a FAQ page.</p>
+  <p>Features a live search box which can filter the questions/answers</p>
+
+  <p>Basically, just add a <code>ol</code> with some identifier, and the <code>li</code> elements should have a
+    <code>h4</code> for a question and a <code>p</code> element for the answer</p>
+
+  <p>You can add as many questions/answers you like</p>
+
+    <pre class="prettyprint">
+    
+  &lt;ol class=&quot;faq-list&quot;&gt;
+    &lt;li&gt;
+      &lt;h4&gt;How do we work?&lt;&#x2F;h4&gt;
+      &lt;p&gt;Just fill out our briefing form. This will only take about 5 minutes. Based on that basic information, we will create a design sample in a way we feel best suits your company&#x27;s focus and vision. You need not waste anymore time on meetings.&lt;&#x2F;p&gt;
+    &lt;&#x2F;li&gt;
+    ...
+  &lt;&#x2F;ol&gt;
+    </pre>
+
+  <p>After the document is loaded you can call <code>new Faq($(".faq-list"))</code> and it will magically transform in a FAQ page</p>
+
+</section>
+        <section id="docs-gallery">
+  <h3>Bootstrap gallery component</h3>
+
+  <p>First add a modal at the beginning of the page, right after opening the body tag</p>
+
+  <pre class="prettyprint">
+    
+    &lt;div id=&quot;modal-gallery&quot; class=&quot;black-box modal modal-gallery hide fade&quot;&gt;
+      &lt;div class=&quot;modal-header tab-header&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt;&amp;times;&lt;&#x2F;button&gt;
+        &lt;span class=&quot;modal-title&quot;&gt;&lt;&#x2F;span&gt;
+      &lt;&#x2F;div&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;&lt;div class=&quot;modal-image&quot;&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;div class=&quot;pull-left&quot;&gt;
+          You can also change the images&lt;br&#x2F;&gt; by scrolling the mouse wheel!
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;pull-right&quot;&gt;
+          &lt;a class=&quot;button blue modal-next&quot;&gt;Next &lt;i class=&quot;icon-arrow-right icon-white&quot;&gt;&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;
+          &lt;a class=&quot;button gray modal-prev&quot;&gt;&lt;i class=&quot;icon-arrow-left icon-white&quot;&gt;&lt;&#x2F;i&gt; Previous&lt;&#x2F;a&gt;
+          &lt;a class=&quot;button green modal-play modal-slideshow&quot; data-slideshow=&quot;5000&quot;&gt;&lt;i class=&quot;icon-play icon-white&quot;&gt;&lt;&#x2F;i&gt; Slideshow&lt;&#x2F;a&gt;
+          &lt;a class=&quot;button black&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;icon-download&quot;&gt;&lt;&#x2F;i&gt; Download&lt;&#x2F;a&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+  </pre>
+
+  <p>Then you can include your gallery of thumbnails like this</p>
+
+  <pre class="prettyprint">
+    
+    &lt;div id=&quot;gallery&quot; data-toggle=&quot;modal-gallery&quot; data-target=&quot;#modal-gallery&quot;&gt;
+        &lt;a title=&quot;Picture&quot; rel=&quot;gallery&quot; href=&quot;&#x2F;gallery&#x2F;large_image.png&quot;&gt;&lt;img class=&quot;img-polaroid&quot; src=&quot;&#x2F;gallery&#x2F;thumb_image.png&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
+        ...
+    &lt;&#x2F;div&gt;
+  </pre>
+
+  <p>The library behind it is <a href="https://github.com/blueimp/Bootstrap-Image-Gallery" target="_blank">blueimp's bootstrap gallery</a>, so be sure to read the docs there for more info</p>
+
+
+</section>
+        <section id="docs-charts">
+  <h3>jQuery Flot Charts</h3>
+
+  <p>This theme comes bundled with the <a href="http://www.flotcharts.org/" target="_blank">jQuery Flot Charts</a> library</p>
+
+  <p>Documentation for jQuery Flot Charts can be found <a href="https://github.com/flot/flot/blob/master/API.md" target="_blank">here</a></p>
+
+</section>
+        <section id="docs-login-page">
+  <h3>Login/register/forgot password page</h3>
+
+  <p>This is a new html/coffeescript based component for displaying a 3-in-1 authentication page. The demo also uses the Notifications plugin to display information and error messages</p>
+
+  <p>If the login process fails, you can trigger a wobble animation by adding class <code>wobble</code> to a <code>login-wrapper animated</code> element</p>
+
+  <p>Check out the coffeescript file (or the compiled javascript one) to see how it works. It's pretty simple!</p>
+
+    <pre class="prettyprint">
+    
+        &lt;div class=&quot;container&quot;&gt;
+          &lt;div class=&quot;login-wrapper&quot; style=&quot;margin-top: 120px&quot;&gt;
+            &lt;div style=&quot;text-align: center&quot;&gt;
+              &lt;i class=&quot;icon-magic logo-icon&quot;&gt;&lt;&#x2F;i&gt;
+            &lt;&#x2F;div&gt;
+
+            &lt;div id=&quot;login-manager&quot;&gt;
+              &lt;div id=&quot;login&quot; class=&quot;login-wrapper animated&quot;&gt;
+                &lt;form action=&quot;&#x2F;&quot; method=&quot;get&quot;&gt;
+                  &lt;div class=&quot;input-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; placeholder=&quot;email&quot; class=&quot;input-transparent&quot; id=&quot;email&quot; &#x2F;&gt;
+                    &lt;input type=&quot;password&quot; placeholder=&quot;password&quot; class=&quot;input-transparent&quot;&#x2F;&gt;
+                  &lt;&#x2F;div&gt;
+                  &lt;button id=&quot;login-submit&quot; type=&quot;submit&quot; class=&quot;login-button&quot;&gt;Login&lt;&#x2F;button&gt;
+              &lt;&#x2F;form&gt;
+              &lt;&#x2F;div&gt;
+
+              &lt;div id=&quot;register&quot; class=&quot;login-wrapper animated&quot; style=&quot;display: none;&quot;&gt;
+                &lt;form action=&quot;&#x2F;&quot; method=&quot;get&quot;&gt;
+                  &lt;div class=&quot;input-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; placeholder=&quot;email&quot; class=&quot;input-transparent&quot; &#x2F;&gt;
+                    &lt;input type=&quot;text&quot; placeholder=&quot;first name&quot; class=&quot;input-transparent&quot;&#x2F;&gt;
+                    &lt;input type=&quot;text&quot; placeholder=&quot;last name&quot; class=&quot;input-transparent&quot;&#x2F;&gt;
+                    &lt;input type=&quot;email&quot; placeholder=&quot;confirm password&quot; class=&quot;input-transparent&quot;&#x2F;&gt;
+                    &lt;input type=&quot;password&quot; placeholder=&quot;password&quot; class=&quot;input-transparent&quot;&#x2F;&gt;
+                  &lt;&#x2F;div&gt;
+                  &lt;button id=&quot;register-submit&quot; type=&quot;submit&quot; class=&quot;login-button&quot;&gt;Register&lt;&#x2F;button&gt;
+                &lt;&#x2F;form&gt;
+              &lt;&#x2F;div&gt;
+
+              &lt;div id=&quot;forgot&quot; class=&quot;login-wrapper animated&quot; style=&quot;display: none;&quot;&gt;
+                &lt;form action=&quot;&#x2F;&quot; method=&quot;get&quot;&gt;
+                  &lt;div class=&quot;input-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; placeholder=&quot;email&quot; class=&quot;input-transparent&quot; &#x2F;&gt;
+                  &lt;&#x2F;div&gt;
+                  &lt;button id=&quot;forgot-submit&quot; type=&quot;submit&quot; class=&quot;login-button&quot;&gt;Recover&lt;&#x2F;button&gt;
+                &lt;&#x2F;form&gt;
+              &lt;&#x2F;div&gt;
+
+              &lt;div class=&quot;inner-well&quot; style=&quot;text-align: center; margin: 20px 0;&quot;&gt;
+                &lt;a href=&quot;#&quot; id=&quot;login-link&quot; class=&quot;button mini rounded gray&quot;&gt;&lt;i class=&quot;icon-signin&quot;&gt;&lt;&#x2F;i&gt; Login&lt;&#x2F;a&gt;
+                &lt;a href=&quot;#&quot; id=&quot;register-link&quot; class=&quot;button mini rounded gray&quot;&gt;&lt;i class=&quot;icon-plus&quot;&gt;&lt;&#x2F;i&gt; Register&lt;&#x2F;a&gt;
+                &lt;a href=&quot;#&quot; id=&quot;forgot-link&quot; class=&quot;button mini rounded gray&quot;&gt;&lt;i class=&quot;icon-question-sign&quot;&gt;&lt;&#x2F;i&gt; Forgot Password?&lt;&#x2F;a&gt;
+              &lt;&#x2F;div&gt;
+            &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+    </pre>
+
+
+
+</section>
+        <section id="docs-error-page">
+  <h3>error 404 page</h3>
+
+  <p>The error 404 page uses mrdoob's three.js for animating 3D</p>
+
+  <p>The page comes bundled with the necessary scripts to trigger the animations</p>
+
+  <p>Not much to say here, so go check it out!</p>
+
+</section>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="row-fluid">
+  <div class="span12">
+    <div class="footer">
+      <div>2012 &copy; Plastique Admin Theme</div>
+      <div>Carefully crafted by <a href="https://wrapbootstrap.com/user/andrei4002">andrei4002</a></div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<script type="text/html" id="template-notification">
+  <div class="notification animated fadeInLeftMiddle fast{{ item.itemClass }}">
+    <div class="left">
+      <div style="background-image: url({{ item.imagePath }})" class="{{ item.imageClass }}"></div>
+    </div>
+    <div class="right">
+      <div class="inner">{{ item.text }}</div>
+      <div class="time">{{ item.time }}</div>
+    </div>
+
+    <i class="icon-remove-sign hide"></i>
+  </div>
+</script>
+<script type="text/html" id="template-notifications">
+  <div class="container">
+    <div class="row" id="notifications-wrapper">
+      <div id="notifications" class="{{ bootstrapPositionClass }} notifications animated">
+        <div id="dismiss-all" class="dismiss-all button blue">Dismiss all</div>
+        <div id="content">
+          <div id="notes"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script src="../../javascripts/application.js" type="text/javascript"></script><script src="../../javascripts/docs.js" type="text/javascript"></script><script src="../../javascripts/docs_charts.js" type="text/javascript"></script><script src="../../javascripts/documentation.js" type="text/javascript"></script><script src="../../javascripts/prettify.js" type="text/javascript"></script><link href="../../stylesheets/prettify.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    prettyPrint()
+</script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35778683-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</body>
+</html>
