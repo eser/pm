@@ -1,0 +1,25 @@
+@{
+	use Scabbia\Extensions\Helpers\Html;
+	use Scabbia\Extensions\Http\Http;
+	use Scabbia\Framework;
+}
+@Html::doctype('html5')
+<html>
+<head>
+	<title>Scabbia Framework Skeleton Application</title>
+	<meta charset="utf-8" />
+
+	<link rel="shortcut icon" href="@$root/favicon.ico" type="image/x-icon" />
+
+	<script type="text/javascript" src="@Http::url('scabbia.js?core,bootstrap')"></script>
+	<script type="text/javascript" src="@Http::url('scripts.js?common')"></script>
+	
+	<link type="text/css" href="@Http::url('scabbia.css?core,bootstrap')" rel="stylesheet" media="all" />
+	<link type="text/css" href="@Http::url('styles.css?common')" rel="stylesheet" media="all" />
+</head>
+<body class="@$controller->route['controller']">
+
+	<script type="text/javascript">
+			$l.contentBegin('main', '@rtrim(Framework::$siteroot, '/')');
+	</script>
+

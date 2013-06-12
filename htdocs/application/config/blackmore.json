@@ -1,0 +1,24 @@
+{
+    "blackmore": {
+        "title":        "Scabbia Application",
+        "logo":         "/assets/images/logo.png",
+
+        "loginTitle":   "Scabbia Application Login",
+        "database":     "scabbiaapp"
+    },
+
+    "auth": {
+        "loginMvcUrl":  "blackmore/login",
+        "authType":     "config",
+
+        "userList": [
+            {
+                "username":     "admin",
+                "password":     "21232f297a57a5a743894a0e4a801fc3",
+                "roles":        "admin,editor,user"
+            }
+        ]
+    },
+
+    "autoModelList": []
+}

@@ -1,0 +1,15 @@
+@{
+	use Scabbia\Extensions\Views\Views;
+}
+@Views::viewFile('{app}views/shared/header.cshtml')
+
+<div>@$welcomeText</div>
+
+<h3>Users:</h3>
+<ul>
+@foreach ($users as $user) {
+    <li>@$user['username']</li>
+}
+</ul>
+
+@Views::viewFile('{app}views/shared/footer.cshtml')

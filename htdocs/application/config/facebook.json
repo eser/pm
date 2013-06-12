@@ -1,0 +1,11 @@
+{
+    "facebook": {
+        "applicationId":       "000000000000000",
+        "applicationSecret":   "00000000000000000000000000000000",
+        "applicationUrl":       "https://www.facebook.com/sampleApplication",
+        "permissions":          "email, read_stream",
+        "redirectUrl:disabled": "https://scabbiaapp.com/home/facebookLogin",
+        "fileUpload":           true,
+        "extendedAccess":       true
+    }
+}

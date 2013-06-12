@@ -1,0 +1,41 @@
+{
+    "assets": {
+        "directoryList": [
+            {
+                "name":     "assets/",
+                "path":     "{base}assets/"
+            }
+        ],
+        "packList": [
+            {
+                "name":     "scripts.js",
+                "type":     "js",
+                "cacheTtl": 86400,
+                "partList": [
+                    {
+                        "type":     "file",
+                        "class":    "common",
+                        "path":     "{base}assets/common.js"
+                    }
+                ]
+            },
+            {
+                "name":     "styles.css",
+                "type":     "css",
+                "cacheTtl": 86400,
+                "partList": [
+                    {
+                        "type":     "file",
+                        "class":    "common",
+                        "path":     "{base}assets/fonts.css"
+                    },
+                    {
+                        "type":     "file.less",
+                        "class":    "common",
+                        "path":     "{base}assets/common.less"
+                    }
+                ]
+            }
+        ]
+    }
+}

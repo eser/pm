@@ -1,0 +1,33 @@
+{
+	"extensionInfoList": [
+        {
+            "name":             "SampleAdministration",
+            "version":          "1.1.0",
+            "license":          "GPLv3",
+            "phpversion":       "5.3.7",
+            "phpdependList":    [],
+            "fwversion":        "1.1",
+            "fwdependList":     [
+                "Auth",
+                "Assets",
+                "Helpers",
+                "Http",
+                "Models",
+                "Validation"
+            ]
+        }
+    ],
+
+	"eventList:disabled": [
+		{
+			"name":         "load",
+			"type":         "include",
+			"value":        "{app}Extensions/admin/admin_users.php"
+		},
+		{
+			"name":         "registerBlackmoreModules",
+			"type":         "callback",
+			"value":        "admin_users::registerBlackmoreModules"
+		}
+	]
+}

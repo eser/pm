@@ -1,0 +1,37 @@
+{
+    "datasourceList": [
+        {
+            "id":           "dbconn",
+            "interface":    "pdo",
+            "persistent":   true,
+            "overrideCase": "natural",
+            "pdoString":    "mysql:host=localhost;dbname=darkgaze",
+            "username":     "root",
+            "password":     "paddole",
+            "initCommand":  "SET NAMES utf8"
+        }
+    ],
+    "datasourceList:disabled": [
+        {
+            "id":           "storage",
+            "interface":    "memcache",
+            "cacheTtl":     120,
+            "keyphase":     "",
+            "host":         "localhost",
+            "port":         11211
+        },
+        {
+            "id":           "storage",
+            "interface":    "file",
+            "cacheTtl":     120,
+            "keyphase":     "",
+            "path":         "{base}writable",
+            "baseurl":      "//{host}{root}/writable/"
+        },
+        {
+            "id":           "webservice",
+            "interface":    "rest",
+            "baseUrl":      "http://192.168.2.152:3535/crawler"
+        }
+    ]
+}

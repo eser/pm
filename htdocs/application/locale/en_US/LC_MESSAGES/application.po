@@ -1,0 +1,278 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Interesd\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-17 11:19+0200\n"
+"PO-Revision-Date: 2012-09-17 11:23+0200\n"
+"Last-Translator: Eser Ozvataf <eser@sent.com>\n"
+"Language-Team: \n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Poedit-SearchPath-0: C:\\inetpub\\wwwroot\\php\\application\n"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:30
+msgid "Phone or E-mail"
+msgstr "Phone or E-mail"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:33
+msgid "Log in"
+msgstr "Log in"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:35
+msgid "Register"
+msgstr "Register"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:37
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
+msgid "About"
+msgstr "About"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
+msgid "Developers"
+msgstr "Developers"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
+msgid "Careers"
+msgstr "Careers"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
+msgid "Privacy"
+msgstr "Privacy"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
+msgid "Cookies"
+msgstr "Cookies"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
+msgid "Terms and Conditions"
+msgstr "Terms and Conditions"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
+msgid "Help"
+msgstr "Help"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:9
+msgid "SECTIONS"
+msgstr "SECTIONS"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:11
+msgid "Homepage"
+msgstr "Homepage"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:12
+msgid "Participated"
+msgstr "Participated"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:13
+msgid "Likes"
+msgstr "Likes"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:14
+msgid "Queue"
+msgstr "Queue"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:15
+msgid "Trends"
+msgstr "Trends"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:17
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:26
+msgid "Image"
+msgstr "Image"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:18
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:27
+msgid "Music"
+msgstr "Music"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:19
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:28
+msgid "Video"
+msgstr "Video"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:22
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:43
+msgid "Interests"
+msgstr "Interests"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:30
+msgid "More..."
+msgstr "More..."
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:34
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:44
+msgid "Locations"
+msgstr "Locations"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:43
+msgid "SITES"
+msgstr "SITES"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middleentry.cshtml:4
+msgid "What do you think?"
+msgstr "What do you think?"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middlemap.cshtml:4
+msgid "Extend"
+msgstr "Extend"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:4
+msgid "All"
+msgstr "All"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:5
+msgid "Content"
+msgstr "Content"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:6
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:45
+msgid "Posts"
+msgstr "Posts"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:7
+msgid "Explore"
+msgstr "Explore"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:8
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:47
+msgid "Events"
+msgstr "Events"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:9
+msgid "Discussions"
+msgstr "Discussions"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:10
+msgid "People"
+msgstr "People"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:11
+msgid "Store"
+msgstr "Store"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:4
+msgid "Message Inbox"
+msgstr "Message Inbox"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:39
+msgid "Suggestions"
+msgstr "Suggestions"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:41
+msgid "Random"
+msgstr "Random"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:42
+msgid "Sites"
+msgstr "Sites"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:46
+msgid "Venues"
+msgstr "Venues"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:48
+msgid "Forum Entries"
+msgstr "Forum Entries"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:49
+msgid "Profiles"
+msgstr "Profiles"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:50
+msgid "Store Items"
+msgstr "Store Items"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:20
+msgid "Pin"
+msgstr "Pin"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:26
+msgid "Settings"
+msgstr "Settings"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:27
+msgid "Logout"
+msgstr "Logout"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:40
+msgid "Detailed"
+msgstr "Detailed"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:48
+msgid "Profile Search"
+msgstr "Profile Search"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:49
+msgid "Content Search"
+msgstr "Content Search"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:50
+msgid "Venue Search"
+msgstr "Venue Search"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:57
+msgid "Full Name"
+msgstr "Full Name"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:61
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:91
+msgid "Location"
+msgstr "Location"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:65
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:78
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:95
+msgid "Search"
+msgstr "Search"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:74
+msgid "Text"
+msgstr "Text"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:87
+msgid "Venue Name"
+msgstr "Venue Name"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:21
+msgid "Sort by Popularity"
+msgstr "Sort by Popularity"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:21
+msgid "Sort by Date"
+msgstr "Sort by Date"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:175
+msgid "Reshare"
+msgstr "Reshare"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:176
+msgid "Read Later"
+msgstr "Read Later"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:177
+msgid "Comments"
+msgstr "Comments"
+
+#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:207
+msgid "Make a comment..."
+msgstr "Make a comment..."
+
+#~ msgid "test"
+#~ msgstr "test"

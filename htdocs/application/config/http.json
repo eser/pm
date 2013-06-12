@@ -1,0 +1,39 @@
+{
+    "http": {
+        "routeList": [],
+
+        "errorPages": {
+            "notfound":             "{core}views/shared/error.php",
+            "restriction":          "{core}views/shared/error.php",
+            "maintenance":          "{core}views/shared/error.php",
+            "ipban":                "{core}views/shared/error.php",
+            "error":                "{core}views/shared/error.php"
+        },
+
+        "userAgents": {
+            "autoCheck":            false
+        }
+    },
+
+    "access": {
+        "maintenance": {
+            "mode":                 false,
+            "ipExcludeList": [
+                "127.0.0.1"
+            ]
+        },
+
+        "ipFilter": {
+            "ipFilterList:disabled": [
+                {
+                    "type":     "deny",
+                    "pattern":  "188.0.0.?"
+                },
+                {
+                    "type":     "allow",
+                    "pattern":  "*.*.*.*"
+                }
+            ]
+        }
+    }
+}
