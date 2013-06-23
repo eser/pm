@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Includes;
 
 use Scabbia\Extensions\Http\Request;
 use Scabbia\Extensions\I18n\I18n;

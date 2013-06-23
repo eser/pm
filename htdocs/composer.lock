@@ -113,12 +113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larukedi/Scabbia-Framework.git",
-                "reference": "27799246a3b5087c4ce190300b4a73c855a0ecaf"
+                "reference": "42b4906d24b971a5561d907449f0ed16fe871527"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larukedi/Scabbia-Framework/zipball/27799246a3b5087c4ce190300b4a73c855a0ecaf",
-                "reference": "27799246a3b5087c4ce190300b4a73c855a0ecaf",
+                "url": "https://api.github.com/repos/larukedi/Scabbia-Framework/zipball/42b4906d24b971a5561d907449f0ed16fe871527",
+                "reference": "42b4906d24b971a5561d907449f0ed16fe871527",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +165,7 @@
                 "larukedi",
                 "scabbia"
             ],
-            "time": "2013-06-12 23:28:17"
+            "time": "2013-06-23 11:44:41"
         },
         {
             "name": "leafo/lessphp",

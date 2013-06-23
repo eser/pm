@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Controllers;
 
 use Scabbia\Extensions\Mvc\Controller;
 use Scabbia\Extensions\Fb\Fb;
@@ -15,7 +15,7 @@ class home extends Controller
      */
     public function index()
     {
-        $this->load('App\\homeModel');
+        $this->load('App\\Models\\homeModel');
 
         $tWelcomeText = $this->homeModel->getWelcomeText();
         $this->set('welcomeText', $tWelcomeText);
@@ -31,7 +31,7 @@ class home extends Controller
      */
     public function getajax_index()
     {
-        $this->load('App\\homeModel');
+        $this->load('App\\Models\\homeModel');
 
         $tWelcomeText = $this->homeModel->getWelcomeText();
         $this->set('welcomeText', $tWelcomeText);

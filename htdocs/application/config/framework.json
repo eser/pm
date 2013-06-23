@@ -1,19 +1,11 @@
 {
-    "includeList": [
-        "{app}controllers/*.php"
-    ],
+    "includeList": [],
 
-    "classLoaderList": [
-        "{app}includes",
-        "{app}tests",
-        "{app}models"
-    ],
-    
     "eventList": [
         {
             "name":         "pre-run",
             "type":         "callback",
-            "value":        "App\\Translations::javascriptTranslations"
+            "value":        "App\\Includes\\Translations::javascriptTranslations"
         }
     ],
 
