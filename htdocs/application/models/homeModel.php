@@ -16,16 +16,4 @@ class homeModel extends Model
     {
         return 'Welcome!';
     }
-    
-    /**
-     * @ignore
-     */
-    public function getUsers()
-    {
-        return $this->db->createQuery()
-            ->setTable('users')
-            ->addField('*')
-            ->get()
-            ->all();
-    }
 }

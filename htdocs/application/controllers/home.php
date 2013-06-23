@@ -20,16 +20,13 @@ class home extends Controller
         $tWelcomeText = $this->homeModel->getWelcomeText();
         $this->set('welcomeText', $tWelcomeText);
         
-        $tUsers = $this->homeModel->getUsers();
-        $this->set('users', $tUsers);
-
         $this->view();
     }
 
     /**
      * @ignore
      */
-    public function getajax_index()
+    public function getajax_index_json()
     {
         $this->load('App\\Models\\homeModel');
 
@@ -37,6 +34,19 @@ class home extends Controller
         $this->set('welcomeText', $tWelcomeText);
 
         $this->json();
+    }
+
+    /**
+     * @ignore
+     */
+    public function users()
+    {
+        $this->load('App\\Models\\userModel');
+
+        $tUsers = $this->userModel->getUsers();
+        $this->set('users', $tUsers);
+
+        $this->view();
     }
 
     /**

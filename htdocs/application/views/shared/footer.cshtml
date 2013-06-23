@@ -1,4 +1,31 @@
 
+    <script type="text/html" id="template-notification">
+        <div class="notification animated fadeInLeftMiddle fast{{ item.itemClass }}">
+            <div class="left">
+                <div style="background-image: url({{ item.imagePath }})" class="{{ item.imageClass }}"></div>
+            </div>
+            <div class="right">
+                <div class="inner">{{ item.text }}</div>
+                <div class="time">{{ item.time }}</div>
+            </div>
+
+            <i class="icon-remove-sign hide"></i>
+        </div>
+    </script>
+
+    <script type="text/html" id="template-notifications">
+        <div class="container">
+            <div class="row" id="notifications-wrapper">
+                <div id="notifications" class="{{ bootstrapPositionClass }} notifications animated">
+                    <div id="dismiss-all" class="dismiss-all button blue">Dismiss all</div>
+                    <div id="content">
+                        <div id="notes"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
     <script type="text/javascript">
         $l.contentEnd();
 
