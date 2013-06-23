@@ -6,7 +6,7 @@
                 "path":     "{base}assets/"
             }
         ],
-        "packList": [
+        "packList:disabled": [
             {
                 "name":     "scripts.js",
                 "type":     "js",

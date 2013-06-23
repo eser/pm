@@ -1,0 +1,9 @@
+@media (max-width: 480px) {
+  /* line 6, responsive-max480.css.scss */
+  nav#primary > ul > li {
+    width: 33.3%;
+    margin-left: -3px; }
+
+  /* line 12, responsive-max480.css.scss */
+  .modal.black-box .modal-header .close {
+    margin-top: -5px; } }

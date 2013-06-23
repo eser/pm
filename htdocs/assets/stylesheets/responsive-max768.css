@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+  /* line 4, responsive-max768.css.scss */
+  body {
+    padding: 0; }
+
+  /* line 8, responsive-max768.css.scss */
+  .notifications {
+    right: 20px;
+    left: 20px;
+    width: auto; } }

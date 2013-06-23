@@ -1,0 +1,56 @@
+/* line 1, prettify.css.scss */
+.com {
+  color: #93a1a1; }
+
+/* line 2, prettify.css.scss */
+.lit {
+  color: #195f91; }
+
+/* line 3, prettify.css.scss */
+.pun, .opn, .clo {
+  color: #93a1a1; }
+
+/* line 4, prettify.css.scss */
+.fun {
+  color: #dc322f; }
+
+/* line 5, prettify.css.scss */
+.str, .atv {
+  color: #D14; }
+
+/* line 6, prettify.css.scss */
+.kwd, .prettyprint .tag {
+  color: #1e347b; }
+
+/* line 7, prettify.css.scss */
+.typ, .atn, .dec, .var {
+  color: teal; }
+
+/* line 8, prettify.css.scss */
+.pln {
+  color: #48484c; }
+
+/* line 10, prettify.css.scss */
+.prettyprint {
+  padding: 8px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8; }
+
+/* line 15, prettify.css.scss */
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+  -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+  box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0; }
+
+/* Specify class=linenums on a pre to get line numbering */
+/* line 22, prettify.css.scss */
+ol.linenums {
+  margin: 0 0 0 33px;
+  /* IE indents via margin-left */ }
+
+/* line 25, prettify.css.scss */
+ol.linenums li {
+  padding-left: 12px;
+  color: #bebec5;
+  line-height: 20px;
+  text-shadow: 0 1px 0 #fff; }

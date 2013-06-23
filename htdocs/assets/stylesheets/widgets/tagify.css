@@ -1,0 +1,54 @@
+/* line 4, widgets/tagify.css.scss */
+.tagify-container {
+  width: 300px;
+  height: 100px;
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  border-radius: 2px;
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  overflow: auto; }
+  /* line 14, widgets/tagify.css.scss */
+  .tagify-container > span {
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 3px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    background: #EEE;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #999;
+    text-shadow: 0 1px rgba(245, 245, 245, 0.5);
+    font-size: 11px;
+    text-shadow: 0 1px 0 whiteSmoke;
+    text-transform: uppercase;
+    font-weight: bold; }
+    /* line 28, widgets/tagify.css.scss */
+    .tagify-container > span > a {
+      color: #999;
+      padding-left: 5px;
+      text-decoration: none;
+      font-weight: bold; }
+  /* line 36, widgets/tagify.css.scss */
+  .tagify-container > input {
+    border: 0 none;
+    width: 100px; }
+    /* line 40, widgets/tagify.css.scss */
+    .tagify-container > input:focus {
+      outline: none; }
+
+/* line 47, widgets/tagify.css.scss */
+.input .tagify-container {
+  width: 100%; }
+  /* line 50, widgets/tagify.css.scss */
+  .input .tagify-container input {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: auto;
+    margin-bottom: 0; }
