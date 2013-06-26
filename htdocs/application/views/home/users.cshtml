@@ -1,4 +1,5 @@
 @{
+use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Views\Views;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -39,7 +40,7 @@ use Scabbia\Extensions\Views\Views;
 
                         <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;"> <a tabindex="0" class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_first">First</a><a tabindex="0" class="previous fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_previous">&laquo;</a><span><a tabindex="0" class="fg-button ui-button ui-state-default ui-state-disabled">1</a></span><a tabindex="0" class="next fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_next">Next</a><a tabindex="0" class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_last">Last</a></div>
                         <div class="pull-right">
-                            <a href="useradd.php">
+                            <a href="@Http::url('home/users/add')">
                                 <button type="submit" class="button blue">User Add</button>
                             </a>
                         </div>
@@ -48,10 +49,10 @@ use Scabbia\Extensions\Views\Views;
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Groups</th>
-                            <th>E-Mail</th>
+                            <th>SFID</th>
+                            <th>Username</th>
+                            <th>E-mail</th>
                             <th>Phone</th>
-                            <th>Role</th>
                             <th>Edit/Delete/Reset Password</th>
 
                         </tr>
@@ -60,17 +61,17 @@ use Scabbia\Extensions\Views\Views;
                         @foreach ($users as $user) {
                         <tr class="gradeX">
                             <td>@$user['name']</td>
-                            <td>Internet,Erdem,Onder</td>
-                            <td>Internet Explorer 4.0</td>
-                            <td>Internet Explorer 4.0</td>
-                            <td>Internet Explorer 4.0</td>
+                            <td>@$user['sfid']</td>
+                            <td>@$user['username']</td>
+                            <td>@$user['email']</td>
+                            <td>@$user['phone']</td>
                             <td><div class="btn-group">
 
-                                    <a href="#" class="button blue">Edit</a>
+                                    <a href="@Http::url('home/users/edit/' . $user['id'])" class="button blue">Edit</a>
 
-                                    <a href="#" class="button red">Delete</a>
+                                    <a href="@Http::url('home/users/delete/' . $user['id'])" class="button red">Delete</a>
 
-                                    <a href="#" class="button blue">Reset Password</a>
+                                    <a href="@Http::url('home/users/reset/' . $user['id'])" class="button blue">Reset Password</a>
 
 
 

@@ -13,7 +13,7 @@
                 "cacheTtl": 86400,
                 "partList": [
                     {
-                        "type":     "file",
+                        "bindtype": "file",
                         "class":    "common",
                         "path":     "{base}assets/common.js"
                     }
@@ -25,12 +25,12 @@
                 "cacheTtl": 86400,
                 "partList": [
                     {
-                        "type":     "file",
+                        "bindtype": "file",
                         "class":    "common",
                         "path":     "{base}assets/fonts.css"
                     },
                     {
-                        "type":     "file.less",
+                        "bindtype": "file",
                         "class":    "common",
                         "path":     "{base}assets/common.less"
                     }

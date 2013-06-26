@@ -282,12 +282,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/larukedi/Scabbia-Framework.git",
-            "reference": "42b4906d24b971a5561d907449f0ed16fe871527"
+            "reference": "a7a11ea24a196d2241f49826b1715031b2caf7ee"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/larukedi/Scabbia-Framework/zipball/42b4906d24b971a5561d907449f0ed16fe871527",
-            "reference": "42b4906d24b971a5561d907449f0ed16fe871527",
+            "url": "https://api.github.com/repos/larukedi/Scabbia-Framework/zipball/a7a11ea24a196d2241f49826b1715031b2caf7ee",
+            "reference": "a7a11ea24a196d2241f49826b1715031b2caf7ee",
             "shasum": ""
         },
         "require": {
@@ -311,7 +311,7 @@
             "ext-sockets": "ext/sockets for socket communication",
             "ext-tokenizer": "ext/tokenizer for lexical analysis"
         },
-        "time": "2013-06-23 11:44:41",
+        "time": "2013-06-26 13:55:36",
         "type": "library",
         "installation-source": "source",
         "autoload": {
