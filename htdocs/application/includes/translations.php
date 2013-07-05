@@ -2,9 +2,9 @@
 
 namespace App\Includes;
 
-use Scabbia\Extensions\Http\Request;
 use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\LarouxJs\LarouxJs;
+use Scabbia\Request;
 
 /**
  * @ignore
