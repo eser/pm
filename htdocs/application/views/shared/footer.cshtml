@@ -1,3 +1,6 @@
+@{
+use Scabbia\Extensions\Logger\QuickProfiler;
+}
 
     <script type="text/html" id="template-notification">
         <div class="notification animated fadeInLeftMiddle fast{{ item.itemClass }}">
@@ -26,7 +29,32 @@
         </div>
     </script>
 
+    @{ QuickProfiler::init(); }
+
     <script type="text/javascript">
+        // main shortcuts
+        $l.dom.setEvent(
+            $l('body'),
+            'keypress',
+            function(ev, element) {
+                var code = (ev.keyCode ? ev.keyCode : ev.which);
+
+                if (
+                    document.activeElement.getAttribute('contenteditable') != null ||
+                        document.activeElement.tagName == 'TEXTAREA' ||
+                        document.activeElement.tagName == 'SELECT' ||
+                        document.activeElement.tagName == 'INPUT'
+                    ) {
+                    return;
+                }
+
+                if (code == 'q'.charCodeAt(0)) {
+                    pqp();
+                    return false;
+                }
+            }
+        );
+
         $l.contentEnd();
 
         prettyPrint();

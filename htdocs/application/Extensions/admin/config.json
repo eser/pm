@@ -1,7 +1,7 @@
 {
 	"extensionInfoList": [
         {
-            "name":             "SampleAdministration",
+            "name":             "Panel: Administration",
             "version":          "1.1.0",
             "license":          "GPLv3",
             "phpversion":       "5.3.7",
@@ -25,9 +25,35 @@
 			"value":        "{app}Extensions/admin/admin_users.php"
 		},
 		{
-			"name":         "registerBlackmoreModules",
+			"name":         "registerPanelModules",
 			"type":         "callback",
-			"value":        "admin_users::registerBlackmoreModules"
+			"value":        "admin_users::registerPanelModules"
 		}
-	]
+	],
+
+    "panel": {
+        "menuList:direct": {
+            "test": {
+                "title":             "Test",
+                "actions": {
+                    "index": {
+                        "title":     "List",
+                        "icon":      "th-large",
+                        "callback":  "App\\Extensions\\Admin\\Test::index"
+                    },
+                    "add": {
+                        "title":     "Add New",
+                        "icon":      "info-sign",
+                        "callback":  "App\\Extensions\\Admin\\Test::dummy"
+                    },
+                    "edit": {
+                        "callback":  "App\\Extensions\\Admin\\Test::dummy"
+                    },
+                    "remove": {
+                        "callback":  "App\\Extensions\\Admin\\Test::dummy"
+                    }
+                }
+            }
+        }
+    }
 }

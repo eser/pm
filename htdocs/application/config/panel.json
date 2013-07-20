@@ -1,15 +1,16 @@
 {
-    "blackmore": {
+    "panel": {
         "title":        "Scabbia Application",
         "logo":         "/assets/images/logo.png",
 
         "loginTitle":   "Scabbia Application Login",
-        "database":     "scabbiaapp"
+        "database":     "dbconn"
     },
 
     "auth": {
-        "loginMvcUrl":  "blackmore/login",
+        "loginUrl":     "panel/login",
         "authType":     "config",
+	"authHash":     "md5",
 
         "userList": [
             {
@@ -17,7 +18,13 @@
                 "password":     "21232f297a57a5a743894a0e4a801fc3",
                 "roles":        "admin,editor,user"
             }
-        ]
+        ],
+	
+	"database:disabled": {
+            "datasource":       "dbconn",
+            "query":            "SELECT password, roles FROM users WHERE username=:username",
+            "passwordField":    "password"
+        }
     },
 
     "autoModelList": []

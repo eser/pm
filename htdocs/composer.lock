@@ -113,12 +113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larukedi/Scabbia-Framework.git",
-                "reference": "a7a11ea24a196d2241f49826b1715031b2caf7ee"
+                "reference": "207ef8b140e39b7ff323535348e298829e2b1767"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larukedi/Scabbia-Framework/zipball/a7a11ea24a196d2241f49826b1715031b2caf7ee",
-                "reference": "a7a11ea24a196d2241f49826b1715031b2caf7ee",
+                "url": "https://api.github.com/repos/larukedi/Scabbia-Framework/zipball/207ef8b140e39b7ff323535348e298829e2b1767",
+                "reference": "207ef8b140e39b7ff323535348e298829e2b1767",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +165,7 @@
                 "larukedi",
                 "scabbia"
             ],
-            "time": "2013-06-26 13:55:36"
+            "time": "2013-07-20 15:02:43"
         },
         {
             "name": "leafo/lessphp",
@@ -173,12 +173,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafo/lessphp.git",
-                "reference": "ff86f2941c3f3d67d56acad2f8902ca57c73b359"
+                "reference": "366fb52798d4f120503af0703da11cba4ad06f8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/ff86f2941c3f3d67d56acad2f8902ca57c73b359",
-                "reference": "ff86f2941c3f3d67d56acad2f8902ca57c73b359",
+                "url": "https://api.github.com/repos/leafo/lessphp/zipball/366fb52798d4f120503af0703da11cba4ad06f8d",
+                "reference": "366fb52798d4f120503af0703da11cba4ad06f8d",
                 "shasum": ""
             },
             "type": "library",
@@ -206,7 +206,7 @@
             ],
             "description": "lessphp is a compiler for LESS written in PHP.",
             "homepage": "http://leafo.net/lessphp/",
-            "time": "2013-05-22 17:52:29"
+            "time": "2013-07-09 16:25:09"
         },
         {
             "name": "mustache/mustache",
@@ -214,12 +214,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/mustache.php.git",
-                "reference": "v2.3.1"
+                "reference": "v2.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/v2.3.1",
-                "reference": "v2.3.1",
+                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/v2.4.0",
+                "reference": "v2.4.0",
                 "shasum": ""
             },
             "require": {
@@ -248,7 +248,7 @@
                 "mustache",
                 "templating"
             ],
-            "time": "2013-04-25 15:23:30"
+            "time": "2013-07-18 05:23:52"
         },
         {
             "name": "psr/log",
