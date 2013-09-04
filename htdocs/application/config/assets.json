@@ -1,6 +1,6 @@
 {
     "assets": {
-        "directoryList": [
+        "directoryList:disabled": [
             {
                 "name":     "assets/",
                 "path":     "{base}assets/"
@@ -15,7 +15,7 @@
                     {
                         "bindtype": "file",
                         "class":    "common",
-                        "path":     "{base}assets/common.js"
+                        "path":     "{base}assets/javascripts/common.js"
                     }
                 ]
             },
@@ -27,12 +27,12 @@
                     {
                         "bindtype": "file",
                         "class":    "common",
-                        "path":     "{base}assets/fonts.css"
+                        "path":     "{base}assets/stylesheets/fonts.css"
                     },
                     {
                         "bindtype": "file",
                         "class":    "common",
-                        "path":     "{base}assets/common.less"
+                        "path":     "{base}assets/stylesheets/common.less"
                     }
                 ]
             }
