@@ -1,6 +1,7 @@
 @{
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Views\Views;
+use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
 @Views::viewFile('{app}views/shared/nav/manage.cshtml')
@@ -34,14 +35,14 @@ use Scabbia\Extensions\Views\Views;
         <div class="row-fluid">
             <div class="span12">
                 <div class="box " style="position:relative;">
-                    <div class="tab-header" > User List
+                    <div class="tab-header" > Role List
                     </div>
                     <div class="tab-pane padded">
 
                         <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;"> <a tabindex="0" class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_first">First</a><a tabindex="0" class="previous fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_previous">&laquo;</a><span><a tabindex="0" class="fg-button ui-button ui-state-default ui-state-disabled">1</a></span><a tabindex="0" class="next fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_next">Next</a><a tabindex="0" class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_last">Last</a></div>
                         <div class="pull-right">
-                            <a href="@Http::url('home/users/add')">
-                                <button type="submit" class="button blue">User Add</button>
+                            <a href="@Http::url('manage/roles/add')">
+                                <button type="submit" class="button blue">Role Add</button>
                             </a>
                         </div>
                     </div>
@@ -49,34 +50,26 @@ use Scabbia\Extensions\Views\Views;
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>SFID</th>
-                            <th>Username</th>
-                            <th>E-mail</th>
-                            <th>Phone</th>
-                            <th>Edit/Delete/Reset Password</th>
-
+                            <th>Create Project</th>
+                            <th>Create User</th>
+                            <th>Delete User</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($users as $user) {
+                        @foreach ($roles as $role) {
                         <tr class="gradeX">
-                            <td>@$user['name']</td>
-                            <td>@$user['sfid']</td>
-                            <td>@$user['username']</td>
-                            <td>@$user['email']</td>
-                            <td>@$user['phone']</td>
-                            <td><div class="btn-group">
+                            <td>@$role['name']</td>
+                            <td>@ViewHelpers::printBool($role['createproject'])</td>
+                            <td>@ViewHelpers::printBool($role['createuser'])</td>
+                            <td>@ViewHelpers::printBool($role['deleteuser'])</td>
+                            <td><div class="btn-group pull-right">
 
-                                    <a href="@Http::url('home/users/edit/' . $user['id'])" class="button blue">Edit</a>
+                                    <a href="@Http::url('manage/roles/edit/' . $role['id'])" class="button blue">Edit</a>
 
-                                    <a href="@Http::url('home/users/delete/' . $user['id'])" class="button red">Delete</a>
-
-                                    <a href="@Http::url('home/users/reset/' . $user['id'])" class="button blue">Reset Password</a>
-
-
+                                    <a href="@Http::url('manage/roles/delete/' . $role['id'])" class="button red">Delete</a>
 
                                 </div></td>
-
                         </tr>
                         }
                         </tbody>
