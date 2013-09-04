@@ -1,0 +1,43 @@
+@{
+use Scabbia\Extensions\Http\Http;
+}
+<nav id="secondary" class="main-nav">
+
+    <div class="profile-menu">
+
+        <div class="pull-left">
+            <div class="avatar">
+                <img src="@$root/assets/images/avatar.png" />
+            </div>
+        </div>
+
+        <div class="pull-left">
+            <div class="title">
+                Plastique
+            </div>
+            <div class="btn-group">
+                <button class="button mini inset black"><i class="icon-search"></i></button>
+                <button class="button mini inset black">Projects</button>
+                <button class="button mini inset black dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
+                <ul class="dropdown-menu black-box-dropdown">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="pull-right profile-menu-nav-collapse">
+            <button class="button black"><i class="icon-reorder"></i></button>
+        </div>
+
+    </div>
+    <ul class="secondary-nav-menu">
+        <li><a href="@Http::url('manage/users')"><i class="icon-user"></i> Users</a></li>
+        <li><a href="@Http::url('manage/groups')"><i class="icon-group"></i> Groups</a></li>
+        <li><a href="@Http::url('manage/roles')"><i class="icon-check"></i> Roles</a></li>
+    </ul>
+</nav>
