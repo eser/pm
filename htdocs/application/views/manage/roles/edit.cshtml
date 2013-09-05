@@ -1,6 +1,7 @@
 @{
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Helpers\String;
+use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
 use App\Includes\ViewHelpers;
 }
@@ -32,8 +33,14 @@ use App\Includes\ViewHelpers;
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span6">
+                @if (!is_null($alert = Session::getFlash('alert'))) {
+                <div class="alert alert-@$alert[0]">
+                    @$alert[1]
+                </div>
+                }
+
                 <div class="box">
-                    <div class="tab-header"> Role Add </div>
+                    <div class="tab-header"> Role Edit </div>
                     <form class="fill-up" method="post" action="@Http::url('manage/roles/edit/' . $id)">
                         <div class="row-fluid">
                             <div class="span12">
@@ -44,6 +51,7 @@ use App\Includes\ViewHelpers;
                                         <a href="@Http::url('manage/roles')" class="button blue">Role List</a>
 
                                     </div>
+
                                 </div>
 
                                 <div class="padded">

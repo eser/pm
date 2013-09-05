@@ -4,7 +4,10 @@ namespace App\Controllers;
 
 use Scabbia\Extensions\Mvc\Controller;
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Fb\Fb;
+use Scabbia\Extensions\Session\Session;
+use Scabbia\Extensions\Validation\Validation;
 use Scabbia\Request;
 
 /**
@@ -76,7 +79,7 @@ class manage extends Controller
         // Auth::checkRedirect('user');
 
         if ($uSubpage === 'index') {
-            return $this->roles_index();
+            return $this->roles_index($id);
         } elseif ($uSubpage === 'add') {
             return $this->roles_add();
         } elseif ($uSubpage === 'edit') {
@@ -117,12 +120,22 @@ class manage extends Controller
     /**
      * @ignore
      */
-    private function roles_index()
+    private function roles_index($uPage = 1)
     {
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
         $this->load('App\\Models\\roleModel');
 
-        $tRoles = $this->roleModel->getRoles();
-        $this->set('roles', $tRoles);
+        $this->set('data', $this->roleModel->getRolesWithPaging($tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->roleModel->getRolesCount());
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
 
         $this->view('manage/roles/index.cshtml');
     }
@@ -133,20 +146,40 @@ class manage extends Controller
     private function roles_add()
     {
         if (Request::$method === 'post') {
-            $this->load('App\\Models\\roleModel');
-
-            $tId = $this->roleModel->insert(
-                array(
-                    'name' => Request::post('name', null, null),
-                    'createproject' => Request::post('createproject', null, null),
-                    'createuser' => Request::post('createuser', null, null),
-                    'deleteuser' => Request::post('deleteuser', null, null)
-                )
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'createproject' => Request::post('createproject', null, null),
+                'createuser' => Request::post('createuser', null, null),
+                'deleteuser' => Request::post('deleteuser', null, null)
             );
 
-            // redirect to newly created
-            Http::redirect('manage/roles/edit/' . $tId, true);
-            return;
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->load('App\\Models\\roleModel');
+
+                $tId = $this->roleModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record added.'
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('manage/roles/edit/' . $tId, true);
+                return;
+            }
         }
 
         $this->view('manage/roles/add.cshtml');
@@ -159,6 +192,11 @@ class manage extends Controller
     {
         $this->load('App\\Models\\roleModel');
 
+        $tOriginalData = $this->roleModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
         if (Request::$method === 'post') {
             $tData = array(
                 'name' => Request::post('name', null, null),
@@ -167,17 +205,67 @@ class manage extends Controller
                 'deleteuser' => Request::post('deleteuser', null, null)
             );
 
-            $this->roleModel->update(
-                $uId,
-                $tData
-            );
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->roleModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record updated.'
+                    )
+                );
+            }
         } else {
-            $tData = $this->roleModel->get($uId);
+            $tData = $tOriginalData;
         }
 
         $this->set('id', $uId);
         $this->set('data', $tData);
 
         $this->view('manage/roles/edit.cshtml');
+    }
+
+
+    /**
+     * @ignore
+     */
+    private function roles_remove($uId)
+    {
+        $this->load('App\\Models\\roleModel');
+
+        $tOriginalData = $this->roleModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
+        $this->roleModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                'Record removed.'
+            )
+        );
+
+        // redirect to list
+        Http::redirect('manage/roles', true);
+        return;
     }
 }

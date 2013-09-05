@@ -1,5 +1,7 @@
 @{
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Html;
+use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
 use App\Includes\ViewHelpers;
 }
@@ -34,12 +36,29 @@ use App\Includes\ViewHelpers;
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
+                @if (!is_null($alert = Session::getFlash('alert'))) {
+                <div class="alert alert-@$alert[0]">
+                    @$alert[1]
+                </div>
+                }
+
                 <div class="box " style="position:relative;">
                     <div class="tab-header" > Role List
                     </div>
+
                     <div class="tab-pane padded">
 
-                        <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;"> <a tabindex="0" class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_first">First</a><a tabindex="0" class="previous fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_previous">&laquo;</a><span><a tabindex="0" class="fg-button ui-button ui-state-default ui-state-disabled">1</a></span><a tabindex="0" class="next fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_next">Next</a><a tabindex="0" class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default ui-state-disabled" id="DataTables_Table_0_last">Last</a></div>
+                        <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;">
+                            @Html::pager(array(
+                                'total' => $dataCount,
+                                'pagesize' => $pageSize,
+                                'current' => $page + 1,
+                                'firstlast' => false,
+                                'link' => '<span><a href="' . Http::url('manage/roles/index/{page}') . '" tabindex="0" class="fg-button ui-button ui-state-default">{pagetext}</a></span>',
+                                'activelink' => '<span><a tabindex="0" class="fg-button ui-button ui-state-default">{pagetext}</a></span>'
+                            ))
+                        </div>
+
                         <div class="pull-right">
                             <a href="@Http::url('manage/roles/add')">
                                 <button type="submit" class="button blue">Role Add</button>
@@ -57,7 +76,7 @@ use App\Includes\ViewHelpers;
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($roles as $role) {
+                        @foreach ($data as $role) {
                         <tr class="gradeX">
                             <td>@$role['name']</td>
                             <td>@ViewHelpers::printBool($role['createproject'])</td>
@@ -67,7 +86,7 @@ use App\Includes\ViewHelpers;
 
                                     <a href="@Http::url('manage/roles/edit/' . $role['id'])" class="button blue">Edit</a>
 
-                                    <a href="@Http::url('manage/roles/delete/' . $role['id'])" class="button red">Delete</a>
+                                    <a href="@Http::url('manage/roles/remove/' . $role['id'])" class="remove-button button red">Delete</a>
 
                                 </div></td>
                         </tr>
@@ -87,5 +106,19 @@ use App\Includes\ViewHelpers;
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    $l.ready(
+        $l.dom.setEvent(
+            $l(['.remove-button']),
+            'click',
+            function(ev, elem) {
+                if (!confirm('Are you sure to delete this record?')) {
+                    return false;
+                }
+            }
+        )
+    );
+</script>
 
 @Views::viewFile('{app}views/shared/footer.cshtml')

@@ -24,6 +24,18 @@ class roleModel extends Model
     /**
      * @ignore
      */
+    public function getRolesCount()
+    {
+        return $this->db->createQuery()
+            ->setTable('siteroles')
+            ->addField('COUNT(0)')
+            ->get()
+            ->scalar();
+    }
+
+    /**
+     * @ignore
+     */
     public function getRolesWithPaging($uOffset = 0, $uLimit = 20)
     {
         $tResult = $this->db->createQuery()
