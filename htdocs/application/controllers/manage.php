@@ -53,18 +53,18 @@ class manage extends Controller
     /**
      * @ignore
      */
-    public function groups($uSubpage = 'index')
+    public function groups($uSubpage = 'index', $id = 0)
     {
         // Auth::checkRedirect('user');
 
         if ($uSubpage === 'index') {
-            return $this->groups_index();
+            return $this->groups_index($id);
         } elseif ($uSubpage === 'add') {
             return $this->groups_add();
         } elseif ($uSubpage === 'edit') {
-            return $this->groups_edit();
+            return $this->groups_edit($id);
         } elseif ($uSubpage === 'remove') {
-            return $this->groups_remove();
+            return $this->groups_remove($id);
         }
 
         return false;
@@ -107,14 +107,147 @@ class manage extends Controller
     /**
      * @ignore
      */
-    private function groups_index()
+    private function groups_index($uPage = 1)
+    {
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\groupModel');
+
+        $this->set('data', $this->groupModel->getGroupsWithPaging($tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->groupModel->getGroupsCount());
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->view('manage/groups/index.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function groups_add()
+    {
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->load('App\\Models\\groupModel');
+
+                $tId = $this->groupModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record added.'
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('manage/groups/edit/' . $tId, true);
+                return;
+            }
+        }
+
+        $this->view('manage/groups/add.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function groups_edit($uId)
     {
         $this->load('App\\Models\\groupModel');
 
-        $tGroups = $this->groupModel->getGroups();
-        $this->set('groups', $tGroups);
+        $tOriginalData = $this->groupModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
 
-        $this->view('manage/groups/index.cshtml');
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->groupModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record updated.'
+                    )
+                );
+            }
+        } else {
+            $tData = $tOriginalData;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+
+        $this->view('manage/groups/edit.cshtml');
+    }
+
+
+    /**
+     * @ignore
+     */
+    private function groups_remove($uId)
+    {
+        $this->load('App\\Models\\groupModel');
+
+        $tOriginalData = $this->groupModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
+        $this->groupModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                'Record removed.'
+            )
+        );
+
+        // redirect to list
+        Http::redirect('manage/groups', true);
+        return;
     }
 
     /**

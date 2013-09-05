@@ -1,0 +1,85 @@
+@{
+use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\String;
+use Scabbia\Extensions\Session\Session;
+use Scabbia\Extensions\Views\Views;
+use App\Includes\ViewHelpers;
+}
+@Views::viewFile('{app}views/shared/header.cshtml')
+@Views::viewFile('{app}views/shared/nav/manage.cshtml')
+
+<section id="main">
+    <div class="top-nav">
+        <div class="container-fluid">
+            <div class="row-fluid search-button-bar-container">
+                <div class="span12">
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="icon-home"></i> Some</a></li>
+                        <li><a href="#">Nice</a></li>
+                        <li><a href="#">Breadcrumbs</a></li>
+                        <li class=""><a href="#">Here</a></li>
+                    </ul>
+                    <a class="search-button-trigger" href="#"><i class="icon-search"></i></a> </div>
+            </div>
+            <div class="row-fluid search-bar-nav">
+                <div class="span12">
+                    <form>
+                        <input type="text" class="search" placeholder="Search...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span6">
+                @if (!is_null($alert = Session::getFlash('alert'))) {
+                <div class="alert alert-@$alert[0]">
+                    @$alert[1]
+                </div>
+                }
+
+                <div class="box">
+                    <div class="tab-header"> Group Add </div>
+                    <form class="fill-up" method="post" action="@Http::url('manage/groups/add')">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div style="padding-right:12px;">
+
+                                    <div class="btn-group pull-right">
+
+                                        <a href="@Http::url('manage/groups')" class="button blue">Group List</a>
+
+                                    </div>
+                                </div>
+
+                                <div class="padded">
+
+                                    <div class="input">
+                                        <label for="Name" class="caption">Name</label>
+                                        <input type="text" placeholder="Name" name="name" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="pull-right">
+                                <button type="submit" class="button blue">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="footer">
+                    <div>2012 &copy; Plastique Admin Theme</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Views::viewFile('{app}views/shared/footer.cshtml')
