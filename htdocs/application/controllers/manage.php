@@ -71,7 +71,6 @@ class manage extends Controller
         return false;
     }
 
-
     /**
      * @ignore
      */
@@ -87,6 +86,26 @@ class manage extends Controller
             return $this->roles_edit($id);
         } elseif ($uSubpage === 'remove') {
             return $this->roles_remove($id);
+        }
+
+        return false;
+    }
+
+    /**
+     * @ignore
+     */
+    public function constants($uSubpage = 'index', $id = 0)
+    {
+        // Auth::checkRedirect('user');
+
+        if ($uSubpage === 'index') {
+            return $this->constants_index($id);
+        } elseif ($uSubpage === 'add') {
+            return $this->constants_add();
+        } elseif ($uSubpage === 'edit') {
+            return $this->constants_edit($id);
+        } elseif ($uSubpage === 'remove') {
+            return $this->constants_remove($id);
         }
 
         return false;
@@ -263,7 +282,6 @@ class manage extends Controller
         $this->view('manage/users/edit.cshtml');
     }
 
-
     /**
      * @ignore
      */
@@ -414,7 +432,6 @@ class manage extends Controller
 
         $this->view('manage/groups/edit.cshtml');
     }
-
 
     /**
      * @ignore
@@ -579,7 +596,6 @@ class manage extends Controller
         $this->view('manage/roles/edit.cshtml');
     }
 
-
     /**
      * @ignore
      */
@@ -606,6 +622,166 @@ class manage extends Controller
 
         // redirect to list
         Http::redirect('manage/roles', true);
+        return;
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_index($uPage = 1)
+    {
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\constantModel');
+
+        $this->set('data', $this->constantModel->getConstantsWithPaging($tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->constantModel->getConstantsCount());
+
+        $this->set('types', $this->constantModel->types);
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->view('manage/constants/index.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_add()
+    {
+        $this->load('App\\Models\\constantModel');
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'type' => Request::post('type', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('type')->inKeys($this->constantModel->types)->errorMessage(I18n::_('Invalid type.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $tId = $this->constantModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record added.'
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('manage/constants/edit/' . $tId, true);
+                return;
+            }
+        } else {
+            $tData = array(
+                'name' => '',
+                'type' => ''
+            );
+        }
+
+        $this->set('data', $tData);
+        $this->set('types', $this->constantModel->types);
+
+        $this->view('manage/constants/add.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_edit($uId)
+    {
+        $this->load('App\\Models\\constantModel');
+
+        $tOriginalData = $this->constantModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'type' => Request::post('type', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('type')->inKeys($this->constantModel->types)->errorMessage(I18n::_('Invalid type.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->constantModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record updated.'
+                    )
+                );
+            }
+        } else {
+            $tData = $tOriginalData;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+        $this->set('types', $this->constantModel->types);
+
+        $this->view('manage/constants/edit.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_remove($uId)
+    {
+        $this->load('App\\Models\\constantModel');
+
+        $tOriginalData = $this->constantModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
+        $this->constantModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                'Record removed.'
+            )
+        );
+
+        // redirect to list
+        Http::redirect('manage/constants', true);
         return;
     }
 }
