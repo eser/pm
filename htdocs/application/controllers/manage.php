@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Scabbia\Extensions\Database\Database;
 use Scabbia\Extensions\Mvc\Controller;
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\I18n\I18n;
@@ -134,6 +135,7 @@ class manage extends Controller
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
             Validation::addRule('username')->isRequired()->errorMessage(I18n::_('Username field is required.'));
+            Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Password field is required.'));
             Validation::addRule('email')->isEmail()->errorMessage(I18n::_('E-mail field should be filled in valid e-mail format.'));
 
             if (!Validation::validate($tData)) {
@@ -213,6 +215,7 @@ class manage extends Controller
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
             Validation::addRule('username')->isRequired()->errorMessage(I18n::_('Username field is required.'));
+            // Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Password field is required.'));
             Validation::addRule('email')->isEmail()->errorMessage(I18n::_('E-mail field should be filled in valid e-mail format.'));
 
             if (!Validation::validate($tData)) {
@@ -224,6 +227,10 @@ class manage extends Controller
                     )
                 );
             } else {
+                if (strlen($tData['password']) === 0) {
+                    unset($tData['password']);
+                }
+
                 $this->userModel->update(
                     $uId,
                     $tData
@@ -236,13 +243,22 @@ class manage extends Controller
                         'Record updated.'
                     )
                 );
+
+                $tData['password'] = '';
             }
         } else {
             $tData = $tOriginalData;
+            $tData['password'] = '';
         }
 
         $this->set('id', $uId);
         $this->set('data', $tData);
+
+        $this->load('App\\Models\\roleModel');
+        $this->set('roles', $this->roleModel->getRoles());
+
+        $this->load('App\\Models\\groupModel');
+        $this->set('groups', $this->groupModel->getGroups());
 
         $this->view('manage/users/edit.cshtml');
     }

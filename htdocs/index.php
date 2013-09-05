@@ -8,9 +8,9 @@ $loader = require($scabbiaLoader);
 
 if (defined('SCABBIA_PATH') && SCABBIA_PATH !== false) {
     $loader->set('Scabbia', SCABBIA_PATH);
-} elseif (file_exists($scabbiaPath = __DIR__ . '/../../scabbia-dev/src')) {
-    define('SCABBIA_PATH', $scabbiaPath);
-    $loader->set('Scabbia', $scabbiaPath);
+//} elseif (file_exists($scabbiaPath = __DIR__ . '/../../scabbia-dev/src')) {
+//    define('SCABBIA_PATH', $scabbiaPath);
+//    $loader->set('Scabbia', $scabbiaPath);
 }
 
 use Scabbia\Framework;

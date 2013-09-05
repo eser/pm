@@ -8,7 +8,8 @@
             "pdoString":    "mysql:host=localhost;dbname=darkgaze",
             "username":     "root",
             "password":     "paddole",
-            "initCommand":  "SET NAMES utf8"
+            "initCommand":  "SET NAMES utf8",
+            "errors":       "exception"
         }
     ],
     "datasourceList:disabled": [
