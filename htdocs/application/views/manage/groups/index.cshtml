@@ -35,16 +35,17 @@ use App\Includes\ViewHelpers;
 
     <div class="container-fluid">
         <div class="row-fluid">
-            @if (!is_null($alert = Session::getFlash('alert'))) {
-            <div class="alert alert-@$alert[0]">
-                @$alert[1]
-            </div>
-            }
-
             <div class="span12">
+                @if (!is_null($alert = Session::getFlash('alert'))) {
+                <div class="alert alert-@$alert[0]">
+                    @$alert[1]
+                </div>
+                }
+
                 <div class="box " style="position:relative;">
-                    <div class="tab-header" > User List
+                    <div class="tab-header" > Group List
                     </div>
+
                     <div class="tab-pane padded">
 
                         <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;">
@@ -53,41 +54,33 @@ use App\Includes\ViewHelpers;
                                 'pagesize' => $pageSize,
                                 'current' => $page + 1,
                                 'firstlast' => false,
-                                'link' => '<span><a href="' . Http::url('manage/users/index/{page}') . '" tabindex="0" class="fg-button ui-button ui-state-default">{pagetext}</a></span>',
+                                'link' => '<span><a href="' . Http::url('manage/groups/index/{page}') . '" tabindex="0" class="fg-button ui-button ui-state-default">{pagetext}</a></span>',
                                 'activelink' => '<span><a tabindex="0" class="fg-button ui-button ui-state-default">{pagetext}</a></span>'
                             ))
                         </div>
 
                         <div class="pull-right">
-                            <a href="@Http::url('manage/users/add')">
-                                <button type="submit" class="button blue">User Add</button>
+                            <a href="@Http::url('manage/groups/add')">
+                                <button type="submit" class="button blue">Group Add</button>
                             </a>
                         </div>
                     </div>
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>E-mail</th>
-                            <th>SCM ID</th>
                             <th>Name</th>
-                            <th>Phone</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($data as $user) {
+                        @foreach ($data as $group) {
                         <tr class="gradeX">
-                            <td>@$user['username']</td>
-                            <td>@$user['email']</td>
-                            <td>@$user['scmid']</td>
-                            <td>@$user['name']</td>
-                            <td>@$user['phone']</td>
+                            <td>@$group['name']</td>
                             <td><div class="btn-group pull-right">
 
-                                    <a href="@Http::url('manage/users/edit/' . $user['id'])" class="button blue">Edit</a>
+                                    <a href="@Http::url('manage/groups/edit/' . $group['id'])" class="button blue">Edit</a>
 
-                                    <a href="@Http::url('manage/users/remove/' . $user['id'])" class="remove-button button red">Delete</a>
+                                    <a href="@Http::url('manage/groups/remove/' . $group['id'])" class="remove-button button red">Delete</a>
 
                                 </div></td>
                         </tr>

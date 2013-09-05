@@ -33,18 +33,18 @@ class manage extends Controller
     /**
      * @ignore
      */
-    public function users($uSubpage = 'index')
+    public function users($uSubpage = 'index', $id = 0)
     {
         // Auth::checkRedirect('user');
 
         if ($uSubpage === 'index') {
-            return $this->users_index();
+            return $this->users_index($id);
         } elseif ($uSubpage === 'add') {
             return $this->users_add();
         } elseif ($uSubpage === 'edit') {
-            return $this->users_edit();
+            return $this->users_edit($id);
         } elseif ($uSubpage === 'remove') {
-            return $this->users_remove();
+            return $this->users_remove($id);
         }
 
         return false;
@@ -94,14 +94,163 @@ class manage extends Controller
     /**
      * @ignore
      */
-    private function users_index()
+    private function users_index($uPage = 1)
+    {
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\userModel');
+
+        $this->set('data', $this->userModel->getUsersWithPaging($tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->userModel->getUsersCount());
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->view('manage/users/index.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function users_add()
+    {
+        if (Request::$method === 'post') {
+            $tData = array(
+                'scmid' => Request::post('scmid', null, null),
+                'name' => Request::post('name', null, null),
+                'username' => Request::post('username', null, null),
+                'password' => Request::post('password', null, null),
+                'email' => Request::post('email', null, null),
+                'phone' => Request::post('phone', null, null),
+                'siterole' => Request::post('siterole', null, null),
+                'bio' => Request::post('bio', null, null),
+                'page' => Request::post('page', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->load('App\\Models\\userModel');
+
+                $tId = $this->userModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record added.'
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('manage/users/edit/' . $tId, true);
+                return;
+            }
+        }
+
+        $this->view('manage/users/add.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function users_edit($uId)
     {
         $this->load('App\\Models\\userModel');
 
-        $tUsers = $this->userModel->getUsers();
-        $this->set('users', $tUsers);
+        $tOriginalData = $this->userModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
 
-        $this->view('manage/users/index.cshtml');
+        if (Request::$method === 'post') {
+            $tData = array(
+                'scmid' => Request::post('scmid', null, null),
+                'name' => Request::post('name', null, null),
+                'username' => Request::post('username', null, null),
+                'password' => Request::post('password', null, null),
+                'email' => Request::post('email', null, null),
+                'phone' => Request::post('phone', null, null),
+                'siterole' => Request::post('siterole', null, null),
+                'bio' => Request::post('bio', null, null),
+                'page' => Request::post('page', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->userModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record updated.'
+                    )
+                );
+            }
+        } else {
+            $tData = $tOriginalData;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+
+        $this->view('manage/users/edit.cshtml');
+    }
+
+
+    /**
+     * @ignore
+     */
+    private function users_remove($uId)
+    {
+        $this->load('App\\Models\\userModel');
+
+        $tOriginalData = $this->userModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
+        $this->userModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                'Record removed.'
+            )
+        );
+
+        // redirect to list
+        Http::redirect('manage/users', true);
+        return;
     }
 
     /**
