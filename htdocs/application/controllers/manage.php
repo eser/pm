@@ -133,6 +133,8 @@ class manage extends Controller
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('username')->isRequired()->errorMessage(I18n::_('Username field is required.'));
+            Validation::addRule('email')->isEmail()->errorMessage(I18n::_('E-mail field should be filled in valid e-mail format.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -159,7 +161,27 @@ class manage extends Controller
                 Http::redirect('manage/users/edit/' . $tId, true);
                 return;
             }
+        } else {
+            $tData = array(
+                'scmid' => '',
+                'name' => '',
+                'username' => '',
+                'password' => '',
+                'email' => '',
+                'phone' => '',
+                'siterole' => '',
+                'bio' => '',
+                'page' => ''
+            );
         }
+
+        $this->set('data', $tData);
+
+        $this->load('App\\Models\\roleModel');
+        $this->set('roles', $this->roleModel->getRoles());
+
+        $this->load('App\\Models\\groupModel');
+        $this->set('groups', $this->groupModel->getGroups());
 
         $this->view('manage/users/add.cshtml');
     }
@@ -190,6 +212,8 @@ class manage extends Controller
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('username')->isRequired()->errorMessage(I18n::_('Username field is required.'));
+            Validation::addRule('email')->isEmail()->errorMessage(I18n::_('E-mail field should be filled in valid e-mail format.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -313,7 +337,13 @@ class manage extends Controller
                 Http::redirect('manage/groups/edit/' . $tId, true);
                 return;
             }
+        } else {
+            $tData = array(
+                'name' => ''
+            );
         }
+
+        $this->set('data', $tData);
 
         $this->view('manage/groups/add.cshtml');
     }
@@ -432,7 +462,8 @@ class manage extends Controller
                 'name' => Request::post('name', null, null),
                 'createproject' => Request::post('createproject', null, null),
                 'createuser' => Request::post('createuser', null, null),
-                'deleteuser' => Request::post('deleteuser', null, null)
+                'deleteuser' => Request::post('deleteuser', null, null),
+                'administer' => Request::post('administer', null, null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
@@ -462,7 +493,17 @@ class manage extends Controller
                 Http::redirect('manage/roles/edit/' . $tId, true);
                 return;
             }
+        } else {
+            $tData = array(
+                'name' => '',
+                'createproject' => '1',
+                'createuser' => '0',
+                'deleteuser' => '0',
+                'administer' => '0'
+            );
         }
+
+        $this->set('data', $tData);
 
         $this->view('manage/roles/add.cshtml');
     }
@@ -484,7 +525,8 @@ class manage extends Controller
                 'name' => Request::post('name', null, null),
                 'createproject' => Request::post('createproject', null, null),
                 'createuser' => Request::post('createuser', null, null),
-                'deleteuser' => Request::post('deleteuser', null, null)
+                'deleteuser' => Request::post('deleteuser', null, null),
+                'administer' => Request::post('administer', null, null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));

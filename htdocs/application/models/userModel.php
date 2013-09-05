@@ -18,7 +18,7 @@ class userModel extends Model
             ->setTable('users')
             ->addField('*')
             ->get()
-            ->all();
+            ->allWithKey('id');
     }
 
     /**

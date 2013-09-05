@@ -72,6 +72,7 @@ use App\Includes\ViewHelpers;
                             <th>Create Project</th>
                             <th>Create User</th>
                             <th>Delete User</th>
+                            <th>Administer</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -82,6 +83,7 @@ use App\Includes\ViewHelpers;
                             <td>@ViewHelpers::printBool($role['createproject'])</td>
                             <td>@ViewHelpers::printBool($role['createuser'])</td>
                             <td>@ViewHelpers::printBool($role['deleteuser'])</td>
+                            <td>@ViewHelpers::printBool($role['administer'])</td>
                             <td><div class="btn-group pull-right">
 
                                     <a href="@Http::url('manage/roles/edit/' . $role['id'])" class="button blue">Edit</a>

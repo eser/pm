@@ -18,7 +18,7 @@ class roleModel extends Model
             ->setTable('siteroles')
             ->addField('*')
             ->get()
-            ->all();
+            ->allWithKey('id');
     }
 
     /**

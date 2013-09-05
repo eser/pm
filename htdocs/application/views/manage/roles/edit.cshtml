@@ -72,6 +72,10 @@ use App\Includes\ViewHelpers;
 
                                         <input type="checkbox" class="normal-check" id="ch3_DeleteUser" name="deleteuser" value="1" @{ if ($data['deleteuser'] === '1') { echo 'checked="checked" '; } }/>
                                         <label for="ch3_DeleteUser" class="span4">Delete User</label>
+
+                                        <input type="checkbox" class="normal-check" id="ch4_Administer" name="administer" value="1" @{ if ($data['administer'] === '1') { echo 'checked="checked" '; } }/>
+                                        <label for="ch4_Administer" class="span4">Administer</label>
+
                                     </div>
 
                                 </div>

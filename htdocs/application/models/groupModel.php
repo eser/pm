@@ -18,7 +18,7 @@ class groupModel extends Model
             ->setTable('groups')
             ->addField('*')
             ->get()
-            ->all();
+            ->allWithKey('id');
     }
 
     /**
