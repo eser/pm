@@ -13,6 +13,7 @@ if (defined('SCABBIA_PATH') && SCABBIA_PATH !== false) {
 //    $loader->set('Scabbia', $scabbiaPath);
 }
 
+ini_set('display_errors', 'On');
 use Scabbia\Framework;
 
 Framework::$development = true;
