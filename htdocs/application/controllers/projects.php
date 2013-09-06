@@ -7,7 +7,7 @@ use Scabbia\Extensions\Mvc\Controller;
 /**
  * @ignore
  */
-class home extends Controller
+class projects extends Controller
 {
     /**
      * @ignore

@@ -77,49 +77,19 @@ use Scabbia\Framework;
     <nav id="primary" class="main-nav">
         <ul>
 
-            <li class="">
-                <a href="@Http::url('home')">
-                    <i class="icon-dashboard"></i> Dashboard
-                </a>
-            </li>
-
-            <li class="">
-                <a href="@Http::url('projects')">
-                    <i class="icon-bar-chart"></i> Projects
-                </a>
-            </li>
-
-            <li class="">
-                <a href="@Http::url('manage')">
-                    <i class="icon-cogs"></i> Manage
-                </a>
-            </li>
-
+            <li><a href="@Http::url('home')"><i class="icon-picture"></i> Desktop</a></li>
+            <li><a href="@Http::url('projects')"><i class="icon-bar-chart"></i> Projects</a></li>
+            <li><a href="@Http::url('manage')"><i class="icon-cogs"></i> Manage</a></li>
 
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt"></i>More <span class="caret"></span></a>
 
                 <ul class="dropdown-menu">
-                    <li>
-                        <a href="@Http::url('home/404')">
-                            <i class="icon-warning-sign"></i> Error 404
-                        </a>
-                    </li>
-
-
-
-                    <li>
-                        <a href="@Http::url('documentation')">
-                            <i class="icon-book"></i> Documentation
-                        </a>
-                    </li>
-
-
+                    <li><a href="@Http::url('home/404')"><i class="icon-warning-sign"></i> Error 404</a></li>
+                    <li><a href="@Http::url('documentation')"><i class="icon-book"></i> Documentation</a></li>
                     <li class="divider"></li>
                     <li>
-                        <a href="@Http::url('gate')">
-                            <i class="icon-off"></i> Log out (login page)
-                        </a>
+                        <a href="@Http::url('gate')"><i class="icon-off"></i> Log out (login page)</a>
                     </li>
                 </ul>
             </li>

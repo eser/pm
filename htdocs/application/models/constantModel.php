@@ -14,7 +14,9 @@ class constantModel extends Model
      */
     public $types = array(
         'issue_type' => 'Issue Type',
-        'project_type' => 'Project Type'
+        'project_type' => 'Project Type',
+        'open_issue_type' => 'Open Issue Type',
+        'closed_issue_type' => 'Closed Issue Type'
     );
 
 

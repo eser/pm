@@ -17,7 +17,7 @@ use Scabbia\Extensions\Http\Http;
             </div>
             <div class="btn-group">
                 <button class="button mini inset black"><i class="icon-search"></i></button>
-                <button class="button mini inset black">Desktop</button>
+                <button class="button mini inset black">Projects</button>
                 <button class="button mini inset black dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
                 <ul class="dropdown-menu black-box-dropdown">
                     <li><a href="#">Action</a></li>
@@ -36,8 +36,7 @@ use Scabbia\Extensions\Http\Http;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('home')"><i class="icon-dashboard"></i> Dashboard</a></li>
-        <li><a href="@Http::url('home/projects')"><i class="icon-bar-chart"></i> My Projects</a></li>
-        <li><a href="@Http::url('home/issues')"><i class="icon-info-sign"></i> Assigned Issues</a></li>
+        <li><a href="@Http::url('projects/new')"><i class="icon-share"></i> Create New</a></li>
+        <li><a href="@Http::url('projects/view/1')"><i class="icon-file"></i> Project 1</a></li>
     </ul>
 </nav>

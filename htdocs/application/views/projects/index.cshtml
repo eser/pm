@@ -1,0 +1,46 @@
+@{
+use Scabbia\Extensions\Views\Views;
+}
+@Views::viewFile('{app}views/shared/header.cshtml')
+@Views::viewFile('{app}views/shared/nav/projects.cshtml')
+
+<section id="main">
+    <div class="top-nav">
+        <div class="container-fluid">
+            <div class="row-fluid search-button-bar-container">
+                <div class="span12">
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="icon-home"></i> Some</a></li>
+                        <li><a href="#">Nice</a></li>
+                        <li><a href="#">Breadcrumbs</a></li>
+                        <li class="active"><a href="#">Here</a></li>
+                    </ul>
+                    <a class="search-button-trigger" href="#"><i class="icon-search"></i></a>
+                </div>
+            </div>
+
+            <div class="row-fluid search-bar-nav">
+                <div class="span12">
+                    <form>
+                        <input type="text" class="search" placeholder="Search...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            @$welcomeText
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="footer">
+                    <div>2012 &copy; Plastique Admin Theme</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Views::viewFile('{app}views/shared/footer.cshtml')

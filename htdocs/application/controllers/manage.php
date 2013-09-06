@@ -152,6 +152,8 @@ class manage extends Controller
                 'page' => Request::post('page', null, null)
             );
 
+            $tUserGroups = array_keys(Request::post('groups', array(), null));
+
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
             Validation::addRule('username')->isRequired()->errorMessage(I18n::_('Username field is required.'));
             Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Password field is required.'));
@@ -169,6 +171,10 @@ class manage extends Controller
                 $this->load('App\\Models\\userModel');
 
                 $tId = $this->userModel->insert($tData);
+
+                foreach (Request::post('groups', array(), null) as $tGroupKey => $tGroupValue) {
+                    $this->userModel->addToGroup($tId, $tGroupKey);
+                }
 
                 Session::set(
                     'alert',
@@ -194,9 +200,12 @@ class manage extends Controller
                 'bio' => '',
                 'page' => ''
             );
+
+            $tUserGroups = array();
         }
 
         $this->set('data', $tData);
+        $this->set('usergroups', $tUserGroups);
 
         $this->load('App\\Models\\roleModel');
         $this->set('roles', $this->roleModel->getRoles());
@@ -232,6 +241,8 @@ class manage extends Controller
                 'page' => Request::post('page', null, null)
             );
 
+            $tUserGroups = array_keys(Request::post('groups', array(), null));
+
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
             Validation::addRule('username')->isRequired()->errorMessage(I18n::_('Username field is required.'));
             // Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Password field is required.'));
@@ -255,6 +266,11 @@ class manage extends Controller
                     $tData
                 );
 
+                $this->userModel->purgeGroups($uId);
+                foreach (Request::post('groups', array(), null) as $tGroupKey => $tGroupValue) {
+                    $this->userModel->addToGroup($uId, $tGroupKey);
+                }
+
                 Session::set(
                     'alert',
                     array(
@@ -267,11 +283,13 @@ class manage extends Controller
             }
         } else {
             $tData = $tOriginalData;
+            $tUserGroups = $this->userModel->getGroups($uId);
             $tData['password'] = '';
         }
 
         $this->set('id', $uId);
         $this->set('data', $tData);
+        $this->set('usergroups', $tUserGroups);
 
         $this->load('App\\Models\\roleModel');
         $this->set('roles', $this->roleModel->getRoles());

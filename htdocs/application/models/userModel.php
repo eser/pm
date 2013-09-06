@@ -112,4 +112,52 @@ class userModel extends Model
 
         return $tResult;
     }
+
+    /**
+     * @ignore
+     */
+    public function getGroups($uId)
+    {
+        return $this->db->createQuery()
+            ->setTable('user_group')
+            ->setFields('groupid')
+            ->setWhere('userid=:userid')
+            ->addParameter('userid', $uId)
+            ->get()
+            ->column('groupid');
+    }
+
+    /**
+     * @ignore
+     */
+    public function addToGroup($uId, $uGroupId)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('user_group')
+            ->setFields(
+                array(
+                    'userid' => $uId,
+                    'groupid' => $uGroupId
+                )
+            )
+            ->insert()
+            ->execute(true);
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
+    public function purgeGroups($uId)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('user_group')
+            ->setWhere('userid=:userid')
+            ->addParameter('userid', $uId)
+            ->delete()
+            ->execute();
+
+        return $tResult;
+    }
 }

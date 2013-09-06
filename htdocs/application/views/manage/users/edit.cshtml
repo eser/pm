@@ -97,7 +97,7 @@ use App\Includes\ViewHelpers;
                                         <label for="Groups" class="caption">Groups</label>
 
                                         @foreach ($groups as $group) {
-                                            <input type="checkbox" id="groups-@$group['id']" class="normal-check"/>
+                                            <input type="checkbox" id="groups-@$group['id']" name="groups[@$group['id']]" value="1" class="normal-check" @{ if (in_array($group['id'], $usergroups)) { echo 'checked="checked" '; } }/>
                                             <label for="groups-@$group['id']" class="span4">@$group['name']</label>
                                         }
 
