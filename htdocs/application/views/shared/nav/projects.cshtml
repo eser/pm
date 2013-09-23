@@ -36,7 +36,9 @@ use Scabbia\Extensions\Http\Http;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('projects/new')"><i class="icon-share"></i> Create New</a></li>
-        <li><a href="@Http::url('projects/view/1')"><i class="icon-file"></i> Project 1</a></li>
+        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Create New</a></li>
+        @foreach ($projects as $project) {
+        <li><a href="@Http::url('projects/view/' . $project['id'])"><i class="icon-file"></i> @$project['title']</a></li>
+        }
     </ul>
 </nav>

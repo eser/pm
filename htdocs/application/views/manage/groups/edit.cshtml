@@ -6,7 +6,7 @@ use Scabbia\Extensions\Views\Views;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
-@Views::viewFile('{app}views/shared/nav/manage.cshtml')
+@Views::viewFile('{app}views/shared/nav/manage.cshtml', $model)
 
 <section id="main">
     <div class="top-nav">
