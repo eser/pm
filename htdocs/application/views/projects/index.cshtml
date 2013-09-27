@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
@@ -83,9 +84,17 @@ use App\Includes\ViewHelpers;
                             <td>@$project['name']</td>
                             <td>@$project['title']</td>
                             <td>@$project['subtitle']</td>
-                            <td>@$project['parent']</td>
-                            <td>@$project['created']</td>
-                            <td>@$project['type']</td>
+                            <td>
+                                @if ($project['parent'] === '0') {
+                                    -
+                                } else {
+                                    @$projects[$project['parent']]['displayname']
+                                }
+                            </td>
+                            <td>
+                                @Date::convert($project['created'], 'Y-m-d H:i:s', 'd/m/Y')
+                            </td>
+                            <td>@$projectTypes[$project['type']]['name']</td>
                             <td>@$project['license']</td>
                             <td><div class="btn-group pull-right">
 
