@@ -13,10 +13,10 @@ class ConstantModel extends Model
      * @ignore
      */
     public $types = array(
-        'issue_type' => 'Issue Type',
+        'task_type' => 'Task Type',
         'project_type' => 'Project Type',
-        'open_issue_type' => 'Open Issue Type',
-        'closed_issue_type' => 'Closed Issue Type'
+        'open_task_type' => 'Open Task Type',
+        'closed_task_type' => 'Closed Task Type'
     );
 
 
