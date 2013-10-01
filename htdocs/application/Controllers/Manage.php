@@ -3,18 +3,18 @@
 namespace App\Controllers;
 
 use Scabbia\Extensions\Database\Database;
-use Scabbia\Extensions\Mvc\Controller;
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Fb\Fb;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Validation\Validation;
 use Scabbia\Request;
+use App\Includes\PmController;
 
 /**
  * @ignore
  */
-class Manage extends Controller
+class Manage extends PmController
 {
     /**
      * @ignore

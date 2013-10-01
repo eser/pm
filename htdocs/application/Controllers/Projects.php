@@ -3,18 +3,18 @@
 namespace App\Controllers;
 
 use Scabbia\Extensions\Helpers\Date;
-use Scabbia\Extensions\Mvc\Controller;
 use Scabbia\Extensions\Validation\Validation;
 use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Request;
+use App\Includes\PmController;
 
 /**
  * @ignore
  */
-class Projects extends Controller
+class Projects extends PmController
 {
     /**
      * @ignore
@@ -219,6 +219,20 @@ class Projects extends Controller
         // redirect to list
         Http::redirect('projects', true);
         return;
+    }
+
+    /**
+     * @ignore
+     */
+    public function show($uId)
+    {
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uId);
+
+        $this->set('project', $tProject);
+
+        $this->view();
     }
 
     private function loadMenu()

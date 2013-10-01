@@ -2,12 +2,12 @@
 
 namespace App\Controllers;
 
-use Scabbia\Extensions\Mvc\Controller;
+use App\Includes\PmController;
 
 /**
  * @ignore
  */
-class Home extends Controller
+class Home extends PmController
 {
     /**
      * @ignore
