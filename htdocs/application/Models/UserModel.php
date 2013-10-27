@@ -69,6 +69,40 @@ class UserModel extends Model
     /**
      * @ignore
      */
+    public function getByUsername($uUsername)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('users')
+            ->setFields('*')
+            ->setWhere('username=:username')
+            ->setLimit(1)
+            ->addParameter('username', $uUsername)
+            ->get()
+            ->row();
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
+    public function getByEmail($uEmail)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('users')
+            ->setFields('*')
+            ->setWhere('email=:email')
+            ->setLimit(1)
+            ->addParameter('email', $uEmail)
+            ->get()
+            ->row();
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
     public function insert($insert)
     {
         $tResult = $this->db->createQuery()

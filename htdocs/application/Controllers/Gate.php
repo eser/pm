@@ -3,6 +3,10 @@
 namespace App\Controllers;
 
 use Scabbia\Extensions\Auth\Auth;
+use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\I18n\I18n;
+use Scabbia\Extensions\Validation\Validation;
+use Scabbia\Request;
 use App\Includes\PmController;
 
 /**
@@ -41,18 +45,15 @@ class Gate extends PmController
         if (strpos($tLogin, '@') !== false) {
             Validation::addRule('login')->isEmail()->errorMessage(I18n::_('Lütfen e-posta adresinizi gözden geçirin.'));
         } else {
-            Validation::addRule('login')->isInteger()->errorMessage(
-                I18n::_('Lütfen telefon numaranızı gözden geçirin.')
-            );
-            Validation::addRule('login')->lengthMinimum(11)->errorMessage(
-                I18n::_('Telefon numaranız en az 11 karakter olmalıdır.')
+            Validation::addRule('login')->isRequired()->errorMessage(
+                I18n::_('Lütfen kullanıcı isminizi gözden geçirin.')
             );
         }
 
-        Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Şifreniz boş olamaz.'));
-        Validation::addRule('password')->lengthMinimum(6)->errorMessage(
-            I18n::_('Şifreniz en az 6 karakter olmalıdır.')
-        );
+        Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Parolanız boş olamaz.'));
+//        Validation::addRule('password')->lengthMinimum(6)->errorMessage(
+//            I18n::_('Şifreniz en az 6 karakter olmalıdır.')
+//        );
 
         if (!Validation::validate($_POST)) {
             $this->set('success', false);
@@ -64,16 +65,16 @@ class Gate extends PmController
         }
 
         // kullanici kontrolleri
-        $this->load('App\\Models\\userModel');
+        $this->load('App\\Models\\UserModel');
         if (strpos($tLogin, '@') !== false) {
             $user = $this->userModel->getByEmail($tLogin);
         } else {
-            $user = $this->userModel->getByPhone($tLogin);
+            $user = $this->userModel->getByUsername($tLogin);
         }
 
         if ($user === false) {
             $this->set('success', false);
-            $this->set('error', I18n::_('Invalid username.'));
+            $this->set('error', I18n::_('Invalid username or e-mail.'));
             $this->json();
 
             return;
