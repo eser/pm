@@ -1,43 +1,8 @@
 @{
-use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Http\Http;
-use Scabbia\Framework;
+use Scabbia\Extensions\Views\Views;
 }
-@Html::doctype('html5')
-<html>
-<head>
-    <title>PM</title>
-    <meta charset="utf-8" />
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-
-    <link rel="shortcut icon" href="@$root/favicon.ico" type="image/x-icon" />
-
-    <script type="text/javascript" src="@Http::url('scabbia.js?core')"></script>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/application.js')"></script>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/docs.js')"></script>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/docs_charts.js')"></script>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/documentation.js')"></script>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/prettify.js')"></script>
-
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/html5shiv.js')"></script>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/excanvas.js')"></script>
-    <script type="text/javascript" src="@Http::url('assets/javascripts/iefix.js')"></script>
-    <![endif]-->
-
-    <link type="text/css" href="@Http::url('scabbia.css?core')" rel="stylesheet" media="all" />
-    <link type="text/css" href="@Http::url('assets/stylesheets/application.css')" rel="stylesheet" media="screen" />
-    <link type="text/css" href="@Http::url('assets/stylesheets/prettify.css')" rel="stylesheet" media="screen" />
-    <!--[if lt IE 9]>
-    <link type="text/css" href="@Http::url('assets/stylesheets/iefix.css')" rel="stylesheet" media="screen" />
-    <![endif]-->
-</head>
-<body class="@$controller->route['controller']">
-
-	<script type="text/javascript">
-			$l.contentBegin('main', '@$root/');
-	</script>
+@Views::viewFile('{app}views/shared/header_plain.cshtml')
 
     <div id="modal" class="black-box modal hide fade">
         <div class="modal-header tab-header">

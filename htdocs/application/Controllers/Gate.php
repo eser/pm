@@ -13,9 +13,14 @@ class Gate extends PmController
     /**
      * @ignore
      */
+    public $authOnly = false;
+
+    /**
+     * @ignore
+     */
     public function login()
     {
-        Session::destroy();
+        Auth::clear();
 
         $this->view();
     }
@@ -25,7 +30,7 @@ class Gate extends PmController
      */
     public function postajax_login_json()
     {
-        Session::destroy();
+        Auth::clear();
 
         $tLogin = Request::post('login');
         $tPassword = Request::post('password');

@@ -1,0 +1,59 @@
+@{
+use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\I18n\I18n;
+use Scabbia\Extensions\Views\Views;
+use Scabbia\Request;
+}
+@Views::viewFile('{app}views/shared/header_plain.cshtml')
+
+
+<form method="POST" action="@Http::url('gate/login.json')" id="loginform">
+    <ul>
+        <li>
+            <div id="error" class="error"></div>
+        </li>
+        <li><input type="text" name="login" class="logininput" value="@Request::cookie('login', '')" placeholder="@I18n::_('Phone or E-mail')" /></li>
+        <li><input type="password" name="password" class="logininput" value="" placeholder="@I18n::_('Password')" /></li>
+        <li>
+            <div class="pull-right">
+                <a href="@Http::url('gate/resetPassword')" class="btn">@I18n::_('Password Reset')</a>
+                <input type="submit" name="login" value="@I18n::_('Sign in')" class="btn btn-primary" />
+            </div>
+        </li>
+    </ul>
+</form>
+
+<script type="text/javascript">
+$l.ready(function() {
+    var loginForm = $l('#loginform');
+    var loginInput = $l('.logininput', loginForm);
+
+    var loginCallback = function(data) {
+        if(data.success) {
+            location.href = data.redirection;
+        } else {
+            $('#error').html(data.error);
+            $('#error').fadeIn();
+        }
+
+        return false;
+    };
+
+    $l.dom.setEvent(
+        loginInput,
+        'change',
+        function(ev, element) {
+            $l.cookies.set('login', element.value);
+        }
+    );
+
+    $l.forms.ajaxForm(
+        loginForm,
+        loginCallback
+    );
+
+    loginInput.focus();
+});
+</script>
+
+@Views::viewFile('{app}views/shared/footer.cshtml')

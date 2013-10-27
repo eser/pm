@@ -2,11 +2,10 @@
 
 namespace App\Includes;
 
-use Scabbia\Extensions\I18n\I18n;
-use Scabbia\Extensions\LarouxJs\LarouxJs;
 use Scabbia\Extensions\Mvc\Controller;
 use Scabbia\Extensions\Database\Database;
-use Scabbia\Request;
+use Scabbia\Framework;
+use App\Includes\UserBindings;
 
 /**
  * @ignore
@@ -17,6 +16,11 @@ class PmController extends Controller
      * @ignore
      */
     public $authOnly = true;
+    /**
+     * @ignore
+     */
+    public $userBindings;
+
 
     /**
      * @ignore
@@ -35,5 +39,8 @@ class PmController extends Controller
      */
     public function defaultPrerender()
     {
+        $this->userBindings = UserBindings::get($this);
+
+        Framework::$variables['userBindings'] = $this->userBindings;
     }
 }
