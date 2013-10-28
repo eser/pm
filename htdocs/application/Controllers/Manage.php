@@ -19,6 +19,16 @@ class Manage extends PmController
     /**
      * @ignore
      */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->breadcrumbs['Manage'] = array(null, 'manage');
+    }
+
+    /**
+     * @ignore
+     */
     public function index()
     {
         // Auth::checkRedirect('user');

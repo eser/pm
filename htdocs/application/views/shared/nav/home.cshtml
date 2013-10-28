@@ -13,20 +13,7 @@ use Scabbia\Extensions\Http\Http;
 
         <div class="pull-left">
             <div class="title">
-                @$userBindings->user['name']
-            </div>
-            <div class="btn-group">
-                <button class="button mini inset black"><i class="icon-search"></i></button>
-                <button class="button mini inset black">Desktop</button>
-                <button class="button mini inset black dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
-                <ul class="dropdown-menu black-box-dropdown">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
-
+                @$controller->userBindings->user['name']
             </div>
         </div>
 

@@ -20,6 +20,10 @@ class PmController extends Controller
      * @ignore
      */
     public $userBindings;
+    /**
+     * @ignore
+     */
+    public $breadcrumbs;
 
 
     /**
@@ -32,6 +36,10 @@ class PmController extends Controller
         $this->loadDatasource('dbconn');
         $this->dbconn->errorHandling = Database::ERROR_EXCEPTION;
         $this->prerender->add(array(&$this, 'defaultPrerender'));
+
+        $this->breadcrumbs = array(
+            'Home' => array('icon-home', 'home')
+        );
     }
 
     /**
@@ -41,6 +49,7 @@ class PmController extends Controller
     {
         $this->userBindings = UserBindings::get($this);
 
-        Framework::$variables['userBindings'] = $this->userBindings;
+        // no need since 'controller' already has been registered to variables.
+        // Framework::$variables['userBindings'] = $this->userBindings;
     }
 }

@@ -19,6 +19,16 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->breadcrumbs['Projects'] = array(null, 'projects');
+    }
+
+    /**
+     * @ignore
+     */
     public function index($uPage = 1)
     {
         $tPageSize = 25;
@@ -231,6 +241,8 @@ class Projects extends PmController
         $tProject = $this->projectModel->get($uId);
 
         $this->set('project', $tProject);
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
 
         $this->view();
     }
