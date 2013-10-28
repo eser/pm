@@ -1,7 +1,7 @@
-DirectoryIndex index.php
+# DirectoryIndex index.php
 AddDefaultCharset UTF-8
 AddCharset utf-8 .css .js
-Options +FollowSymLinks -Indexes
+# Options +FollowSymLinks -Indexes
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
