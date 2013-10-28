@@ -8,8 +8,9 @@ use Scabbia\Extensions\Http\Http;
             <div class="row-fluid search-button-bar-container">
                 <div class="span12">
                     <ul class="breadcrumb">
+                        @{ $breadcrumbLength = count($controller->breadcrumbs); }
                         @foreach ($controller->breadcrumbs as $breadcrumbKey => $breadcrumb) {
-                            <li><a href="@Http::url($breadcrumb[1])">@{ if ($breadcrumb[0] !== null) { echo '<i class="' . $breadcrumb[0] . '"></i> '; } }@$breadcrumbKey</a></li>
+                            <li@{ if (--$breadcrumbLength === 0) { echo ' class="active"'; } }><a href="@Http::url($breadcrumb[1])">@{ if ($breadcrumb[0] !== null) { echo '<i class="' . $breadcrumb[0] . '"></i> '; } }@$breadcrumbKey</a></li>
                         }
                     </ul>
                     <a class="search-button-trigger" href="#"><i class="icon-search"></i></a>

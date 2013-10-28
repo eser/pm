@@ -129,6 +129,8 @@ class Projects extends PmController
         $this->set('data', $tData);
         $this->set('projectTypes', $tProjectTypes);
 
+        $this->breadcrumbs['Add Project'] = array(null, 'projects/add');
+
         $this->loadMenu();
         $this->view();
     }
@@ -197,6 +199,8 @@ class Projects extends PmController
         $this->set('id', $uId);
         $this->set('data', $tData);
         $this->set('projectTypes', $tProjectTypes);
+
+        $this->breadcrumbs['Edit Project'] = array(null, 'projects/edit/' . $uId);
 
         $this->loadMenu();
         $this->view();
