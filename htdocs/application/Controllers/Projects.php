@@ -244,6 +244,7 @@ class Projects extends PmController
 
         $tProject = $this->projectModel->get($uId);
 
+        $this->set('id', $uId);
         $this->set('project', $tProject);
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
@@ -251,6 +252,27 @@ class Projects extends PmController
         $this->view();
     }
 
+    /**
+     * @ignore
+     */
+    public function newtask($uId)
+    {
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uId);
+
+        $this->set('id', $uId);
+        $this->set('project', $tProject);
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
+        $this->breadcrumbs['New Task'] = array(null, 'projects/newtask/' . $tProject['id']);
+
+        $this->view();
+    }
+
+    /**
+     * @ignore
+     */
     private function loadMenu()
     {
         $this->load('App\\Models\\ProjectModel');

@@ -1,0 +1,31 @@
+@{
+use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Html;
+use Scabbia\Extensions\Helpers\String;
+use Scabbia\Extensions\Session\Session;
+use Scabbia\Extensions\Views\Views;
+use App\Includes\ViewHelpers;
+}
+@Views::viewFile('{app}views/shared/header.cshtml')
+@Views::viewFile('{app}views/shared/nav/project.cshtml', $model)
+
+<section id="main">
+@Views::viewFile('{app}views/shared/top_navigation.cshtml', $model)
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span6">
+                Test
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="footer">
+                    <div>2012 &copy; Plastique Admin Theme</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Views::viewFile('{app}views/shared/footer.cshtml')
