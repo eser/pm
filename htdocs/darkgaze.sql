@@ -27,7 +27,8 @@ DROP TABLE IF EXISTS `constants`;
 CREATE TABLE `constants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `type` enum('issue_type','project_type') NOT NULL,
+  `type` enum('task_type','project_type','open_task_type','closed_task_type') NOT NULL,
+  `constantscol` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +39,7 @@ CREATE TABLE `constants` (
 
 LOCK TABLES `constants` WRITE;
 /*!40000 ALTER TABLE `constants` DISABLE KEYS */;
-INSERT INTO `constants` VALUES (1,'Issue1','issue_type'),(3,'Project1','project_type');
+INSERT INTO `constants` VALUES (1,'Issue1','task_type',NULL),(3,'Project1','project_type',NULL);
 /*!40000 ALTER TABLE `constants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,97 +101,29 @@ INSERT INTO `groups` VALUES (1,'Developers');
 UNLOCK TABLES;
 
 --
--- Table structure for table `issue_rev`
+-- Table structure for table `milestone_task`
 --
 
-DROP TABLE IF EXISTS `issue_rev`;
+DROP TABLE IF EXISTS `milestone_task`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `issue_rev` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `issue` int(11) NOT NULL,
-  `rev` int(11) DEFAULT NULL,
-  `relation` enum('related','fixes','causes') DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `issue` (`id`),
-  KEY `fk_issue_rev_issue_idx` (`issue`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `issue_rev`
---
-
-LOCK TABLES `issue_rev` WRITE;
-/*!40000 ALTER TABLE `issue_rev` DISABLE KEYS */;
-/*!40000 ALTER TABLE `issue_rev` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `issues`
---
-
-DROP TABLE IF EXISTS `issues`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `issues` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `project` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
-  `subject` varchar(80) DEFAULT NULL,
-  `text` text,
-  `status` int(11) NOT NULL,
-  `priority` int(11) DEFAULT NULL,
-  `progress` int(11) DEFAULT NULL,
-  `start` datetime DEFAULT NULL,
-  `estimatedtime` int(11) DEFAULT NULL,
-  `end` datetime DEFAULT NULL,
-  `assignee` int(11) DEFAULT NULL,
-  `issues` int(11) DEFAULT NULL,
-  `section` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `issue_project` (`project`),
-  KEY `statetype` (`status`),
-  KEY `constant` (`type`),
-  KEY `assignee` (`assignee`),
-  KEY `issues` (`issues`),
-  KEY `section` (`section`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `issues`
---
-
-LOCK TABLES `issues` WRITE;
-/*!40000 ALTER TABLE `issues` DISABLE KEYS */;
-/*!40000 ALTER TABLE `issues` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `milestone_issue`
---
-
-DROP TABLE IF EXISTS `milestone_issue`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `milestone_issue` (
+CREATE TABLE `milestone_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `milestone` int(11) NOT NULL,
-  `issue` int(11) NOT NULL,
+  `task` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `milestone` (`milestone`),
-  KEY `issue` (`issue`)
+  KEY `issue` (`task`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `milestone_issue`
+-- Dumping data for table `milestone_task`
 --
 
-LOCK TABLES `milestone_issue` WRITE;
-/*!40000 ALTER TABLE `milestone_issue` DISABLE KEYS */;
-/*!40000 ALTER TABLE `milestone_issue` ENABLE KEYS */;
+LOCK TABLES `milestone_task` WRITE;
+/*!40000 ALTER TABLE `milestone_task` DISABLE KEYS */;
+/*!40000 ALTER TABLE `milestone_task` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -478,6 +411,74 @@ LOCK TABLES `statetypes` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `task_rev`
+--
+
+DROP TABLE IF EXISTS `task_rev`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `task_rev` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task` int(11) NOT NULL,
+  `rev` int(11) DEFAULT NULL,
+  `relation` enum('related','fixes','causes') DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `issue` (`id`),
+  KEY `fk_issue_rev_issue_idx` (`task`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `task_rev`
+--
+
+LOCK TABLES `task_rev` WRITE;
+/*!40000 ALTER TABLE `task_rev` DISABLE KEYS */;
+/*!40000 ALTER TABLE `task_rev` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tasks`
+--
+
+DROP TABLE IF EXISTS `tasks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `project` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `subject` varchar(80) DEFAULT NULL,
+  `text` text,
+  `status` int(11) NOT NULL,
+  `priority` int(11) DEFAULT NULL,
+  `progress` int(11) DEFAULT NULL,
+  `start` datetime DEFAULT NULL,
+  `estimatedtime` int(11) DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  `assignee` int(11) DEFAULT NULL,
+  `issues` int(11) DEFAULT NULL,
+  `section` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `issue_project` (`project`),
+  KEY `statetype` (`status`),
+  KEY `constant` (`type`),
+  KEY `assignee` (`assignee`),
+  KEY `issues` (`issues`),
+  KEY `section` (`section`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tasks`
+--
+
+LOCK TABLES `tasks` WRITE;
+/*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `timespent`
 --
 
@@ -575,4 +576,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-27  4:21:20
+-- Dump completed on 2013-10-29  2:20:23
