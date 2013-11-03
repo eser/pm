@@ -25,7 +25,7 @@ use App\Includes\ViewHelpers;
                     <div class="tab-header">New Task</div>
                     <div class="padded">
 
-                        <form class="fill-up" method="post" action="@Http::url('projects/newtask/' . $projectId)">
+                        <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/add')">
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="input">

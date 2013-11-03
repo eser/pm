@@ -270,6 +270,37 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    public function tasks($uProjectId, $uSubpage = 'index', $id = 0)
+    {
+        // Auth::checkRedirect('user');
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uProjectId);
+        if ($tProject === false) {
+            return false;
+        }
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
+        $this->breadcrumbs['Tasks'] = array(null, 'projects/tasks/' . $uProjectId);
+
+        $this->set('projectId', $uProjectId);
+
+        if ($uSubpage === 'index') {
+            return $this->tasks_index($uProjectId, $id);
+        } elseif ($uSubpage === 'add') {
+            return $this->tasks_add($uProjectId);
+        } elseif ($uSubpage === 'edit') {
+            return $this->tasks_edit($uProjectId, $id);
+        } elseif ($uSubpage === 'remove') {
+            return $this->tasks_remove($uProjectId, $id);
+        }
+
+        return false;
+    }
+
+    /**
+     * @ignore
+     */
     public function show($uId)
     {
         $this->load('App\\Models\\ProjectModel');
@@ -283,99 +314,6 @@ class Projects extends PmController
         $this->set('project', $tProject);
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
-
-        $this->view();
-    }
-
-    /**
-     * @ignore
-     */
-    public function newtask($uProjectId)
-    {
-        $this->load('App\\Models\\ProjectModel');
-
-        $tProject = $this->projectModel->get($uProjectId);
-        if ($tProject === false) {
-            return false;
-        }
-
-        if (Request::$method === 'post') {
-            $tData = array(
-                'type' => Request::post('type', null, null),
-                'section' => Request::post('section', null, null),
-                'subject' => Request::post('subject', null, null),
-                'description' => Request::post('description', null, null),
-                'status' => Request::post('status', null, null),
-                'priority' => Request::post('priority', null, null),
-                'assignee' => Request::post('assignee', null, null),
-                'startdate' => Request::post('startdate', null, null),
-                'enddate' => Request::post('enddate', null, null),
-                'estimatedtime' => Request::post('estimatedtime', null, null),
-
-                'created' => Date::toDb(time())
-            );
-
-            Validation::addRule('subject')->isRequired()->errorMessage(I18n::_('Subject field is required.'));
-            Validation::addRule('description')->isRequired()->errorMessage(I18n::_('Description field is required.'));
-            // TODO add more validators
-
-            if (!Validation::validate($tData)) {
-                Session::set(
-                    'alert',
-                    array(
-                        'error',
-                        implode('<br />', Validation::getErrorMessages(true))
-                    )
-                );
-            } else {
-                $this->load('App\\Models\\TaskModel');
-
-                $tId = $this->taskModel->insert($tData);
-
-                Session::set(
-                    'alert',
-                    array(
-                        'success',
-                        'Record added.'
-                    )
-                );
-
-                // redirect to newly created
-                Http::redirect('projects/show/' . $uProjectId, true);
-                return;
-            }
-        } else {
-            $tData = array(
-                'type' => '',
-                'section' => '',
-                'subject' => '',
-                'description' => '',
-                'status' => '',
-                'priority' => null,
-                'assignee' => '',
-                'startdate' => '',
-                'enddate' => '',
-                'estimatedtime' => ''
-            );
-        }
-
-        $this->set('projectId', $uProjectId);
-        $this->set('project', $tProject);
-        $this->set('data', $tData);
-
-        $this->load('App\\Models\\ConstantModel');
-        $tConstants = $this->constantModel->getConstants();
-        $this->set('constants', Arrays::categorize($tConstants, 'type'));
-
-        $this->load('App\\Models\\ProjectConstantModel');
-        $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
-        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type'));
-
-        $this->load('App\\Models\\UserModel');
-        $this->set('users', $this->userModel->getUsers());
-
-        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
-        $this->breadcrumbs['New Task'] = array(null, 'projects/newtask/' . $tProject['id']);
 
         $this->view();
     }
@@ -559,5 +497,122 @@ class Projects extends PmController
         // redirect to list
         Http::redirect('projects/constants/' . $uProjectId, true);
         return;
+    }
+
+    /**
+     * @ignore
+     */
+    public function tasks_index($uProjectId)
+    {
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uProjectId);
+        if ($tProject === false) {
+            return false;
+        }
+
+        $this->set('projectId', $uProjectId);
+        $this->set('project', $tProject);
+        $this->set('data', array());
+        $this->set('dataCount', 0);
+        $this->set('pageSize', 15);
+        $this->set('page', 1);
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
+
+        $this->view('projects/tasks/index.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    public function tasks_add($uProjectId)
+    {
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uProjectId);
+        if ($tProject === false) {
+            return false;
+        }
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'type' => Request::post('type', null, null),
+                'section' => Request::post('section', null, null),
+                'subject' => Request::post('subject', null, null),
+                'description' => Request::post('description', null, null),
+                'status' => Request::post('status', null, null),
+                'priority' => Request::post('priority', null, null),
+                'assignee' => Request::post('assignee', null, null),
+                'startdate' => Request::post('startdate', null, null),
+                'enddate' => Request::post('enddate', null, null),
+                'estimatedtime' => Request::post('estimatedtime', null, null),
+
+                'created' => Date::toDb(time())
+            );
+
+            Validation::addRule('subject')->isRequired()->errorMessage(I18n::_('Subject field is required.'));
+            Validation::addRule('description')->isRequired()->errorMessage(I18n::_('Description field is required.'));
+            // TODO add more validators
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->load('App\\Models\\TaskModel');
+
+                $tId = $this->taskModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record added.'
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('projects/show/' . $uProjectId, true);
+                return;
+            }
+        } else {
+            $tData = array(
+                'type' => '',
+                'section' => '',
+                'subject' => '',
+                'description' => '',
+                'status' => '',
+                'priority' => null,
+                'assignee' => '',
+                'startdate' => '',
+                'enddate' => '',
+                'estimatedtime' => ''
+            );
+        }
+
+        $this->set('projectId', $uProjectId);
+        $this->set('project', $tProject);
+        $this->set('data', $tData);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
+
+        $this->load('App\\Models\\ProjectConstantModel');
+        $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
+        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
+
+        $this->load('App\\Models\\UserModel');
+        $this->set('users', $this->userModel->getUsers());
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
+        $this->breadcrumbs['New Task'] = array(null, 'projects/tasks/' . $tProject['id'] . '/add');
+
+        $this->view('projects/tasks/add.cshtml');
     }
 }
