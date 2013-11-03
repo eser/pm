@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
@@ -47,16 +48,38 @@ use App\Includes\ViewHelpers;
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Subject</th>
                             <th>Type</th>
+                            <th>Section</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Assignee</th>
+                            <th>Estimated Time</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($data as $task) {
                         <tr class="gradeX">
-                            <td>@$task['name']</td>
-                            <td>@$types[$task['type']]</td>
+                            <td>@$task['subject']</td>
+                            <td>@$constants['task_type'][$task['type']]['name']</td>
+                            <td>@$projectConstants['section_type'][$task['section']]['name']</td>
+                            <td>@{
+                                if (isset($constants['open_task_type'][$task['status']])) {
+                                    echo $constants['open_task_type'][$task['status']]['name'];
+                                } elseif (isset($constants['closed_task_type'][$task['status']])) {
+                                    echo $constants['closed_task_type'][$task['status']]['name'];
+                                } else {
+                                    echo 'Unknown';
+                                }
+                            }</td>
+                            <td>@$constants['priority_type'][$task['priority']]['name']</td>
+                            <td>@Date::convert($task['startdate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
+                            <td>@Date::convert($task['enddate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
+                            <td>@$users[$task['assignee']]['name']</td>
+                            <td>@$task['estimatedtime'] Hours</td>
                             <td><div class="btn-group pull-right">
 
                                     <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $task['id'])" class="button blue">Edit</a>

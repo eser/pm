@@ -502,7 +502,7 @@ class Projects extends PmController
     /**
      * @ignore
      */
-    public function tasks_index($uProjectId)
+    public function tasks_index($uProjectId, $uPage = 1)
     {
         $this->load('App\\Models\\ProjectModel');
 
@@ -513,12 +513,32 @@ class Projects extends PmController
 
         $this->set('projectId', $uProjectId);
         $this->set('project', $tProject);
-        $this->set('data', array());
-        $this->set('dataCount', 0);
-        $this->set('pageSize', 15);
-        $this->set('page', 1);
 
-        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\TaskModel');
+
+        $this->set('data', $this->taskModel->getTasksWithPaging($tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->taskModel->getTasksCount());
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
+
+        $this->load('App\\Models\\ProjectConstantModel');
+        $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
+        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
+
+        $this->load('App\\Models\\UserModel');
+        $this->set('users', $this->userModel->getUsers());
 
         $this->view('projects/tasks/index.cshtml');
     }
@@ -537,16 +557,18 @@ class Projects extends PmController
 
         if (Request::$method === 'post') {
             $tData = array(
+                'project' => $uProjectId,
                 'type' => Request::post('type', null, null),
                 'section' => Request::post('section', null, null),
                 'subject' => Request::post('subject', null, null),
                 'description' => Request::post('description', null, null),
                 'status' => Request::post('status', null, null),
                 'priority' => Request::post('priority', null, null),
-                'assignee' => Request::post('assignee', null, null),
-                'startdate' => Request::post('startdate', null, null),
-                'enddate' => Request::post('enddate', null, null),
+                'progress' => '0',
+                'startdate' => Date::toDb(Request::post('startdate', null, null)),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
+                'enddate' => Date::toDb(Request::post('enddate', null, null)),
+                'assignee' => Request::post('assignee', null, null),
 
                 'created' => Date::toDb(time())
             );
@@ -577,21 +599,25 @@ class Projects extends PmController
                 );
 
                 // redirect to newly created
-                Http::redirect('projects/show/' . $uProjectId, true);
+                Http::redirect('projects/tasks/' . $uProjectId, true);
                 return;
             }
         } else {
             $tData = array(
+                'project' => $uProjectId,
                 'type' => '',
                 'section' => '',
                 'subject' => '',
                 'description' => '',
                 'status' => '',
                 'priority' => null,
-                'assignee' => '',
-                'startdate' => '',
+                'progress' => '',
+                'startdate' => Date::toDb(time()),
+                'estimatedtime' => '',
                 'enddate' => '',
-                'estimatedtime' => ''
+                'assignee' => '',
+
+                'created' => Date::toDb(time())
             );
         }
 
@@ -610,9 +636,117 @@ class Projects extends PmController
         $this->load('App\\Models\\UserModel');
         $this->set('users', $this->userModel->getUsers());
 
-        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
         $this->breadcrumbs['New Task'] = array(null, 'projects/tasks/' . $tProject['id'] . '/add');
 
         $this->view('projects/tasks/add.cshtml');
     }
+
+    /**
+     * @ignore
+     */
+    private function tasks_edit($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\TaskModel');
+
+        $tOriginalData = $this->taskModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'project' => $uProjectId,
+                'type' => Request::post('type', null, null),
+                'section' => Request::post('section', null, null),
+                'subject' => Request::post('subject', null, null),
+                'description' => Request::post('description', null, null),
+                'status' => Request::post('status', null, null),
+                'priority' => Request::post('priority', null, null),
+                'progress' => '0',
+                'startdate' => Date::toDb(Request::post('startdate', null, null)),
+                'estimatedtime' => Request::post('estimatedtime', null, null),
+                'enddate' => Date::toDb(Request::post('enddate', null, null)),
+                'assignee' => Request::post('assignee', null, null),
+
+                'created' => Date::toDb(time())
+            );
+
+            Validation::addRule('subject')->isRequired()->errorMessage(I18n::_('Subject field is required.'));
+            Validation::addRule('description')->isRequired()->errorMessage(I18n::_('Description field is required.'));
+            // TODO add more validators
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->taskModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record updated.'
+                    )
+                );
+            }
+        } else {
+            $tData = $tOriginalData;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
+
+        $this->load('App\\Models\\ProjectConstantModel');
+        $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
+        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
+
+        $this->load('App\\Models\\UserModel');
+        $this->set('users', $this->userModel->getUsers());
+
+        $this->breadcrumbs['Task Edit'] = array(null, 'projects/tasks/' . $uProjectId . '/edit/' . $uId);
+
+        $this->view('projects/tasks/edit.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function tasks_remove($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\TaskModel');
+
+        $tOriginalData = $this->taskModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->taskModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                'Record removed.'
+            )
+        );
+
+        // redirect to list
+        Http::redirect('projects/tasks/' . $uProjectId, true);
+        return;
+    }
+
 }

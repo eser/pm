@@ -22,10 +22,10 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box" style="position:relative;">
-                    <div class="tab-header">New Task</div>
+                    <div class="tab-header">Edit Task</div>
                     <div class="padded">
 
-                        <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/add')">
+                        <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/edit/' . $id)">
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="input">
@@ -99,7 +99,7 @@ use App\Includes\ViewHelpers;
                             </div>
                             <div class="form-actions">
                                 <div class="pull-right">
-                                    <button type="submit" class="button blue">Create</button>
+                                    <button type="submit" class="button blue">Update</button>
                                 </div>
                             </div>
                         </form>
