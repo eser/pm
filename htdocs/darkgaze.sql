@@ -25,11 +25,11 @@ CREATE TABLE `constants` (
   `name` varchar(30) NOT NULL,
   `type` enum('task_type','project_type','open_task_type','closed_task_type','priority_type') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `constants` */
 
-insert  into `constants`(`id`,`name`,`type`) values (1,'Issue1','task_type'),(3,'Project1','project_type');
+insert  into `constants`(`id`,`name`,`type`) values (1,'Improvement','task_type'),(3,'Web Project','project_type'),(4,'Low','priority_type'),(5,'Medium','priority_type'),(6,'High','priority_type'),(7,'Bugfix','task_type'),(8,'New','open_task_type'),(9,'Resolved','closed_task_type'),(10,'In Progress','open_task_type');
 
 /*Table structure for table `files` */
 
@@ -82,36 +82,6 @@ CREATE TABLE `issue_rev` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `issue_rev` */
-
-/*Table structure for table `issues` */
-
-DROP TABLE IF EXISTS `issues`;
-
-CREATE TABLE `issues` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `project` int(10) unsigned NOT NULL,
-  `type` int(10) unsigned NOT NULL,
-  `subject` varchar(80) DEFAULT NULL,
-  `text` text,
-  `status` int(10) unsigned NOT NULL,
-  `priority` int(10) unsigned DEFAULT NULL,
-  `progress` int(10) unsigned DEFAULT NULL,
-  `start` datetime DEFAULT NULL,
-  `estimatedtime` int(10) unsigned DEFAULT NULL,
-  `end` datetime DEFAULT NULL,
-  `assignee` int(10) unsigned DEFAULT NULL,
-  `issues` int(10) unsigned DEFAULT NULL,
-  `section` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `issue_project` (`project`),
-  KEY `statetype` (`status`),
-  KEY `constant` (`type`),
-  KEY `assignee` (`assignee`),
-  KEY `issues` (`issues`),
-  KEY `section` (`section`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `issues` */
 
 /*Table structure for table `milestone_issue` */
 
@@ -210,11 +180,11 @@ CREATE TABLE `project_constants` (
   `name` varchar(30) NOT NULL,
   `type` enum('section_type','milestone_type') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `project_constants` */
 
-insert  into `project_constants`(`id`,`project`,`name`,`type`) values (1,2,'Main','section_type'),(2,2,'Other','section_type'),(3,5,'Frontend','section_type'),(4,5,'Version 1.0','milestone_type');
+insert  into `project_constants`(`id`,`project`,`name`,`type`) values (1,2,'Frontend','section_type'),(2,2,'Other','section_type'),(5,2,'Version 1.0','milestone_type');
 
 /*Table structure for table `project_user` */
 
@@ -319,6 +289,37 @@ CREATE TABLE `statetypes` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `statetypes` */
+
+/*Table structure for table `tasks` */
+
+DROP TABLE IF EXISTS `tasks`;
+
+CREATE TABLE `tasks` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `project` int(10) unsigned NOT NULL,
+  `type` int(10) unsigned NOT NULL,
+  `section` int(10) unsigned NOT NULL,
+  `subject` varchar(80) NOT NULL,
+  `description` text NOT NULL,
+  `status` int(10) unsigned NOT NULL,
+  `priority` int(10) unsigned NOT NULL,
+  `progress` int(10) unsigned NOT NULL,
+  `startdate` datetime NOT NULL,
+  `estimatedtime` int(10) unsigned NOT NULL,
+  `enddate` datetime NOT NULL,
+  `assignee` int(10) unsigned NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `issue_project` (`project`),
+  KEY `statetype` (`status`),
+  KEY `constant` (`type`),
+  KEY `assignee` (`assignee`),
+  KEY `section` (`section`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tasks` */
+
+insert  into `tasks`(`id`,`project`,`type`,`section`,`subject`,`description`,`status`,`priority`,`progress`,`startdate`,`estimatedtime`,`enddate`,`assignee`,`created`) values (2,2,1,1,'Redesign','it\'s a must.',10,5,0,'2012-01-20 04:01:25',4,'1999-11-30 00:00:00',1,'2013-11-04 01:26:19');
 
 /*Table structure for table `timespent` */
 
