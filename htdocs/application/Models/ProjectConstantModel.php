@@ -28,6 +28,7 @@ class ProjectConstantModel extends Model
             ->addField('*')
             ->addParameter('project', $uProjectId)
             ->setWhere(['project=:project'])
+            ->setOrderBy('type ASC')
             ->get()
             ->allWithKey('id');
     }
@@ -58,6 +59,7 @@ class ProjectConstantModel extends Model
             ->setLimit($uLimit)
             ->addParameter('project', $uProjectId)
             ->setWhere(['project=:project'])
+            ->setOrderBy('type ASC')
             ->get()
             ->all();
 

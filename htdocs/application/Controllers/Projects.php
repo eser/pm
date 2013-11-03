@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Scabbia\Extensions\Helpers\Arrays;
 use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Validation\Validation;
 use Scabbia\Extensions\I18n\I18n;
@@ -241,7 +242,14 @@ class Projects extends PmController
     public function constants($uProjectId, $uSubpage = 'index', $id = 0)
     {
         // Auth::checkRedirect('user');
+        $this->load('App\\Models\\ProjectModel');
 
+        $tProject = $this->projectModel->get($uProjectId);
+        if ($tProject === false) {
+            return false;
+        }
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
         $this->breadcrumbs['Constants'] = array(null, 'projects/constants/' . $uProjectId);
 
         $this->set('projectId', $uProjectId);
@@ -267,6 +275,9 @@ class Projects extends PmController
         $this->load('App\\Models\\ProjectModel');
 
         $tProject = $this->projectModel->get($uId);
+        if ($tProject === false) {
+            return false;
+        }
 
         $this->set('projectId', $uId);
         $this->set('project', $tProject);
@@ -289,7 +300,12 @@ class Projects extends PmController
         $this->set('project', $tProject);
 
         $this->load('App\\Models\\ConstantModel');
-        $this->set('types', $this->constantModel->getConstantsByType('task_type'));
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type'));
+
+        $this->load('App\\Models\\ProjectConstantModel');
+        $tProjectConstants = $this->projectConstantModel->getConstants($uId);
+        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type'));
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
         $this->breadcrumbs['New Task'] = array(null, 'projects/newtask/' . $tProject['id']);
@@ -474,7 +490,7 @@ class Projects extends PmController
         );
 
         // redirect to list
-        Http::redirect('projects/constants', true);
+        Http::redirect('projects/constants/' . $uProjectId, true);
         return;
     }
 }
