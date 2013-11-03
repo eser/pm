@@ -7,7 +7,7 @@ use Scabbia\Extensions\Views\Views;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
-@Views::viewFile('{app}views/shared/nav/manage.cshtml', $model)
+@Views::viewFile('{app}views/shared/nav/project.cshtml', $model)
 
 <section id="main">
 @Views::viewFile('{app}views/shared/top_navigation.cshtml', $model)
@@ -23,14 +23,14 @@ use App\Includes\ViewHelpers;
 
                 <div class="box">
                     <div class="tab-header"> Constant Add </div>
-                    <form class="fill-up" method="post" action="@Http::url('manage/constants/add')">
+                    <form class="fill-up" method="post" action="@Http::url('projects/constants/' . $projectId . '/add')">
                         <div class="row-fluid">
                             <div class="span12">
                                 <div style="padding-right:12px;">
 
                                     <div class="btn-group pull-right">
 
-                                        <a href="@Http::url('manage/constants')" class="button blue">Constant List</a>
+                                        <a href="@Http::url('projects/constants/' . $projectId)" class="button blue">Constant List</a>
 
                                     </div>
                                 </div>

@@ -196,7 +196,7 @@ class Projects extends PmController
             $tData = $tOriginalData;
         }
 
-        $this->set('id', $uId);
+        $this->set('projectId', $uId);
         $this->set('data', $tData);
         $this->set('projectTypes', $tProjectTypes);
 
@@ -238,13 +238,37 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    public function constants($uProjectId, $uSubpage = 'index', $id = 0)
+    {
+        // Auth::checkRedirect('user');
+
+        $this->breadcrumbs['Constants'] = array(null, 'projects/constants/' . $uProjectId);
+
+        $this->set('projectId', $uProjectId);
+
+        if ($uSubpage === 'index') {
+            return $this->constants_index($uProjectId, $id);
+        } elseif ($uSubpage === 'add') {
+            return $this->constants_add($uProjectId);
+        } elseif ($uSubpage === 'edit') {
+            return $this->constants_edit($uProjectId, $id);
+        } elseif ($uSubpage === 'remove') {
+            return $this->constants_remove($uProjectId, $id);
+        }
+
+        return false;
+    }
+
+    /**
+     * @ignore
+     */
     public function show($uId)
     {
         $this->load('App\\Models\\ProjectModel');
 
         $tProject = $this->projectModel->get($uId);
 
-        $this->set('id', $uId);
+        $this->set('projectId', $uId);
         $this->set('project', $tProject);
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
@@ -261,8 +285,11 @@ class Projects extends PmController
 
         $tProject = $this->projectModel->get($uId);
 
-        $this->set('id', $uId);
+        $this->set('projectId', $uId);
         $this->set('project', $tProject);
+
+        $this->load('App\\Models\\ConstantModel');
+        $this->set('types', $this->constantModel->getConstantsByType('task_type'));
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
         $this->breadcrumbs['New Task'] = array(null, 'projects/newtask/' . $tProject['id']);
@@ -284,5 +311,170 @@ class Projects extends PmController
         }
 
         $this->set('projects', $tProjects);
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_index($uProjectId, $uPage = 1)
+    {
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        $this->set('data', $this->projectConstantModel->getConstantsWithPaging($uProjectId, $tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->projectConstantModel->getConstantsCount($uProjectId));
+
+        $this->set('types', $this->projectConstantModel->types);
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->view('projects/constants/index.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_add($uProjectId)
+    {
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'type' => Request::post('type', null, null),
+                'project' => $uProjectId
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('type')->inKeys($this->projectConstantModel->types)->errorMessage(I18n::_('Invalid type.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $tId = $this->projectConstantModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record added.'
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('projects/constants/' . $uProjectId . '/edit/' . $tId, true);
+                return;
+            }
+        } else {
+            $tData = array(
+                'name' => '',
+                'type' => ''
+            );
+        }
+
+        $this->set('data', $tData);
+        $this->set('types', $this->projectConstantModel->types);
+
+        $this->breadcrumbs['Constants Add'] = array(null, 'projects/constants/' . $uProjectId . '/add');
+
+        $this->view('projects/constants/add.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_edit($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        $tOriginalData = $this->projectConstantModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'type' => Request::post('type', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('type')->inKeys($this->projectConstantModel->types)->errorMessage(I18n::_('Invalid type.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->projectConstantModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        'Record updated.'
+                    )
+                );
+            }
+        } else {
+            $tData = $tOriginalData;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+        $this->set('types', $this->projectConstantModel->types);
+
+        $this->breadcrumbs['Constants Edit'] = array(null, 'projects/constants/' . $uProjectId . '/edit/' . $uId);
+
+        $this->view('projects/constants/edit.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function constants_remove($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        $tOriginalData = $this->projectConstantModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->projectConstantModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                'Record removed.'
+            )
+        );
+
+        // redirect to list
+        Http::redirect('projects/constants', true);
+        return;
     }
 }

@@ -23,8 +23,9 @@ use Scabbia\Extensions\Http\Http;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('projects/show/' . $id)"><i class="icon-bar-chart"></i> Overview</a></li>
-        <li><a href="@Http::url('projects/newtask/' . $id)"><i class="icon-share"></i> New Task</a></li>
+        <li><a href="@Http::url('projects/show/' . $projectId)"><i class="icon-bar-chart"></i> Overview</a></li>
+        <li><a href="@Http::url('projects/newtask/' . $projectId)"><i class="icon-share"></i> New Task</a></li>
+        <li><a href="@Http::url('projects/constants/' . $projectId)"><i class="icon-list"></i> Constants</a></li>
         <!--
         <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Tasks</a></li>
         <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Roadmap</a></li>

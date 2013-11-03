@@ -7,28 +7,27 @@ use Scabbia\Extensions\Models\Model;
 /**
  * @ignore
  */
-class ConstantModel extends Model
+class ProjectConstantModel extends Model
 {
     /**
      * @ignore
      */
     public $types = array(
-        'task_type' => 'Task Type',
-        'project_type' => 'Project Type',
-        'open_task_type' => 'Open Task Type',
-        'closed_task_type' => 'Closed Task Type',
-        'priority_type' => 'Priority Type'
+        'milestone_type' => 'Milestone',
+        'section_type' => 'Section'
     );
 
 
     /**
      * @ignore
      */
-    public function getConstants()
+    public function getConstants($uProjectId)
     {
         return $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->addField('*')
+            ->addParameter('project', $uProjectId)
+            ->setWhere(['project=:project'])
             ->get()
             ->allWithKey('id');
     }
@@ -36,11 +35,13 @@ class ConstantModel extends Model
     /**
      * @ignore
      */
-    public function getConstantsCount()
+    public function getConstantsCount($uProjectId)
     {
         return $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->addField('COUNT(0)')
+            ->addParameter('project', $uProjectId)
+            ->setWhere(['project=:project'])
             ->get()
             ->scalar();
     }
@@ -48,13 +49,15 @@ class ConstantModel extends Model
     /**
      * @ignore
      */
-    public function getConstantsWithPaging($uOffset = 0, $uLimit = 20)
+    public function getConstantsWithPaging($uProjectId, $uOffset = 0, $uLimit = 20)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->setFields('*')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
+            ->addParameter('project', $uProjectId)
+            ->setWhere(['project=:project'])
             ->get()
             ->all();
 
@@ -64,13 +67,14 @@ class ConstantModel extends Model
     /**
      * @ignore
      */
-    public function getConstantsByType($uType)
+    public function getConstantsByType($uProjectId, $uType)
     {
         return $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->addField('*')
             ->addParameter('type', $uType)
-            ->setWhere(['type=:type'])
+            ->addParameter('project', $uProjectId)
+            ->setWhere(['project=:project', _AND, 'type=:type'])
             ->get()
             ->allWithKey('id');
     }
@@ -81,7 +85,7 @@ class ConstantModel extends Model
     public function get($uId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->setFields('*')
             ->setWhere('id=:id')
             ->setLimit(1)
@@ -98,7 +102,7 @@ class ConstantModel extends Model
     public function insert($insert)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->setFields($insert)
             ->insert()
             ->execute(true);
@@ -112,7 +116,7 @@ class ConstantModel extends Model
     public function update($id, $update)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->setFields($update)
             ->addParameter('id', $id)
             ->setWhere('id=:id')
@@ -129,7 +133,7 @@ class ConstantModel extends Model
     public function delete($uId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_constants')
             ->setWhere('id=:id')
             ->addParameter('id', $uId)
             ->setLimit(1)
