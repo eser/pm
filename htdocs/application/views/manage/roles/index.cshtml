@@ -89,7 +89,7 @@ use App\Includes\ViewHelpers;
 </section>
 
 <script type="text/javascript">
-    $l.ready(
+    $l.ready(function() {
         $l.dom.setEvent(
             $l(['.remove-button']),
             'click',
@@ -99,7 +99,7 @@ use App\Includes\ViewHelpers;
                 }
             }
         )
-    );
+    });
 </script>
 
 @Views::viewFile('{app}views/shared/footer.cshtml')

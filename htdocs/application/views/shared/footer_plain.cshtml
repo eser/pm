@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Logger\QuickProfiler;
+use Scabbia\Extensions\Http\Http;
 }
 
     @{ QuickProfiler::init(); }
@@ -27,6 +28,13 @@ use Scabbia\Extensions\Logger\QuickProfiler;
                 }
             }
         );
+
+        $l.ready(function() {
+            $('.cleditor').cleditor({
+                docCSSFile: [ '@Http::url('scabbia/jquery.cleditor/jquery.cleditor.css')' ],
+                width: '100%'
+            });
+        });
 
         $l.contentEnd();
     </script>
