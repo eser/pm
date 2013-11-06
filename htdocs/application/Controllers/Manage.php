@@ -31,11 +31,6 @@ class Manage extends PmController
     {
         // Auth::checkRedirect('user');
 
-        $this->load('App\\Models\\HomeModel');
-
-        $tWelcomeText = $this->homeModel->getWelcomeText();
-        $this->set('welcomeText', $tWelcomeText);
-        
         $this->view();
     }
 
