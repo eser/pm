@@ -57,7 +57,7 @@ class GroupModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('groups')
             ->setFields('*')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->addParameter('id', $uId)
             ->get()
@@ -89,7 +89,7 @@ class GroupModel extends Model
             ->setTable('groups')
             ->setFields($update)
             ->addParameter('id', $id)
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->update()
             ->execute();
@@ -104,7 +104,7 @@ class GroupModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('groups')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->addParameter('id', $uId)
             ->setLimit(1)
             ->delete()

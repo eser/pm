@@ -27,7 +27,7 @@ class ProjectConstantModel extends Model
             ->setTable('project_constants')
             ->addField('*')
             ->addParameter('project', $uProjectId)
-            ->setWhere(['project=:project'])
+            ->setWhere(array('project=:project'))
             ->setOrderBy('type ASC')
             ->get()
             ->allWithKey('id');
@@ -42,7 +42,7 @@ class ProjectConstantModel extends Model
             ->setTable('project_constants')
             ->addField('COUNT(0)')
             ->addParameter('project', $uProjectId)
-            ->setWhere(['project=:project'])
+            ->setWhere(array('project=:project'))
             ->get()
             ->scalar();
     }
@@ -58,7 +58,7 @@ class ProjectConstantModel extends Model
             ->setOffset($uOffset)
             ->setLimit($uLimit)
             ->addParameter('project', $uProjectId)
-            ->setWhere(['project=:project'])
+            ->setWhere(array('project=:project'))
             ->setOrderBy('type ASC')
             ->get()
             ->all();
@@ -76,7 +76,7 @@ class ProjectConstantModel extends Model
             ->addField('*')
             ->addParameter('type', $uType)
             ->addParameter('project', $uProjectId)
-            ->setWhere(['project=:project', _AND, 'type=:type'])
+            ->setWhere(array('project=:project', _AND, 'type=:type'))
             ->get()
             ->allWithKey('id');
     }
@@ -89,7 +89,7 @@ class ProjectConstantModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('project_constants')
             ->setFields('*')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->addParameter('id', $uId)
             ->get()
@@ -121,7 +121,7 @@ class ProjectConstantModel extends Model
             ->setTable('project_constants')
             ->setFields($update)
             ->addParameter('id', $id)
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->update()
             ->execute();
@@ -136,7 +136,7 @@ class ProjectConstantModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('project_constants')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->addParameter('id', $uId)
             ->setLimit(1)
             ->delete()

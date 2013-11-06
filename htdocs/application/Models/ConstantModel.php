@@ -72,7 +72,7 @@ class ConstantModel extends Model
             ->setTable('constants')
             ->addField('*')
             ->addParameter('type', $uType)
-            ->setWhere(['type=:type'])
+            ->setWhere(array('type=:type'))
             ->get()
             ->allWithKey('id');
     }
@@ -85,7 +85,7 @@ class ConstantModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('constants')
             ->setFields('*')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->addParameter('id', $uId)
             ->get()
@@ -117,7 +117,7 @@ class ConstantModel extends Model
             ->setTable('constants')
             ->setFields($update)
             ->addParameter('id', $id)
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->update()
             ->execute();
@@ -132,7 +132,7 @@ class ConstantModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('constants')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->addParameter('id', $uId)
             ->setLimit(1)
             ->delete()

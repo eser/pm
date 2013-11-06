@@ -57,7 +57,7 @@ class UserModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('users')
             ->setFields('*')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->addParameter('id', $uId)
             ->get()
@@ -74,7 +74,7 @@ class UserModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('users')
             ->setFields('*')
-            ->setWhere('username=:username')
+            ->setWhere(array('username=:username'))
             ->setLimit(1)
             ->addParameter('username', $uUsername)
             ->get()
@@ -91,7 +91,7 @@ class UserModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('users')
             ->setFields('*')
-            ->setWhere('email=:email')
+            ->setWhere(array('email=:email'))
             ->setLimit(1)
             ->addParameter('email', $uEmail)
             ->get()
@@ -123,7 +123,7 @@ class UserModel extends Model
             ->setTable('users')
             ->setFields($update)
             ->addParameter('id', $id)
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->update()
             ->execute();
@@ -138,7 +138,7 @@ class UserModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('users')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->addParameter('id', $uId)
             ->setLimit(1)
             ->delete()
@@ -155,7 +155,7 @@ class UserModel extends Model
         return $this->db->createQuery()
             ->setTable('user_group')
             ->setFields('groupid')
-            ->setWhere('userid=:userid')
+            ->setWhere(array('userid=:userid'))
             ->addParameter('userid', $uId)
             ->get()
             ->column('groupid');
@@ -187,7 +187,7 @@ class UserModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('user_group')
-            ->setWhere('userid=:userid')
+            ->setWhere(array('userid=:userid'))
             ->addParameter('userid', $uId)
             ->delete()
             ->execute();

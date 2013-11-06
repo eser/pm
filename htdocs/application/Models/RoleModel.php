@@ -57,7 +57,7 @@ class RoleModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('siteroles')
             ->setFields('*')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->addParameter('id', $uId)
             ->get()
@@ -89,7 +89,7 @@ class RoleModel extends Model
             ->setTable('siteroles')
             ->setFields($update)
             ->addParameter('id', $id)
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->update()
             ->execute();
@@ -104,7 +104,7 @@ class RoleModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('siteroles')
-            ->setWhere('id=:id')
+            ->setWhere(array('id=:id'))
             ->addParameter('id', $uId)
             ->setLimit(1)
             ->delete()
