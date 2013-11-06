@@ -12,11 +12,13 @@ class TaskModel extends Model
     /**
      * @ignore
      */
-    public function getTasks()
+    public function getTasks($uProjectId)
     {
         return $this->db->createQuery()
             ->setTable('tasks')
             ->addField('*')
+            ->setWhere(array('project=:projectid'))
+            ->addParameter('projectid', $uProjectId)
             ->get()
             ->allWithKey('id');
     }
@@ -24,11 +26,13 @@ class TaskModel extends Model
     /**
      * @ignore
      */
-    public function getTasksCount()
+    public function getTasksCount($uProjectId)
     {
         return $this->db->createQuery()
             ->setTable('tasks')
             ->addField('COUNT(0)')
+            ->setWhere(array('project=:projectid'))
+            ->addParameter('projectid', $uProjectId)
             ->get()
             ->scalar();
     }
@@ -36,13 +40,15 @@ class TaskModel extends Model
     /**
      * @ignore
      */
-    public function getTasksWithPaging($uOffset = 0, $uLimit = 20)
+    public function getTasksWithPaging($uProjectId, $uOffset = 0, $uLimit = 20)
     {
         $tResult = $this->db->createQuery()
             ->setTable('tasks')
             ->setFields('*')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
+            ->setWhere(array('project=:projectid'))
+            ->addParameter('projectid', $uProjectId)
             ->get()
             ->all();
 

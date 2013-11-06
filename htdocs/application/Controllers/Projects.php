@@ -523,8 +523,8 @@ class Projects extends PmController
 
         $this->load('App\\Models\\TaskModel');
 
-        $this->set('data', $this->taskModel->getTasksWithPaging($tPage * $tPageSize, $tPageSize));
-        $this->set('dataCount', $this->taskModel->getTasksCount());
+        $this->set('data', $this->taskModel->getTasksWithPaging($uProjectId, $tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->taskModel->getTasksCount($uProjectId));
 
         $this->set('pageSize', $tPageSize);
         $this->set('page', $tPage);
