@@ -52,6 +52,22 @@ class TaskModel extends Model
     /**
      * @ignore
      */
+    public function getTasksOf($uUserId)
+    {
+        return $this->db->createQuery()
+            ->setTable('tasks t')
+            ->joinTable('projects p', 'p.id=t.project', 'LEFT')
+            ->addField('t.*, p.name AS projectname, p.title AS projecttitle')
+            ->setWhere(array('t.assignee=:assignee'))
+            ->setGroupBy('t.id')
+            ->addParameter('assignee', $uUserId)
+            ->get()
+            ->allWithKey('id');
+    }
+
+    /**
+     * @ignore
+     */
     public function get($uId)
     {
         $tResult = $this->db->createQuery()

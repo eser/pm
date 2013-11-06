@@ -17,6 +17,18 @@ class ProjectConstantModel extends Model
         'section_type' => 'Section'
     );
 
+    /**
+     * @ignore
+     */
+    public function getAllConstants()
+    {
+        return $this->db->createQuery()
+            ->setTable('project_constants')
+            ->addField('*')
+            ->setOrderBy('type ASC')
+            ->get()
+            ->allWithKey('id');
+    }
 
     /**
      * @ignore

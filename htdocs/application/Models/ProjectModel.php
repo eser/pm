@@ -52,6 +52,22 @@ class ProjectModel extends Model
     /**
      * @ignore
      */
+    public function getProjectsOf($uUserId)
+    {
+        return $this->db->createQuery()
+            ->setTable('projects p')
+            ->joinTable('tasks t', 't.project=p.id', 'LEFT')
+            ->addField('p.*, COUNT(t.id) AS taskcount')
+            ->setWhere(array('t.assignee=:assignee'))
+            ->setGroupBy('p.id')
+            ->addParameter('assignee', $uUserId)
+            ->get()
+            ->allWithKey('id');
+    }
+
+    /**
+     * @ignore
+     */
     public function get($uId)
     {
         $tResult = $this->db->createQuery()
