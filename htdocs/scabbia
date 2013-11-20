@@ -9,18 +9,18 @@ if ($argc < 2) {
 	throw new RuntimeException('scabbia needs a command to run.');
 }
 
-if (isset($_SERVER['_'])) {
-	$tPhpPath = $_SERVER['_'];
-} else {
-	$tPhpPath = 'php';
-}
+// if (isset($_SERVER['_'])) {
+//	$tPhpCmd = $_SERVER['_'];
+// } else {
+	$tPhpCmd = 'php -dsafe_mode=0';
+// }
 
 if ($argv[1] === 'update') {
 	if (!file_exists('composer.phar')) {
-		passthru($tPhpPath . ' -dsafe_mode=0 -r "eval(\'?' . '>\' . file_get_contents(\'https://getcomposer.org/installer\'));"');
+		passthru($tPhpCmd . ' -r "eval(\'?' . '>\' . file_get_contents(\'https://getcomposer.org/installer\'));"');
 	}
 	
-	$tComposerCmd = $tPhpPath . ' composer.phar';
+	$tComposerCmd = $tPhpCmd . ' composer.phar';
 
 	if (file_exists('vendor')) {
 		passthru($tComposerCmd . ' update');
