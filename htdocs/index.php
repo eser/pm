@@ -8,14 +8,15 @@ $loader = require($scabbiaLoader);
 
 if (defined('SCABBIA_PATH') && SCABBIA_PATH !== false) {
     $loader->set('Scabbia', SCABBIA_PATH);
-// } elseif (file_exists($scabbiaPath = __DIR__ . '/../../scabbia-dev/src')) {
+// } elseif (file_exists($scabbiaPath = __DIR__ . '/../scabbia-dev/src')) {
 //     define('SCABBIA_PATH', $scabbiaPath);
 //     $loader->set('Scabbia', $scabbiaPath);
 }
 
 use Scabbia\Framework;
 
-Framework::$development = false;
+Framework::$development = true;
+// Framework::$disableCaches = true;
 Framework::load($loader);
 
 Framework::addApplication('App', 'application/');

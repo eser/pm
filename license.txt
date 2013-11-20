@@ -1,4 +1,4 @@
-Scabbia PHP Framework: Skeleton Application
+Project Management Tool
 Copyright (C) 2012  Eser 'Laroux' Ozvataf <eser@sent.com>
 
 This program is free software: you can redistribute it and/or modify

@@ -17,7 +17,7 @@ if (isset($_SERVER['_'])) {
 
 if ($argv[1] === 'update') {
 	if (!file_exists('composer.phar')) {
-		passthru($tPhpPath . ' -r "eval(\'?' . '>\' . file_get_contents(\'https://getcomposer.org/installer\'));"');
+		passthru($tPhpPath . ' -dsafe_mode=0 -r "eval(\'?' . '>\' . file_get_contents(\'https://getcomposer.org/installer\'));"');
 	}
 	
 	$tComposerCmd = $tPhpPath . ' composer.phar';
