@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+if (PHP_SAPI != 'cli') {
+    throw new RuntimeException('scabbia only runs under Command Line Interface (CLI).');
+}
+
+if ($argc < 2) {
+	throw new RuntimeException('scabbia needs a command to run.');
+}
+
+if (isset($_SERVER['_'])) {
+	$tPhpPath = $_SERVER['_'];
+} else {
+	$tPhpPath = 'php';
+}
+
+if ($argv[1] === 'update') {
+	if (!file_exists('composer.phar')) {
+		passthru($tPhpPath . ' -r "eval(\'?' . '>\' . file_get_contents(\'https://getcomposer.org/installer\'));"');
+	}
+	
+	$tComposerCmd = $tPhpPath . ' composer.phar';
+
+	if (file_exists('vendor')) {
+		passthru($tComposerCmd . ' update');
+	} else {
+		passthru($tComposerCmd . ' install');
+	}
+	
+	exit;
+}
+
+throw new RuntimeException('invalid command - ' . $argv[1]);

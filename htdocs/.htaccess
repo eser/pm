@@ -2,31 +2,22 @@
 AddDefaultCharset UTF-8
 AddCharset utf-8 .css .js
 # Options +FollowSymLinks -Indexes
+Options -MultiViews
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
 
-	#AllowOverride All
 	#RewriteBase /
 
 	# SEO optimization for sites.
-	# RewriteCond %{HTTPS} off
 	# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-	# RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+	# RewriteRule ^ //%1%{REQUEST_URI} [R=301,L]
 
-	# RewriteCond %{HTTPS} on
-	# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-	# RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
-
-	# Keep people out of framework directory
-	RedirectMatch 403 ^/(application).*$
-
-	# Keep people out of scc data
-	RewriteRule (^\.|/\.|^web.config|/web.config) - [NC,F]
+	# Keep people out of framework files and scc data
+	RewriteRule (^\.|/\.|^web.config|/web.config|^scabbia|/scabbia|^composer.json|/composer.json|^composer.lock|/composer.lock|^application/?$|^application/.+$|^vendor/?$|^vendor/.+$) - [NC,F]
 
 	# Send request via index.php (again, not if its a real file or folder)
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	# RewriteCond %{URL} !^/favicon.ico$
-	RewriteRule ^(.*)$ index.php?$1 [QSA,L,PT,NE]
+	RewriteRule ^ index.php [L]
 </IfModule>
