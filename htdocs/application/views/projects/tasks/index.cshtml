@@ -53,10 +53,7 @@ use App\Includes\ViewHelpers;
                             <th>Section</th>
                             <th>Status</th>
                             <th>Priority</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
                             <th>Assignee</th>
-                            <th>Estimated Time</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -76,14 +73,6 @@ use App\Includes\ViewHelpers;
                                 }
                             }</td>
                             <td>@$constants['priority_type'][$task['priority']]['name']</td>
-                            <td>@Date::convert($task['startdate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
-                            <td>@{
-                                if (Date::fromDb($task['enddate']) <= 943945200) {
-                                    echo '-';
-                                } else {
-                                    echo Date::convert($task['enddate'], 'Y-m-d H:i:s', 'd/m/Y');
-                                }
-                            }</td>
                             <td>@{
                                 if ($task['assignee'] === '0') {
                                     echo '(Unassigned)';
@@ -91,14 +80,10 @@ use App\Includes\ViewHelpers;
                                     echo $users[$task['assignee']]['name'];
                                 }
                             }</td>
-                            <td>@$task['estimatedtime'] Hours</td>
                             <td><div class="btn-group pull-right">
-
-                                    <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $task['id'])" class="button blue">Edit</a>
-
-                                    <a href="@Http::url('projects/tasks/' . $projectId . '/remove/' . $task['id'])" class="remove-button button red">Delete</a>
-
-                                </div></td>
+                                    <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $task['id'])" class="button blue"><small>Edit</small></a>
+                                    <a href="@Http::url('projects/tasks/' . $projectId . '/remove/' . $task['id'])" class="remove-button button red"><small>Del</small></a>
+                            </div></td>
                         </tr>
                         }
                         </tbody>

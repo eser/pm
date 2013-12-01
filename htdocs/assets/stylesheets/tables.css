@@ -1,6 +1,6 @@
 /* line 4, tables.css.scss */
 table.box {
-  background-color: #FAFAFA; }
+  background-color: #FAFAFA; font-size:11px;}
   /* line 8, tables.css.scss */
   table.box thead, table.box tfoot {
     background: #e5e5e5;
