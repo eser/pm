@@ -163,12 +163,24 @@
   })();
 
   $(function() {
-    $("html, body").off("touchstart");
+      $.datepicker.setDefaults({
+          "dateFormat": "dd/mm/yy"
+      });
+
+      $('.tablesorter').tablesorter({
+          widgets : [],
+          disableSortingOnLastColumn : true
+      });
+
+      $(".chzn-select").chosen({
+          "disable_search_threshold": 10
+      });
+
+      $("html, body").off("touchstart");
     $("#modal-link").click(function() {
       return $('#modal').modal();
     });
     $('.input-error').tooltip();
-    $(".chzn-select").chosen();
     $('textarea.tagme').tagify();
     new Faq($(".faq-list"));
     $('#datetimepicker').datepicker();

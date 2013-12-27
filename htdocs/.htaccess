@@ -2,7 +2,7 @@
 AddDefaultCharset UTF-8
 AddCharset utf-8 .css .js
 # Options +FollowSymLinks -Indexes
-Options -MultiViews
+# Options -MultiViews
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on

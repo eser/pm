@@ -1,5 +1,10 @@
 @{
+use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Date;
+use Scabbia\Extensions\Helpers\Html;
+use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
 @Views::viewFile('{app}views/shared/nav/home.cshtml', $model)
@@ -9,16 +14,81 @@ use Scabbia\Extensions\Views\Views;
 
     <div class="container-fluid">
         <div class="row-fluid">
-            Dashboard
-        </div>
-        <div class="row-fluid">
             <div class="span12">
-                <div class="footer">
-                    <div>2012 &copy; Plastique Admin Theme</div>
+                @if (!is_null($alert = Session::getFlash('alert'))) {
+                <div class="alert alert-@$alert[0]">
+                    @$alert[1]
+                </div>
+                }
+
+                <div class="box" style="position:relative;">
+                    <div class="tab-header" > Dashboard
+                    </div>
+
+                    <table class="table table-striped tablesorter">
+                        <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Subject</th>
+                            <th>Section</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($tasks as $task) {
+                        <tr class="gradeX">
+                            <td title="@$task['projecttitle']">@$task['projectname']</td>
+                            <td>@$constants['task_type'][$task['type']]['name']: @$task['subject']</td>
+                            <td>@$projectConstants['section_type'][$task['section']]['name']</td>
+                            <td>@{
+                                if (isset($constants['open_task_type'][$task['status']])) {
+                                echo $constants['open_task_type'][$task['status']]['name'];
+                                } elseif (isset($constants['closed_task_type'][$task['status']])) {
+                                echo $constants['closed_task_type'][$task['status']]['name'];
+                                } else {
+                                echo 'Unknown';
+                                }
+                                }</td>
+                            <td>@$constants['priority_type'][$task['priority']]['name']</td>
+                            <td>@Date::convert($task['startdate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
+                            <td>@Date::convert($task['enddate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
+                            <td><div class="pull-right">
+
+                                    <a href="@Http::url('projects/tasks/' . $task['project'] . '/edit/' . $task['id'])" class="">Edit</a>
+                                    |
+                                    <a href="@Http::url('projects/tasks/' . $task['project'] . '/remove/' . $task['id'])" class="remove-button">Delete</a>
+
+                                </div></td>
+                        </tr>
+                        }
+                        </tbody>
+                    </table>
+                    <div class="form-actions"> </div>
                 </div>
             </div>
         </div>
+        <div class="row-fluid">
+            @Views::viewFile('{app}views/shared/copyright.cshtml')
+        </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    $l.ready(function() {
+        $l.dom.setEvent(
+            $l(['.remove-button']),
+            'click',
+            function(ev, elem) {
+                if (!confirm('Are you sure to delete this record?')) {
+                    return false;
+                }
+            }
+        )
+    });
+</script>
 
 @Views::viewFile('{app}views/shared/footer.cshtml')

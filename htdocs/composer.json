@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "larukedi/scabbia-framework": "dev-master"
+        "larukedi/scabbia-framework": "dev-master",
+        "spekkionu/htmlpurifier": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

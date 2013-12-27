@@ -66,12 +66,16 @@ class Projects extends PmController
         $tProjectTypes = $this->constantModel->getConstantsByType('project_type');
 
         if (Request::$method === 'post') {
+            $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+            $tPurifier = new \HTMLPurifier($tHTMLConfig);
+            $tDescription = $tPurifier->purify(Request::post('description', null, null));
+
             $tData = array(
                 'name' => String::slug(Request::post('name', null, null)),
                 'title' => Request::post('title', null, null),
                 'subtitle' => Request::post('subtitle', null, null),
                 'shortdescription' => Request::post('shortdescription', null, null),
-                'description' => Request::post('description', null, null),
+                'description' => $tDescription,
                 'parent' => Request::post('parent', null, null),
                 'type' => Request::post('type', null, null),
                 'sourceforge' => Request::post('sourceforge', null, null),
@@ -152,12 +156,16 @@ class Projects extends PmController
         }
 
         if (Request::$method === 'post') {
+            $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+            $tPurifier = new \HTMLPurifier($tHTMLConfig);
+            $tDescription = $tPurifier->purify(Request::post('description', null, null));
+
             $tData = array(
                 'name' => String::slug(Request::post('name', null, null)),
                 'title' => Request::post('title', null, null),
                 'subtitle' => Request::post('subtitle', null, null),
                 'shortdescription' => Request::post('shortdescription', null, null),
-                'description' => Request::post('description', null, null),
+                'description' => $tDescription,
                 'parent' => Request::post('parent', null, null),
                 'type' => Request::post('type', null, null),
                 'sourceforge' => Request::post('sourceforge', null, null),
@@ -311,11 +319,12 @@ class Projects extends PmController
         }
 
         $this->set('projectId', $uId);
-        $this->set('project', $tProject);
-
+//        $this->set('project', $tProject);
+//
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
-
-        $this->view();
+//
+//        $this->view();
+        $this->tasks_index($uId);
     }
 
     /**
@@ -556,18 +565,22 @@ class Projects extends PmController
         }
 
         if (Request::$method === 'post') {
+            $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+            $tPurifier = new \HTMLPurifier($tHTMLConfig);
+            $tDescription = $tPurifier->purify(Request::post('description', null, null));
+
             $tData = array(
                 'project' => $uProjectId,
                 'type' => Request::post('type', null, null),
                 'section' => Request::post('section', null, null),
                 'subject' => Request::post('subject', null, null),
-                'description' => Request::post('description', null, null),
+                'description' => $tDescription,
                 'status' => Request::post('status', null, null),
                 'priority' => Request::post('priority', null, null),
                 'progress' => '0',
-                'startdate' => Date::toDb(Request::post('startdate', null, null)),
+                'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
-                'enddate' => Date::toDb(Request::post('enddate', null, null)),
+                'enddate' => Date::toDb(Request::post('enddate', null, null), 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null),
 
                 'created' => Date::toDb(time())
@@ -663,9 +676,9 @@ class Projects extends PmController
                 'status' => Request::post('status', null, null),
                 'priority' => Request::post('priority', null, null),
                 'progress' => '0',
-                'startdate' => Date::toDb(Request::post('startdate', null, null)),
+                'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
-                'enddate' => Date::toDb(Request::post('enddate', null, null)),
+                'enddate' => Date::toDb(Request::post('enddate', null, null), 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null),
 
                 'created' => Date::toDb(time())

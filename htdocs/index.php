@@ -13,9 +13,13 @@ if (defined('SCABBIA_PATH') && SCABBIA_PATH !== false) {
 //     $loader->set('Scabbia', $scabbiaPath);
 }
 
+if (!defined('HTMLPURIFIER_PREFIX')) {
+    define('HTMLPURIFIER_PREFIX', dirname(__FILE__) . '/vendor/spekkionu/htmlpurifier');
+}
+
 use Scabbia\Framework;
 
-Framework::$development = true;
+Framework::$development = false;
 // Framework::$disableCaches = true;
 Framework::load($loader);
 

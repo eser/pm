@@ -1,7 +1,7 @@
 {
     "panel": {
         "title":        "Scabbia Application",
-        "logo":         "/scabbia/panel/images/logo.png",
+        "logo":         "/scabbia-assets/panel/images/logo.png",
 
         "loginTitle":   "Scabbia Application Login",
         "database":     "dbconn"
