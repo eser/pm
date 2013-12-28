@@ -2,7 +2,8 @@
 SQLyog Ultimate v10.00 Beta1
 MySQL - 5.5.15 : Database - darkgaze
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -25,11 +26,7 @@ CREATE TABLE `constants` (
   `name` varchar(30) NOT NULL,
   `type` enum('task_type','project_type','open_task_type','closed_task_type','priority_type') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
-/*Data for the table `constants` */
-
-insert  into `constants`(`id`,`name`,`type`) values (1,'Improvement','task_type'),(3,'Web Project','project_type'),(4,'Low','priority_type'),(5,'Medium','priority_type'),(6,'High','priority_type'),(7,'Bugfix','task_type'),(8,'New','open_task_type'),(9,'Resolved','closed_task_type'),(10,'In Progress','open_task_type');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `files` */
 
@@ -51,8 +48,6 @@ CREATE TABLE `files` (
   KEY `issue` (`issue`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `files` */
-
 /*Table structure for table `groups` */
 
 DROP TABLE IF EXISTS `groups`;
@@ -61,11 +56,7 @@ CREATE TABLE `groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-/*Data for the table `groups` */
-
-insert  into `groups`(`id`,`name`) values (1,'Developers');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `issue_rev` */
 
@@ -81,7 +72,20 @@ CREATE TABLE `issue_rev` (
   KEY `fk_issue_rev_issue_idx` (`issue`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `issue_rev` */
+/*Table structure for table `logs` */
+
+DROP TABLE IF EXISTS `logs`;
+
+CREATE TABLE `logs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `targetid` int(10) unsigned NOT NULL,
+  `user` int(10) unsigned NOT NULL,
+  `created` datetime NOT NULL,
+  `type` enum('task') NOT NULL,
+  `serializeddata` text NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `milestone_issue` */
 
@@ -95,8 +99,6 @@ CREATE TABLE `milestone_issue` (
   KEY `milestone` (`milestone`),
   KEY `issue` (`issue`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `milestone_issue` */
 
 /*Table structure for table `milestones` */
 
@@ -115,8 +117,6 @@ CREATE TABLE `milestones` (
   KEY `statetype` (`state`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `milestones` */
-
 /*Table structure for table `news` */
 
 DROP TABLE IF EXISTS `news`;
@@ -132,8 +132,6 @@ CREATE TABLE `news` (
   KEY `project` (`project`),
   KEY `category` (`category`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `news` */
 
 /*Table structure for table `notes` */
 
@@ -151,8 +149,6 @@ CREATE TABLE `notes` (
   KEY `user` (`user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `notes` */
-
 /*Table structure for table `pages` */
 
 DROP TABLE IF EXISTS `pages`;
@@ -168,8 +164,6 @@ CREATE TABLE `pages` (
   KEY `project` (`project`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `pages` */
-
 /*Table structure for table `project_constants` */
 
 DROP TABLE IF EXISTS `project_constants`;
@@ -180,11 +174,7 @@ CREATE TABLE `project_constants` (
   `name` varchar(30) NOT NULL,
   `type` enum('section_type','milestone_type') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
-/*Data for the table `project_constants` */
-
-insert  into `project_constants`(`id`,`project`,`name`,`type`) values (1,2,'Frontend','section_type'),(2,2,'Other','section_type'),(5,2,'Version 1.0','milestone_type');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `project_user` */
 
@@ -201,8 +191,6 @@ CREATE TABLE `project_user` (
   KEY `project_user_role` (`role`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `project_user` */
-
 /*Table structure for table `projectroles` */
 
 DROP TABLE IF EXISTS `projectroles`;
@@ -214,8 +202,6 @@ CREATE TABLE `projectroles` (
   `svnmodify` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `projectroles` */
 
 /*Table structure for table `projects` */
 
@@ -237,11 +223,7 @@ CREATE TABLE `projects` (
   PRIMARY KEY (`id`),
   KEY `project_parent` (`parent`),
   KEY `project_type` (`type`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
-/*Data for the table `projects` */
-
-insert  into `projects`(`id`,`name`,`title`,`subtitle`,`shortdescription`,`description`,`parent`,`created`,`type`,`sourceforge`,`public`,`license`) values (2,'gorgon-ge','Gorgon Game Engine','Gorgon Game Engine (GGE) is a C++ game engine that handles many tasks.','short description','description',0,'2013-09-27 11:16:52',3,NULL,1,'LGPL'),(5,'resource-cli','Resource CLI','No description','short description','description',2,'2013-09-27 11:21:07',3,1,1,'MIT');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `sections` */
 
@@ -256,8 +238,6 @@ CREATE TABLE `sections` (
   KEY `section_project` (`project`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `sections` */
-
 /*Table structure for table `siteroles` */
 
 DROP TABLE IF EXISTS `siteroles`;
@@ -270,11 +250,7 @@ CREATE TABLE `siteroles` (
   `deleteuser` tinyint(1) unsigned DEFAULT NULL,
   `administer` tinyint(1) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
-/*Data for the table `siteroles` */
-
-insert  into `siteroles`(`id`,`name`,`createproject`,`createuser`,`deleteuser`,`administer`) values (3,'Administrator',1,1,1,1),(4,'Guest',NULL,NULL,NULL,NULL);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `statetypes` */
 
@@ -287,8 +263,6 @@ CREATE TABLE `statetypes` (
   `status` enum('open','close') DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `statetypes` */
 
 /*Table structure for table `tasks` */
 
@@ -315,11 +289,7 @@ CREATE TABLE `tasks` (
   KEY `constant` (`type`),
   KEY `assignee` (`assignee`),
   KEY `section` (`section`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-/*Data for the table `tasks` */
-
-insert  into `tasks`(`id`,`project`,`type`,`section`,`subject`,`description`,`status`,`priority`,`progress`,`startdate`,`estimatedtime`,`enddate`,`assignee`,`created`) values (2,2,1,1,'Redesign','it\'s a must.',10,5,0,'2012-01-20 04:01:25',4,'1999-11-30 00:00:00',1,'2013-11-04 01:26:19');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `timespent` */
 
@@ -335,8 +305,6 @@ CREATE TABLE `timespent` (
   KEY `user` (`user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Data for the table `timespent` */
-
 /*Table structure for table `user_group` */
 
 DROP TABLE IF EXISTS `user_group`;
@@ -349,11 +317,7 @@ CREATE TABLE `user_group` (
   UNIQUE KEY `userid_groupid` (`userid`,`groupid`),
   KEY `userid` (`userid`),
   KEY `groupid` (`groupid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
-/*Data for the table `user_group` */
-
-insert  into `user_group`(`id`,`userid`,`groupid`) values (1,1,1),(2,3,1),(3,4,1);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `users` */
 
@@ -373,11 +337,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   KEY `users_role` (`siterole`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
-/*Data for the table `users` */
-
-insert  into `users`(`id`,`scmid`,`name`,`username`,`password`,`email`,`phone`,`siterole`,`bio`,`page`) values (1,'','Eser','laroux','paddole','eser@sent.com','',3,'','');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -301,6 +301,8 @@ class Projects extends PmController
             return $this->tasks_edit($uProjectId, $id);
         } elseif ($uSubpage === 'remove') {
             return $this->tasks_remove($uProjectId, $id);
+        } elseif ($uSubpage === 'detail') {
+            return $this->tasks_detail($uProjectId, $id);
         }
 
         return false;
@@ -603,6 +605,18 @@ class Projects extends PmController
 
                 $tId = $this->taskModel->insert($tData);
 
+                $this->load('App\\Models\\LogModel');
+                $this->logModel->insert(
+                    array(
+                        'targetid' => $tId,
+                        'user' => $this->userBindings->user['id'],
+                        'created' => Date::toDb(time()),
+                        'type' => 'task',
+                        'serializeddata' => json_encode($tData),
+                        'description' => 'Task Created'
+                    )
+                );
+
                 Session::set(
                     'alert',
                     array(
@@ -666,6 +680,8 @@ class Projects extends PmController
             return false;
         }
 
+        $this->load('App\\Models\\LogModel');
+
         if (Request::$method === 'post') {
             $tData = array(
                 'project' => $uProjectId,
@@ -679,9 +695,7 @@ class Projects extends PmController
                 'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
                 'enddate' => Date::toDb(Request::post('enddate', null, null), 'd/m/Y'),
-                'assignee' => Request::post('assignee', null, null),
-
-                'created' => Date::toDb(time())
+                'assignee' => Request::post('assignee', null, null)
             );
 
             Validation::addRule('subject')->isRequired()->errorMessage(I18n::_('Subject field is required.'));
@@ -700,6 +714,19 @@ class Projects extends PmController
                 $this->taskModel->update(
                     $uId,
                     $tData
+                );
+
+                $tDataDiff = array_diff_assoc($tData, $tOriginalData);
+
+                $this->logModel->insert(
+                    array(
+                        'targetid' => $uId,
+                        'user' => $this->userBindings->user['id'],
+                        'created' => Date::toDb(time()),
+                        'type' => 'task',
+                        'serializeddata' => json_encode($tDataDiff),
+                        'description' => 'Task Updated'
+                    )
                 );
 
                 Session::set(
@@ -727,6 +754,8 @@ class Projects extends PmController
 
         $this->load('App\\Models\\UserModel');
         $this->set('users', $this->userModel->getUsers());
+
+        $this->set('logs', $this->logModel->getLogs('task', $uId));
 
         $this->breadcrumbs['Task Edit'] = array(null, 'projects/tasks/' . $uProjectId . '/edit/' . $uId);
 
@@ -760,6 +789,40 @@ class Projects extends PmController
         // redirect to list
         Http::redirect('projects/tasks/' . $uProjectId, true);
         return;
+    }
+
+    /**
+     * @ignore
+     */
+    private function tasks_detail($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\TaskModel');
+
+        $tData = $this->taskModel->get($uId);
+        if ($tData === false || $tData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
+
+        $this->load('App\\Models\\ProjectConstantModel');
+        $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
+        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
+
+        $this->load('App\\Models\\UserModel');
+        $this->set('users', $this->userModel->getUsers());
+
+        $this->load('App\\Models\\LogModel');
+        $this->set('logs', $this->logModel->getLogs('task', $uId));
+
+        $this->breadcrumbs['Task Detail'] = array(null, 'projects/tasks/' . $uProjectId . '/detail/' . $uId);
+
+        $this->view('projects/tasks/detail.cshtml');
     }
 
 }

@@ -10752,3 +10752,9 @@ input.search {
   /* line 12, responsive-max480.css.scss */
   .modal.black-box .modal-header .close {
     margin-top: -5px; } }
+
+.row-border {
+    border-bottom: 1px solid #C0C0C0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
