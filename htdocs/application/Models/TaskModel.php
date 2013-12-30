@@ -17,7 +17,7 @@ class TaskModel extends Model
         return $this->db->createQuery()
             ->setTable('tasks')
             ->addField('*')
-            ->setWhere(array('project=:projectid'))
+            ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='open_task_type')"))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->allWithKey('id');
@@ -47,7 +47,7 @@ class TaskModel extends Model
             ->setFields('*')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
-            ->setWhere(array('project=:projectid'))
+            ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='open_task_type')"))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->all();
@@ -64,7 +64,7 @@ class TaskModel extends Model
             ->setTable('tasks t')
             ->joinTable('projects p', 'p.id=t.project', 'LEFT')
             ->addField('t.*, p.name AS projectname, p.title AS projecttitle')
-            ->setWhere(array('t.assignee=:assignee'))
+            ->setWhere(array('t.assignee=:assignee', _AND,"((SELECT type FROM constants WHERE id=t.status)='open_task_type')"))
             ->setGroupBy('t.id')
             ->addParameter('assignee', $uUserId)
             ->get()

@@ -33,15 +33,13 @@ use App\Includes\ViewHelpers;
                             <th>Section</th>
                             <th>Status</th>
                             <th>Priority</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($tasks as $task) {
                         <tr class="gradeX">
-                            <td title="@$task['projecttitle']">@$task['projectname']</td>
+                            <td title="@$task['projecttitle']"><a href="@Http::url('projects/show/' . $task['project'])">@$task['projectname']</a></td>
                             <td>@$constants['task_type'][$task['type']]['name']: <a href="@Http::url('projects/tasks/' . $task['project'] . '/detail/' . $task['id'])">@$task['subject']</a></td>
                             <td>@$projectConstants['section_type'][$task['section']]['name']</td>
                             <td>@{
@@ -54,13 +52,9 @@ use App\Includes\ViewHelpers;
                                 }
                             }</td>
                             <td>@$constants['priority_type'][$task['priority']]['name']</td>
-                            <td>@Date::convert($task['startdate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
-                            <td>@Date::convert($task['enddate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
                             <td><div class="btn-group pull-right">
 
-                                    <a href="@Http::url('projects/tasks/' . $task['project'] . '/edit/' . $task['id'])" class="button blue">Edit</a>
-
-                                    <a href="@Http::url('projects/tasks/' . $task['project'] . '/remove/' . $task['id'])" class="remove-button button red">Delete</a>
+                                    <a href="@Http::url('projects/tasks/' . $task['project'] . '/edit/' . $task['id'])">Edit</a>
 
                                 </div></td>
                         </tr>

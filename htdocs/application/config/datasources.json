@@ -7,7 +7,7 @@
             "overrideCase": "natural",
             "pdoString":    "mysql:host=localhost;dbname=darkgaze",
             "username":     "root",
-            "password":     "paddole",
+            "password":     "qwer",
             "initCommand":  "SET NAMES utf8",
             "errors":       "exception"
         }
