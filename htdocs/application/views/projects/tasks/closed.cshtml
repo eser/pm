@@ -52,8 +52,8 @@ use App\Includes\ViewHelpers;
 							<th>Type</th>
                             <th>Section</th>
                             <th>Status</th>
-                            <th>Priority</th>
-                            <th colspan="2">Assignee</th>
+                            <th>Revisions</th>
+                            <th colspan="2">Date closed</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -71,14 +71,8 @@ use App\Includes\ViewHelpers;
                                     echo 'Unknown';
                                 }
                             }</td>
-                            <td>@$constants['priority_type'][$task['priority']]['name']</td>
-                            <td>@{
-                                if ($task['assignee'] === '0') {
-                                    echo '(Unassigned)';
-                                } else {
-                                    echo $users[$task['assignee']]['name'];
-                                }
-                            }</td>
+                            <td>@$task['revisions']</td>
+                            <td>@Date::convert($task['enddate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
                             <td><div class="pull-right">
                                     <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $task['id'])" class="blue">Edit</a> |
                                     <a href="@Http::url('projects/tasks/' . $projectId . '/remove/' . $task['id'])" class="remove-button red">Del</a>

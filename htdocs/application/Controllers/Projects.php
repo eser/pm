@@ -100,10 +100,10 @@ class Projects extends PmController
                     )
                 );
             } else {
-                $this->load('App\\Models\\ProjectModel');
+                $this->load('App\\Models\\ProjectModel');                
 
                 $tId = $this->projectModel->insert($tData);
-
+                
                 Session::set(
                     'alert',
                     array(
@@ -303,6 +303,8 @@ class Projects extends PmController
             return $this->tasks_remove($uProjectId, $id);
         } elseif ($uSubpage === 'detail') {
             return $this->tasks_detail($uProjectId, $id);
+        } elseif ($uSubpage === 'closed') {
+            return $this->tasks_closed($uProjectId, $id);
         }
 
         return false;
@@ -557,6 +559,50 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    public function tasks_closed($uProjectId, $uPage = 1)
+    {
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uProjectId);
+        if ($tProject === false) {
+            return false;
+        }
+
+        $this->set('projectId', $uProjectId);
+        $this->set('project', $tProject);
+
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\TaskModel');
+
+        $this->set('data', $this->taskModel->getClosedTasksWithPaging($uProjectId, $tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->taskModel->getClosedTasksCount($uProjectId));
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
+
+        $this->load('App\\Models\\ProjectConstantModel');
+        $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
+        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
+
+        $this->load('App\\Models\\UserModel');
+        $this->set('users', $this->userModel->getUsers());
+
+        $this->view('projects/tasks/closed.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
     public function tasks_add($uProjectId)
     {
         $this->load('App\\Models\\ProjectModel');
@@ -582,7 +628,6 @@ class Projects extends PmController
                 'progress' => '0',
                 'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
-                'enddate' => Date::toDb(Request::post('enddate', null, null), 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null),
 
                 'created' => Date::toDb(time())
@@ -602,8 +647,12 @@ class Projects extends PmController
                 );
             } else {
                 $this->load('App\\Models\\TaskModel');
+               
+                $revs=explode(',', Request::post('revisions', null, null));
+                
+                for($i=0;$i<sizeof($revs);$i++) $revs[$i]=trim($revs[$i]);
 
-                $tId = $this->taskModel->insert($tData);
+                $tId = $this->taskModel->insert($tData, $revs);
 
                 $this->load('App\\Models\\LogModel');
                 $this->logModel->insert(
@@ -643,7 +692,6 @@ class Projects extends PmController
                 'estimatedtime' => '',
                 'enddate' => '',
                 'assignee' => '',
-
                 'created' => Date::toDb(time())
             );
         }
@@ -711,10 +759,18 @@ class Projects extends PmController
                     )
                 );
             } else {
+               
+                $revs=explode(',', Request::post('revisions', null, null));
+                
+                for($i=0;$i<sizeof($revs);$i++) $revs[$i]=trim($revs[$i]);
+
                 $this->taskModel->update(
                     $uId,
-                    $tData
+                    $tData,
+                    $revs
                 );
+                
+                $tData["revisions"]=Request::post('revisions', null, null);
 
                 $tDataDiff = array_diff_assoc($tData, $tOriginalData);
 

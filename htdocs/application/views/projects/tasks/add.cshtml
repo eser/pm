@@ -45,7 +45,7 @@ use App\Includes\ViewHelpers;
                                     </div>
                                 </div>
                             </div>
-                            <div class="row-fluid">
+                            <div class="row-fluid" style="margin-bottom:10px;">
                                 <div class="input">
                                     <label for="Name" class="caption">Subject</label>
                                     <input type="text" placeholder="Subject" name="subject" value="@String::htmlEscape($data['subject'])" />
@@ -57,7 +57,7 @@ use App\Includes\ViewHelpers;
                             </div>
                             <div class="row-fluid">
                                 <div class="span6">
-                                    <div class="input" style="margin-bottom:10px;">
+                                    <div class="input">
                                         <label for="Status" class="caption">Status</label>
                                         <select name="status" id="Status" placeholder="Status" class="fill-up chzn-select">
                                             <optgroup label="Open">
@@ -68,7 +68,7 @@ use App\Includes\ViewHelpers;
                                             </optgroup>
                                         </select>
                                     </div>
-                                    <div class="input" style="margin-bottom:8px; margin-left:-1px;">
+                                    <div class="input">
                                         <label for="Priority" class="caption">Priority</label>
                                         <select name="priority" id="Priority" placeholder="Priority" class="fill-up chzn-select">
                                         @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
@@ -87,16 +87,15 @@ use App\Includes\ViewHelpers;
                                         <label for="StartDate" class="caption">Start Date</label>
                                         <input id="datetimepicker" name="startdate" type="text" class="fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
                                     </div>
-
-                                    <div class="input" >
-                                        <label for="EndDate" class="caption">End Date</label>
-                                        <input id="datetimepicker2" name="enddate" type="text" class="fill-up" value="@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')">
-                                    </div>
-                                    <div class="input span3" style="margin-left:-3px;">
+                                    <div class="input span3" style="margin-left:-1px;">
                                         <label for="EstimatedTime" class="caption">Estimated Time</label>
                                         <input type="text" placeholder="Hours" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
                                     </div>
-                                </div>
+                                     <div class="input span9">
+                                        <label for="Revisions" class="caption">Related revisions</label>
+                                        <input type="text" placeholder="" name="revisions" value="" />
+                                    </div>
+                               </div>
                             </div>
                             <div class="form-actions">
                                 <div class="pull-right">

@@ -23,7 +23,7 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box" style="position:relative;">
-                    <div class="tab-header">Edit Task</div>
+                    <div class="tab-header">Edit Task #@$id</div>
                     <div class="padded">
 
                         <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/edit/' . $id)">
@@ -95,6 +95,10 @@ use App\Includes\ViewHelpers;
                                     <div class="input span3" style="margin-left:-3px;">
                                         <label for="EstimatedTime" class="caption">Estimated Time</label>
                                         <input type="text" placeholder="Hours" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
+                                    </div>
+                                    <div class="input span9">
+                                        <label for="Revisions" class="caption">Related revisions</label>
+                                        <input type="text" placeholder="" name="revisions" value="@String::htmlEscape($data['revisions'])" />
                                     </div>
                                 </div>
                             </div>

@@ -29,7 +29,7 @@ class ConstantModel extends Model
         return $this->db->createQuery()
             ->setTable('constants')
             ->addField('*')
-            ->setOrderBy('type ASC')
+            ->setOrderBy('type ASC, id ASC')
             ->get()
             ->allWithKey('id');
     }
@@ -54,7 +54,7 @@ class ConstantModel extends Model
         $tResult = $this->db->createQuery()
             ->setTable('constants')
             ->setFields('*')
-            ->setOrderBy('type ASC')
+            ->setOrderBy('type ASC, id ASC')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
             ->get()
@@ -73,6 +73,7 @@ class ConstantModel extends Model
             ->addField('*')
             ->addParameter('type', $uType)
             ->setWhere(array('type=:type'))
+            ->setOrderBy('id ASC')
             ->get()
             ->allWithKey('id');
     }

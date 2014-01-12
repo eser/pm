@@ -31,7 +31,7 @@ class TaskModel extends Model
         return $this->db->createQuery()
             ->setTable('tasks')
             ->addField('COUNT(0)')
-            ->setWhere(array('project=:projectid'))
+            ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='open_task_type')"))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->scalar();
@@ -48,6 +48,52 @@ class TaskModel extends Model
             ->setOffset($uOffset)
             ->setLimit($uLimit)
             ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='open_task_type')"))
+            ->addParameter('projectid', $uProjectId)
+            ->get()
+            ->all();
+
+        return $tResult;
+    }
+    
+    /**
+     * @ignore
+     */
+    public function getClosedTasks($uProjectId)
+    {
+        return $this->db->createQuery()
+            ->setTable('tasks')
+            ->addField('*')
+            ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='closed_task_type')"))
+            ->addParameter('projectid', $uProjectId)
+            ->get()
+            ->allWithKey('id');
+    }
+
+    /**
+     * @ignore
+     */
+    public function getClosedTasksCount($uProjectId)
+    {
+        return $this->db->createQuery()
+            ->setTable('tasks')
+            ->addField('COUNT(0)')
+            ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='closed_task_type')"))
+            ->addParameter('projectid', $uProjectId)
+            ->get()
+            ->scalar();
+    }
+
+    /**
+     * @ignore
+     */
+    public function getClosedTasksWithPaging($uProjectId, $uOffset = 0, $uLimit = 20)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('tasks')
+            ->setFields("*, (SELECT GROUP_CONCAT(rev SEPARATOR ', ') FROM task_rev WHERE task=tasks.id) AS revisions")
+            ->setOffset($uOffset)
+            ->setLimit($uLimit)
+            ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='closed_task_type')"))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->all();
@@ -78,7 +124,7 @@ class TaskModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('tasks')
-            ->setFields('*')
+            ->setFields("*, (SELECT GROUP_CONCAT(rev SEPARATOR ', ') FROM task_rev WHERE task=tasks.id) AS revisions")
             ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->addParameter('id', $uId)
@@ -91,13 +137,26 @@ class TaskModel extends Model
     /**
      * @ignore
      */
-    public function insert($insert)
+    public function insert($insert, $revs)
     {
         $tResult = $this->db->createQuery()
             ->setTable('tasks')
             ->setFields($insert)
             ->insert()
             ->execute(true);
+            
+        $id=$this->db->lastInsertId();
+        
+        foreach($revs as $rev) {
+			$this->db->createQuery()
+				->setTable('task_rev')
+				->setFields(array(
+					'rev'	=> (int)$rev,
+					'task'	=> $id
+				))
+				->insert()
+				->execute(true);
+		}
 
         return $tResult;
     }
@@ -105,7 +164,7 @@ class TaskModel extends Model
     /**
      * @ignore
      */
-    public function update($id, $update)
+    public function update($id, $update, $revs)
     {
         $tResult = $this->db->createQuery()
             ->setTable('tasks')
@@ -115,6 +174,24 @@ class TaskModel extends Model
             ->setLimit(1)
             ->update()
             ->execute();
+            
+        $this->db->createQuery()
+            ->setTable('task_rev')
+            ->setWhere(array('task=:id'))
+            ->addParameter('id', $id)
+            ->delete()
+            ->execute();
+            
+        foreach($revs as $rev) {
+			$this->db->createQuery()
+				->setTable('task_rev')
+				->setFields(array(
+					'rev'	=> (int)$rev,
+					'task'	=> $id
+				))
+				->insert()
+				->execute(true);
+		}
 
         return $tResult;
     }
