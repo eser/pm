@@ -61,14 +61,14 @@ use App\Includes\ViewHelpers;
                                         <label for="Status" class="caption">Status</label>
                                         <select name="status" id="Status" placeholder="Status" class="fill-up chzn-select">
                                             <optgroup label="Open">
-                                                @Html::selectOptions($constants['open_task_type'], (int)$data['type'], 'name')
+                                                @Html::selectOptions($constants['open_task_type'], (int)$data['status'], 'name')
                                             </optgroup>
                                             <optgroup label="Closed">
-                                                @Html::selectOptions($constants['closed_task_type'], (int)$data['type'], 'name')
+                                                @Html::selectOptions($constants['closed_task_type'], (int)$data['status'], 'name')
                                             </optgroup>
                                         </select>
                                     </div>
-                                    <div class="input" style="margin-bottom:8px; margin-left:-1px;">
+                                   <div class="input" style="">
                                         <label for="Priority" class="caption">Priority</label>
                                         <select name="priority" id="Priority" placeholder="Priority" class="fill-up chzn-select">
                                         @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
@@ -90,9 +90,9 @@ use App\Includes\ViewHelpers;
 
                                     <div class="input" >
                                         <label for="EndDate" class="caption">End Date</label>
-                                        <input id="datetimepicker2" name="enddate" type="text" class="fill-up" value="@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')">
+                                        <input id="datetimepicker2" name="enddate" type="text" class="fill-up" value="@if ((int)$data['enddate'] != NULL) {@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')}">
                                     </div>
-                                    <div class="input span3" style="margin-left:-3px;">
+                                    <div class="input span3" style="margin-left:-1px;">
                                         <label for="EstimatedTime" class="caption">Estimated Time</label>
                                         <input type="text" placeholder="Hours" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
                                     </div>

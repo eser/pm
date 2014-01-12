@@ -1,0 +1,1 @@
+ALTER TABLE  `tasks` CHANGE  `enddate`  `enddate` DATETIME NULL;

@@ -742,7 +742,7 @@ class Projects extends PmController
                 'progress' => '0',
                 'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
-                'enddate' => Date::toDb(Request::post('enddate', null, null), 'd/m/Y'),
+                'enddate' => Request::post('enddate', null, null)=="" ? null : Date::toDb(Request::post('enddate', null, null), 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null)
             );
 
@@ -792,7 +792,9 @@ class Projects extends PmController
                         'Record updated.'
                     )
                 );
-            }
+                Http::redirect('projects/tasks/' . $uProjectId, true);
+                return;
+			}
         } else {
             $tData = $tOriginalData;
         }

@@ -83,7 +83,15 @@ use App\Includes\ViewHelpers;
 
                                 <div class="input" >
                                     <label for="EndDate" class="caption">End Date</label>
-                                    @Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')
+                                    @if ((int)$data['enddate'] != NULL) {
+										@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')
+									} else {
+										(Not set)
+									}
+                                </div>                                
+                                <div class="input" >
+                                    <label for="Revisions" class="caption">Revisions</label>
+                                    @$data['revisions']&nbsp;
                                 </div>
                                 <div class="input span3" style="margin-left:-3px;">
                                     <label for="EstimatedTime" class="caption">Estimated Time</label>
