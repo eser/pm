@@ -81,19 +81,24 @@ use App\Includes\ViewHelpers;
                                             <input type="checkbox" id="groups-@$group['id']" name="groups[@$group['id']]" value="1" class="normal-check" @{ if (in_array($group['id'], $usergroups)) { echo 'checked="checked" '; } }/>
                                             <label for="groups-@$group['id']" class="span4">@$group['name']</label>
                                         }
-
                                     </div>
 
                                     <div class="input">
                                         <label for="Page" class="caption" style="float:none">Page</label>
                                         <textarea placeholder="This is a textarea" rows="6" name="page">@String::htmlEscape($data['page'])</textarea>
-
                                     </div>
+
                                     <div class="input">
                                         <label for="Bio" class="caption">Bio</label>
                                         <textarea placeholder="This is a textarea" rows="6" name="bio">@String::htmlEscape($data['bio'])</textarea>
                                     </div>
 
+                                    <div class="input">
+                                        <label for="Active" class="caption">Active</label>
+
+                                        <input type="checkbox" class="normal-check" id="Active" name="active" value="1" @{ if ($data['active'] === '1') { echo 'checked="checked" '; } }/>
+                                        <label for="Active" class="span4">Active</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

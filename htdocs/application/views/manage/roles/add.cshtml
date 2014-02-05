@@ -26,7 +26,6 @@ use App\Includes\ViewHelpers;
                         <div class="row-fluid">
                             <div class="span12">
                                 <div style="padding-right:12px;">
-
                                     <div class="btn-group pull-right">
 
                                         <a href="@Http::url('manage/roles')" class="button blue">Role List</a>
@@ -55,6 +54,9 @@ use App\Includes\ViewHelpers;
 
                                         <input type="checkbox" class="normal-check" id="ch4_Administer" name="administer" value="1" @{ if ($data['administer'] === '1') { echo 'checked="checked" '; } }/>
                                         <label for="ch4_Administer" class="span4">Administer</label>
+
+                                        <input type="checkbox" class="normal-check" id="ch5_Active" name="active" value="1" @{ if ($data['active'] === '1') { echo 'checked="checked" '; } }/>
+                                        <label for="ch5_Active" class="span4">Active</label>
                                     </div>
 
                                 </div>

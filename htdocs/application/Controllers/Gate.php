@@ -39,18 +39,17 @@ class Gate extends PmController
         $tLogin = Request::post('login');
         $tPassword = Request::post('password');
 
-        // TODO: Translate messages in English
         // validations
-        Validation::addRule('login')->isRequired()->errorMessage(I18n::_('E-posta adresiniz boş olamaz.'));
+        Validation::addRule('login')->isRequired()->errorMessage(I18n::_('E-mail address cannot be empty.'));
         if (strpos($tLogin, '@') !== false) {
-            Validation::addRule('login')->isEmail()->errorMessage(I18n::_('Lütfen e-posta adresinizi gözden geçirin.'));
+            Validation::addRule('login')->isEmail()->errorMessage(I18n::_('Please check your e-mail address again.'));
         } else {
             Validation::addRule('login')->isRequired()->errorMessage(
-                I18n::_('Lütfen kullanıcı isminizi gözden geçirin.')
+                I18n::_('Please check your username again.')
             );
         }
 
-        Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Parolanız boş olamaz.'));
+        Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Password cannot be empty.'));
 //        Validation::addRule('password')->lengthMinimum(6)->errorMessage(
 //            I18n::_('Şifreniz en az 6 karakter olmalıdır.')
 //        );
@@ -88,6 +87,17 @@ class Gate extends PmController
 
             return;
         }
+
+        // user is disabled
+        if ($user['active'] !== '1') {
+            $this->set('success', false);
+            $this->set('error', I18n::_('User is disabled.'));
+            $this->json();
+
+            return;
+        }
+
+        // TODO: check account role is disabled or not.
 
         $this->userBindings->setUser($user);
 

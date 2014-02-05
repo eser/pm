@@ -160,7 +160,8 @@ class Manage extends PmController
                 'phone' => Request::post('phone', null, null),
                 'siterole' => Request::post('siterole', null, null),
                 'bio' => Request::post('bio', null, null),
-                'page' => Request::post('page', null, null)
+                'page' => Request::post('page', null, null),
+                'active' => Request::post('active', null, null)
             );
 
             $tUserGroups = array_keys(Request::post('groups', array(), null));
@@ -209,7 +210,8 @@ class Manage extends PmController
                 'phone' => '',
                 'siterole' => '',
                 'bio' => '',
-                'page' => ''
+                'page' => '',
+                'active' => '1'
             );
 
             $tUserGroups = array();
@@ -251,7 +253,8 @@ class Manage extends PmController
                 'phone' => Request::post('phone', null, null),
                 'siterole' => Request::post('siterole', null, null),
                 'bio' => Request::post('bio', null, null),
-                'page' => Request::post('page', null, null)
+                'page' => Request::post('page', null, null),
+                'active' => Request::post('active', null, null)
             );
 
             $tUserGroups = array_keys(Request::post('groups', array(), null));
@@ -533,7 +536,8 @@ class Manage extends PmController
                 'createproject' => Request::post('createproject', null, null),
                 'createuser' => Request::post('createuser', null, null),
                 'deleteuser' => Request::post('deleteuser', null, null),
-                'administer' => Request::post('administer', null, null)
+                'administer' => Request::post('administer', null, null),
+                'active' => Request::post('active', null, null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
@@ -569,7 +573,8 @@ class Manage extends PmController
                 'createproject' => '1',
                 'createuser' => '0',
                 'deleteuser' => '0',
-                'administer' => '0'
+                'administer' => '0',
+                'active' => '1'
             );
         }
 
@@ -598,7 +603,8 @@ class Manage extends PmController
                 'createproject' => Request::post('createproject', null, null),
                 'createuser' => Request::post('createuser', null, null),
                 'deleteuser' => Request::post('deleteuser', null, null),
-                'administer' => Request::post('administer', null, null)
+                'administer' => Request::post('administer', null, null),
+                'active' => Request::post('active', null, null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
