@@ -4,6 +4,7 @@ use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -30,7 +31,7 @@ use App\Includes\ViewHelpers;
 
                                     <div class="btn-group pull-right">
 
-                                        <a href="@Http::url('projects')" class="button blue">Project List</a>
+                                        <a href="@Http::url('projects')" class="button blue">@I18n::_('Project List')</a>
 
                                     </div>
                                 </div>
@@ -38,57 +39,57 @@ use App\Includes\ViewHelpers;
                                 <div class="padded">
 
                                     <div class="input">
-                                        <label for="Name" class="caption">Name</label>
-                                        <input type="text" placeholder="Name" name="name" value="@String::htmlEscape($data['name'])" />
+                                        <label for="Name" class="caption">@I18n::_('Name')</label>
+                                        <input type="text" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
 
                                     </div>
                                     <div class="input">
-                                        <label for="Title" class="caption">Title</label>
-                                        <input type="text" placeholder="Title" name="title" value="@String::htmlEscape($data['title'])" />
+                                        <label for="Title" class="caption">@I18n::_('Title')</label>
+                                        <input type="text" placeholder="@I18n::_('Title')" name="title" value="@String::htmlEscape($data['title'])" />
 
                                     </div>
                                     <div class="input">
-                                        <label for="Password" class="caption">Subtitle</label>
-                                        <input type="text" placeholder="Subtitle" name="subtitle" value="@String::htmlEscape($data['subtitle'])" />
+                                        <label for="Password" class="caption">@I18n::_('Subtitle')</label>
+                                        <input type="text" placeholder="@I18n::_('Subtitle')" name="subtitle" value="@String::htmlEscape($data['subtitle'])" />
 
                                     </div>
                                     <div class="input">
-                                        <label for="ShortDescription" class="caption" style="float:none">Short Description</label>
-                                        <textarea placeholder="This is a textarea" rows="6" name="shortdescription">@String::htmlEscape($data['shortdescription'])</textarea>
+                                        <label for="ShortDescription" class="caption" style="float:none">@I18n::_('Short Description')</label>
+                                        <textarea placeholder="@I18n::_('Short Description')" rows="6" name="shortdescription">@String::htmlEscape($data['shortdescription'])</textarea>
 
                                     </div>
                                     <div class="input">
-                                        <label for="Description" class="caption">Description</label>
-                                        <textarea placeholder="This is a textarea" rows="6" name="description" class="cleditor">@String::htmlEscape($data['description'])</textarea>
+                                        <label for="Description" class="caption">@I18n::_('Description')</label>
+                                        <textarea placeholder="@I18n::_('Description')" rows="6" name="description" class="cleditor">@String::htmlEscape($data['description'])</textarea>
                                     </div>
 
                                     <div class="input">
-                                        <label for="Parent" class="caption">Parent Project</label>
-                                        <select name="parent" id="Parent" placeholder="Parent Project" class="fill-up chzn-select">
-                                        <option value="">[None]</option>
+                                        <label for="Parent" class="caption">@I18n::_('Parent Project')</label>
+                                        <select name="parent" id="Parent" placeholder="@I18n::_('Parent Project')" class="fill-up chzn-select">
+                                        <option value="">@I18n::_('(None)')</option>
                                         @Html::selectOptions($projects, (int)$data['parent'], 'name')
                                         </select>
 
                                     </div>
                                     <div class="input">
-                                        <label for="Type" class="caption">Type</label>
-                                        <select name="type" id="Type" placeholder="Type" class="fill-up chzn-select">
+                                        <label for="Type" class="caption">@I18n::_('Type')</label>
+                                        <select name="type" id="Type" placeholder="@I18n::_('Type')" class="fill-up chzn-select">
                                         @Html::selectOptions($projectTypes, $data['type'], 'name')
                                         </select>
                                     </div>
 
                                     <div class="input row-fluid">
                                         <input type="checkbox" id="Sourceforge" name="sourceforge" value="1" class="normal-check" @{ if (isset($data['sourceforge']) && $data['sourceforge'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="Sourceforge" class="span4">Sourceforge</label>
+                                        <label for="Sourceforge" class="span4">@I18n::_('Sourceforge')</label>
 
                                         <input type="checkbox" id="Public" name="public" value="1" class="normal-check" @{ if (isset($data['public']) && $data['public'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="Public" class="span4">Public</label>
+                                        <label for="Public" class="span4">@I18n::_('Public')</label>
 
                                     </div>
 
                                     <div class="input">
-                                        <label for="License" class="caption">License</label>
-                                        <input type="text" placeholder="License" name="license" value="@String::htmlEscape($data['license'])" />
+                                        <label for="License" class="caption">@I18n::_('License')</label>
+                                        <input type="text" placeholder="@I18n::_('License')" name="license" value="@String::htmlEscape($data['license'])" />
                                     </div>
 
                                 </div>
@@ -96,7 +97,7 @@ use App\Includes\ViewHelpers;
                         </div>
                         <div class="form-actions">
                             <div class="pull-right">
-                                <button type="submit" class="button blue">Update</button>
+                                <button type="submit" class="button blue">@I18n::_('Update')</button>
                             </div>
                         </div>
                     </form>

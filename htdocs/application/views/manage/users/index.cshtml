@@ -3,6 +3,7 @@ use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -21,8 +22,7 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box " style="position:relative;">
-                    <div class="tab-header" > User List
-                    </div>
+                    <div class="tab-header">@I18n::_('User List')</div>
                     <div class="tab-pane padded">
 
                         <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;">
@@ -38,18 +38,18 @@ use App\Includes\ViewHelpers;
 
                         <div class="pull-right">
                             <a href="@Http::url('manage/users/add')">
-                                <button type="submit" class="button blue">User Add</button>
+                                <button type="submit" class="button blue">@I18n::_('User Add')</button>
                             </a>
                         </div>
                     </div>
                     <table class="table table-striped tablesorter">
                         <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>E-mail</th>
-                            <th>SCM ID</th>
-                            <th>Name</th>
-                            <th>Phone</th>
+                            <th>@I18n::_('Username')</th>
+                            <th>@I18n::_('E-mail')</th>
+                            <th>@I18n::_('SCM ID')</th>
+                            <th>@I18n::_('Name')</th>
+                            <th>@I18n::_('Phone')</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -63,9 +63,9 @@ use App\Includes\ViewHelpers;
                             <td>@$user['phone']</td>
                             <td><div class="btn-group pull-right">
 
-                                    <a href="@Http::url('manage/users/edit/' . $user['id'])" class="button blue">Edit</a>
+                                    <a href="@Http::url('manage/users/edit/' . $user['id'])" class="button blue">@I18n::_('Edit')</a>
 
-                                    <a href="@Http::url('manage/users/remove/' . $user['id'])" class="remove-button button red">Delete</a>
+                                    <a href="@Http::url('manage/users/remove/' . $user['id'])" class="remove-button button red">@I18n::_('Delete')</a>
 
                                 </div></td>
                         </tr>
@@ -88,7 +88,7 @@ use App\Includes\ViewHelpers;
             $l(['.remove-button']),
             'click',
             function(ev, elem) {
-                if (!confirm('Are you sure to delete this record?')) {
+                if (!confirm('@I18n::_('Are you sure to delete this record?')')) {
                     return false;
                 }
             }

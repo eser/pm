@@ -21,7 +21,7 @@ class Manage extends PmController
     {
         parent::__construct();
 
-        $this->breadcrumbs['Manage'] = array(null, 'manage');
+        $this->breadcrumbs[I18n::_('Manage')] = array(null, 'manage');
     }
 
     /**
@@ -41,7 +41,7 @@ class Manage extends PmController
     {
         // Auth::checkRedirect('user');
 
-        $this->breadcrumbs['Users'] = array(null, 'manage/users');
+        $this->breadcrumbs[I18n::_('Users')] = array(null, 'manage/users');
 
         if ($uSubpage === 'index') {
             return $this->users_index($id);
@@ -63,7 +63,7 @@ class Manage extends PmController
     {
         // Auth::checkRedirect('user');
 
-        $this->breadcrumbs['Groups'] = array(null, 'manage/groups');
+        $this->breadcrumbs[I18n::_('Groups')] = array(null, 'manage/groups');
 
         if ($uSubpage === 'index') {
             return $this->groups_index($id);
@@ -85,7 +85,7 @@ class Manage extends PmController
     {
         // Auth::checkRedirect('user');
 
-        $this->breadcrumbs['Roles'] = array(null, 'manage/roles');
+        $this->breadcrumbs[I18n::_('Roles')] = array(null, 'manage/roles');
 
         if ($uSubpage === 'index') {
             return $this->roles_index($id);
@@ -107,7 +107,7 @@ class Manage extends PmController
     {
         // Auth::checkRedirect('user');
 
-        $this->breadcrumbs['Constants'] = array(null, 'manage/constants');
+        $this->breadcrumbs[I18n::_('Constants')] = array(null, 'manage/constants');
 
         if ($uSubpage === 'index') {
             return $this->constants_index($id);
@@ -192,7 +192,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record added.'
+                        I18n::_('Record added.')
                     )
                 );
 
@@ -226,7 +226,7 @@ class Manage extends PmController
         $this->load('App\\Models\\GroupModel');
         $this->set('groups', $this->groupModel->getGroups());
 
-        $this->breadcrumbs['User Add'] = array(null, 'manage/users/add');
+        $this->breadcrumbs[I18n::_('User Add')] = array(null, 'manage/users/add');
 
         $this->view('manage/users/add.cshtml');
     }
@@ -291,7 +291,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record updated.'
+                        I18n::_('Record updated.')
                     )
                 );
 
@@ -313,7 +313,7 @@ class Manage extends PmController
         $this->load('App\\Models\\GroupModel');
         $this->set('groups', $this->groupModel->getGroups());
 
-        $this->breadcrumbs['User Edit'] = array(null, 'manage/users/edit/' . $uId);
+        $this->breadcrumbs[I18n::_('User Edit')] = array(null, 'manage/users/edit/' . $uId);
 
         $this->view('manage/users/edit.cshtml');
     }
@@ -338,7 +338,7 @@ class Manage extends PmController
             'alert',
             array(
                 'success',
-                'Record removed.'
+                I18n::_('Record removed.')
             )
         );
 
@@ -399,7 +399,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record added.'
+                        I18n::_('Record added.')
                     )
                 );
 
@@ -415,7 +415,7 @@ class Manage extends PmController
 
         $this->set('data', $tData);
 
-        $this->breadcrumbs['Group Add'] = array(null, 'manage/groups/add');
+        $this->breadcrumbs[I18n::_('Group Add')] = array(null, 'manage/groups/add');
 
         $this->view('manage/groups/add.cshtml');
     }
@@ -457,7 +457,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record updated.'
+                        I18n::_('Record updated.')
                     )
                 );
             }
@@ -468,7 +468,7 @@ class Manage extends PmController
         $this->set('id', $uId);
         $this->set('data', $tData);
 
-        $this->breadcrumbs['Group Edit'] = array(null, 'manage/groups/edit/' . $uId);
+        $this->breadcrumbs[I18n::_('Group Edit')] = array(null, 'manage/groups/edit/' . $uId);
 
         $this->view('manage/groups/edit.cshtml');
     }
@@ -493,7 +493,7 @@ class Manage extends PmController
             'alert',
             array(
                 'success',
-                'Record removed.'
+                I18n::_('Record removed.')
             )
         );
 
@@ -559,7 +559,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record added.'
+                        I18n::_('Record added.')
                     )
                 );
 
@@ -580,7 +580,7 @@ class Manage extends PmController
 
         $this->set('data', $tData);
 
-        $this->breadcrumbs['Role Add'] = array(null, 'manage/roles/add');
+        $this->breadcrumbs[I18n::_('Role Add')] = array(null, 'manage/roles/add');
 
         $this->view('manage/roles/add.cshtml');
     }
@@ -627,7 +627,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record updated.'
+                        I18n::_('Record updated.')
                     )
                 );
             }
@@ -638,7 +638,7 @@ class Manage extends PmController
         $this->set('id', $uId);
         $this->set('data', $tData);
 
-        $this->breadcrumbs['Role Edit'] = array(null, 'manage/roles/edit/' . $uId);
+        $this->breadcrumbs[I18n::_('Role Edit')] = array(null, 'manage/roles/edit/' . $uId);
 
         $this->view('manage/roles/edit.cshtml');
     }
@@ -663,7 +663,7 @@ class Manage extends PmController
             'alert',
             array(
                 'success',
-                'Record removed.'
+                I18n::_('Record removed.')
             )
         );
 
@@ -728,7 +728,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record added.'
+                        I18n::_('Record added.')
                     )
                 );
 
@@ -746,7 +746,7 @@ class Manage extends PmController
         $this->set('data', $tData);
         $this->set('types', $this->constantModel->types);
 
-        $this->breadcrumbs['Constants Add'] = array(null, 'manage/constants/add');
+        $this->breadcrumbs[I18n::_('Constants Add')] = array(null, 'manage/constants/add');
 
         $this->view('manage/constants/add.cshtml');
     }
@@ -790,7 +790,7 @@ class Manage extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record updated.'
+                        I18n::_('Record updated.')
                     )
                 );
             }
@@ -802,7 +802,7 @@ class Manage extends PmController
         $this->set('data', $tData);
         $this->set('types', $this->constantModel->types);
 
-        $this->breadcrumbs['Constants Edit'] = array(null, 'manage/constants/edit/' . $uId);
+        $this->breadcrumbs[I18n::_('Constants Edit')] = array(null, 'manage/constants/edit/' . $uId);
 
         $this->view('manage/constants/edit.cshtml');
     }
@@ -827,7 +827,7 @@ class Manage extends PmController
             'alert',
             array(
                 'success',
-                'Record removed.'
+                I18n::_('Record removed.')
             )
         );
 

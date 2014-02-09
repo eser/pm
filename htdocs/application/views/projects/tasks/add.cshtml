@@ -5,6 +5,7 @@ use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -23,14 +24,14 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box" style="position:relative;">
-                    <div class="tab-header">New Task</div>
+                    <div class="tab-header">@I18n::_('New Task')</div>
                     <div class="padded">
 
                         <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/add')">
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="input">
-                                        <label for="Type" class="caption">Type</label>
+                                        <label for="Type" class="caption">@I18n::_('Type')</label>
                                         <select name="type" id="Type" placeholder="Type" class="fill-up chzn-select">
                                         @Html::selectOptions($constants['task_type'], (int)$data['type'], 'name')
                                         </select>
@@ -38,8 +39,8 @@ use App\Includes\ViewHelpers;
                                 </div>
                                 <div class="span6">
                                     <div class="input">
-                                        <label for="Section" class="caption">Section</label>
-                                        <select name="section" id="Section" placeholder="Section" class="fill-up chzn-select">
+                                        <label for="Section" class="caption">@I18n::_('Section')</label>
+                                        <select name="section" id="Section" placeholder="@I18n::_('Section')" class="fill-up chzn-select">
                                         @Html::selectOptions($projectConstants['section_type'], (int)$data['section'], 'name')
                                         </select>
                                     </div>
@@ -47,19 +48,19 @@ use App\Includes\ViewHelpers;
                             </div>
                             <div class="row-fluid" style="margin-bottom:10px;">
                                 <div class="input">
-                                    <label for="Name" class="caption">Subject</label>
-                                    <input type="text" placeholder="Subject" name="subject" value="@String::htmlEscape($data['subject'])" />
+                                    <label for="Name" class="caption">@I18n::_('Subject')</label>
+                                    <input type="text" placeholder="@I18n::_('Subject')" name="subject" value="@String::htmlEscape($data['subject'])" />
                                 </div>
                                 <div class="input">
-                                    <label for="Description" class="caption">Description</label>
-                                    <textarea placeholder="Description" name="description" rows="6" class="cleditor">@String::htmlEscape($data['description'])</textarea>
+                                    <label for="Description" class="caption">@I18n::_('Description')</label>
+                                    <textarea placeholder="@I18n::_('Description')" name="description" rows="6" class="cleditor">@String::htmlEscape($data['description'])</textarea>
                                 </div>
                             </div>
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="input">
-                                        <label for="Status" class="caption">Status</label>
-                                        <select name="status" id="Status" placeholder="Status" class="fill-up chzn-select">
+                                        <label for="Status" class="caption">@I18n::_('Status')</label>
+                                        <select name="status" id="Status" placeholder="@I18n::_('Status')" class="fill-up chzn-select">
                                             <optgroup label="Open">
                                                 @Html::selectOptions($constants['open_task_type'], (int)$data['type'], 'name')
                                             </optgroup>
@@ -69,14 +70,14 @@ use App\Includes\ViewHelpers;
                                         </select>
                                     </div>
                                     <div class="input">
-                                        <label for="Priority" class="caption">Priority</label>
-                                        <select name="priority" id="Priority" placeholder="Priority" class="fill-up chzn-select">
+                                        <label for="Priority" class="caption">@I18n::_('Priority')</label>
+                                        <select name="priority" id="Priority" placeholder="@I18n::_('Priority')" class="fill-up chzn-select">
                                         @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
                                         </select>
                                     </div>
                                     <div class="input">
-                                        <label for="Assignee" class="caption">Assignee</label>
-                                        <select name="assignee" id="Assignee" placeholder="Assignee" class="fill-up chzn-select">
+                                        <label for="Assignee" class="caption">@I18n::_('Assignee')</label>
+                                        <select name="assignee" id="Assignee" placeholder="@I18n::_('Assignee')" class="fill-up chzn-select">
                                         <option value="0">(None)</option>
                                         @Html::selectOptions($users, (int)$data['assignee'], 'name')
                                         </select>
@@ -84,22 +85,29 @@ use App\Includes\ViewHelpers;
                                 </div>
                                 <div class="span6">
                                     <div class="input">
-                                        <label for="StartDate" class="caption">Start Date</label>
-                                        <input id="datetimepicker" name="startdate" type="text" class="fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
+                                        <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
+                                        <input id="datetimepicker" name="startdate" type="text" placeholder="@I18n::_('Start Date')" class="fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
                                     </div>
+
+                                    <div class="input">
+                                        <label for="EndDate" class="caption">@I18n::_('End Date')</label>
+                                        <input id="datetimepicker" name="enddate" type="text" placeholder="@I18n::_('End Date')" class="fill-up" value="">
+                                    </div>
+
                                     <div class="input span3" style="margin-left:-1px;">
-                                        <label for="EstimatedTime" class="caption">Estimated Time</label>
-                                        <input type="text" placeholder="Hours" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
+                                        <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
+                                        <input type="text" placeholder="@I18n::_('Estimated Time')" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
                                     </div>
-                                     <div class="input span9">
-                                        <label for="Revisions" class="caption">Related revisions</label>
-                                        <input type="text" placeholder="" name="revisions" value="" />
+
+                                    <div class="input span9">
+                                        <label for="Revisions" class="caption">@I18n::_('Related Revisions')</label>
+                                        <input type="text" placeholder="@I18n::_('Related Revisions')" name="revisions" value="" />
                                     </div>
                                </div>
                             </div>
                             <div class="form-actions">
                                 <div class="pull-right">
-                                    <button type="submit" class="button blue">Create</button>
+                                    <button type="submit" class="button blue">@I18n::_('Create')</button>
                                 </div>
                             </div>
                         </form>

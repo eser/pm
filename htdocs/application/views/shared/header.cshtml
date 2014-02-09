@@ -1,6 +1,7 @@
 @{
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 }
 @Views::viewFile('{app}views/shared/header_plain.cshtml')
 
@@ -15,8 +16,8 @@ use Scabbia\Extensions\Views\Views;
         </div>
         <div class="modal-footer">
             <div class="inner-well">
-                <a class="button mini rounded light-gray" data-dismiss="modal">Close</a>
-                <a class="button mini rounded blue">Save changes</a>
+                <a class="button mini rounded light-gray" data-dismiss="modal">@I18n::_('Close')</a>
+                <a class="button mini rounded blue">@I18n::_('Save changes')</a>
             </div>
         </div>
     </div>
@@ -42,19 +43,21 @@ use Scabbia\Extensions\Views\Views;
     <nav id="primary" class="main-nav">
         <ul>
 
-            <li><a href="@Http::url('home')"><i class="icon-picture"></i> Desktop</a></li>
-            <li><a href="@Http::url('projects')"><i class="icon-bar-chart"></i> Projects</a></li>
-            <li><a href="@Http::url('manage')"><i class="icon-cogs"></i> Manage</a></li>
+            <li><a href="@Http::url('home')"><i class="icon-picture"></i> @I18n::_('Desktop')</a></li>
+            <li><a href="@Http::url('projects')"><i class="icon-bar-chart"></i> @I18n::_('Projects')</a></li>
+            <li><a href="@Http::url('manage')"><i class="icon-cogs"></i> @I18n::_('Manage')</a></li>
 
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt"></i>More <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt"></i>@I18n::_('More') <span class="caret"></span></a>
 
                 <ul class="dropdown-menu">
+                    <!--
                     <li><a href="@Http::url('home/404')"><i class="icon-warning-sign"></i> Error 404</a></li>
                     <li><a href="@Http::url('documentation')"><i class="icon-book"></i> Documentation</a></li>
                     <li class="divider"></li>
+                    -->
                     <li>
-                        <a href="@Http::url('gate/login')"><i class="icon-off"></i> Log out (login page)</a>
+                        <a href="@Http::url('gate/login')"><i class="icon-off"></i> @I18n::_('Log out')</a>
                     </li>
                 </ul>
             </li>

@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\I18n\I18n;
 }
 <nav id="secondary" class="main-nav">
 
@@ -23,17 +24,17 @@ use Scabbia\Extensions\Http\Http;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('projects/show/' . $projectId)"><i class="icon-bar-chart"></i> Overview</a></li>
-        <li><a href="@Http::url('projects/tasks/' . $projectId)"><i class="icon-share"></i> Tasks</a></li>
-        <li><a href="@Http::url('projects/tasks/' . $projectId . '/closed')"><i class="icon-share"></i>Closed Tasks</a></li>
-        <li><a href="@Http::url('projects/constants/' . $projectId)"><i class="icon-list"></i> Constants</a></li>
+        <li><a href="@Http::url('projects/show/' . $projectId)"><i class="icon-bar-chart"></i> @I18n::_('Overview')</a></li>
+        <li><a href="@Http::url('projects/tasks/' . $projectId)"><i class="icon-share"></i> @I18n::_('Tasks')</a></li>
+        <li><a href="@Http::url('projects/tasks/' . $projectId . '/closed')"><i class="icon-share"></i>@I18n::_('Closed Tasks')</a></li>
+        <li><a href="@Http::url('projects/constants/' . $projectId)"><i class="icon-list"></i> @I18n::_('Constants')</a></li>
         <!--
-        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Tasks</a></li>
-        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Roadmap</a></li>
-        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Pages</a></li>
-        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Files</a></li>
-        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Users</a></li>
-        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> Settings</a></li>
+        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Tasks')</a></li>
+        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Roadmap')</a></li>
+        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Pages')</a></li>
+        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Files')</a></li>
+        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Users')</a></li>
+        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Settings')</a></li>
         -->
     </ul>
 </nav>

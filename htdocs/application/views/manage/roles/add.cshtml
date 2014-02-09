@@ -3,6 +3,7 @@ use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -21,14 +22,14 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box">
-                    <div class="tab-header"> Role Add </div>
+                    <div class="tab-header">@I18n::_('Role Add')</div>
                     <form class="fill-up" method="post" action="@Http::url('manage/roles/add')">
                         <div class="row-fluid">
                             <div class="span12">
                                 <div style="padding-right:12px;">
                                     <div class="btn-group pull-right">
 
-                                        <a href="@Http::url('manage/roles')" class="button blue">Role List</a>
+                                        <a href="@Http::url('manage/roles')" class="button blue">@I18n::_('Role List')</a>
 
                                     </div>
                                 </div>
@@ -36,27 +37,27 @@ use App\Includes\ViewHelpers;
                                 <div class="padded">
 
                                     <div class="input">
-                                        <label for="Name" class="caption">Name</label>
-                                        <input type="text" placeholder="Name" name="name" value="@String::htmlEscape($data['name'])" />
+                                        <label for="Name" class="caption">@I18n::_('Name')</label>
+                                        <input type="text" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
                                     </div>
 
                                     <div class="input row-fluid">
-                                        <label for="Privileges" class="caption">Privileges</label>
+                                        <label for="Privileges" class="caption">@I18n::_('Privileges')</label>
 
                                         <input type="checkbox" class="normal-check" id="ch1_CreateProject" name="createproject" value="1" @{ if ($data['createproject'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="ch1_CreateProject" class="span4">Create Project</label>
+                                        <label for="ch1_CreateProject" class="span4">@I18n::_('Create Project')</label>
 
                                         <input type="checkbox" class="normal-check" id="ch2_CreateUser" name="createuser" value="1" @{ if ($data['createuser'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="ch2_CreateUser" class="span4">Create User</label>
+                                        <label for="ch2_CreateUser" class="span4">@I18n::_('Create User')</label>
 
                                         <input type="checkbox" class="normal-check" id="ch3_DeleteUser" name="deleteuser" value="1" @{ if ($data['deleteuser'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="ch3_DeleteUser" class="span4">Delete User</label>
+                                        <label for="ch3_DeleteUser" class="span4">@I18n::_('Delete User')</label>
 
                                         <input type="checkbox" class="normal-check" id="ch4_Administer" name="administer" value="1" @{ if ($data['administer'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="ch4_Administer" class="span4">Administer</label>
+                                        <label for="ch4_Administer" class="span4">@I18n::_('Administer')</label>
 
                                         <input type="checkbox" class="normal-check" id="ch5_Active" name="active" value="1" @{ if ($data['active'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="ch5_Active" class="span4">Active</label>
+                                        <label for="ch5_Active" class="span4">@I18n::_('Active')</label>
                                     </div>
 
                                 </div>
@@ -64,7 +65,7 @@ use App\Includes\ViewHelpers;
                         </div>
                         <div class="form-actions">
                             <div class="pull-right">
-                                <button type="submit" class="button blue">Create</button>
+                                <button type="submit" class="button blue">@I18n::_('Create')</button>
                             </div>
                         </div>
                     </form>

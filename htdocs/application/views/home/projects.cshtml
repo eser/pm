@@ -4,6 +4,7 @@ use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -22,15 +23,14 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box" style="position:relative;">
-                    <div class="tab-header" > My Projects
-                    </div>
+                    <div class="tab-header">@I18n::_('My Projects')</div>
 
                     <table class="table table-striped tablesorter">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Title</th>
-                            <th>Task Count</th>
+                            <th>@I18n::_('Name')</th>
+                            <th>@I18n::_('Title')</th>
+                            <th>@I18n::_('Task Count')</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -42,9 +42,9 @@ use App\Includes\ViewHelpers;
                             <td>@$project['taskcount']</td>
                             <td><div class="btn-group pull-right">
 
-                                    <a href="@Http::url('projects/show/' . $project['id'])" class="button blue">Project Page</a>
+                                    <a href="@Http::url('projects/show/' . $project['id'])" class="button blue">@I18n::_('Project Page')</a>
 
-                                    <a href="@Http::url('projects/tasks/' . $project['id'])" class="remove-button button red">Tasks</a>
+                                    <a href="@Http::url('projects/tasks/' . $project['id'])" class="remove-button button red">@I18n::_('Tasks')</a>
 
                                 </div></td>
                         </tr>

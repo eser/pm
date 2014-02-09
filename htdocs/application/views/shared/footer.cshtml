@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 }
     <script type="text/html" id="template-notification">
         <div class="notification animated fadeInLeftMiddle fast{{ item.itemClass }}">
@@ -19,7 +20,7 @@ use Scabbia\Extensions\Views\Views;
         <div class="container">
             <div class="row" id="notifications-wrapper">
                 <div id="notifications" class="{{ bootstrapPositionClass }} notifications animated">
-                    <div id="dismiss-all" class="dismiss-all button blue">Dismiss all</div>
+                    <div id="dismiss-all" class="dismiss-all button blue">@I18n::_('Dismiss all')</div>
                     <div id="content">
                         <div id="notes"></div>
                     </div>

@@ -5,6 +5,7 @@ use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -29,72 +30,72 @@ use App\Includes\ViewHelpers;
                         <div class="row-fluid">
                             <div class="span6">
                                 <div class="input">
-                                    <label for="Type" class="caption">Type</label>
+                                    <label for="Type" class="caption">@I18n::_('Type')</label>
                                     @$constants['task_type'][(int)$data['type']]['name']
                                 </div>
                             </div>
                             <div class="span6">
                                 <div class="input">
-                                    <label for="Section" class="caption">Section</label>
+                                    <label for="Section" class="caption">@I18n::_('Section')</label>
                                     @$projectConstants['section_type'][(int)$data['section']]['name']
                                 </div>
                             </div>
                         </div>
                         <div class="row-fluid">
                             <div class="input">
-                                <label for="Name" class="caption">Subject</label>
+                                <label for="Name" class="caption">@I18n::_('Subject')</label>
                                 @String::htmlEscape($data['subject'])
                             </div>
                             <div class="input">
-                                <label for="Description" class="caption">Description</label>
+                                <label for="Description" class="caption">@I18n::_('Description')</label>
                                 @String::htmlEscape($data['description'])
                             </div>
                         </div>
                         <div class="row-fluid">
                             <div class="span6">
                                 <div class="input" style="margin-bottom:10px;">
-                                    <label for="Status" class="caption">Status</label>
+                                    <label for="Status" class="caption">@I18n::_('Status')</label>
                                     @if (isset($constants['open_task_type'][(int)$data['type']])) {
                                         @$constants['open_task_type'][(int)$data['type']]['name']
                                     } elseif (isset($constants['closed_task_type'][(int)$data['type']])) {
                                         @$constants['closed_task_type'][(int)$data['type']]['name']
                                     } else {
-                                        Unknown
+                                        @I18n::_('Unknown')
                                     }
                                 </div>
                                 <div class="input" style="margin-bottom:8px; margin-left:-1px;">
-                                    <label for="Priority" class="caption">Priority</label>
+                                    <label for="Priority" class="caption">@I18n::_('Priority')</label>
                                     @$constants['priority_type'][(int)$data['priority']]['name']
                                 </div>
                                 <div class="input">
-                                    <label for="Assignee" class="caption">Assignee</label>
+                                    <label for="Assignee" class="caption">@I18n::_('Assignee')</label>
                                     @if ((int)$data['assignee'] != 0) {
                                         @$users[(int)$data['assignee']]['name']
                                     } else {
-                                        (Unassigned)
+                                        @I18n::_('(Unassigned)')
                                     }
                                 </div>
                             </div>
                             <div class="span6">
                                 <div class="input">
-                                    <label for="StartDate" class="caption">Start Date</label>
+                                    <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
                                     @Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')
                                 </div>
 
                                 <div class="input" >
-                                    <label for="EndDate" class="caption">End Date</label>
+                                    <label for="EndDate" class="caption">@I18n::_('End Date')</label>
                                     @if ((int)$data['enddate'] != NULL) {
 										@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')
 									} else {
-										(Not set)
+										@I18n::_('(Unspecified)')
 									}
                                 </div>                                
                                 <div class="input" >
-                                    <label for="Revisions" class="caption">Revisions</label>
-                                    @$data['revisions']&nbsp;
+                                    <label for="Revisions" class="caption">@I18n::_('Revisions')</label>
+                                    @$data['revisions']
                                 </div>
                                 <div class="input span3" style="margin-left:-3px;">
-                                    <label for="EstimatedTime" class="caption">Estimated Time</label>
+                                    <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
                                     @String::htmlEscape($data['estimatedtime'])
                                 </div>
                             </div>
@@ -104,7 +105,7 @@ use App\Includes\ViewHelpers;
                 </div>
 
                 <div class="box" style="position:relative;">
-                    <div class="tab-header">Task History</div>
+                    <div class="tab-header">@I18n::_('Task History')</div>
                     <div class="padded">
                         @foreach ($logs as $log) {
                         <div class="row-fluid row-border">
@@ -120,7 +121,7 @@ use App\Includes\ViewHelpers;
                                         } elseif (isset($constants['closed_task_type'][$value])) {
                                             @$constants['closed_task_type'][$value]['name']
                                         } else {
-                                            Unknown
+                                            @I18n::_('Unknown')
                                         }
                                         <br />
                                     } else {

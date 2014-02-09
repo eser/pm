@@ -1,275 +1,528 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Interesd\n"
+"Project-Id-Version: PM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-17 11:19+0200\n"
-"PO-Revision-Date: 2012-09-17 11:23+0200\n"
+"POT-Creation-Date: 2014-02-09 03:24+0200\n"
+"PO-Revision-Date: 2014-02-09 03:25+0200\n"
 "Last-Translator: Eser Ozvataf <eser@sent.com>\n"
 "Language-Team: \n"
-"Language: Turkish\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;dgettext:2\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;dgettext:2;I18n::_\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.5.3\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
-"X-Poedit-SearchPath-0: C:\\inetpub\\wwwroot\\php\\application\n"
+"X-Poedit-SearchPath-0: Q:\\webroot\\pm\\htdocs\\application\n"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:30
-msgid "Phone or E-mail"
-msgstr "Telefon veya E-posta"
+#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:43
+msgid "E-mail address cannot be empty."
+msgstr "E-posta adresleri boş olamaz."
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:33
-msgid "Log in"
+#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:45
+msgid "Please check your e-mail address again."
+msgstr "Lütfen e-posta adresini tekrar kontrol ediniz."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:48
+msgid "Please check your username again."
+msgstr "Lütfen kullanıcı isminizi tekrar kontrol ediniz."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:52
+msgid "Password cannot be empty."
+msgstr "Parola boş olamaz."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:76
+msgid "Invalid username or e-mail."
+msgstr "Geçersiz kullanıcı ismi veya e-posta."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:85
+msgid "Invalid password."
+msgstr "Geçersiz parola."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:94
+msgid "User is disabled."
+msgstr "Kullanıcı pasif durumda."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:29
+msgid "My Projects"
+msgstr "Projelerim"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:67
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:30
+msgid "Assigned Tasks"
+msgstr "Atanmış Görevler"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:24
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:49
+msgid "Manage"
+msgstr "Yönet"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:44
+msgid "Users"
+msgstr "Kullanıcılar"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:66
+msgid "Groups"
+msgstr "Gruplar"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:88
+msgid "Roles"
+msgstr "Roller"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:110
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:261
+msgid "Constants"
+msgstr "Sabitler"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:169
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:262
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:383
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:440
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:543
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:610
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:713
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:772
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:88
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:176
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:389
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:448
+msgid "Name field is required."
+msgstr "İsim alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:170
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:263
+msgid "Username field is required."
+msgstr "Kullanıcı ismi alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:171
+msgid "Password field is required."
+msgstr "Parola alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:172
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:265
+msgid "E-mail field should be filled in valid e-mail format."
+msgstr "E-posta alanı doğru bir biçimde girilmelidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:195
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:402
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:562
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:731
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:111
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:407
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:673
+msgid "Record added."
+msgstr "Kayıt eklendi."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:229
+msgid "User Add"
+msgstr "Kullanıcı Ekle"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:294
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:460
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:630
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:793
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:200
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:469
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:792
+msgid "Record updated."
+msgstr "Kayıt güncellendi."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:316
+msgid "User Edit"
+msgstr "Kullanıcı Düzelt"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:341
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:496
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:666
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:830
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:238
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:506
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:843
+msgid "Record removed."
+msgstr "Kayıt kaldırıldı."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:418
+msgid "Group Add"
+msgstr "Grup Ekle"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:471
+msgid "Group Edit"
+msgstr "Grup Düzelt"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:583
+msgid "Role Add"
+msgstr "Rol Ekle"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:641
+msgid "Role Edit"
+msgstr "Rol Düzelt"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:714
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:773
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:390
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:449
+msgid "Invalid type."
+msgstr "Geçersiz tip."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:749
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:425
+msgid "Constants Add"
+msgstr "Sabit Ekle"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:805
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:481
+msgid "Constants Edit"
+msgstr "Sabit Düzelt"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:27
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:48
+msgid "Projects"
+msgstr "Projeler"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:89
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:177
+msgid "Title field is required."
+msgstr "Başlık alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:90
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:178
+msgid "Subtitle field is required."
+msgstr "Altbaşlık alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:91
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:179
+msgid "Short Description field is required."
+msgstr "Kısa Açıklama alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:92
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:180
+msgid "Description is required."
+msgstr "Açıklama alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:137
+msgid "Add Project"
+msgstr "Proje Ekle"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:212
+msgid "Edit Project"
+msgstr "Proje Düzelt"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:292
+msgid "Tasks"
+msgstr "Görevler"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:636
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:749
+msgid "Subject field is required."
+msgstr "Konu alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:637
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:750
+msgid "Description field is required."
+msgstr "Açıklama alanı gereklidir."
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:714
+msgid "New Task"
+msgstr "Yeni Görev"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:818
+msgid "Task Edit"
+msgstr "Görev Düzenle"
+
+#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:881
+msgid "Task Detail"
+msgstr "Görev Detayı"
+
+#: Q:\webroot\pm\htdocs\application/Includes/PmController.php:56
+msgid "Home"
 msgstr "Giriş"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:35
-msgid "Register"
-msgstr "Kayıt ol"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:19
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:37
+msgid "Sunday"
+msgstr "Pazar"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:37
-msgid "Forgot your password?"
-msgstr "Parolanızı mı unuttunuz?"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:20
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:38
+msgid "Monday"
+msgstr "Pazartesi"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
-msgid "About"
-msgstr "Hakkında"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:21
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:39
+msgid "Tuesday"
+msgstr "Salı"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
-msgid "Developers"
-msgstr "Geliştiriciler"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:22
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:40
+msgid "Wednesday"
+msgstr "Çarşamba"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
-msgid "Careers"
-msgstr "Kariyer"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:23
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:41
+msgid "Thursday"
+msgstr "Perşembe"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
-msgid "Privacy"
-msgstr "Gizlilik"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:24
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:42
+msgid "Friday"
+msgstr "Cuma"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
-msgid "Cookies"
-msgstr "Çerezler"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:25
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:43
+msgid "Saturday"
+msgstr "Cumartesi"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
-msgid "Terms and Conditions"
-msgstr "Şartlar ve Koşullar"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:45
+msgid "Change"
+msgstr "Değiştir"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/gate/login.cshtml:47
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/footer.cshtml:4
-msgid "Help"
-msgstr "Yardım"
+#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:46
+msgid "Remove"
+msgstr "Kaldır"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:9
-msgid "SECTIONS"
-msgstr "BÖLÜMLER"
+#: Q:\webroot\pm\htdocs\application/Includes/ViewHelpers.php:20
+msgid "Yes"
+msgstr "Evet"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:11
-msgid "Homepage"
-msgstr "Anasayfa"
+#: Q:\webroot\pm\htdocs\application/Includes/ViewHelpers.php:23
+msgid "No"
+msgstr "Hayır"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:12
-msgid "Participated"
-msgstr "Katıldıklarım"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fee0fd8-top_navigation.cshtml:25
+msgid "Search..."
+msgstr "Arama..."
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:13
-msgid "Likes"
-msgstr "Beğendiklerim"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:20
+msgid "Username or E-mail"
+msgstr "Kullanıcı ismi veya E-posta"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:14
-msgid "Queue"
-msgstr "Kuyruk"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:21
+msgid "Password"
+msgstr "Parola"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:15
-msgid "Trends"
-msgstr "Trendler"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:23
+msgid "Sign in"
+msgstr "Giriş yap"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:17
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:26
-msgid "Image"
-msgstr "Resim"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:27
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:28
+msgid "Dashboard"
+msgstr "Pano"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:18
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:27
-msgid "Music"
-msgstr "Müzik"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:33
+msgid "Project"
+msgstr "Proje"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:19
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:28
-msgid "Video"
-msgstr "Video"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:34
+msgid "Subject"
+msgstr "Konu"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:22
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:43
-msgid "Interests"
-msgstr "İlgi Alanları"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:35
+msgid "Section"
+msgstr "Bölüm"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:30
-msgid "More..."
-msgstr "Daha..."
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:36
+msgid "Status"
+msgstr "Durum"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:34
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:44
-msgid "Locations"
-msgstr "Konumlar"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:37
+msgid "Priority"
+msgstr "Önem"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_leftnav.cshtml:43
-msgid "SITES"
-msgstr "SİTELER"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:53
+msgid "Unknown"
+msgstr "Bilinmiyor"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middleentry.cshtml:4
-msgid "What do you think?"
-msgstr "Ne düşünüyorsun?"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:59
+msgid "Edit"
+msgstr "Düzelt"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middlemap.cshtml:4
-msgid "Extend"
-msgstr "Genişlet"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:82
+msgid "Are you sure to delete this record?"
+msgstr "Bu kaydı silmek istediğinizden emin misiniz?"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:4
-msgid "All"
-msgstr "Tümü"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:20
+msgid "Close"
+msgstr "Kapat"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:5
-msgid "Content"
-msgstr "İçerik"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:21
+msgid "Save changes"
+msgstr "Değişiklikleri kaydet"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:6
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:45
-msgid "Posts"
-msgstr "Yazılar"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:47
+msgid "Desktop"
+msgstr "Masaüstü"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:7
-msgid "Explore"
-msgstr "Keşfet"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:52
+msgid "More"
+msgstr "Diğer"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:8
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:47
-msgid "Events"
-msgstr "Etkinlikler"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:9
-msgid "Discussions"
-msgstr "Tartışmalar"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:10
-msgid "People"
-msgstr "Kişiler"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_middletabs.cshtml:11
-msgid "Store"
-msgstr "Mağaza"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:4
-msgid "Message Inbox"
-msgstr "Gelen Kutusu"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:39
-msgid "Suggestions"
-msgstr "Öneriler"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:41
-msgid "Random"
-msgstr "Rastgele"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:42
-msgid "Sites"
-msgstr "Siteler"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:46
-msgid "Venues"
-msgstr "Mekanlar"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:48
-msgid "Forum Entries"
-msgstr "Forum Girdileri"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:49
-msgid "Profiles"
-msgstr "Profiller"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/content_rightnav.cshtml:50
-msgid "Store Items"
-msgstr "Mağaza Ürünleri"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:20
-msgid "Pin"
-msgstr "İğne"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:26
-msgid "Settings"
-msgstr "Ayarlar"
-
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:27
-msgid "Logout"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:61
+msgid "Log out"
 msgstr "Çıkış"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:40
-msgid "Detailed"
-msgstr "Detaylı"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cb5b0c85-footer.cshtml:24
+msgid "Dismiss all"
+msgstr "Tümünü kaldır"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:48
-msgid "Profile Search"
-msgstr "Profil Arama"
+#~ msgid "Register"
+#~ msgstr "Kayıt ol"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:49
-msgid "Content Search"
-msgstr "İçerik Arama"
+#~ msgid "Forgot your password?"
+#~ msgstr "Parolanızı mı unuttunuz?"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:50
-msgid "Venue Search"
-msgstr "Mekan Arama"
+#~ msgid "About"
+#~ msgstr "Hakkında"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:57
-msgid "Full Name"
-msgstr "Tam İsim"
+#~ msgid "Developers"
+#~ msgstr "Geliştiriciler"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:61
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:91
-msgid "Location"
-msgstr "Konum"
+#~ msgid "Careers"
+#~ msgstr "Kariyer"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:65
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:78
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:95
-msgid "Search"
-msgstr "Ara"
+#~ msgid "Privacy"
+#~ msgstr "Gizlilik"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:74
-msgid "Text"
-msgstr "Metin"
+#~ msgid "Cookies"
+#~ msgstr "Çerezler"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/home/header.cshtml:87
-msgid "Venue Name"
-msgstr "Mekan İsmi"
+#~ msgid "Terms and Conditions"
+#~ msgstr "Şartlar ve Koşullar"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:21
-msgid "Sort by Popularity"
-msgstr "Popüleriteye göre"
+#~ msgid "Help"
+#~ msgstr "Yardım"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:21
-msgid "Sort by Date"
-msgstr "Tarihe göre"
+#~ msgid "SECTIONS"
+#~ msgstr "BÖLÜMLER"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:175
-msgid "Reshare"
-msgstr "Paylaş"
+#~ msgid "Participated"
+#~ msgstr "Katıldıklarım"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:176
-msgid "Read Later"
-msgstr "Sonra Oku"
+#~ msgid "Likes"
+#~ msgstr "Beğendiklerim"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:177
-msgid "Comments"
-msgstr "Yorumlar"
+#~ msgid "Queue"
+#~ msgstr "Kuyruk"
 
-#: C:\inetpub\wwwroot\php\application/writable/cache/cshtml/shared/feeds_list.cshtml:207
-msgid "Make a comment..."
-msgstr "Bir yorum yap..."
+#~ msgid "Trends"
+#~ msgstr "Trendler"
+
+#~ msgid "Image"
+#~ msgstr "Resim"
+
+#~ msgid "Music"
+#~ msgstr "Müzik"
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Interests"
+#~ msgstr "İlgi Alanları"
+
+#~ msgid "Locations"
+#~ msgstr "Konumlar"
+
+#~ msgid "SITES"
+#~ msgstr "SİTELER"
+
+#~ msgid "What do you think?"
+#~ msgstr "Ne düşünüyorsun?"
+
+#~ msgid "Extend"
+#~ msgstr "Genişlet"
+
+#~ msgid "All"
+#~ msgstr "Tümü"
+
+#~ msgid "Content"
+#~ msgstr "İçerik"
+
+#~ msgid "Posts"
+#~ msgstr "Yazılar"
+
+#~ msgid "Explore"
+#~ msgstr "Keşfet"
+
+#~ msgid "Events"
+#~ msgstr "Etkinlikler"
+
+#~ msgid "Discussions"
+#~ msgstr "Tartışmalar"
+
+#~ msgid "People"
+#~ msgstr "Kişiler"
+
+#~ msgid "Store"
+#~ msgstr "Mağaza"
+
+#~ msgid "Message Inbox"
+#~ msgstr "Gelen Kutusu"
+
+#~ msgid "Random"
+#~ msgstr "Rastgele"
+
+#~ msgid "Sites"
+#~ msgstr "Siteler"
+
+#~ msgid "Venues"
+#~ msgstr "Mekanlar"
+
+#~ msgid "Forum Entries"
+#~ msgstr "Forum Girdileri"
+
+#~ msgid "Profiles"
+#~ msgstr "Profiller"
+
+#~ msgid "Store Items"
+#~ msgstr "Mağaza Ürünleri"
+
+#~ msgid "Pin"
+#~ msgstr "İğne"
+
+#~ msgid "Settings"
+#~ msgstr "Ayarlar"
+
+#~ msgid "Logout"
+#~ msgstr "Çıkış"
+
+#~ msgid "Profile Search"
+#~ msgstr "Profil Arama"
+
+#~ msgid "Content Search"
+#~ msgstr "İçerik Arama"
+
+#~ msgid "Venue Search"
+#~ msgstr "Mekan Arama"
+
+#~ msgid "Full Name"
+#~ msgstr "Tam İsim"
+
+#~ msgid "Location"
+#~ msgstr "Konum"
+
+#~ msgid "Text"
+#~ msgstr "Metin"
+
+#~ msgid "Venue Name"
+#~ msgstr "Mekan İsmi"
+
+#~ msgid "Sort by Popularity"
+#~ msgstr "Popüleriteye göre"
+
+#~ msgid "Sort by Date"
+#~ msgstr "Tarihe göre"
+
+#~ msgid "Reshare"
+#~ msgstr "Paylaş"
+
+#~ msgid "Read Later"
+#~ msgstr "Sonra Oku"
+
+#~ msgid "Comments"
+#~ msgstr "Yorumlar"
+
+#~ msgid "Make a comment..."
+#~ msgstr "Bir yorum yap..."

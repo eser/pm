@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\I18n\I18n;
 }
 <nav id="secondary" class="main-nav">
 
@@ -23,8 +24,8 @@ use Scabbia\Extensions\Http\Http;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('home')"><i class="icon-dashboard"></i> Dashboard</a></li>
-        <li><a href="@Http::url('home/projects')"><i class="icon-bar-chart"></i> My Projects</a></li>
-        <li><a href="@Http::url('home/tasks')"><i class="icon-info-sign"></i> Assigned Tasks</a></li>
+        <li><a href="@Http::url('home')"><i class="icon-dashboard"></i> @I18n::_('Dashboard')</a></li>
+        <li><a href="@Http::url('home/projects')"><i class="icon-bar-chart"></i> @I18n::_('My Projects')</a></li>
+        <li><a href="@Http::url('home/tasks')"><i class="icon-info-sign"></i> @I18n::_('Assigned Tasks')</a></li>
     </ul>
 </nav>

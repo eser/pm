@@ -4,6 +4,7 @@ use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -23,8 +24,7 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box " style="position:relative;">
-                    <div class="tab-header" > Task List
-                    </div>
+                    <div class="tab-header">@I18n::_('Task List')</div>
 
                     <div class="tab-pane padded">
 
@@ -41,19 +41,19 @@ use App\Includes\ViewHelpers;
 
                         <div class="pull-right">
                             <a href="@Http::url('projects/tasks/' . $projectId . '/add')">
-                                <button type="submit" class="button blue">Task Add</button>
+                                <button type="submit" class="button blue">@I18n::_('Task Add')</button>
                             </a>
                         </div>
                     </div>
                     <table class="table table-striped tablesorter">
                         <thead>
                         <tr>
-                            <th colspan="2">Subject</th>
-							<th>Type</th>
-                            <th>Section</th>
-                            <th>Status</th>
-                            <th>Revisions</th>
-                            <th colspan="2">Date closed</th>
+                            <th colspan="2">@I18n::_('Subject')</th>
+							<th>@I18n::_('Type')</th>
+                            <th>@I18n::_('Section')</th>
+                            <th>@I18n::_('Status')</th>
+                            <th>@I18n::_('Revisions')</th>
+                            <th colspan="2">@I18n::_('Date Closed')</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -68,14 +68,14 @@ use App\Includes\ViewHelpers;
                                 } elseif (isset($constants['closed_task_type'][$task['status']])) {
                                     echo $constants['closed_task_type'][$task['status']]['name'];
                                 } else {
-                                    echo 'Unknown';
+                                    echo I18n::_('Unknown');
                                 }
                             }</td>
                             <td>@$task['revisions']</td>
                             <td>@Date::convert($task['enddate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
                             <td><div class="pull-right">
-                                    <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $task['id'])" class="blue">Edit</a> |
-                                    <a href="@Http::url('projects/tasks/' . $projectId . '/remove/' . $task['id'])" class="remove-button red">Del</a>
+                                    <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $task['id'])" class="blue">@I18n::_('Edit')</a> |
+                                    <a href="@Http::url('projects/tasks/' . $projectId . '/remove/' . $task['id'])" class="remove-button red">@I18n::_('Del')</a>
                             </div></td>
                         </tr>
                         }
@@ -97,7 +97,7 @@ use App\Includes\ViewHelpers;
             $l(['.remove-button']),
             'click',
             function(ev, elem) {
-                if (!confirm('Are you sure to delete this record?')) {
+                if (!confirm('@I18n::_('Are you sure to delete this record?')')) {
                     return false;
                 }
             }

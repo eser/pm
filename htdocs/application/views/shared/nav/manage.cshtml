@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\I18n\I18n;
 }
 <nav id="secondary" class="main-nav">
 
@@ -23,9 +24,9 @@ use Scabbia\Extensions\Http\Http;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('manage/users')"><i class="icon-user"></i> Users</a></li>
-        <li><a href="@Http::url('manage/groups')"><i class="icon-group"></i> Groups</a></li>
-        <li><a href="@Http::url('manage/roles')"><i class="icon-check"></i> Roles</a></li>
-        <li><a href="@Http::url('manage/constants')"><i class="icon-list"></i> Constants</a></li>
+        <li><a href="@Http::url('manage/users')"><i class="icon-user"></i> @I18n::_('Users')</a></li>
+        <li><a href="@Http::url('manage/groups')"><i class="icon-group"></i> @I18n::_('Groups')</a></li>
+        <li><a href="@Http::url('manage/roles')"><i class="icon-check"></i> @I18n::_('Roles')</a></li>
+        <li><a href="@Http::url('manage/constants')"><i class="icon-list"></i> @I18n::_('Constants')</a></li>
     </ul>
 </nav>

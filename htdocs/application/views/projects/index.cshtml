@@ -4,6 +4,7 @@ use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -22,7 +23,7 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box" style="position: relative;">
-                    <div class="tab-header">Project List</div>
+                    <div class="tab-header">@I18n::_('Project List')</div>
                     <div class="tab-pane padded">
 
                         <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;">
@@ -38,19 +39,19 @@ use App\Includes\ViewHelpers;
 
                         <div class="pull-right">
                             <a href="@Http::url('projects/add')">
-                                <button type="submit" class="button blue">Add Project</button>
+                                <button type="submit" class="button blue">@I18n::_('Add Project')</button>
                             </a>
                         </div>
                     </div>
                     <table class="table table-striped tablesorter">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Title</th>
-                            <th>Parent</th>
-                            <th>Created</th>
-                            <th>Type</th>
-                            <th>License</th>
+                            <th>@I18n::_('Name')</th>
+                            <th>@I18n::_('Title')</th>
+                            <th>@I18n::_('Parent')</th>
+                            <th>@I18n::_('Created')</th>
+                            <th>@I18n::_('Type')</th>
+                            <th>@I18n::_('License')</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -73,9 +74,9 @@ use App\Includes\ViewHelpers;
                             <td>@$project['license']</td>
                             <td><div class="btn-group pull-right">
 
-                                    <a href="@Http::url('projects/edit/' . $project['id'])" class="button blue">Edit</a>
+                                    <a href="@Http::url('projects/edit/' . $project['id'])" class="button blue">@I18n::_('Edit')</a>
 
-                                    <a href="@Http::url('projects/remove/' . $project['id'])" class="remove-button button red">Delete</a>
+                                    <a href="@Http::url('projects/remove/' . $project['id'])" class="remove-button button red">@I18n::_('Delete')</a>
 
                                 </div></td>
                         </tr>
@@ -98,7 +99,7 @@ use App\Includes\ViewHelpers;
             $l(['.remove-button']),
             'click',
             function(ev, elem) {
-                if (!confirm('Are you sure to delete this record?')) {
+                if (!confirm('@I18n::_('Are you sure to delete this record?')')) {
                     return false;
                 }
             }

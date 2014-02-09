@@ -24,7 +24,7 @@ class Projects extends PmController
     {
         parent::__construct();
 
-        $this->breadcrumbs['Projects'] = array(null, 'projects');
+        $this->breadcrumbs[I18n::_('Projects')] = array(null, 'projects');
     }
 
     /**
@@ -108,7 +108,7 @@ class Projects extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record added.'
+                        I18n::_('Record added.')
                     )
                 );
 
@@ -134,7 +134,7 @@ class Projects extends PmController
         $this->set('data', $tData);
         $this->set('projectTypes', $tProjectTypes);
 
-        $this->breadcrumbs['Add Project'] = array(null, 'projects/add');
+        $this->breadcrumbs[I18n::_('Add Project')] = array(null, 'projects/add');
 
         $this->loadMenu();
         $this->view();
@@ -197,7 +197,7 @@ class Projects extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record updated.'
+                        I18n::_('Record updated.')
                     )
                 );
             }
@@ -209,7 +209,7 @@ class Projects extends PmController
         $this->set('data', $tData);
         $this->set('projectTypes', $tProjectTypes);
 
-        $this->breadcrumbs['Edit Project'] = array(null, 'projects/edit/' . $uId);
+        $this->breadcrumbs[I18n::_('Edit Project')] = array(null, 'projects/edit/' . $uId);
 
         $this->loadMenu();
         $this->view();
@@ -235,7 +235,7 @@ class Projects extends PmController
             'alert',
             array(
                 'success',
-                'Record removed.'
+                I18n::_('Record removed.')
             )
         );
 
@@ -258,7 +258,7 @@ class Projects extends PmController
         }
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
-        $this->breadcrumbs['Constants'] = array(null, 'projects/constants/' . $uProjectId);
+        $this->breadcrumbs[I18n::_('Constants')] = array(null, 'projects/constants/' . $uProjectId);
 
         $this->set('projectId', $uProjectId);
 
@@ -289,7 +289,7 @@ class Projects extends PmController
         }
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
-        $this->breadcrumbs['Tasks'] = array(null, 'projects/tasks/' . $uProjectId);
+        $this->breadcrumbs[I18n::_('Tasks')] = array(null, 'projects/tasks/' . $uProjectId);
 
         $this->set('projectId', $uProjectId);
 
@@ -404,7 +404,7 @@ class Projects extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record added.'
+                        I18n::_('Record added.')
                     )
                 );
 
@@ -422,7 +422,7 @@ class Projects extends PmController
         $this->set('data', $tData);
         $this->set('types', $this->projectConstantModel->types);
 
-        $this->breadcrumbs['Constants Add'] = array(null, 'projects/constants/' . $uProjectId . '/add');
+        $this->breadcrumbs[I18n::_('Constants Add')] = array(null, 'projects/constants/' . $uProjectId . '/add');
 
         $this->view('projects/constants/add.cshtml');
     }
@@ -466,7 +466,7 @@ class Projects extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record updated.'
+                        I18n::_('Record updated.')
                     )
                 );
             }
@@ -478,7 +478,7 @@ class Projects extends PmController
         $this->set('data', $tData);
         $this->set('types', $this->projectConstantModel->types);
 
-        $this->breadcrumbs['Constants Edit'] = array(null, 'projects/constants/' . $uProjectId . '/edit/' . $uId);
+        $this->breadcrumbs[I18n::_('Constants Edit')] = array(null, 'projects/constants/' . $uProjectId . '/edit/' . $uId);
 
         $this->view('projects/constants/edit.cshtml');
     }
@@ -503,7 +503,7 @@ class Projects extends PmController
             'alert',
             array(
                 'success',
-                'Record removed.'
+                I18n::_('Record removed.')
             )
         );
 
@@ -670,7 +670,7 @@ class Projects extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record added.'
+                        I18n::_('Record added.')
                     )
                 );
 
@@ -711,7 +711,7 @@ class Projects extends PmController
         $this->load('App\\Models\\UserModel');
         $this->set('users', $this->userModel->getUsers());
 
-        $this->breadcrumbs['New Task'] = array(null, 'projects/tasks/' . $tProject['id'] . '/add');
+        $this->breadcrumbs[I18n::_('New Task')] = array(null, 'projects/tasks/' . $tProject['id'] . '/add');
 
         $this->view('projects/tasks/add.cshtml');
     }
@@ -789,7 +789,7 @@ class Projects extends PmController
                     'alert',
                     array(
                         'success',
-                        'Record updated.'
+                        I18n::_('Record updated.')
                     )
                 );
                 Http::redirect('projects/tasks/' . $uProjectId, true);
@@ -815,7 +815,7 @@ class Projects extends PmController
 
         $this->set('logs', $this->logModel->getLogs('task', $uId));
 
-        $this->breadcrumbs['Task Edit'] = array(null, 'projects/tasks/' . $uProjectId . '/edit/' . $uId);
+        $this->breadcrumbs[I18n::_('Task Edit')] = array(null, 'projects/tasks/' . $uProjectId . '/edit/' . $uId);
 
         $this->view('projects/tasks/edit.cshtml');
     }
@@ -840,7 +840,7 @@ class Projects extends PmController
             'alert',
             array(
                 'success',
-                'Record removed.'
+                I18n::_('Record removed.')
             )
         );
 
@@ -878,7 +878,7 @@ class Projects extends PmController
         $this->load('App\\Models\\LogModel');
         $this->set('logs', $this->logModel->getLogs('task', $uId));
 
-        $this->breadcrumbs['Task Detail'] = array(null, 'projects/tasks/' . $uProjectId . '/detail/' . $uId);
+        $this->breadcrumbs[I18n::_('Task Detail')] = array(null, 'projects/tasks/' . $uProjectId . '/detail/' . $uId);
 
         $this->view('projects/tasks/detail.cshtml');
     }

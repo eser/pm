@@ -4,6 +4,7 @@ use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -22,7 +23,7 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box">
-                    <div class="tab-header"> Constant Edit </div>
+                    <div class="tab-header">@I18n::_('Constant Edit')</div>
                     <form class="fill-up" method="post" action="@Http::url('projects/constants/' . $projectId . '/edit/' . $id)">
                         <div class="row-fluid">
                             <div class="span12">
@@ -30,7 +31,7 @@ use App\Includes\ViewHelpers;
 
                                     <div class="btn-group pull-right">
 
-                                        <a href="@Http::url('projects/constants/' . $projectId)" class="button blue">Constant List</a>
+                                        <a href="@Http::url('projects/constants/' . $projectId)" class="button blue">@I18n::_('Constant List')</a>
 
                                     </div>
 
@@ -39,13 +40,13 @@ use App\Includes\ViewHelpers;
                                 <div class="padded">
 
                                     <div class="input">
-                                        <label for="Name" class="caption">Name</label>
-                                        <input type="text" placeholder="Name" name="name" value="@String::htmlEscape($data['name'])" />
+                                        <label for="Name" class="caption">@I18n::_('Name')</label>
+                                        <input type="text" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
                                     </div>
 
                                     <div class="input">
-                                        <label for="Type" class="caption">Type</label>
-                                        <select name="type" id="Type" placeholder="Type" class="fill-up chzn-select">
+                                        <label for="Type" class="caption">@I18n::_('Type')</label>
+                                        <select name="type" id="Type" placeholder="@I18n::_('Type')" class="fill-up chzn-select">
                                             @Html::selectOptions($types, $data['type'])
                                         </select>
                                     </div>
@@ -55,7 +56,7 @@ use App\Includes\ViewHelpers;
                         </div>
                         <div class="form-actions">
                             <div class="pull-right">
-                                <button type="submit" class="button blue">Update</button>
+                                <button type="submit" class="button blue">@I18n::_('Update')</button>
                             </div>
                         </div>
                     </form>

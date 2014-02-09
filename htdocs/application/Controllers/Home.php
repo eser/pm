@@ -41,7 +41,7 @@ class Home extends PmController
         $tProjects = $this->projectModel->getProjectsOf($this->userBindings->user['id']);
         $this->set('projects', $tProjects);
 
-        $this->breadcrumbs['My Projects'] = array(null, 'home/projects');
+        $this->breadcrumbs[I18n::_('My Projects')] = array(null, 'home/projects');
 
         $this->view();
     }
@@ -64,7 +64,7 @@ class Home extends PmController
         $tProjectConstants = $this->projectConstantModel->getAllConstants();
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
-        $this->breadcrumbs['Assigned Tasks'] = array(null, 'home/tasks');
+        $this->breadcrumbs[I18n::_('Assigned Tasks')] = array(null, 'home/tasks');
 
         $this->view();
     }
