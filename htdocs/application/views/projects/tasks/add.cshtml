@@ -61,10 +61,10 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Status" class="caption">@I18n::_('Status')</label>
                                         <select name="status" id="Status" placeholder="@I18n::_('Status')" class="fill-up chzn-select">
-                                            <optgroup label="Open">
+                                            <optgroup label="@I18n::_('Open')">
                                                 @Html::selectOptions($constants['open_task_type'], (int)$data['type'], 'name')
                                             </optgroup>
-                                            <optgroup label="Closed">
+                                            <optgroup label="@I18n::_('Closed')">
                                                 @Html::selectOptions($constants['closed_task_type'], (int)$data['type'], 'name')
                                             </optgroup>
                                         </select>
