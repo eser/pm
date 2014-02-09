@@ -40,6 +40,22 @@ class ProjectMemberModel extends Model
     /**
      * @ignore
      */
+    public function getMembersWithDetails($uProjectId)
+    {
+        return $this->db->createQuery()
+            ->setTable('project_users pu')
+            ->joinTable('users u', 'u.id=pu.user', 'LEFT')
+            ->addField('pu.*, u.*')
+            ->addParameter('project', $uProjectId)
+            ->setWhere(array('pu.project=:project'))
+            ->setOrderBy('pu.relation ASC')
+            ->get()
+            ->allWithKey('id');
+    }
+
+    /**
+     * @ignore
+     */
     public function getMembersCount($uProjectId)
     {
         return $this->db->createQuery()
@@ -73,7 +89,7 @@ class ProjectMemberModel extends Model
     /**
      * @ignore
      */
-    public function getConstantsByRelation($uProjectId, $uRelation)
+    public function getMembersByRelation($uProjectId, $uRelation)
     {
         return $this->db->createQuery()
             ->setTable('project_users')

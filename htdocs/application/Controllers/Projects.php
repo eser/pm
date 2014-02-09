@@ -768,8 +768,8 @@ class Projects extends PmController
         $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
-        $this->load('App\\Models\\UserModel');
-        $this->set('users', $this->userModel->getUsers());
+        $this->load('App\\Models\\ProjectMemberModel');
+        $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
         $this->view('projects/tasks/index.cshtml');
     }
@@ -812,8 +812,8 @@ class Projects extends PmController
         $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
-        $this->load('App\\Models\\UserModel');
-        $this->set('users', $this->userModel->getUsers());
+        $this->load('App\\Models\\ProjectMemberModel');
+        $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
         $this->view('projects/tasks/closed.cshtml');
     }
@@ -926,8 +926,8 @@ class Projects extends PmController
         $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
-        $this->load('App\\Models\\UserModel');
-        $this->set('users', $this->userModel->getUsers());
+        $this->load('App\\Models\\ProjectMemberModel');
+        $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
         $this->breadcrumbs[I18n::_('New Task')] = array(null, 'projects/tasks/' . $tProject['id'] . '/add');
 
@@ -1028,8 +1028,8 @@ class Projects extends PmController
         $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
-        $this->load('App\\Models\\UserModel');
-        $this->set('users', $this->userModel->getUsers());
+        $this->load('App\\Models\\ProjectMemberModel');
+        $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
         $this->set('logs', $this->logModel->getLogs('task', $uId));
 
@@ -1090,8 +1090,8 @@ class Projects extends PmController
         $tProjectConstants = $this->projectConstantModel->getConstants($uProjectId);
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
-        $this->load('App\\Models\\UserModel');
-        $this->set('users', $this->userModel->getUsers());
+        $this->load('App\\Models\\ProjectMemberModel');
+        $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
         $this->load('App\\Models\\LogModel');
         $this->set('logs', $this->logModel->getLogs('task', $uId));
