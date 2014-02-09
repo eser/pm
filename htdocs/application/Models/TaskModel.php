@@ -90,7 +90,7 @@ class TaskModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('tasks')
-            ->setFields("*, (SELECT GROUP_CONCAT(rev SEPARATOR ', ') FROM task_rev WHERE task=tasks.id) AS revisions")
+            ->setFields("*, (SELECT GROUP_CONCAT(revision SEPARATOR ', ') FROM task_revisions WHERE task=tasks.id) AS revisions")
             ->setOffset($uOffset)
             ->setLimit($uLimit)
             ->setWhere(array('project=:projectid', _AND,"((SELECT type FROM constants WHERE id=tasks.status)='closed_task_type')"))
@@ -124,7 +124,7 @@ class TaskModel extends Model
     {
         $tResult = $this->db->createQuery()
             ->setTable('tasks')
-            ->setFields("*, (SELECT GROUP_CONCAT(rev SEPARATOR ', ') FROM task_rev WHERE task=tasks.id) AS revisions")
+            ->setFields("*, (SELECT GROUP_CONCAT(revision SEPARATOR ', ') FROM task_revisions WHERE task=tasks.id) AS revisions")
             ->setWhere(array('id=:id'))
             ->setLimit(1)
             ->addParameter('id', $uId)
@@ -149,10 +149,11 @@ class TaskModel extends Model
         
         foreach($revs as $rev) {
 			$this->db->createQuery()
-				->setTable('task_rev')
+				->setTable('task_revisions')
 				->setFields(array(
-					'rev'	=> (int)$rev,
-					'task'	=> $id
+					'revision'	=> (int)$rev,
+					'task'	    => $id,
+                    'relation'  => 'related'
 				))
 				->insert()
 				->execute(true);
@@ -176,7 +177,7 @@ class TaskModel extends Model
             ->execute();
             
         $this->db->createQuery()
-            ->setTable('task_rev')
+            ->setTable('task_revisions')
             ->setWhere(array('task=:id'))
             ->addParameter('id', $id)
             ->delete()
@@ -184,10 +185,11 @@ class TaskModel extends Model
             
         foreach($revs as $rev) {
 			$this->db->createQuery()
-				->setTable('task_rev')
+				->setTable('task_revisions')
 				->setFields(array(
-					'rev'	=> (int)$rev,
-					'task'	=> $id
+					'revision'	=> (int)$rev,
+					'task'	    => $id,
+                    'relation'  => 'related'
 				))
 				->insert()
 				->execute(true);

@@ -26,7 +26,7 @@ CREATE TABLE `constants` (
   `name` varchar(30) NOT NULL,
   `type` enum('task_type','project_type','open_task_type','closed_task_type','priority_type') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `files` */
 
@@ -46,7 +46,7 @@ CREATE TABLE `files` (
   KEY `constant` (`type`),
   KEY `milestone` (`milestone`),
   KEY `issue` (`issue`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `groups` */
 
@@ -56,7 +56,7 @@ CREATE TABLE `groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `issue_rev` */
 
@@ -70,7 +70,7 @@ CREATE TABLE `issue_rev` (
   PRIMARY KEY (`id`),
   KEY `issue` (`id`),
   KEY `fk_issue_rev_issue_idx` (`issue`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `logs` */
 
@@ -98,7 +98,7 @@ CREATE TABLE `milestone_issue` (
   PRIMARY KEY (`id`),
   KEY `milestone` (`milestone`),
   KEY `issue` (`issue`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `milestones` */
 
@@ -115,7 +115,7 @@ CREATE TABLE `milestones` (
   PRIMARY KEY (`id`),
   KEY `project` (`project`),
   KEY `statetype` (`state`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `news` */
 
@@ -131,7 +131,7 @@ CREATE TABLE `news` (
   PRIMARY KEY (`id`),
   KEY `project` (`project`),
   KEY `category` (`category`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `notes` */
 
@@ -147,7 +147,7 @@ CREATE TABLE `notes` (
   PRIMARY KEY (`id`),
   KEY `issue` (`issue`),
   KEY `user` (`user`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `pages` */
 
@@ -162,7 +162,7 @@ CREATE TABLE `pages` (
   `menulocation` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `project` (`project`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `project_constants` */
 
@@ -174,7 +174,7 @@ CREATE TABLE `project_constants` (
   `name` varchar(30) NOT NULL,
   `type` enum('section_type','milestone_type') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `project_user` */
 
@@ -189,7 +189,7 @@ CREATE TABLE `project_user` (
   KEY `project_user_project` (`project`),
   KEY `project_user_user` (`user`),
   KEY `project_user_role` (`role`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `projectroles` */
 
@@ -201,7 +201,7 @@ CREATE TABLE `projectroles` (
   `svnreadonly` tinyint(1) DEFAULT NULL,
   `svnmodify` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `projects` */
 
@@ -223,7 +223,7 @@ CREATE TABLE `projects` (
   PRIMARY KEY (`id`),
   KEY `project_parent` (`parent`),
   KEY `project_type` (`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `sections` */
 
@@ -236,7 +236,7 @@ CREATE TABLE `sections` (
   `description` text,
   PRIMARY KEY (`id`),
   KEY `section_project` (`project`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `siteroles` */
 
@@ -250,7 +250,7 @@ CREATE TABLE `siteroles` (
   `deleteuser` tinyint(1) unsigned DEFAULT NULL,
   `administer` tinyint(1) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `statetypes` */
 
@@ -262,7 +262,7 @@ CREATE TABLE `statetypes` (
   `type` int(10) unsigned DEFAULT NULL,
   `status` enum('open','close') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `tasks` */
 
@@ -289,7 +289,7 @@ CREATE TABLE `tasks` (
   KEY `constant` (`type`),
   KEY `assignee` (`assignee`),
   KEY `section` (`section`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `timespent` */
 
@@ -303,7 +303,7 @@ CREATE TABLE `timespent` (
   PRIMARY KEY (`id`),
   KEY `issue` (`issue`),
   KEY `user` (`user`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `user_group` */
 
@@ -317,7 +317,7 @@ CREATE TABLE `user_group` (
   UNIQUE KEY `userid_groupid` (`userid`,`groupid`),
   KEY `userid` (`userid`),
   KEY `groupid` (`groupid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*Table structure for table `users` */
 
@@ -337,7 +337,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   KEY `users_role` (`siterole`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
