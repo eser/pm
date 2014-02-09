@@ -247,6 +247,37 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    public function members($uProjectId, $uSubpage = 'index', $id = 0)
+    {
+        // Auth::checkRedirect('user');
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uProjectId);
+        if ($tProject === false) {
+            return false;
+        }
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
+        $this->breadcrumbs[I18n::_('Members')] = array(null, 'projects/members/' . $uProjectId);
+
+        $this->set('projectId', $uProjectId);
+
+        if ($uSubpage === 'index') {
+            return $this->members_index($uProjectId, $id);
+        } elseif ($uSubpage === 'add') {
+            return $this->members_add($uProjectId);
+        } elseif ($uSubpage === 'edit') {
+            return $this->members_edit($uProjectId, $id);
+        } elseif ($uSubpage === 'remove') {
+            return $this->members_remove($uProjectId, $id);
+        }
+
+        return false;
+    }
+
+    /**
+     * @ignore
+     */
     public function constants($uProjectId, $uSubpage = 'index', $id = 0)
     {
         // Auth::checkRedirect('user');
@@ -345,6 +376,171 @@ class Projects extends PmController
         }
 
         $this->set('projects', $tProjects);
+    }
+
+    /**
+     * @ignore
+     */
+    private function members_index($uProjectId, $uPage = 1)
+    {
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        $this->set('data', $this->projectConstantModel->getConstantsWithPaging($uProjectId, $tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->projectConstantModel->getConstantsCount($uProjectId));
+
+        $this->set('types', $this->projectConstantModel->types);
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->view('projects/members/index.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function members_add($uProjectId)
+    {
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'type' => Request::post('type', null, null),
+                'project' => $uProjectId
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('type')->inKeys($this->projectConstantModel->types)->errorMessage(I18n::_('Invalid type.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $tId = $this->projectConstantModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        I18n::_('Record added.')
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('projects/members/' . $uProjectId . '/edit/' . $tId, true);
+                return;
+            }
+        } else {
+            $tData = array(
+                'name' => '',
+                'type' => ''
+            );
+        }
+
+        $this->set('data', $tData);
+        $this->set('types', $this->projectConstantModel->types);
+
+        $this->breadcrumbs[I18n::_('Members Add')] = array(null, 'projects/members/' . $uProjectId . '/add');
+
+        $this->view('projects/members/add.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function members_edit($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        $tOriginalData = $this->projectConstantModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        if (Request::$method === 'post') {
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'type' => Request::post('type', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('type')->inKeys($this->projectConstantModel->types)->errorMessage(I18n::_('Invalid type.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->projectConstantModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        I18n::_('Record updated.')
+                    )
+                );
+            }
+        } else {
+            $tData = $tOriginalData;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+        $this->set('types', $this->projectConstantModel->types);
+
+        $this->breadcrumbs[I18n::_('Members Edit')] = array(null, 'projects/members/' . $uProjectId . '/edit/' . $uId);
+
+        $this->view('projects/members/edit.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function members_remove($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\ProjectConstantModel');
+
+        $tOriginalData = $this->projectConstantModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->projectConstantModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                I18n::_('Record removed.')
+            )
+        );
+
+        // redirect to list
+        Http::redirect('projects/members/' . $uProjectId, true);
+        return;
     }
 
     /**

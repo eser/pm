@@ -1,0 +1,71 @@
+@{
+use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Html;
+use Scabbia\Extensions\Helpers\String;
+use Scabbia\Extensions\Session\Session;
+use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
+use App\Includes\ViewHelpers;
+}
+@Views::viewFile('{app}views/shared/header.cshtml')
+@Views::viewFile('{app}views/shared/nav/project.cshtml', $model)
+
+<section id="main">
+@Views::viewFile('{app}views/shared/top_navigation.cshtml', $model)
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span6">
+                @if (!is_null($alert = Session::getFlash('alert'))) {
+                <div class="alert alert-@$alert[0]">
+                    @$alert[1]
+                </div>
+                }
+
+                <div class="box">
+                    <div class="tab-header">@I18n::_('Member Add')</div>
+                    <form class="fill-up" method="post" action="@Http::url('projects/members/' . $projectId . '/add')">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div style="padding-right:12px;">
+
+                                    <div class="btn-group pull-right">
+
+                                        <a href="@Http::url('projects/members/' . $projectId)" class="button blue">@I18n::_('Member List')</a>
+
+                                    </div>
+                                </div>
+
+                                <div class="padded">
+
+                                    <div class="input">
+                                        <label for="Name" class="caption">@I18n::_('Name')</label>
+                                        <input type="text" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Type" class="caption">@I18n::_('Type')</label>
+                                        <select name="type" id="@I18n::_('Type')" placeholder="Type" class="fill-up chzn-select">
+                                            @Html::selectOptions($types, $data['type'])
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="pull-right">
+                                <button type="submit" class="button blue">@I18n::_('Create')</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+@Views::viewFile('{app}views/shared/copyright.cshtml')
+        </div>
+    </div>
+</section>
+
+@Views::viewFile('{app}views/shared/footer.cshtml')
