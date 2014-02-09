@@ -51,6 +51,8 @@ use App\Includes\ViewHelpers;
                             <th>@I18n::_('Create User')</th>
                             <th>@I18n::_('Delete User')</th>
                             <th>@I18n::_('Administer')</th>
+                            <th>@I18n::_('Login')</th>
+                            <th>@I18n::_('Active')</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -62,6 +64,8 @@ use App\Includes\ViewHelpers;
                             <td>@ViewHelpers::printBool($role['createuser'])</td>
                             <td>@ViewHelpers::printBool($role['deleteuser'])</td>
                             <td>@ViewHelpers::printBool($role['administer'])</td>
+                            <td>@ViewHelpers::printBool($role['login'])</td>
+                            <td>@ViewHelpers::printBool($role['active'])</td>
                             <td><div class="btn-group pull-right">
 
                                     <a href="@Http::url('manage/roles/edit/' . $role['id'])" class="button blue">@I18n::_('Edit')</a>

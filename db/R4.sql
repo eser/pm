@@ -34,3 +34,11 @@ CREATE TABLE `task_revisions` (
   PRIMARY KEY (`id`),
   KEY `fk_task_revision_task_idx` (`task`)
 ) DEFAULT CHARSET=utf8;
+
+ALTER TABLE `roles`   
+  ADD COLUMN `login` TINYINT(1) UNSIGNED NOT NULL AFTER `administer`;
+
+UPDATE `roles` SET `login`='1', `active`='1';
+
+ALTER TABLE `users`   
+  CHANGE `siterole` `role` INT(10) UNSIGNED NOT NULL;

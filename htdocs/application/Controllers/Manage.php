@@ -158,7 +158,7 @@ class Manage extends PmController
                 'password' => Request::post('password', null, null),
                 'email' => Request::post('email', null, null),
                 'phone' => Request::post('phone', null, null),
-                'siterole' => Request::post('siterole', null, null),
+                'role' => Request::post('role', null, null),
                 'bio' => Request::post('bio', null, null),
                 'page' => Request::post('page', null, null),
                 'active' => Request::post('active', null, null)
@@ -208,7 +208,7 @@ class Manage extends PmController
                 'password' => '',
                 'email' => '',
                 'phone' => '',
-                'siterole' => '',
+                'role' => '',
                 'bio' => '',
                 'page' => '',
                 'active' => '1'
@@ -251,7 +251,7 @@ class Manage extends PmController
                 'password' => Request::post('password', null, null),
                 'email' => Request::post('email', null, null),
                 'phone' => Request::post('phone', null, null),
-                'siterole' => Request::post('siterole', null, null),
+                'role' => Request::post('role', null, null),
                 'bio' => Request::post('bio', null, null),
                 'page' => Request::post('page', null, null),
                 'active' => Request::post('active', null, null)
@@ -537,6 +537,7 @@ class Manage extends PmController
                 'createuser' => Request::post('createuser', null, null),
                 'deleteuser' => Request::post('deleteuser', null, null),
                 'administer' => Request::post('administer', null, null),
+                'login' => Request::post('login', null, null),
                 'active' => Request::post('active', null, null)
             );
 
@@ -574,6 +575,7 @@ class Manage extends PmController
                 'createuser' => '0',
                 'deleteuser' => '0',
                 'administer' => '0',
+                'login' => '1',
                 'active' => '1'
             );
         }
@@ -604,6 +606,7 @@ class Manage extends PmController
                 'createuser' => Request::post('createuser', null, null),
                 'deleteuser' => Request::post('deleteuser', null, null),
                 'administer' => Request::post('administer', null, null),
+                'login' => Request::post('login', null, null),
                 'active' => Request::post('active', null, null)
             );
 

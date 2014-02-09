@@ -65,8 +65,8 @@ use App\Includes\ViewHelpers;
                                     </div>
                                     <div class="input">
                                         <label for="Role" class="caption">@I18n::_('Role')</label>
-                                        <select name="siterole" id="Role" placeholder="@I18n::_('Role')" class="fill-up chzn-select">
-                                        @Html::selectOptions($roles, (int)$data['siterole'], 'name')
+                                        <select name="role" id="Role" placeholder="@I18n::_('Role')" class="fill-up chzn-select">
+                                        @Html::selectOptions($roles, (int)$data['role'], 'name')
                                         </select>
                                     </div>
 

@@ -89,7 +89,7 @@ class Gate extends PmController
         }
 
         // user is disabled
-        if ($user['active'] !== '1') {
+        if ($user['active'] !== '1' || $user['roleactive'] !== '1' || $user['rolelogin'] !== '1') {
             $this->set('success', false);
             $this->set('error', I18n::_('User is disabled.'));
             $this->json();
