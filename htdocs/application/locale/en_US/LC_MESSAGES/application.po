@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 03:23+0200\n"
-"PO-Revision-Date: 2014-02-09 03:23+0200\n"
+"POT-Creation-Date: 2014-02-09 04:32+0200\n"
+"PO-Revision-Date: 2014-02-09 04:32+0200\n"
 "Last-Translator: Eser Ozvataf <eser@sent.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -45,35 +45,46 @@ msgstr ""
 msgid "User is disabled."
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:44
+#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:45
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:27
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:29
 msgid "My Projects"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:67
+#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:68
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:27
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:30
 msgid "Assigned Tasks"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:24
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bd360c00-index.cshtml:14
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:49
 msgid "Manage"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:37
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:28
 msgid "Users"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:66
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:80
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:29
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:80
 msgid "Groups"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:88
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:30
 msgid "Roles"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:110
 #: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:261
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:31
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:31
 msgid "Constants"
 msgstr ""
 
@@ -117,6 +128,8 @@ msgid "Record added."
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:229
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:42
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:27
 msgid "User Add"
 msgstr ""
 
@@ -131,6 +144,7 @@ msgid "Record updated."
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:316
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:27
 msgid "User Edit"
 msgstr ""
 
@@ -145,14 +159,18 @@ msgid "Record removed."
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:418
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:43
 msgid "Group Add"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:471
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:26
 msgid "Group Edit"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:583
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:26
 msgid "Role Add"
 msgstr ""
 
@@ -203,6 +221,7 @@ msgid "Description is required."
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:137
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:43
 msgid "Add Project"
 msgstr ""
 
@@ -211,6 +230,9 @@ msgid "Edit Project"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:292
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:29
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:33
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:48
 msgid "Tasks"
 msgstr ""
 
@@ -225,6 +247,7 @@ msgid "Description field is required."
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:714
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:28
 msgid "New Task"
 msgstr ""
 
@@ -291,6 +314,406 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:26
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:33
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:33
+msgid "Role List"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:50
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:50
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:45
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:51
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:45
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:51
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:32
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:50
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:41
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:42
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:42
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:44
+msgid "Name"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:51
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:49
+msgid "Create Project"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:52
+msgid "Create User"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:55
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:55
+msgid "Delete User"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:54
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:58
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:58
+msgid "Administer"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:68
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:67
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:60
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:84
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:78
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:59
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:58
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:78
+msgid "Edit"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:70
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:69
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:62
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:65
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:65
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:80
+msgid "Delete"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:93
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:92
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:85
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:107
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:101
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:88
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:88
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:82
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:81
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:103
+msgid "Are you sure to delete this record?"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:28
+msgid "Overview"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:30
+msgid "Closed Tasks"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:34
+msgid "Roadmap"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:35
+msgid "Pages"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:36
+msgid "Files"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:38
+msgid "Settings"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:34
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:26
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:34
+msgid "Group List"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:60
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:60
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:101
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:69
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:109
+msgid "Update"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:26
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:35
+msgid "User List"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:48
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:48
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:49
+msgid "Username"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:50
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:58
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:59
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:58
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:59
+msgid "E-mail"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:51
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:75
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:76
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:75
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:76
+msgid "SCM ID"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:64
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:64
+msgid "Phone"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:36
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:48
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:50
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:34
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:48
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:50
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:76
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:77
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:76
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:77
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:54
+msgid "Type"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:43
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:54
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:40
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:54
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:34
+msgid "Section"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:47
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:52
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:34
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:33
+msgid "Subject"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:56
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:57
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:56
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:57
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:51
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:64
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:64
+msgid "Description"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:64
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:63
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:64
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:55
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:58
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:55
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:36
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:35
+msgid "Status"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:74
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:75
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:74
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:75
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:56
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:68
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:37
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:36
+msgid "Priority"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:80
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:81
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:80
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:81
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:57
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:72
+msgid "Assignee"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:89
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:90
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:89
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:90
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:82
+msgid "Start Date"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:94
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:95
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:94
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:95
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:87
+msgid "End Date"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:99
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:100
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:99
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:100
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:99
+msgid "Estimated Time"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:104
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:105
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:104
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:105
+msgid "Related Revisions"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:111
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:59
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:59
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:101
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:69
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:109
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:51
+msgid "Create"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d160ed4-projects.cshtml:28
+msgid "List All"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d160ed4-projects.cshtml:29
+msgid "Create New"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:28
+msgid "Edit Task"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:65
+msgid "Open"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:68
+msgid "Closed"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:82
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:70
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:70
+msgid "(None)"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:27
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:44
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:27
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:44
+msgid "Constant Add"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:27
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:27
+msgid "Constant List"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:28
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:28
+msgid "Task List"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:45
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:45
+msgid "Task Add"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:72
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:64
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:125
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:72
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:52
+msgid "Unknown"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:78
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:76
+msgid "(Unassigned)"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:85
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:79
+msgid "Del"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:27
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:27
+msgid "Constant Edit"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:91
+msgid "(Unspecified)"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:95
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:56
+msgid "Revisions"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:109
+msgid "Task History"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:57
+msgid "Date Closed"
+msgstr ""
+
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fee0fd8-top_navigation.cshtml:25
 msgid "Search..."
 msgstr ""
@@ -300,6 +723,10 @@ msgid "Username or E-mail"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:21
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:54
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:54
 msgid "Password"
 msgstr ""
 
@@ -313,35 +740,62 @@ msgid "Dashboard"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:33
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:32
 msgid "Project"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:34
-msgid "Subject"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:35
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:27
+msgid "Project List"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:35
-msgid "Section"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:48
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:33
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:48
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:49
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:51
+msgid "Title"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:36
-msgid "Status"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:54
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:53
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:54
+msgid "Subtitle"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:37
-msgid "Priority"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:58
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:59
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:58
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:59
+msgid "Short Description"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:53
-msgid "Unknown"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:68
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:69
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:68
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:69
+msgid "Parent Project"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:59
-msgid "Edit"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:84
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:84
+msgid "Sourceforge"
 msgstr ""
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:82
-msgid "Are you sure to delete this record?"
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:87
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:87
+msgid "Public"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:92
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:93
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:92
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:93
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:55
+msgid "License"
 msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:20
@@ -366,6 +820,57 @@ msgstr ""
 
 #: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cb5b0c85-footer.cshtml:24
 msgid "Dismiss all"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:34
+msgid "Task Count"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:46
+msgid "Project Page"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:52
+msgid "Parent"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:53
+msgid "Created"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:46
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:46
+msgid "Privileges"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:61
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:99
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:102
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:61
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:99
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:102
+msgid "Active"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:68
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:69
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:68
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:69
+msgid "Role"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:89
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:90
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:89
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:90
+msgid "Page"
+msgstr ""
+
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:94
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:95
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:94
+#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:95
+msgid "Bio"
 msgstr ""
 
 #~ msgid "Register"
@@ -449,9 +954,6 @@ msgstr ""
 #~ msgid "Events"
 #~ msgstr "Events"
 
-#~ msgid "Discussions"
-#~ msgstr "Discussions"
-
 #~ msgid "People"
 #~ msgstr "People"
 
@@ -473,17 +975,11 @@ msgstr ""
 #~ msgid "Forum Entries"
 #~ msgstr "Forum Entries"
 
-#~ msgid "Profiles"
-#~ msgstr "Profiles"
-
 #~ msgid "Store Items"
 #~ msgstr "Store Items"
 
 #~ msgid "Pin"
 #~ msgstr "Pin"
-
-#~ msgid "Settings"
-#~ msgstr "Settings"
 
 #~ msgid "Logout"
 #~ msgstr "Logout"
@@ -497,9 +993,6 @@ msgstr ""
 #~ msgid "Venue Search"
 #~ msgstr "Venue Search"
 
-#~ msgid "Full Name"
-#~ msgstr "Full Name"
-
 #~ msgid "Location"
 #~ msgstr "Location"
 
@@ -511,9 +1004,6 @@ msgstr ""
 
 #~ msgid "Sort by Popularity"
 #~ msgstr "Sort by Popularity"
-
-#~ msgid "Sort by Date"
-#~ msgstr "Sort by Date"
 
 #~ msgid "Reshare"
 #~ msgstr "Reshare"

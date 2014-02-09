@@ -15,7 +15,7 @@ class RoleModel extends Model
     public function getRoles()
     {
         return $this->db->createQuery()
-            ->setTable('siteroles')
+            ->setTable('roles')
             ->addField('*')
             ->get()
             ->allWithKey('id');
@@ -27,7 +27,7 @@ class RoleModel extends Model
     public function getRolesCount()
     {
         return $this->db->createQuery()
-            ->setTable('siteroles')
+            ->setTable('roles')
             ->addField('COUNT(0)')
             ->get()
             ->scalar();
@@ -39,7 +39,7 @@ class RoleModel extends Model
     public function getRolesWithPaging($uOffset = 0, $uLimit = 20)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('siteroles')
+            ->setTable('roles')
             ->setFields('*')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
@@ -55,7 +55,7 @@ class RoleModel extends Model
     public function get($uId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('siteroles')
+            ->setTable('roles')
             ->setFields('*')
             ->setWhere(array('id=:id'))
             ->setLimit(1)
@@ -72,7 +72,7 @@ class RoleModel extends Model
     public function insert($insert)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('siteroles')
+            ->setTable('roles')
             ->setFields($insert)
             ->insert()
             ->execute(true);
@@ -86,7 +86,7 @@ class RoleModel extends Model
     public function update($id, $update)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('siteroles')
+            ->setTable('roles')
             ->setFields($update)
             ->addParameter('id', $id)
             ->setWhere(array('id=:id'))
@@ -103,7 +103,7 @@ class RoleModel extends Model
     public function delete($uId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('siteroles')
+            ->setTable('roles')
             ->setWhere(array('id=:id'))
             ->addParameter('id', $uId)
             ->setLimit(1)

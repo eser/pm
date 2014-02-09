@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Includes\PmController;
+use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Helpers\Arrays;
 
 /**

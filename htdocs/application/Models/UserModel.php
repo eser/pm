@@ -153,7 +153,7 @@ class UserModel extends Model
     public function getGroups($uId)
     {
         return $this->db->createQuery()
-            ->setTable('user_group')
+            ->setTable('user_groups')
             ->setFields('groupid')
             ->setWhere(array('userid=:userid'))
             ->addParameter('userid', $uId)
@@ -167,7 +167,7 @@ class UserModel extends Model
     public function addToGroup($uId, $uGroupId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('user_group')
+            ->setTable('user_groups')
             ->setFields(
                 array(
                     'userid' => $uId,
@@ -186,7 +186,7 @@ class UserModel extends Model
     public function purgeGroups($uId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('user_group')
+            ->setTable('user_groups')
             ->setWhere(array('userid=:userid'))
             ->addParameter('userid', $uId)
             ->delete()
