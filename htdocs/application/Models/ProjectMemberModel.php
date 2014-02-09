@@ -3,45 +3,21 @@
 namespace App\Models;
 
 use Scabbia\Extensions\Models\Model;
-use Scabbia\Extensions\I18n\I18n;
 
 /**
  * @ignore
  */
-class ConstantModel extends Model
+class ProjectMemberModel extends Model
 {
     /**
      * @ignore
      */
-    public $types;
-
-
-    /**
-     * @ignore
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->types = array(
-            'task_type' => I18n::_('Task Type'),
-            'project_type' => I18n::_('Project Type'),
-            'open_task_type' => I18n::_('Open Task Type'),
-            'closed_task_type' => I18n::_('Closed Task Type'),
-            'priority_type' => I18n::_('Priority Type'),
-            'project_relation_type' => I18n::_('Project Relation Type')
-        );
-    }
-
-    /**
-     * @ignore
-     */
-    public function getConstants()
+    public function getAllMembers()
     {
         return $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
             ->addField('*')
-            ->setOrderBy('type ASC, id ASC')
+            ->setOrderBy('project ASC, relation ASC')
             ->get()
             ->allWithKey('id');
     }
@@ -49,11 +25,28 @@ class ConstantModel extends Model
     /**
      * @ignore
      */
-    public function getConstantsCount()
+    public function getMembers($uProjectId)
     {
         return $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
+            ->addField('*')
+            ->addParameter('project', $uProjectId)
+            ->setWhere(array('project=:project'))
+            ->setOrderBy('relation ASC')
+            ->get()
+            ->allWithKey('id');
+    }
+
+    /**
+     * @ignore
+     */
+    public function getMembersCount($uProjectId)
+    {
+        return $this->db->createQuery()
+            ->setTable('project_users')
             ->addField('COUNT(0)')
+            ->addParameter('project', $uProjectId)
+            ->setWhere(array('project=:project'))
             ->get()
             ->scalar();
     }
@@ -61,14 +54,16 @@ class ConstantModel extends Model
     /**
      * @ignore
      */
-    public function getConstantsWithPaging($uOffset = 0, $uLimit = 20)
+    public function getMembersWithPaging($uProjectId, $uOffset = 0, $uLimit = 20)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
             ->setFields('*')
-            ->setOrderBy('type ASC, id ASC')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
+            ->addParameter('project', $uProjectId)
+            ->setWhere(array('project=:project'))
+            ->setOrderBy('relation ASC')
             ->get()
             ->all();
 
@@ -78,14 +73,14 @@ class ConstantModel extends Model
     /**
      * @ignore
      */
-    public function getConstantsByType($uType)
+    public function getConstantsByRelation($uProjectId, $uRelation)
     {
         return $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
             ->addField('*')
-            ->addParameter('type', $uType)
-            ->setWhere(array('type=:type'))
-            ->setOrderBy('id ASC')
+            ->addParameter('relation', $uRelation)
+            ->addParameter('project', $uProjectId)
+            ->setWhere(array('project=:project', _AND, 'relation=:relation'))
             ->get()
             ->allWithKey('id');
     }
@@ -96,7 +91,7 @@ class ConstantModel extends Model
     public function get($uId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
             ->setFields('*')
             ->setWhere(array('id=:id'))
             ->setLimit(1)
@@ -113,7 +108,7 @@ class ConstantModel extends Model
     public function insert($insert)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
             ->setFields($insert)
             ->insert()
             ->execute(true);
@@ -127,7 +122,7 @@ class ConstantModel extends Model
     public function update($id, $update)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
             ->setFields($update)
             ->addParameter('id', $id)
             ->setWhere(array('id=:id'))
@@ -144,7 +139,7 @@ class ConstantModel extends Model
     public function delete($uId)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('constants')
+            ->setTable('project_users')
             ->setWhere(array('id=:id'))
             ->addParameter('id', $uId)
             ->setLimit(1)

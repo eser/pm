@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Scabbia\Extensions\Models\Model;
+use Scabbia\Extensions\I18n\I18n;
 
 /**
  * @ignore
@@ -12,10 +13,21 @@ class ProjectConstantModel extends Model
     /**
      * @ignore
      */
-    public $types = array(
-        'milestone_type' => 'Milestone',
-        'section_type' => 'Section'
-    );
+    public $types;
+
+
+    /**
+     * @ignore
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->types = array(
+            'milestone_type' => I18n::_('Milestone'),
+            'section_type' => I18n::_('Section')
+        );
+    }
 
     /**
      * @ignore

@@ -390,12 +390,20 @@ class Projects extends PmController
             $tPage = 0;
         }
 
-        $this->load('App\\Models\\ProjectConstantModel');
+        $this->load('App\\Models\\UserModel');
+        $tUsers = $this->userModel->getUsers();
+        $this->set('users', $tUsers);
 
-        $this->set('data', $this->projectConstantModel->getConstantsWithPaging($uProjectId, $tPage * $tPageSize, $tPageSize));
-        $this->set('dataCount', $this->projectConstantModel->getConstantsCount($uProjectId));
+        $this->load('App\\Models\\ConstantModel');
+        $tRelationTypes = $this->constantModel->getConstantsByType('project_relation_type');
+        $this->set('relationtypes', $tRelationTypes);
 
-        $this->set('types', $this->projectConstantModel->types);
+        $this->load('App\\Models\\ProjectMemberModel');
+
+        $this->set('data', $this->projectMemberModel->getMembersWithPaging($uProjectId, $tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->projectMemberModel->getMembersCount($uProjectId));
+
+        // $this->set('types', $this->projectConstantModel->types);
 
         $this->set('pageSize', $tPageSize);
         $this->set('page', $tPage);
@@ -408,17 +416,23 @@ class Projects extends PmController
      */
     private function members_add($uProjectId)
     {
-        $this->load('App\\Models\\ProjectConstantModel');
+        $this->load('App\\Models\\UserModel');
+        $tUsers = $this->userModel->getUsers();
+
+        $this->load('App\\Models\\ConstantModel');
+        $tRelationTypes = $this->constantModel->getConstantsByType('project_relation_type');
 
         if (Request::$method === 'post') {
+            $this->load('App\\Models\\ProjectMemberModel');
+
             $tData = array(
-                'name' => Request::post('name', null, null),
-                'type' => Request::post('type', null, null),
+                'user' => Request::post('user', null, null),
+                'relation' => Request::post('relation', null, null),
                 'project' => $uProjectId
             );
 
-            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
-            Validation::addRule('type')->inKeys($this->projectConstantModel->types)->errorMessage(I18n::_('Invalid type.'));
+            Validation::addRule('user')->inKeys($tUsers)->errorMessage(I18n::_('Invalid user.'));
+            Validation::addRule('relation')->inKeys($tRelationTypes)->errorMessage(I18n::_('Invalid relation type.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -429,7 +443,7 @@ class Projects extends PmController
                     )
                 );
             } else {
-                $tId = $this->projectConstantModel->insert($tData);
+                $tId = $this->projectMemberModel->insert($tData);
 
                 Session::set(
                     'alert',
@@ -445,13 +459,14 @@ class Projects extends PmController
             }
         } else {
             $tData = array(
-                'name' => '',
-                'type' => ''
+                'user' => 0,
+                'relation' => ''
             );
         }
 
+        $this->set('users', $tUsers);
+        $this->set('relationtypes', $tRelationTypes);
         $this->set('data', $tData);
-        $this->set('types', $this->projectConstantModel->types);
 
         $this->breadcrumbs[I18n::_('Members Add')] = array(null, 'projects/members/' . $uProjectId . '/add');
 
@@ -463,21 +478,27 @@ class Projects extends PmController
      */
     private function members_edit($uProjectId, $uId)
     {
-        $this->load('App\\Models\\ProjectConstantModel');
+        $this->load('App\\Models\\UserModel');
+        $tUsers = $this->userModel->getUsers();
 
-        $tOriginalData = $this->projectConstantModel->get($uId);
+        $this->load('App\\Models\\ConstantModel');
+        $tRelationTypes = $this->constantModel->getConstantsByType('project_relation_type');
+
+        $this->load('App\\Models\\ProjectMemberModel');
+
+        $tOriginalData = $this->projectMemberModel->get($uId);
         if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
             return false;
         }
 
         if (Request::$method === 'post') {
             $tData = array(
-                'name' => Request::post('name', null, null),
-                'type' => Request::post('type', null, null)
+                'user' => Request::post('user', null, null),
+                'relation' => Request::post('relation', null, null)
             );
 
-            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
-            Validation::addRule('type')->inKeys($this->projectConstantModel->types)->errorMessage(I18n::_('Invalid type.'));
+            Validation::addRule('user')->inKeys($tUsers)->errorMessage(I18n::_('Invalid user.'));
+            Validation::addRule('relation')->inKeys($tRelationTypes)->errorMessage(I18n::_('Invalid relation type.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -488,7 +509,7 @@ class Projects extends PmController
                     )
                 );
             } else {
-                $this->projectConstantModel->update(
+                $this->projectMemberModel->update(
                     $uId,
                     $tData
                 );
@@ -506,8 +527,9 @@ class Projects extends PmController
         }
 
         $this->set('id', $uId);
+        $this->set('users', $tUsers);
+        $this->set('relationtypes', $tRelationTypes);
         $this->set('data', $tData);
-        $this->set('types', $this->projectConstantModel->types);
 
         $this->breadcrumbs[I18n::_('Members Edit')] = array(null, 'projects/members/' . $uProjectId . '/edit/' . $uId);
 
@@ -519,14 +541,14 @@ class Projects extends PmController
      */
     private function members_remove($uProjectId, $uId)
     {
-        $this->load('App\\Models\\ProjectConstantModel');
+        $this->load('App\\Models\\ProjectMemberModel');
 
-        $tOriginalData = $this->projectConstantModel->get($uId);
+        $tOriginalData = $this->projectMemberModel->get($uId);
         if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
             return false;
         }
 
-        $this->projectConstantModel->delete(
+        $this->projectMemberModel->delete(
             $uId
         );
 

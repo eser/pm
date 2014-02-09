@@ -39,14 +39,18 @@ use App\Includes\ViewHelpers;
                                 <div class="padded">
 
                                     <div class="input">
-                                        <label for="Name" class="caption">@I18n::_('Name')</label>
-                                        <input type="text" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
+                                        <label for="User" class="caption">@I18n::_('User')</label>
+
+                                        <select name="user" id="User" placeholder="@I18n::_('User')" class="fill-up chzn-select">
+                                            @Html::selectOptions($users, (int)$data['user'], 'name')
+                                        </select>
                                     </div>
 
                                     <div class="input">
-                                        <label for="Type" class="caption">@I18n::_('Type')</label>
-                                        <select name="type" id="@I18n::_('Type')" placeholder="Type" class="fill-up chzn-select">
-                                            @Html::selectOptions($types, $data['type'])
+                                        <label for="RelationType" class="caption">@I18n::_('Relation Type')</label>
+
+                                        <select name="relation" id="RelationType" placeholder="@I18n::_('Relation Type')" class="fill-up chzn-select">
+                                            @Html::selectOptions($relationtypes, $data['relation'], 'name')
                                         </select>
                                     </div>
 

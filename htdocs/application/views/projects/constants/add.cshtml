@@ -45,7 +45,7 @@ use App\Includes\ViewHelpers;
 
                                     <div class="input">
                                         <label for="Type" class="caption">@I18n::_('Type')</label>
-                                        <select name="type" id="@I18n::_('Type')" placeholder="Type" class="fill-up chzn-select">
+                                        <select name="type" id="Type" placeholder="@I18n::_('Type')" class="fill-up chzn-select">
                                             @Html::selectOptions($types, $data['type'])
                                         </select>
                                     </div>
