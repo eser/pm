@@ -30,7 +30,7 @@ use App\Includes\ViewHelpers;
                         <tr>
                             <th>@I18n::_('Name')</th>
                             <th>@I18n::_('Title')</th>
-                            <th>@I18n::_('Task Count')</th>
+                            <th>@I18n::_('Relation Type')</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -39,7 +39,7 @@ use App\Includes\ViewHelpers;
                         <tr class="gradeX">
                             <td>@$project['name']</td>
                             <td>@$project['title']</td>
-                            <td>@$project['taskcount']</td>
+                            <td>-</td>
                             <td><div class="btn-group pull-right">
 
                                     <a href="@Http::url('projects/show/' . $project['id'])" class="button blue">@I18n::_('Project Page')</a>

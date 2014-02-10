@@ -41,17 +41,20 @@ class Projects extends PmController
 
         $this->load('App\\Models\\ProjectModel');
 
-        $this->set('data', $this->projectModel->getProjectsWithPaging($tPage * $tPageSize, $tPageSize));
-        $this->set('dataCount', $this->projectModel->getProjectsCount());
+        if ($this->userBindings->user['roleadminister'] !== '1') {
+            $this->set('data', $this->projectModel->getProjectsOfWithPaging($this->userBindings->user['id'], $tPage * $tPageSize, $tPageSize));
+            $this->set('dataCount', $this->projectModel->getProjectsOfCount($this->userBindings->user['id']));
+        } else {
+            $this->set('data', $this->projectModel->getProjectsWithPaging($tPage * $tPageSize, $tPageSize));
+            $this->set('dataCount', $this->projectModel->getProjectsCount());
+        }
 
         $this->set('pageSize', $tPageSize);
         $this->set('page', $tPage);
 
         $this->load('App\\Models\\ConstantModel');
         $tProjectTypes = $this->constantModel->getConstantsByType('project_type');
-
         $this->set('projectTypes', $tProjectTypes);
-
 
         $this->loadMenu();
         $this->view();
@@ -82,7 +85,8 @@ class Projects extends PmController
                 'public' => Request::post('public', null, null),
                 'license' => Request::post('license', null, null),
 
-                'created' => Date::toDb(time())
+                'created' => Date::toDb(time()),
+                'owner' => $this->userBindings->user['id']
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
@@ -369,7 +373,11 @@ class Projects extends PmController
     {
         $this->load('App\\Models\\ProjectModel');
 
-        $tProjects = $this->projectModel->getProjects();
+        if ($this->userBindings->user['roleadminister'] !== '1') {
+            $tProjects = $this->projectModel->getProjectsOf($this->userBindings->user['id']);
+        } else {
+            $tProjects = $this->projectModel->getProjects();
+        }
 
         foreach ($tProjects as &$tRow) {
             $tRow['displayname'] = $tRow['name'] . ' (' . $tRow['title'] . ')';
@@ -833,6 +841,8 @@ class Projects extends PmController
         if (Request::$method === 'post') {
             $tHTMLConfig = \HTMLPurifier_Config::createDefault();
             $tPurifier = new \HTMLPurifier($tHTMLConfig);
+
+            $tRevisions = Request::post('revisions', null, null);
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
 
             $tData = array(
@@ -846,9 +856,12 @@ class Projects extends PmController
                 'progress' => '0',
                 'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
+                'enddate' => null,
+                'duedate' => null,
                 'assignee' => Request::post('assignee', null, null),
 
-                'created' => Date::toDb(time())
+                'created' => Date::toDb(time()),
+                'owner' => $this->userBindings->user['id']
             );
 
             Validation::addRule('subject')->isRequired()->errorMessage(I18n::_('Subject field is required.'));
@@ -866,11 +879,14 @@ class Projects extends PmController
             } else {
                 $this->load('App\\Models\\TaskModel');
                
-                $revs=explode(',', Request::post('revisions', null, null));
-                
-                for($i=0;$i<sizeof($revs);$i++) $revs[$i]=trim($revs[$i]);
+                $tRevs = explode(',', $tRevisions);
+                for ($i = count($tRevs) - 1; $i >= 0; $i--) {
+                    $tRevs[$i] = trim($tRevs[$i]);
+                }
 
-                $tId = $this->taskModel->insert($tData, $revs);
+                $tId = $this->taskModel->insert($tData, $tRevs);
+
+                $tData['revisions'] = $tRevisions;
 
                 $this->load('App\\Models\\LogModel');
                 $this->logModel->insert(
@@ -909,8 +925,11 @@ class Projects extends PmController
                 'startdate' => Date::toDb(time()),
                 'estimatedtime' => '',
                 'enddate' => '',
+                'duedate' => '',
                 'assignee' => '',
-                'created' => Date::toDb(time())
+                'created' => Date::toDb(time()),
+                'owner' => $this->userBindings->user['id'],
+                'revisions' => ''
             );
         }
 
@@ -949,6 +968,9 @@ class Projects extends PmController
         $this->load('App\\Models\\LogModel');
 
         if (Request::$method === 'post') {
+            $tEndDate = Request::post('enddate', null, null);
+            $tRevisions = Request::post('revisions', null, null);
+
             $tData = array(
                 'project' => $uProjectId,
                 'type' => Request::post('type', null, null),
@@ -960,7 +982,7 @@ class Projects extends PmController
                 'progress' => '0',
                 'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
-                'enddate' => Request::post('enddate', null, null)=="" ? null : Date::toDb(Request::post('enddate', null, null), 'd/m/Y'),
+                'enddate' => ($tEndDate == '') ? null : Date::toDb($tEndDate, 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null)
             );
 
@@ -978,18 +1000,18 @@ class Projects extends PmController
                 );
             } else {
                
-                $revs=explode(',', Request::post('revisions', null, null));
-                
-                for($i=0;$i<sizeof($revs);$i++) $revs[$i]=trim($revs[$i]);
+                $tRevs = explode(',', $tRevisions);
+                for ($i = count($tRevs) - 1; $i >= 0; $i--) {
+                    $tRevs[$i] = trim($tRevs[$i]);
+                }
 
                 $this->taskModel->update(
                     $uId,
                     $tData,
-                    $revs
+                    $tRevs
                 );
                 
-                $tData["revisions"]=Request::post('revisions', null, null);
-
+                $tData['revisions'] = $tRevisions;
                 $tDataDiff = array_diff_assoc($tData, $tOriginalData);
 
                 $this->logModel->insert(

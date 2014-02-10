@@ -56,15 +56,50 @@ class ProjectModel extends Model
     {
         return $this->db->createQuery()
             ->setTable('projects p')
-            ->joinTable('tasks t', 't.project=p.id', 'LEFT')
-            ->addField('p.*, COUNT(t.id) AS taskcount')
-            ->setWhere(array('t.assignee=:assignee'))
+            ->joinTable('project_users pu', 'pu.project=p.id', 'LEFT')
+            ->addField('p.*')
+            ->setWhere(array('pu.user=:user', _OR, 'p.owner=:user'))
             ->setGroupBy('p.id')
-            ->addParameter('assignee', $uUserId)
+            ->addParameter('user', $uUserId)
             ->get()
             ->allWithKey('id');
     }
 
+    /**
+     * @ignore
+     */
+    public function getProjectsOfCount($uUserId)
+    {
+        return $this->db->createQuery()
+            ->setTable('projects p')
+            ->joinTable('project_users pu', 'pu.project=p.id', 'LEFT')
+            ->addField('COUNT(0)')
+            ->setWhere(array('pu.user=:user', _OR, 'p.owner=:user'))
+            ->setGroupBy('p.id')
+            ->addParameter('user', $uUserId)
+            ->get()
+            ->scalar();
+    }
+
+    /**
+     * @ignore
+     */
+    public function getProjectsOfWithPaging($uUserId, $uOffset = 0, $uLimit = 20)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('projects p')
+            ->joinTable('project_users pu', 'pu.project=p.id', 'LEFT')
+            ->addField('p.*')
+            ->setWhere(array('pu.user=:user', _OR, 'p.owner=:user'))
+            ->setGroupBy('p.id')
+            ->setOffset($uOffset)
+            ->setLimit($uLimit)
+            ->addParameter('user', $uUserId)
+            ->get()
+            ->all();
+
+        return $tResult;
+    }
     /**
      * @ignore
      */
