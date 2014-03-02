@@ -29,7 +29,7 @@ use App\Includes\ViewHelpers;
 
                         <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/add')">
                             <div class="row-fluid">
-                                <div class="span6">
+                                <div class="span4">
                                     <div class="input">
                                         <label for="Type" class="caption">@I18n::_('Type')</label>
                                         <select name="type" id="Type" placeholder="Type" class="fill-up chzn-select">
@@ -37,11 +37,19 @@ use App\Includes\ViewHelpers;
                                         </select>
                                     </div>
                                 </div>
-                                <div class="span6">
+                                <div class="span4">
                                     <div class="input">
                                         <label for="Section" class="caption">@I18n::_('Section')</label>
                                         <select name="section" id="Section" placeholder="@I18n::_('Section')" class="fill-up chzn-select">
                                         @Html::selectOptions($projectConstants['section_type'], (int)$data['section'], 'name')
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="Milestone" class="caption">@I18n::_('Milestone')</label>
+                                        <select name="milestone" id="Milestone" placeholder="@I18n::_('Milestone')" class="fill-up chzn-select">
+                                        @Html::selectOptions($projectConstants['milestone_type'], (int)$data['milestone'], 'name')
                                         </select>
                                     </div>
                                 </div>

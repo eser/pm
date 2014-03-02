@@ -358,12 +358,28 @@ class Projects extends PmController
         }
 
         $this->set('projectId', $uId);
-//        $this->set('project', $tProject);
-//
+        $this->set('project', $tProject);
+
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
-//
-//        $this->view();
-        $this->tasks_index($uId);
+
+        $this->load('App\\Models\\TaskModel');
+
+        $tData = $this->taskModel->getAllTasks($tProject['id']);
+        $tCategorizedData = Arrays::categorize($tData, 'milestone');
+        $this->set('data', $tCategorizedData);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
+
+        $this->load('App\\Models\\ProjectConstantModel');
+        $tProjectConstants = $this->projectConstantModel->getConstants($tProject['id']);
+        $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
+
+        $this->load('App\\Models\\ProjectMemberModel');
+        $this->set('users', $this->projectMemberModel->getMembersWithDetails($tProject['id']));
+
+        $this->view();
     }
 
     /**
@@ -861,6 +877,7 @@ class Projects extends PmController
                 'project' => $uProjectId,
                 'type' => Request::post('type', null, null),
                 'section' => Request::post('section', null, null),
+                'milestone' => Request::post('milestone', null, null),
                 'subject' => Request::post('subject', null, null),
                 'description' => $tDescription,
                 'status' => Request::post('status', null, null),
@@ -929,6 +946,7 @@ class Projects extends PmController
                 'project' => $uProjectId,
                 'type' => '',
                 'section' => '',
+                'milestone' => '',
                 'subject' => '',
                 'description' => '',
                 'status' => '',
@@ -993,6 +1011,7 @@ class Projects extends PmController
                 'project' => $uProjectId,
                 'type' => Request::post('type', null, null),
                 'section' => Request::post('section', null, null),
+                'milestone' => Request::post('milestone', null, null),
                 'subject' => Request::post('subject', null, null),
                 'description' => Request::post('description', null, null),
                 'status' => Request::post('status', null, null),
@@ -1121,6 +1140,7 @@ class Projects extends PmController
         }
 
         $this->set('id', $uId);
+        $this->set('projectId', $uProjectId);
         $this->set('data', $tData);
 
         $this->load('App\\Models\\ConstantModel');

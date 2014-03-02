@@ -10758,3 +10758,7 @@ input.search {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.strike {
+    text-decoration: line-through;
+}

@@ -25,19 +25,34 @@ use App\Includes\ViewHelpers;
 
                 <div class="box" style="position:relative;">
                     <div class="tab-header">Task Details</div>
+
+                    <div class="tab-pane padded">
+                        <div class="pull-right">
+                            <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $id)">
+                                <button type="submit" class="button blue">@I18n::_('Task Edit')</button>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="padded">
 
                         <div class="row-fluid">
-                            <div class="span6">
+                            <div class="span4">
                                 <div class="input">
                                     <label for="Type" class="caption">@I18n::_('Type')</label>
                                     @$constants['task_type'][(int)$data['type']]['name']
                                 </div>
                             </div>
-                            <div class="span6">
+                            <div class="span4">
                                 <div class="input">
                                     <label for="Section" class="caption">@I18n::_('Section')</label>
                                     @$projectConstants['section_type'][(int)$data['section']]['name']
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="input">
+                                    <label for="Milestone" class="caption">@I18n::_('Milestone')</label>
+                                    @$projectConstants['milestone_type'][(int)$data['milestone']]['name']
                                 </div>
                             </div>
                         </div>
