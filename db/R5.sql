@@ -6,7 +6,7 @@ CREATE TABLE `attachments`(
   `path` VARCHAR(255) NOT NULL,
   `description` TEXT NOT NULL,
   PRIMARY KEY (`id`)
-);
+) DEFAULT CHARSET=utf8;
 
 INSERT INTO `constants` (`name`, `type`) VALUES ('Member', 'project_relation_type');
 

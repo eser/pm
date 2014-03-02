@@ -161,7 +161,7 @@ class Manage extends PmController
                 'role' => Request::post('role', null, null),
                 'bio' => Request::post('bio', null, null),
                 'page' => Request::post('page', null, null),
-                'active' => Request::post('active', null, null)
+                'active' => Request::post('active', '0', null)
             );
 
             $tUserGroups = array_keys(Request::post('groups', array(), null));
@@ -244,6 +244,11 @@ class Manage extends PmController
         }
 
         if (Request::$method === 'post') {
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->users_add();
+                return;
+            }
+
             $tData = array(
                 'scmid' => Request::post('scmid', null, null),
                 'name' => Request::post('name', null, null),
@@ -433,6 +438,11 @@ class Manage extends PmController
         }
 
         if (Request::$method === 'post') {
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->groups_add();
+                return;
+            }
+
             $tData = array(
                 'name' => Request::post('name', null, null)
             );
@@ -533,12 +543,12 @@ class Manage extends PmController
         if (Request::$method === 'post') {
             $tData = array(
                 'name' => Request::post('name', null, null),
-                'createproject' => Request::post('createproject', null, null),
-                'createuser' => Request::post('createuser', null, null),
-                'deleteuser' => Request::post('deleteuser', null, null),
-                'administer' => Request::post('administer', null, null),
-                'login' => Request::post('login', null, null),
-                'active' => Request::post('active', null, null)
+                'createproject' => Request::post('createproject', '0', null),
+                'createuser' => Request::post('createuser', '0', null),
+                'deleteuser' => Request::post('deleteuser', '0', null),
+                'administer' => Request::post('administer', '0', null),
+                'login' => Request::post('login', '0', null),
+                'active' => Request::post('active', '0', null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
@@ -600,14 +610,19 @@ class Manage extends PmController
         }
 
         if (Request::$method === 'post') {
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->roles_add();
+                return;
+            }
+
             $tData = array(
                 'name' => Request::post('name', null, null),
-                'createproject' => Request::post('createproject', null, null),
-                'createuser' => Request::post('createuser', null, null),
-                'deleteuser' => Request::post('deleteuser', null, null),
-                'administer' => Request::post('administer', null, null),
-                'login' => Request::post('login', null, null),
-                'active' => Request::post('active', null, null)
+                'createproject' => Request::post('createproject', '0', null),
+                'createuser' => Request::post('createuser', '0', null),
+                'deleteuser' => Request::post('deleteuser', '0', null),
+                'administer' => Request::post('administer', '0', null),
+                'login' => Request::post('login', '0', null),
+                'active' => Request::post('active', '0', null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
@@ -767,6 +782,11 @@ class Manage extends PmController
         }
 
         if (Request::$method === 'post') {
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->constants_add();
+                return;
+            }
+
             $tData = array(
                 'name' => Request::post('name', null, null),
                 'type' => Request::post('type', null, null)

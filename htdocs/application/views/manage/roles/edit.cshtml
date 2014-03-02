@@ -68,7 +68,8 @@ use App\Includes\ViewHelpers;
                         </div>
                         <div class="form-actions">
                             <div class="pull-right">
-                                <button type="submit" class="button blue">@I18n::_('Update')</button>
+                                <button type="submit" name="asNew" value="1" class="button">@I18n::_('Add as New')</button>
+                                <button type="submit" name="asNew" value="0" class="button blue">@I18n::_('Update')</button>
                             </div>
                         </div>
                     </form>

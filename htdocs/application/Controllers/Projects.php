@@ -81,8 +81,8 @@ class Projects extends PmController
                 'description' => $tDescription,
                 'parent' => Request::post('parent', null, null),
                 'type' => Request::post('type', null, null),
-                'sourceforge' => Request::post('sourceforge', null, null),
-                'public' => Request::post('public', null, null),
+                'sourceforge' => Request::post('sourceforge', '0', null),
+                'public' => Request::post('public', '0', null),
                 'license' => Request::post('license', null, null),
 
                 'created' => Date::toDb(time()),
@@ -129,8 +129,8 @@ class Projects extends PmController
                 'description' => '',
                 'parent' => null,
                 'type' => '',
-                'sourceforge' => '',
-                'public' => '',
+                'sourceforge' => '0',
+                'public' => '0',
                 'license' => ''
             );
         }
@@ -172,8 +172,8 @@ class Projects extends PmController
                 'description' => $tDescription,
                 'parent' => Request::post('parent', null, null),
                 'type' => Request::post('type', null, null),
-                'sourceforge' => Request::post('sourceforge', null, null),
-                'public' => Request::post('public', null, null),
+                'sourceforge' => Request::post('sourceforge', '0', null),
+                'public' => Request::post('public', '0', null),
                 'license' => Request::post('license', null, null)
             );
 
@@ -500,6 +500,11 @@ class Projects extends PmController
         }
 
         if (Request::$method === 'post') {
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->members_add($uProjectId);
+                return;
+            }
+
             $tData = array(
                 'user' => Request::post('user', null, null),
                 'relation' => Request::post('relation', null, null)
@@ -666,6 +671,11 @@ class Projects extends PmController
         }
 
         if (Request::$method === 'post') {
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->constants_add($uProjectId);
+                return;
+            }
+
             $tData = array(
                 'name' => Request::post('name', null, null),
                 'type' => Request::post('type', null, null)
@@ -843,6 +853,8 @@ class Projects extends PmController
             $tPurifier = new \HTMLPurifier($tHTMLConfig);
 
             $tRevisions = Request::post('revisions', null, null);
+            $tDueDate = rtrim(Request::post('duedate', '', null));
+            $tEndDate = rtrim(Request::post('enddate', '', null));
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
 
             $tData = array(
@@ -853,11 +865,11 @@ class Projects extends PmController
                 'description' => $tDescription,
                 'status' => Request::post('status', null, null),
                 'priority' => Request::post('priority', null, null),
-                'progress' => '0',
+                'progress' => Request::post('progress', '0', null),
                 'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
+                'duedate' => ($tDueDate == '') ? null : Date::toDb($tDueDate, 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
-                'enddate' => null,
-                'duedate' => null,
+                'enddate' => ($tEndDate == '') ? null : Date::toDb($tEndDate, 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null),
 
                 'created' => Date::toDb(time()),
@@ -921,11 +933,11 @@ class Projects extends PmController
                 'description' => '',
                 'status' => '',
                 'priority' => null,
-                'progress' => '',
+                'progress' => '0',
                 'startdate' => Date::toDb(time()),
+                'duedate' => null,
                 'estimatedtime' => '',
-                'enddate' => '',
-                'duedate' => '',
+                'enddate' => null,
                 'assignee' => '',
                 'created' => Date::toDb(time()),
                 'owner' => $this->userBindings->user['id'],
@@ -968,7 +980,13 @@ class Projects extends PmController
         $this->load('App\\Models\\LogModel');
 
         if (Request::$method === 'post') {
-            $tEndDate = Request::post('enddate', null, null);
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->tasks_add($uProjectId);
+                return;
+            }
+
+            $tDueDate = rtrim(Request::post('duedate', '', null));
+            $tEndDate = rtrim(Request::post('enddate', '', null));
             $tRevisions = Request::post('revisions', null, null);
 
             $tData = array(
@@ -979,8 +997,9 @@ class Projects extends PmController
                 'description' => Request::post('description', null, null),
                 'status' => Request::post('status', null, null),
                 'priority' => Request::post('priority', null, null),
-                'progress' => '0',
+                'progress' => Request::post('progress', '0', null),
                 'startdate' => Date::toDb(Request::post('startdate', null, null), 'd/m/Y'),
+                'duedate' => ($tDueDate == '') ? null : Date::toDb($tDueDate, 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
                 'enddate' => ($tEndDate == '') ? null : Date::toDb($tEndDate, 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null)

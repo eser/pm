@@ -5,9 +5,9 @@
             "interface":    "pdo",
             "persistent":   true,
             "overrideCase": "natural",
-            "pdoString":    "mysql:host=localhost;dbname=darkgaze",
+            "pdoString":    "mysql:host=localhost;dbname=pm",
             "username":     "root",
-            "password":     "qwer",
+            "password":     "paddole",
             "initCommand":  "SET NAMES utf8",
             "errors":       "exception"
         }
