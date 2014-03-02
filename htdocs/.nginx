@@ -1,24 +1,12 @@
-# nginx configuration
-
-index index.php;
-
 charset utf-8;
 
-location ~ 403 {
-  rewrite ^(.*)$ ^/(application).*$ redirect;
+location ~ ^/pm/([^/]*/)*(\..+|web.config|scabbia|composer.json|composer.lock|application/?|application/.+|vendor/?|^vendor/.+)$ {
+    return 403;
 }
 
-location ~ (^\.|/\.|^web.config|/web.config) {
-  return 403;
-}
-
-autoindex off;
-
-location / {
-  # if ($http_host ~* "^www\.(.+)$"){
-  #  rewrite ^(.*)$ http://%1$request_uri redirect;
-  # }
-  if (!-e $request_filename){
-    rewrite ^(.*)$ /index.php break;
-  }
+location /pm/ {
+    if (!-e $request_filename){
+        rewrite ^(.*)$ /pm/index.php last;
+        break;
+    }
 }
