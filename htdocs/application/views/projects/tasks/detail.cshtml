@@ -46,13 +46,13 @@ use App\Includes\ViewHelpers;
                             <div class="span4">
                                 <div class="field">
                                     <label for="Section" class="caption">@I18n::_('Section')</label>
-                                    <span class="value">@ViewHelpers::printConstant($projectConstants, 'section_type', $task['section'])</span>
+                                    <span class="value">@ViewHelpers::printConstant($projectConstants, 'section_type', $data['section'])</span>
                                 </div>
                             </div>
                             <div class="span4">
                                 <div class="field">
                                     <label for="Milestone" class="caption">@I18n::_('Milestone')</label>
-                                    <span class="value">@$projectConstants['milestone_type'][(int)$data['milestone']]['name']</span>
+                                    <span class="value">@ViewHelpers::printConstant($projectConstants, 'milestone_type', $data['milestone'])</span>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ use App\Includes\ViewHelpers;
                             <div class="span4">
                                 <div class="field">
                                     <label for="Priority" class="caption">@I18n::_('Priority')</label>
-                                    <span class="value">@ViewHelpers::printConstant($constants, 'priority_type', $task['priority'])</span>
+                                    <span class="value">@ViewHelpers::printConstant($constants, 'priority_type', $data['priority'])</span>
                                 </div>
                             </div>
                             <div class="span4">
@@ -160,6 +160,12 @@ use App\Includes\ViewHelpers;
                                         @foreach (json_decode($log['serializeddata'], true) as $key => $value) {
                                             @if ($key == 'status') {
                                                 <strong>@$key</strong>: @ViewHelpers::printStatus($constants, $value)<br />
+                                            } elseif ($key == 'type') {
+                                                <strong>@$key</strong>: @ViewHelpers::printConstant($constants, 'project_type', $value)<br />
+                                            } elseif ($key == 'priority') {
+                                                <strong>@$key</strong>: @ViewHelpers::printConstant($constants, $key . '_type', $value)<br />
+                                            } elseif ($key == 'section' || $key == 'milestone') {
+                                                <strong>@$key</strong>: @ViewHelpers::printConstant($projectConstants, $key . '_type', $value)<br />
                                             } else {
                                                 <strong>@$key</strong>: @$value<br />
                                             }
