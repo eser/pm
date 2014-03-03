@@ -65,53 +65,70 @@ use App\Includes\ViewHelpers;
                                 </div>
                             </div>
                             <div class="row-fluid">
-                                <div class="span6">
-                                    <div class="input" style="margin-bottom:10px;">
+                                <div class="span4">
+                                    <div class="input">
                                         <label for="Status" class="caption">@I18n::_('Status')</label>
                                         <select name="status" id="Status" placeholder="@I18n::_('Status')" class="fill-up chzn-select">
                                             <optgroup label="@I18n::_('Open')">
-                                                @Html::selectOptions($constants['open_task_type'], (int)$data['status'], 'name')
+                                                @Html::selectOptions($constants['open_task_type'], (int)$data['type'], 'name')
                                             </optgroup>
                                             <optgroup label="@I18n::_('Closed')">
-                                                @Html::selectOptions($constants['closed_task_type'], (int)$data['status'], 'name')
+                                                @Html::selectOptions($constants['closed_task_type'], (int)$data['type'], 'name')
                                             </optgroup>
                                         </select>
                                     </div>
-                                   <div class="input">
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
+                                        <input name="startdate" type="text" placeholder="@I18n::_('Start Date')" class="datetimepicker fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="DueDate" class="caption">@I18n::_('Due Date')</label>
+                                        <input name="duedate" type="text" placeholder="@I18n::_('Due Date')" class="datetimepicker fill-up" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span4">
+                                    <div class="input">
                                         <label for="Priority" class="caption">@I18n::_('Priority')</label>
                                         <select name="priority" id="Priority" placeholder="@I18n::_('Priority')" class="fill-up chzn-select">
                                         @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
                                         </select>
                                     </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="EndDate" class="caption">@I18n::_('End Date')</label>
+                                        <input name="enddate" type="text" placeholder="@I18n::_('End Date')" class="datetimepicker fill-up" value="">
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
+                                        <input type="text" placeholder="@I18n::_('Estimated Time')" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span4">
                                     <div class="input">
                                         <label for="Assignee" class="caption">@I18n::_('Assignee')</label>
                                         <select name="assignee" id="Assignee" placeholder="@I18n::_('Assignee')" class="fill-up chzn-select">
-                                        <option value="0">@I18n::_('(None)')</option>
+                                        <option value="0">(None)</option>
                                         @Html::selectOptions($users, (int)$data['assignee'], 'name')
                                         </select>
                                     </div>
                                 </div>
-                                <div class="span6">
+                                <div class="span8">
                                     <div class="input">
-                                        <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
-                                        <input id="datetimepicker" name="startdate" type="text" placeholder="@I18n::_('Start Date')" class="fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
-                                    </div>
-
-                                    <div class="input" >
-                                        <label for="EndDate" class="caption">@I18n::_('End Date')</label>
-                                        <input id="datetimepicker2" name="enddate" type="text" placeholder="@I18n::_('End Date')" class="fill-up" value="@if ((int)$data['enddate'] != NULL) {@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')}">
-                                    </div>
-
-                                    <div class="input span3" style="margin-left:-1px;">
-                                        <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
-                                        <input type="text" placeholder="@I18n::_('Estimated Time')" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
-                                    </div>
-
-                                    <div class="input span9">
                                         <label for="Revisions" class="caption">@I18n::_('Related Revisions')</label>
-                                        <input type="text" placeholder="@I18n::_('Related Revisions')" name="revisions" value="@String::htmlEscape($data['revisions'])" />
+                                        <input type="text" placeholder="@I18n::_('Related Revisions')" name="revisions" value="@$data['revisions']" />
                                     </div>
-                                </div>
+                               </div>
                             </div>
                             <div class="form-actions">
                                 <div class="pull-right">

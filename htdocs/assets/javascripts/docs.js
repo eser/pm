@@ -183,8 +183,7 @@
     $('.input-error').tooltip();
     $('textarea.tagme').tagify();
     new Faq($(".faq-list"));
-    $('#datetimepicker').datepicker();
-	$('#datetimepicker2').datepicker();
+    $('.datetimepicker').datepicker();
     new ConfirmAction($("#fix-stats"));
     new ConfirmAction($("#fix-stats2"));
     new CalendarEvents($('#external-events'));

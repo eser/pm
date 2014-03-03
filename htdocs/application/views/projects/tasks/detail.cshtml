@@ -38,38 +38,39 @@ use App\Includes\ViewHelpers;
 
                         <div class="row-fluid">
                             <div class="span4">
-                                <div class="input">
+                                <div class="field">
                                     <label for="Type" class="caption">@I18n::_('Type')</label>
-                                    @$constants['task_type'][(int)$data['type']]['name']
+                                    <span class="value">@$constants['task_type'][(int)$data['type']]['name']</span>
                                 </div>
                             </div>
                             <div class="span4">
-                                <div class="input">
+                                <div class="field">
                                     <label for="Section" class="caption">@I18n::_('Section')</label>
-                                    @$projectConstants['section_type'][(int)$data['section']]['name']
+                                    <span class="value">@$projectConstants['section_type'][(int)$data['section']]['name']</span>
                                 </div>
                             </div>
                             <div class="span4">
-                                <div class="input">
+                                <div class="field">
                                     <label for="Milestone" class="caption">@I18n::_('Milestone')</label>
-                                    @$projectConstants['milestone_type'][(int)$data['milestone']]['name']
+                                    <span class="value">@$projectConstants['milestone_type'][(int)$data['milestone']]['name']</span>
                                 </div>
                             </div>
                         </div>
                         <div class="row-fluid">
-                            <div class="input">
+                            <div class="field">
                                 <label for="Name" class="caption">@I18n::_('Subject')</label>
-                                @String::htmlEscape($data['subject'])
+                                <span class="value">@String::htmlEscape($data['subject'])</span>
                             </div>
-                            <div class="input">
+                            <div class="field">
                                 <label for="Description" class="caption">@I18n::_('Description')</label>
-                                @String::htmlEscape($data['description'])
+                                <span class="value">@String::htmlEscape($data['description'])</span>
                             </div>
                         </div>
                         <div class="row-fluid">
-                            <div class="span6">
-                                <div class="input" style="margin-bottom:10px;">
+                            <div class="span4">
+                                <div class="field">
                                     <label for="Status" class="caption">@I18n::_('Status')</label>
+                                    <span class="value">
                                     @if (isset($constants['open_task_type'][(int)$data['type']])) {
                                         @$constants['open_task_type'][(int)$data['type']]['name']
                                     } elseif (isset($constants['closed_task_type'][(int)$data['type']])) {
@@ -77,43 +78,73 @@ use App\Includes\ViewHelpers;
                                     } else {
                                         @I18n::_('Unknown')
                                     }
+                                    </span>
                                 </div>
-                                <div class="input" style="margin-bottom:8px; margin-left:-1px;">
+                            </div>
+                            <div class="span4">
+                                <div class="field">
+                                    <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
+                                    <span class="value">@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')</span>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="field">
+                                    <label for="DueDate" class="caption">@I18n::_('Due Date')</label>
+                                    <span class="value">
+                                    @if ((int)$data['duedate'] != null) {
+                                        @Date::convert($data['duedate'], 'Y-m-d H:i:s', 'd/m/Y')
+                                    } else {
+                                        @I18n::_('(Unspecified)')
+                                    }
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <div class="field">
                                     <label for="Priority" class="caption">@I18n::_('Priority')</label>
-                                    @$constants['priority_type'][(int)$data['priority']]['name']
+                                    <span class="value">@$constants['priority_type'][(int)$data['priority']]['name']</span>
                                 </div>
-                                <div class="input">
+                            </div>
+                            <div class="span4">
+                                <div class="field">
+                                    <label for="EndDate" class="caption">@I18n::_('End Date')</label>
+                                    <span class="value">
+                                    @if ((int)$data['enddate'] != null) {
+                                        @Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')
+                                    } else {
+                                        @I18n::_('(Unspecified)')
+                                    }
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="field">
+                                    <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
+                                    <span class="value">@String::htmlEscape($data['estimatedtime'])</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <div class="field">
                                     <label for="Assignee" class="caption">@I18n::_('Assignee')</label>
+                                    <span class="value">
                                     @if ((int)$data['assignee'] != 0) {
                                         @$users[(int)$data['assignee']]['name']
                                     } else {
                                         @I18n::_('(Unassigned)')
                                     }
+                                    </span>
                                 </div>
                             </div>
-                            <div class="span6">
-                                <div class="input">
-                                    <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
-                                    @Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')
+                            <div class="span8">
+                                <div class="field">
+                                    <label for="Revisions" class="caption">@I18n::_('Related Revisions')</label>
+                                    <span class="value">@$data['revisions']</span>
                                 </div>
-
-                                <div class="input" >
-                                    <label for="EndDate" class="caption">@I18n::_('End Date')</label>
-                                    @if ((int)$data['enddate'] != NULL) {
-										@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')
-									} else {
-										@I18n::_('(Unspecified)')
-									}
-                                </div>                                
-                                <div class="input" >
-                                    <label for="Revisions" class="caption">@I18n::_('Revisions')</label>
-                                    @$data['revisions']
-                                </div>
-                                <div class="input span3" style="margin-left:-3px;">
-                                    <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
-                                    @String::htmlEscape($data['estimatedtime'])
-                                </div>
-                            </div>
+                           </div>
                         </div>
 
                     </div>

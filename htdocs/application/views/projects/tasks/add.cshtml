@@ -65,7 +65,7 @@ use App\Includes\ViewHelpers;
                                 </div>
                             </div>
                             <div class="row-fluid">
-                                <div class="span6">
+                                <div class="span4">
                                     <div class="input">
                                         <label for="Status" class="caption">@I18n::_('Status')</label>
                                         <select name="status" id="Status" placeholder="@I18n::_('Status')" class="fill-up chzn-select">
@@ -77,12 +77,44 @@ use App\Includes\ViewHelpers;
                                             </optgroup>
                                         </select>
                                     </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
+                                        <input name="startdate" type="text" placeholder="@I18n::_('Start Date')" class="datetimepicker fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="DueDate" class="caption">@I18n::_('Due Date')</label>
+                                        <input name="duedate" type="text" placeholder="@I18n::_('Due Date')" class="datetimepicker fill-up" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span4">
                                     <div class="input">
                                         <label for="Priority" class="caption">@I18n::_('Priority')</label>
                                         <select name="priority" id="Priority" placeholder="@I18n::_('Priority')" class="fill-up chzn-select">
                                         @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
                                         </select>
                                     </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="EndDate" class="caption">@I18n::_('End Date')</label>
+                                        <input name="enddate" type="text" placeholder="@I18n::_('End Date')" class="datetimepicker fill-up" value="">
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input">
+                                        <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
+                                        <input type="text" placeholder="@I18n::_('Estimated Time')" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span4">
                                     <div class="input">
                                         <label for="Assignee" class="caption">@I18n::_('Assignee')</label>
                                         <select name="assignee" id="Assignee" placeholder="@I18n::_('Assignee')" class="fill-up chzn-select">
@@ -91,23 +123,8 @@ use App\Includes\ViewHelpers;
                                         </select>
                                     </div>
                                 </div>
-                                <div class="span6">
+                                <div class="span8">
                                     <div class="input">
-                                        <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
-                                        <input id="datetimepicker" name="startdate" type="text" placeholder="@I18n::_('Start Date')" class="fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="EndDate" class="caption">@I18n::_('End Date')</label>
-                                        <input id="datetimepicker" name="enddate" type="text" placeholder="@I18n::_('End Date')" class="fill-up" value="">
-                                    </div>
-
-                                    <div class="input span3" style="margin-left:-1px;">
-                                        <label for="EstimatedTime" class="caption">@I18n::_('Estimated Time')</label>
-                                        <input type="text" placeholder="@I18n::_('Estimated Time')" name="estimatedtime" value="@String::htmlEscape($data['estimatedtime'])" />
-                                    </div>
-
-                                    <div class="input span9">
                                         <label for="Revisions" class="caption">@I18n::_('Related Revisions')</label>
                                         <input type="text" placeholder="@I18n::_('Related Revisions')" name="revisions" value="" />
                                     </div>

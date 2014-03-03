@@ -10762,3 +10762,11 @@ input.search {
 .strike {
     text-decoration: line-through;
 }
+.field {
+}
+.field .value {
+    border-bottom: 1px solid #C0C0C0;
+    display: block;
+    font-size: 160%;
+    margin-bottom: 10px;
+}
