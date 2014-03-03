@@ -71,10 +71,10 @@ use App\Includes\ViewHelpers;
                                 <div class="field">
                                     <label for="Status" class="caption">@I18n::_('Status')</label>
                                     <span class="value">
-                                    @if (isset($constants['open_task_type'][(int)$data['type']])) {
-                                        @$constants['open_task_type'][(int)$data['type']]['name']
-                                    } elseif (isset($constants['closed_task_type'][(int)$data['type']])) {
-                                        @$constants['closed_task_type'][(int)$data['type']]['name']
+                                    @if (isset($constants['open_task_type'][(int)$data['status']])) {
+                                        @$constants['open_task_type'][(int)$data['status']]['name']
+                                    } elseif (isset($constants['closed_task_type'][(int)$data['status']])) {
+                                        @$constants['closed_task_type'][(int)$data['status']]['name']
                                     } else {
                                         @I18n::_('Unknown')
                                     }
