@@ -40,13 +40,13 @@ use App\Includes\ViewHelpers;
                             <div class="span4">
                                 <div class="field">
                                     <label for="Type" class="caption">@I18n::_('Type')</label>
-                                    <span class="value">@$constants['task_type'][(int)$data['type']]['name']</span>
+                                    <span class="value">@ViewHelpers::printConstant($constants, 'task_type', $data['type'])</span>
                                 </div>
                             </div>
                             <div class="span4">
                                 <div class="field">
                                     <label for="Section" class="caption">@I18n::_('Section')</label>
-                                    <span class="value">@$projectConstants['section_type'][(int)$data['section']]['name']</span>
+                                    <span class="value">@ViewHelpers::printConstant($projectConstants, 'section_type', $task['section'])</span>
                                 </div>
                             </div>
                             <div class="span4">
@@ -71,13 +71,7 @@ use App\Includes\ViewHelpers;
                                 <div class="field">
                                     <label for="Status" class="caption">@I18n::_('Status')</label>
                                     <span class="value">
-                                    @if (isset($constants['open_task_type'][(int)$data['status']])) {
-                                        @$constants['open_task_type'][(int)$data['status']]['name']
-                                    } elseif (isset($constants['closed_task_type'][(int)$data['status']])) {
-                                        @$constants['closed_task_type'][(int)$data['status']]['name']
-                                    } else {
-                                        @I18n::_('Unknown')
-                                    }
+                                    @ViewHelpers::printStatus($constants, $data['status'])
                                     </span>
                                 </div>
                             </div>
@@ -98,7 +92,7 @@ use App\Includes\ViewHelpers;
                             <div class="span4">
                                 <div class="field">
                                     <label for="Priority" class="caption">@I18n::_('Priority')</label>
-                                    <span class="value">@$constants['priority_type'][(int)$data['priority']]['name']</span>
+                                    <span class="value">@ViewHelpers::printConstant($constants, 'priority_type', $task['priority'])</span>
                                 </div>
                             </div>
                             <div class="span4">
@@ -165,15 +159,7 @@ use App\Includes\ViewHelpers;
                                     <div class="span6">
                                         @foreach (json_decode($log['serializeddata'], true) as $key => $value) {
                                             @if ($key == 'status') {
-                                                <strong>@$key</strong>:
-                                                @if (isset($constants['open_task_type'][$value])) {
-                                                    @$constants['open_task_type'][$value]['name']
-                                                } elseif (isset($constants['closed_task_type'][$value])) {
-                                                    @$constants['closed_task_type'][$value]['name']
-                                                } else {
-                                                    Unknown
-                                                }
-                                                <br />
+                                                <strong>@$key</strong>: @ViewHelpers::printStatus($constants, $value)<br />
                                             } else {
                                                 <strong>@$key</strong>: @$value<br />
                                             }

@@ -60,17 +60,9 @@ use App\Includes\ViewHelpers;
                         @foreach ($data as $task) {
                         <tr class="gradeX">
                             <td>#@$task['id']</td><td><a href="@Http::url('projects/tasks/' . $projectId . '/detail/' . $task['id'])">@$task['subject']</a></td>
-							<td>@$constants['task_type'][$task['type']]['name']</td>
-                            <td>@$projectConstants['section_type'][$task['section']]['name']</td>
-                            <td>@{
-                                if (isset($constants['open_task_type'][$task['status']])) {
-                                    echo $constants['open_task_type'][$task['status']]['name'];
-                                } elseif (isset($constants['closed_task_type'][$task['status']])) {
-                                    echo $constants['closed_task_type'][$task['status']]['name'];
-                                } else {
-                                    echo I18n::_('Unknown');
-                                }
-                            }</td>
+							<td>@ViewHelpers::printConstant($constants, 'task_type', $task['type'])</td>
+                            <td>@ViewHelpers::printConstant($projectConstants, 'section_type', $task['section'])</td>
+                            <td>@ViewHelpers::printStatus($constants, $task['status'])</td>
                             <td>@$task['revisions']</td>
                             <td>@ViewHelpers::printDate($task['enddate'])</td>
                             <td><div class="pull-right">

@@ -76,4 +76,32 @@ class ViewHelpers
 
         return '<a href="#">' . $uUserName . '</a>'; // ' . Http::url('users/show/' . $uUserId) . '
     }
+
+    /**
+     * @ignore
+     */
+    public static function printStatus($uConstants, $uStatusId)
+    {
+        if (isset($uConstants['open_task_type'][(int)$uStatusId])) {
+            echo $uConstants['open_task_type'][(int)$uStatusId]['name'];
+        } elseif (isset($uConstants['closed_task_type'][(int)$uStatusId])) {
+            echo $uConstants['closed_task_type'][(int)$uStatusId]['name'];
+        } else {
+            echo '- ' . I18n::_('Unspecified');
+        }
+    }
+
+    /**
+     * @ignore
+     */
+    public static function printConstant($uConstants, $uKey, $uValue)
+    {
+        $uIntValue = (int)$uValue;
+
+        if ($uIntValue !== 0 && isset($uConstants[$uKey][$uIntValue])) {
+            echo $uConstants[$uKey][$uIntValue]['name'];
+        } else {
+            echo '- ' . I18n::_('Unspecified');
+        }
+    }
 }

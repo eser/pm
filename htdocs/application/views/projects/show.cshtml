@@ -27,10 +27,10 @@ use App\Includes\ViewHelpers;
                     <div class="tab-header">@I18n::_('Project Overview')</div>
 
                     <div class="tab-pane padded">
-                        <div class="pull-right">
-                            <a href="@Http::url('projects/tasks/' . $projectId . '/add')">
-                                <button type="submit" class="button blue">@I18n::_('Task Add')</button>
-                            </a>
+                        <div class="btn-group pull-right">
+                            <a href="@Http::url('projects/tasks/' . $projectId . '/add')" class="button blue">@I18n::_('Task Add')</a>
+
+                            <a href="@Http::url('projects/tasks/' . $project['id'])" class="button red">@I18n::_('Open Tasks')</a>
                         </div>
 
                         <h2>@$project['title']</h2>
@@ -38,7 +38,7 @@ use App\Includes\ViewHelpers;
 
                     <div class="padded">
                         @foreach ($data as $milestone => $tasks) {
-                            <h4>@$projectConstants['milestone_type'][$milestone]['name']</h4>
+                            <h4>@ViewHelpers::printConstant($projectConstants, 'milestone_type', $milestone)</h4>
                             @foreach ($tasks as $task) {
                                 <div class="taskitem@{ if (isset($constants['closed_task_type'][$task['status']])) { echo ' strike'; } }">
                                     #@$task['id'] <a href="@Http::url('projects/tasks/' . $projectId . '/detail/' . $task['id'])">@$task['subject']</a>

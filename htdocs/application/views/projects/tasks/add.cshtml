@@ -33,6 +33,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Type" class="caption">@I18n::_('Type')</label>
                                         <select name="type" id="Type" placeholder="Type" class="fill-up chzn-select">
+                                        <option value="0">- @I18n::_('Unspecified')</option>
                                         @Html::selectOptions($constants['task_type'], (int)$data['type'], 'name')
                                         </select>
                                     </div>
@@ -41,6 +42,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Section" class="caption">@I18n::_('Section')</label>
                                         <select name="section" id="Section" placeholder="@I18n::_('Section')" class="fill-up chzn-select">
+                                        <option value="0">- @I18n::_('Unspecified')</option>
                                         @Html::selectOptions($projectConstants['section_type'], (int)$data['section'], 'name')
                                         </select>
                                     </div>
@@ -49,6 +51,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Milestone" class="caption">@I18n::_('Milestone')</label>
                                         <select name="milestone" id="Milestone" placeholder="@I18n::_('Milestone')" class="fill-up chzn-select">
+                                        <option value="0">- @I18n::_('Unspecified')</option>
                                         @Html::selectOptions($projectConstants['milestone_type'], (int)$data['milestone'], 'name')
                                         </select>
                                     </div>
@@ -69,6 +72,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Status" class="caption">@I18n::_('Status')</label>
                                         <select name="status" id="Status" placeholder="@I18n::_('Status')" class="fill-up chzn-select">
+                                            <option value="0">- @I18n::_('Unspecified')</option>
                                             <optgroup label="@I18n::_('Open')">
                                                 @Html::selectOptions($constants['open_task_type'], (int)$data['status'], 'name')
                                             </optgroup>
@@ -96,6 +100,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Priority" class="caption">@I18n::_('Priority')</label>
                                         <select name="priority" id="Priority" placeholder="@I18n::_('Priority')" class="fill-up chzn-select">
+                                        <option value="0">- @I18n::_('Unspecified')</option>
                                         @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
                                         </select>
                                     </div>
@@ -118,7 +123,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Assignee" class="caption">@I18n::_('Assignee')</label>
                                         <select name="assignee" id="Assignee" placeholder="@I18n::_('Assignee')" class="fill-up chzn-select">
-                                        <option value="0">(None)</option>
+                                        <option value="0">- @I18n::_('Unassigned')</option>
                                         @Html::selectOptions($users, (int)$data['assignee'], 'name')
                                         </select>
                                     </div>

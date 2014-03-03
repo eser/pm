@@ -40,18 +40,10 @@ use App\Includes\ViewHelpers;
                         @foreach ($tasks as $task) {
                         <tr class="gradeX">
                             <td>@ViewHelpers::printProjectId($task['project'], $task['projectname'], $task['projecttitle'])</td>
-                            <td>@$constants['task_type'][$task['type']]['name']: <a href="@Http::url('projects/tasks/' . $task['project'] . '/detail/' . $task['id'])">@$task['subject']</a></td>
-                            <td>@$projectConstants['section_type'][$task['section']]['name']</td>
-                            <td>@{
-                                if (isset($constants['open_task_type'][$task['status']])) {
-                                    echo $constants['open_task_type'][$task['status']]['name'];
-                                } elseif (isset($constants['closed_task_type'][$task['status']])) {
-                                    echo $constants['closed_task_type'][$task['status']]['name'];
-                                } else {
-                                    echo I18n::_('Unknown');
-                                }
-                            }</td>
-                            <td>@$constants['priority_type'][$task['priority']]['name']</td>
+                            <td>@ViewHelpers::printConstant($constants, 'task_type', $task['type']): <a href="@Http::url('projects/tasks/' . $task['project'] . '/detail/' . $task['id'])">@$task['subject']</a></td>
+                            <td>@ViewHelpers::printConstant($projectConstants, 'section_type', $task['section'])</td>
+                            <td>@ViewHelpers::printStatus($constants, $task['status'])</td>
+                            <td>@ViewHelpers::printConstant($constants, 'priority_type', $task['priority'])</td>
                             <td><div class="pull-right">
 
                                     <a href="@Http::url('projects/tasks/' . $task['project'] . '/edit/' . $task['id'])">@I18n::_('Edit')</a>
