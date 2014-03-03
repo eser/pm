@@ -46,39 +46,41 @@ use App\Includes\ViewHelpers;
                     <table class="table table-striped tablesorter">
                         <thead>
                         <tr>
-                            <th>@I18n::_('Name')</th>
                             <th>@I18n::_('Title')</th>
                             <th>@I18n::_('Parent')</th>
                             <th>@I18n::_('Created')</th>
                             <th>@I18n::_('Type')</th>
                             <th>@I18n::_('License')</th>
+                            <th>@I18n::_('Public')</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($data as $project) {
                         <tr class="gradeX">
-                            <td>@$project['name']</td>
-                            <td>@$project['title']</td>
+                            <td>@ViewHelpers::printProject($project)</td>
                             <td>
                                 @if ($project['parent'] === '0') {
                                     -
                                 } else {
-                                    @$projects[$project['parent']]['displayname']
+                                    @ViewHelpers::printProject($projects[$project['parent']])
                                 }
                             </td>
                             <td>
-                                @Date::convert($project['created'], 'Y-m-d H:i:s', 'd/m/Y')
+                                @ViewHelpers::printDate($project['created'])
                             </td>
                             <td>@$projectTypes[$project['type']]['name']</td>
                             <td>@$project['license']</td>
-                            <td><div class="btn-group pull-right">
+                            <td>@ViewHelpers::printBool($project['public'])</td>
+                            <td>
+                                <div class="btn-group pull-right">
 
                                     <a href="@Http::url('projects/edit/' . $project['id'])" class="button blue">@I18n::_('Edit')</a>
 
                                     <a href="@Http::url('projects/remove/' . $project['id'])" class="remove-button button red">@I18n::_('Delete')</a>
 
-                                </div></td>
+                                </div>
+                            </td>
                         </tr>
                         }
                         </tbody>

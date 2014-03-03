@@ -73,10 +73,10 @@ use App\Includes\ViewHelpers;
                             }</td>
                             <td>@$constants['priority_type'][$task['priority']]['name']</td>
                             <td>@{
-                                if ($task['assignee'] === '0') {
+                                if ((int)$task['assignee'] === 0) {
                                     echo I18n::_('(Unassigned)');
                                 } else {
-                                    echo $users[$task['assignee']]['name'];
+                                    echo ViewHelpers::printUser($users[$task['assignee']]);
                                 }
                             }</td>
                             <td><div class="pull-right">

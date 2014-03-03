@@ -72,7 +72,7 @@ use App\Includes\ViewHelpers;
                                 }
                             }</td>
                             <td>@$task['revisions']</td>
-                            <td>@Date::convert($task['enddate'], 'Y-m-d H:i:s', 'd/m/Y')</td>
+                            <td>@ViewHelpers::printDate($task['enddate'])</td>
                             <td><div class="pull-right">
                                     <a href="@Http::url('projects/tasks/' . $projectId . '/edit/' . $task['id'])" class="blue">@I18n::_('Edit')</a> |
                                     <a href="@Http::url('projects/tasks/' . $projectId . '/remove/' . $task['id'])" class="remove-button red">@I18n::_('Del')</a>

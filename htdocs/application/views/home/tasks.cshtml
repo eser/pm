@@ -39,7 +39,7 @@ use App\Includes\ViewHelpers;
                         <tbody>
                         @foreach ($tasks as $task) {
                         <tr class="gradeX">
-                            <td title="@$task['projecttitle']"><a href="@Http::url('projects/show/' . $task['project'])">@$task['projectname']</a></td>
+                            <td>@ViewHelpers::printProjectId($task['project'], $task['projectname'], $task['projecttitle'])</td>
                             <td>@$constants['task_type'][$task['type']]['name']: <a href="@Http::url('projects/tasks/' . $task['project'] . '/detail/' . $task['id'])">@$task['subject']</a></td>
                             <td>@$projectConstants['section_type'][$task['section']]['name']</td>
                             <td>@{

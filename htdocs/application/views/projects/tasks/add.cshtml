@@ -81,7 +81,7 @@ use App\Includes\ViewHelpers;
                                 <div class="span4">
                                     <div class="input">
                                         <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
-                                        <input name="startdate" type="text" placeholder="@I18n::_('Start Date')" class="datetimepicker fill-up" value="@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')">
+                                        <input name="startdate" type="text" placeholder="@I18n::_('Start Date')" class="datetimepicker fill-up" value="@ViewHelpers::printDate($data['startdate'])">
                                     </div>
                                 </div>
                                 <div class="span4">

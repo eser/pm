@@ -84,19 +84,13 @@ use App\Includes\ViewHelpers;
                             <div class="span4">
                                 <div class="field">
                                     <label for="StartDate" class="caption">@I18n::_('Start Date')</label>
-                                    <span class="value">@Date::convert($data['startdate'], 'Y-m-d H:i:s', 'd/m/Y')</span>
+                                    <span class="value">@ViewHelpers::printDate($data['startdate'])</span>
                                 </div>
                             </div>
                             <div class="span4">
                                 <div class="field">
                                     <label for="DueDate" class="caption">@I18n::_('Due Date')</label>
-                                    <span class="value">
-                                    @if ((int)$data['duedate'] != null) {
-                                        @Date::convert($data['duedate'], 'Y-m-d H:i:s', 'd/m/Y')
-                                    } else {
-                                        @I18n::_('(Unspecified)')
-                                    }
-                                    </span>
+                                    <span class="value">@ViewHelpers::printDate($data['duedate'])</span>
                                 </div>
                             </div>
                         </div>
@@ -110,13 +104,7 @@ use App\Includes\ViewHelpers;
                             <div class="span4">
                                 <div class="field">
                                     <label for="EndDate" class="caption">@I18n::_('End Date')</label>
-                                    <span class="value">
-                                    @if ((int)$data['enddate'] != null) {
-                                        @Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')
-                                    } else {
-                                        @I18n::_('(Unspecified)')
-                                    }
-                                    </span>
+                                    <span class="value">@ViewHelpers::printDate($data['enddate'])</span>
                                 </div>
                             </div>
                             <div class="span4">
@@ -131,8 +119,8 @@ use App\Includes\ViewHelpers;
                                 <div class="field">
                                     <label for="Assignee" class="caption">@I18n::_('Assignee')</label>
                                     <span class="value">
-                                    @if ((int)$data['assignee'] != 0) {
-                                        @$users[(int)$data['assignee']]['name']
+                                    @if ((int)$data['assignee'] !== 0) {
+                                        @ViewHelpers::printUser($users[(int)$data['assignee']])
                                     } else {
                                         @I18n::_('(Unassigned)')
                                     }
@@ -151,33 +139,51 @@ use App\Includes\ViewHelpers;
                 </div>
 
                 <div class="box" style="position:relative;">
-                    <div class="tab-header">@I18n::_('Task History')</div>
+                    <div class="tab-header">@I18n::_('Task Attachments')</div>
                     <div class="padded">
-                        @foreach ($logs as $log) {
-                        <div class="row-fluid row-border">
-                            <div class="span2">@$log['usersname']</div>
-                            <div class="span2">@$log['description']</div>
-                            <div class="span2">@date('d/m/Y H:i', Date::fromDb($log['created']))</div>
-                            <div class="span6">
-                                @foreach (json_decode($log['serializeddata'], true) as $key => $value) {
-                                    @if ($key == 'status') {
-                                        <strong>@$key</strong>:
-                                        @if (isset($constants['open_task_type'][$value])) {
-                                            @$constants['open_task_type'][$value]['name']
-                                        } elseif (isset($constants['closed_task_type'][$value])) {
-                                            @$constants['closed_task_type'][$value]['name']
-                                        } else {
-                                            @I18n::_('Unknown')
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a href="#tabfiles" data-toggle="tab">@I18n::_('Files') (@count($files))</a></li>
+                          <li><a href="#tabnotes" data-toggle="tab">@I18n::_('Notes') (@count($notes))</a></li>
+                          <li><a href="#tabhistory" data-toggle="tab">@I18n::_('History') (@count($logs))</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabfiles">
+                                @I18n::_('No files uploaded')
+                            </div>
+
+                            <div class="tab-pane" id="tabnotes">
+                                @I18n::_('No notes')
+                            </div>
+
+                            <div class="tab-pane" id="tabhistory">
+                                @foreach ($logs as $log) {
+                                <div class="row-fluid row-border">
+                                    <div class="span2">@ViewHelpers::printUserId($log['user'], $log['usersname'])</div>
+                                    <div class="span2">@$log['description']</div>
+                                    <div class="span2">@ViewHelpers::printDate($log['created'], true)</div>
+                                    <div class="span6">
+                                        @foreach (json_decode($log['serializeddata'], true) as $key => $value) {
+                                            @if ($key == 'status') {
+                                                <strong>@$key</strong>:
+                                                @if (isset($constants['open_task_type'][$value])) {
+                                                    @$constants['open_task_type'][$value]['name']
+                                                } elseif (isset($constants['closed_task_type'][$value])) {
+                                                    @$constants['closed_task_type'][$value]['name']
+                                                } else {
+                                                    Unknown
+                                                }
+                                                <br />
+                                            } else {
+                                                <strong>@$key</strong>: @$value<br />
+                                            }
                                         }
-                                        <br />
-                                    } else {
-                                        <strong>@$key</strong>: @$value<br />
-                                    }
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
                                 }
                             </div>
-                            <div class="clearfix"></div>
                         </div>
-                        }
                     </div>
                 </div>
             </div>

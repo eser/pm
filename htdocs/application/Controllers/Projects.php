@@ -74,7 +74,7 @@ class Projects extends PmController
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
 
             $tData = array(
-                'name' => String::slug(Request::post('name', null, null)),
+                'name' => String::slug(Request::post('title', null, null)),
                 'title' => Request::post('title', null, null),
                 'subtitle' => Request::post('subtitle', null, null),
                 'shortdescription' => Request::post('shortdescription', null, null),
@@ -165,7 +165,7 @@ class Projects extends PmController
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
 
             $tData = array(
-                'name' => String::slug(Request::post('name', null, null)),
+                'name' => String::slug(Request::post('title', null, null)),
                 'title' => Request::post('title', null, null),
                 'subtitle' => Request::post('subtitle', null, null),
                 'shortdescription' => Request::post('shortdescription', null, null),
@@ -1091,6 +1091,8 @@ class Projects extends PmController
         $this->load('App\\Models\\ProjectMemberModel');
         $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
+        $this->set('files', array());
+        $this->set('notes', array());
         $this->set('logs', $this->logModel->getLogs('task', $uId));
 
         $this->breadcrumbs[I18n::_('Task Edit')] = array(null, 'projects/tasks/' . $uProjectId . '/edit/' . $uId);
@@ -1155,6 +1157,8 @@ class Projects extends PmController
         $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
         $this->load('App\\Models\\LogModel');
+        $this->set('files', array());
+        $this->set('notes', array());
         $this->set('logs', $this->logModel->getLogs('task', $uId));
 
         $this->breadcrumbs[I18n::_('Task Detail')] = array(null, 'projects/tasks/' . $uProjectId . '/detail/' . $uId);
