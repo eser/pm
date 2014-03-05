@@ -4,11 +4,13 @@ namespace App\Controllers;
 
 use Scabbia\Extensions\Helpers\Arrays;
 use Scabbia\Extensions\Helpers\Date;
+use Scabbia\Extensions\Mime\Mime;
 use Scabbia\Extensions\Validation\Validation;
 use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Helpers\String;
+use Scabbia\Io;
 use Scabbia\Request;
 use App\Includes\PmController;
 
@@ -340,6 +342,10 @@ class Projects extends PmController
             return $this->tasks_detail($uProjectId, $id);
         } elseif ($uSubpage === 'closed') {
             return $this->tasks_closed($uProjectId, $id);
+        } elseif ($uSubpage === 'addnote') {
+            return $this->tasks_addnote($uProjectId, $id);
+        } elseif ($uSubpage === 'addfile') {
+            return $this->tasks_addfile($uProjectId, $id);
         }
 
         return false;
@@ -855,6 +861,122 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    private function tasks_addnote($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\TaskModel');
+
+        $tOriginalData = $this->taskModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->load('App\\Models\\NoteModel');
+
+        $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+        $tPurifier = new \HTMLPurifier($tHTMLConfig);
+
+        $tDescription = $tPurifier->purify(Request::post('description', null, null));
+
+        if (strlen(trim($tDescription)) > 0) {
+            $tData = array(
+                'targetid' => $uId,
+                'type' => 'task',
+                'description' => $tDescription,
+                'deleted' => '0',
+
+                'created' => Date::toDb(time()),
+                'user' => $this->userBindings->user['id']
+            );
+
+            $this->noteModel->insert(
+                $tData
+            );
+
+            Session::set(
+                'alert',
+                array(
+                    'success',
+                    I18n::_('Note added.')
+                )
+            );
+        }
+
+        // redirect to list
+        Http::redirect('projects/tasks/' . $uProjectId . '/detail/' . $uId, true); //  . '#tabnotes'
+        return;
+    }
+
+    /**
+     * @ignore
+     */
+    private function tasks_addfile($uProjectId, $uId)
+    {
+        $this->load('App\\Models\\TaskModel');
+
+        $tOriginalData = $this->taskModel->get($uId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->load('App\\Models\\FileModel');
+
+        // $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+        // $tPurifier = new \HTMLPurifier($tHTMLConfig);
+
+        // $tDescription = $tPurifier->purify(Request::post('description', null, null));
+        $tDescription = '';
+
+        if (count($_FILES) > 0) {
+            $tFile = array_pop($_FILES);
+
+            $tGeneratedUuid = String::generateUuid();
+            $tExtension = String::sanitizeFilename(pathinfo($tFile['name'], PATHINFO_EXTENSION));
+            $tMimeType = Mime::getType($tExtension);
+
+            $tPath = 'uploads/' . $uId . '/';
+            $tAbsolutePath = Io::translatePath('{base}' . $tPath);
+            if (!file_exists($tAbsolutePath)) {
+                mkdir($tAbsolutePath, 0777, true);
+            }
+
+            $tFilePath = $tPath . $tGeneratedUuid . '.' . $tExtension;
+            $tAbsoluteFilePath = $tAbsolutePath . $tGeneratedUuid . '.' . $tExtension;
+            move_uploaded_file($tFile['tmp_name'], $tAbsoluteFilePath);
+
+            $tData = array(
+                'targetid' => $uId,
+                'type' => 'task',
+                'filename' => $tFile['name'],
+                'mimetype' => $tMimeType,
+                'path' => $tFilePath,
+                'description' => $tDescription,
+                'deleted' => '0',
+
+                'created' => Date::toDb(time()),
+                'user' => $this->userBindings->user['id']
+            );
+
+            $this->fileModel->insert(
+                $tData
+            );
+
+            Session::set(
+                'alert',
+                array(
+                    'success',
+                    I18n::_('File added.')
+                )
+            );
+        }
+
+        // redirect to list
+        Http::redirect('projects/tasks/' . $uProjectId . '/detail/' . $uId, true); //  . '#tabfiles'
+        return;
+    }
+
+    /**
+     * @ignore
+     */
     public function tasks_add($uProjectId)
     {
         $this->load('App\\Models\\ProjectModel');
@@ -995,6 +1117,8 @@ class Projects extends PmController
             return false;
         }
 
+        $this->load('App\\Models\\FileModel');
+        $this->load('App\\Models\\NoteModel');
         $this->load('App\\Models\\LogModel');
 
         if (Request::$method === 'post') {
@@ -1052,24 +1176,27 @@ class Projects extends PmController
                 $tData['revisions'] = $tRevisions;
                 $tDataDiff = array_diff_assoc($tData, $tOriginalData);
 
-                $this->logModel->insert(
-                    array(
-                        'targetid' => $uId,
-                        'user' => $this->userBindings->user['id'],
-                        'created' => Date::toDb(time()),
-                        'type' => 'task',
-                        'serializeddata' => json_encode($tDataDiff),
-                        'description' => 'Task Updated'
-                    )
-                );
+                if (count($tDataDiff) > 0) {
+                    $this->logModel->insert(
+                        array(
+                            'targetid' => $uId,
+                            'user' => $this->userBindings->user['id'],
+                            'created' => Date::toDb(time()),
+                            'type' => 'task',
+                            'serializeddata' => json_encode($tDataDiff),
+                            'description' => 'Task Updated'
+                        )
+                    );
 
-                Session::set(
-                    'alert',
-                    array(
-                        'success',
-                        I18n::_('Record updated.')
-                    )
-                );
+                    Session::set(
+                        'alert',
+                        array(
+                            'success',
+                            I18n::_('Record updated.')
+                        )
+                    );
+                }
+
                 Http::redirect('projects/tasks/' . $uProjectId, true);
                 return;
 			}
@@ -1091,8 +1218,8 @@ class Projects extends PmController
         $this->load('App\\Models\\ProjectMemberModel');
         $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
-        $this->set('files', array());
-        $this->set('notes', array());
+        $this->set('files', $this->fileModel->getFiles('task', $uId));
+        $this->set('notes', $this->noteModel->getNotes('task', $uId));
         $this->set('logs', $this->logModel->getLogs('task', $uId));
 
         $this->breadcrumbs[I18n::_('Task Edit')] = array(null, 'projects/tasks/' . $uProjectId . '/edit/' . $uId);
@@ -1156,9 +1283,11 @@ class Projects extends PmController
         $this->load('App\\Models\\ProjectMemberModel');
         $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
 
+        $this->load('App\\Models\\FileModel');
+        $this->load('App\\Models\\NoteModel');
         $this->load('App\\Models\\LogModel');
-        $this->set('files', array());
-        $this->set('notes', array());
+        $this->set('files', $this->fileModel->getFiles('task', $uId));
+        $this->set('notes', $this->noteModel->getNotes('task', $uId));
         $this->set('logs', $this->logModel->getLogs('task', $uId));
 
         $this->breadcrumbs[I18n::_('Task Detail')] = array(null, 'projects/tasks/' . $uProjectId . '/detail/' . $uId);

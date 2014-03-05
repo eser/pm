@@ -157,19 +157,79 @@ use App\Includes\ViewHelpers;
 
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabfiles">
-                                @I18n::_('No files uploaded')
+                                @if (count($files) === 0) {
+                                    @I18n::_('No files uploaded')
+                                }
+                                @foreach ($files as $file) {
+                                <div class="row-fluid row-border">
+                                    <div class="span2">@ViewHelpers::printUserId($file['user'], $file['usersname'])</div>
+                                    <div class="span2">@ViewHelpers::printDate($file['created'], true)</div>
+                                    <div class="span2"><a href="@$root/@$file['path']">@$file['filename']</a> (@$file['mimetype'])</div>
+                                    <div class="span6">@$file['description']</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                }
+
+                                <hr />
+                                <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/addfile/' . $id)" enctype="multipart/form-data">
+                                    <div class="row-fluid">
+                                        <div class="span1">
+                                            <label for="File" class="caption">@I18n::_('File')</label>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="input">
+                                                <input id="File" type="file" name="file" placeholder="@I18n::_('File')" />
+                                            </div>
+                                        </div>
+                                        <div class="span1">
+                                            <button type="submit" class="button">@I18n::_('Send')</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
 
                             <div class="tab-pane" id="tabnotes">
-                                @I18n::_('No notes')
+                                @if (count($notes) === 0) {
+                                    @I18n::_('No notes left')
+                                }
+                                @foreach ($notes as $note) {
+                                <div class="row-fluid row-border">
+                                    <div class="span2">@ViewHelpers::printUserId($note['user'], $note['usersname'])</div>
+                                    <div class="span2">@ViewHelpers::printDate($note['created'], true)</div>
+                                    <div class="span8">
+                                        @$note['description']
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                }
+
+                                <hr />
+                                <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/addnote/' . $id)">
+                                    <div class="row-fluid">
+                                        <div class="span1">
+                                            <label for="Note" class="caption">@I18n::_('Note')</label>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="input">
+                                                <input id="Note" type="text" name="description" value="" placeholder="@I18n::_('Note')" />
+                                            </div>
+                                        </div>
+                                        <div class="span1">
+                                            <button type="submit" class="button">@I18n::_('Send')</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
 
                             <div class="tab-pane" id="tabhistory">
+                                @if (count($logs) === 0) {
+                                    @I18n::_('No history')
+                                }
                                 @foreach ($logs as $log) {
                                 <div class="row-fluid row-border">
                                     <div class="span2">@ViewHelpers::printUserId($log['user'], $log['usersname'])</div>
-                                    <div class="span2">@$log['description']</div>
                                     <div class="span2">@ViewHelpers::printDate($log['created'], true)</div>
+                                    <div class="span2">@$log['description']</div>
                                     <div class="span6">
                                         @foreach (json_decode($log['serializeddata'], true) as $key => $value) {
                                             @if ($key == 'status') {
