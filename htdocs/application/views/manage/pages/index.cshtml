@@ -1,0 +1,102 @@
+@{
+use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Html;
+use Scabbia\Extensions\Session\Session;
+use Scabbia\Extensions\Views\Views;
+use Scabbia\Extensions\I18n\I18n;
+use App\Includes\ViewHelpers;
+}
+@Views::viewFile('{app}views/shared/header.cshtml')
+@Views::viewFile('{app}views/shared/nav/manage.cshtml', $model)
+
+<section id="main">
+@Views::viewFile('{app}views/shared/top_navigation.cshtml', $model)
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                @if (!is_null($alert = Session::getFlash('alert'))) {
+                <div class="alert alert-@$alert[0]">
+                    @$alert[1]
+                </div>
+                }
+
+                <div class="box " style="position:relative;">
+                    <div class="tab-header">@I18n::_('Page List')</div>
+
+                    <div class="tab-pane padded">
+
+                        <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi" style="margin-bottom:-20px;">
+                            @Html::pager(array(
+                                'total' => $dataCount,
+                                'pagesize' => $pageSize,
+                                'current' => $page + 1,
+                                'firstlast' => false,
+                                'link' => '<span><a href="' . Http::url('manage/pages/index/{page}') . '" tabindex="0" class="fg-button ui-button ui-state-default">{pagetext}</a></span>',
+                                'activelink' => '<span><a tabindex="0" class="fg-button ui-button ui-state-default">{pagetext}</a></span>'
+                            ))
+                        </div>
+
+                        <div class="pull-right">
+                            <a href="@Http::url('manage/pages/add')">
+                                <button type="submit" class="button blue">@I18n::_('Page Add')</button>
+                            </a>
+                        </div>
+                    </div>
+                    <table class="table table-striped tablesorter">
+                        <thead>
+                        <tr>
+                            <th>@I18n::_('Name')</th>
+                            <th>@I18n::_('Title')</th>
+                            <th>@I18n::_('Project')</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($data as $page) {
+                        <tr class="gradeX">
+                            <td>@$page['name']</td>
+                            <td>@$page['title']</td>
+                            <td>
+								@if ($page['project'] === '0') {
+                                    -
+                                } else {
+                                    @ViewHelpers::printProject($projects[$page['project']])
+                                }
+                            </td>
+                            <td><div class="btn-group pull-right">
+
+                                    <a href="@Http::url('manage/pages/edit/' . $page['id'])" class="button blue">@I18n::_('Edit')</a>
+
+                                    <a href="@Http::url('manage/pages/remove/' . $page['id'])" class="remove-button button red">@I18n::_('Delete')</a>
+
+                                </div></td>
+                        </tr>
+                        }
+                        </tbody>
+                    </table>
+                    <div class="form-actions"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+@Views::viewFile('{app}views/shared/copyright.cshtml')
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $l.ready(function() {
+        $l.dom.setEvent(
+            $l(['.remove-button']),
+            'click',
+            function(ev, elem) {
+                if (!confirm('@I18n::_('Are you sure to delete this record?')')) {
+                    return false;
+                }
+            }
+        )
+    });
+</script>
+
+@Views::viewFile('{app}views/shared/footer.cshtml')

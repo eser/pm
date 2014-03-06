@@ -81,6 +81,28 @@ class Manage extends PmController
     /**
      * @ignore
      */
+    public function pages($uSubpage = 'index', $id = 0)
+    {
+        // Auth::checkRedirect('user');
+
+        $this->breadcrumbs[I18n::_('Pages')] = array(null, 'manage/pages');
+
+        if ($uSubpage === 'index') {
+            return $this->pages_index($id);
+        } elseif ($uSubpage === 'add') {
+            return $this->pages_add();
+        } elseif ($uSubpage === 'edit') {
+            return $this->pages_edit($id);
+        } elseif ($uSubpage === 'remove') {
+            return $this->pages_remove($id);
+        }
+
+        return false;
+    }
+
+    /**
+     * @ignore
+     */
     public function roles($uSubpage = 'index', $id = 0)
     {
         // Auth::checkRedirect('user');
@@ -509,6 +531,214 @@ class Manage extends PmController
 
         // redirect to list
         Http::redirect('manage/groups', true);
+        return;
+    }
+
+	/**
+     * @ignore
+     */
+    private function pages_index($uPage = 1)
+    {
+        $tPageSize = 25;
+
+        $tPage = $uPage - 1;
+        if ($tPage < 0) {
+            $tPage = 0;
+        }
+
+        $this->load('App\\Models\\PageModel');
+
+        $this->set('data', $this->pageModel->getPagesWithPaging($tPage * $tPageSize, $tPageSize));
+        $this->set('dataCount', $this->pageModel->getPagesCount());
+
+        $this->set('pageSize', $tPageSize);
+        $this->set('page', $tPage);
+
+        $this->load('App\\Models\\ProjectModel');
+		$tProjects = $this->projectModel->getProjects();
+
+        foreach ($tProjects as &$tRow) {
+            $tRow['displayname'] = $tRow['name'] . ' (' . $tRow['title'] . ')';
+        }
+
+        $this->set('projects', $tProjects);
+
+        $this->view('manage/pages/index.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function pages_add()
+    {
+        $this->load('App\\Models\\ProjectModel');
+		$tProjects = $this->projectModel->getProjects();
+
+        foreach ($tProjects as &$tRow) {
+            $tRow['displayname'] = $tRow['name'] . ' (' . $tRow['title'] . ')';
+        }
+
+        $this->set('projects', $tProjects);
+
+        if (Request::$method === 'post') {
+            $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+            $tPurifier = new \HTMLPurifier($tHTMLConfig);
+            $tHtml = $tPurifier->purify(Request::post('html', null, null));
+
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'title' => Request::post('title', null, null),
+                'html' => $tHtml,
+                'project' => Request::post('project', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('title')->isRequired()->errorMessage(I18n::_('Title field is required.'));
+            Validation::addRule('html')->isRequired()->errorMessage(I18n::_('HTML is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->load('App\\Models\\PageModel');
+
+                $tId = $this->pageModel->insert($tData);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        I18n::_('Record added.')
+                    )
+                );
+
+                // redirect to newly created
+                Http::redirect('manage/pages/edit/' . $tId, true);
+                return;
+            }
+        } else {
+            $tData = array(
+                'name' => '',
+                'title' => '',
+                'html' => '',
+                'project' => null
+            );
+        }
+
+        $this->set('data', $tData);
+
+        $this->breadcrumbs[I18n::_('Page Add')] = array(null, 'manage/pages/add');
+
+        $this->view('manage/pages/add.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function pages_edit($uId)
+    {
+        $this->load('App\\Models\\ProjectModel');
+		$tProjects = $this->projectModel->getProjects();
+
+        foreach ($tProjects as &$tRow) {
+            $tRow['displayname'] = $tRow['name'] . ' (' . $tRow['title'] . ')';
+        }
+
+        $this->set('projects', $tProjects);
+
+        $this->load('App\\Models\\PageModel');
+
+        $tOriginalData = $this->pageModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
+        if (Request::$method === 'post') {
+            if (Request::post('asNew', 0, 'intval') === 1) {
+                $this->pages_add();
+                return;
+            }
+
+            $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+            $tPurifier = new \HTMLPurifier($tHTMLConfig);
+            $tHtml = $tPurifier->purify(Request::post('html', null, null));
+
+            $tData = array(
+                'name' => Request::post('name', null, null),
+                'title' => Request::post('title', null, null),
+                'html' => $tHtml,
+                'project' => Request::post('project', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            Validation::addRule('title')->isRequired()->errorMessage(I18n::_('Title field is required.'));
+            Validation::addRule('html')->isRequired()->errorMessage(I18n::_('HTML is required.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->pageModel->update(
+                    $uId,
+                    $tData
+                );
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        I18n::_('Record updated.')
+                    )
+                );
+            }
+        } else {
+            $tData = $tOriginalData;
+        }
+
+        $this->set('id', $uId);
+        $this->set('data', $tData);
+
+        $this->breadcrumbs[I18n::_('Page Edit')] = array(null, 'manage/pages/edit/' . $uId);
+
+        $this->view('manage/pages/edit.cshtml');
+    }
+
+    /**
+     * @ignore
+     */
+    private function pages_remove($uId)
+    {
+        $this->load('App\\Models\\PageModel');
+
+        $tOriginalData = $this->pageModel->get($uId);
+        if ($tOriginalData === false) {
+            return false;
+        }
+
+        $this->pageModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                I18n::_('Record removed.')
+            )
+        );
+
+        // redirect to list
+        Http::redirect('manage/pages', true);
         return;
     }
 
