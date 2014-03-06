@@ -12,6 +12,16 @@ class PageModel extends Model
     /**
      * @ignore
      */
+    public $types = array(
+        'passive'     => 'Passive',
+        'unlisted'    => 'Unlisted',
+        'menu'        => 'Menu'
+    );
+
+
+    /**
+     * @ignore
+     */
     public function getPages()
     {
         return $this->db->createQuery()
@@ -79,6 +89,22 @@ class PageModel extends Model
             ->addParameter('name', $uName)
             ->get()
             ->row();
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
+    public function getPagesOf($uProjectId, $uTypeFilter)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('pages')
+            ->setFields('*')
+            ->setWhere(array('project=:project', _AND, array('type', _IN, $uTypeFilter)))
+            ->addParameter('project', $uProjectId)
+            ->get()
+            ->all();
 
         return $tResult;
     }

@@ -47,8 +47,10 @@ use App\Includes\ViewHelpers;
                                         <input type="text" placeholder="@I18n::_('Title')" name="title" value="@String::htmlEscape($data['title'])" />
                                     </div>
                                     <div class="input">
-                                        <label for="HTML" class="caption">@I18n::_('HTML')</label>
-                                        <textarea placeholder="@I18n::_('HTML')" rows="6" name="html" class="cleditor">@String::htmlEscape($data['html'])</textarea>
+                                        <label for="Type" class="caption">@I18n::_('Type')</label>
+                                        <select name="type" id="Type" placeholder="@I18n::_('Type')" class="fill-up chzn-select">
+                                        @Html::selectOptions($types, $data['type'])
+                                        </select>
                                     </div>
                                     <div class="input">
                                         <label for="Project" class="caption">@I18n::_('Project')</label>
@@ -56,6 +58,10 @@ use App\Includes\ViewHelpers;
                                         <option value="">@I18n::_('(None)')</option>
                                         @Html::selectOptions($projects, (int)$data['project'], 'displayname')
                                         </select>
+                                    </div>
+                                    <div class="input">
+                                        <label for="HTML" class="caption">@I18n::_('HTML')</label>
+                                        <textarea placeholder="@I18n::_('HTML')" rows="6" name="html" class="cleditor">@String::htmlEscape($data['html'])</textarea>
                                     </div>
 
                                 </div>

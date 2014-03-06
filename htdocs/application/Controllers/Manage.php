@@ -562,6 +562,7 @@ class Manage extends PmController
         }
 
         $this->set('projects', $tProjects);
+        $this->set('types', $this->pageModel->types);
 
         $this->view('manage/pages/index.cshtml');
     }
@@ -589,12 +590,14 @@ class Manage extends PmController
                 'name' => Request::post('name', null, null),
                 'title' => Request::post('title', null, null),
                 'html' => $tHtml,
-                'project' => Request::post('project', null, null)
+                'project' => Request::post('project', null, null),
+                'type' => Request::post('type', null, null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
             Validation::addRule('title')->isRequired()->errorMessage(I18n::_('Title field is required.'));
             Validation::addRule('html')->isRequired()->errorMessage(I18n::_('HTML is required.'));
+            Validation::addRule('type')->inArray(array('passive', 'unlisted', 'menu'))->errorMessage(I18n::_('Type should be valid.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -626,11 +629,14 @@ class Manage extends PmController
                 'name' => '',
                 'title' => '',
                 'html' => '',
-                'project' => null
+                'project' => null,
+                'type' => 'unlisted'
             );
         }
 
         $this->set('data', $tData);
+
+        $this->set('types', $this->pageModel->types);
 
         $this->breadcrumbs[I18n::_('Page Add')] = array(null, 'manage/pages/add');
 
@@ -672,12 +678,14 @@ class Manage extends PmController
                 'name' => Request::post('name', null, null),
                 'title' => Request::post('title', null, null),
                 'html' => $tHtml,
-                'project' => Request::post('project', null, null)
+                'project' => Request::post('project', null, null),
+                'type' => Request::post('type', null, null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
             Validation::addRule('title')->isRequired()->errorMessage(I18n::_('Title field is required.'));
             Validation::addRule('html')->isRequired()->errorMessage(I18n::_('HTML is required.'));
+            Validation::addRule('type')->inArray(array('passive', 'unlisted', 'menu'))->errorMessage(I18n::_('Type should be valid.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -707,6 +715,8 @@ class Manage extends PmController
 
         $this->set('id', $uId);
         $this->set('data', $tData);
+
+        $this->set('types', $this->pageModel->types);
 
         $this->breadcrumbs[I18n::_('Page Edit')] = array(null, 'manage/pages/edit/' . $uId);
 

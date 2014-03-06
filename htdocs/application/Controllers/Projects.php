@@ -263,6 +263,8 @@ class Projects extends PmController
             return false;
         }
 
+        $this->loadPages($uProjectId);
+
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
         $this->breadcrumbs[I18n::_('Members')] = array(null, 'projects/members/' . $uProjectId);
 
@@ -294,6 +296,8 @@ class Projects extends PmController
             return false;
         }
 
+        $this->loadPages($uProjectId);
+
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
         $this->breadcrumbs[I18n::_('Constants')] = array(null, 'projects/constants/' . $uProjectId);
 
@@ -324,6 +328,8 @@ class Projects extends PmController
         if ($tProject === false) {
             return false;
         }
+
+        $this->loadPages($uProjectId);
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $uProjectId);
         $this->breadcrumbs[I18n::_('Tasks')] = array(null, 'projects/tasks/' . $uProjectId);
@@ -363,6 +369,8 @@ class Projects extends PmController
             return false;
         }
 
+        $this->loadPages($uId);
+
         $this->set('projectId', $uId);
         $this->set('project', $tProject);
 
@@ -391,6 +399,36 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    public function pages($uId, $uPageName)
+    {
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProject = $this->projectModel->get($uId);
+        if ($tProject === false) {
+            return false;
+        }
+
+        $this->load('App\\Models\\PageModel');
+        $tPage = $this->pageModel->getByName($uPageName);
+        if ($tPage === false) {
+            return false;
+        }
+
+        $this->loadPages($uId);
+
+        $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
+        $this->breadcrumbs[$tPage['title']] = array(null, 'projects/pages/' . $tProject['id'] . '/' . $tPage['name']);
+
+        $this->set('projectId', $uId);
+        $this->set('project', $tProject);
+        $this->set('page', $tPage);
+
+        $this->view();
+    }
+
+    /**
+     * @ignore
+     */
     private function loadMenu()
     {
         $this->load('App\\Models\\ProjectModel');
@@ -406,6 +444,18 @@ class Projects extends PmController
         }
 
         $this->set('projects', $tProjects);
+    }
+
+    /**
+     * @ignore
+     */
+    private function loadPages($uProjectId)
+    {
+        $this->load('App\\Models\\PageModel');
+
+        $tPages = $this->pageModel->getPagesOf($uProjectId, array('menu'));
+
+        $this->set('pages', $tPages);
     }
 
     /**
@@ -825,6 +875,8 @@ class Projects extends PmController
         if ($tProject === false) {
             return false;
         }
+
+        $this->loadPages($uProjectId);
 
         $this->set('projectId', $uProjectId);
         $this->set('project', $tProject);

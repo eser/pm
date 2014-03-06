@@ -1,6 +1,7 @@
 @{
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\I18n\I18n;
+use App\Includes\ViewHelpers;
 }
 <nav id="secondary" class="main-nav">
 
@@ -8,7 +9,7 @@ use Scabbia\Extensions\I18n\I18n;
 
         <div class="pull-left">
             <div class="avatar">
-                <img src="@$root/assets/images/avatar.png" />
+                <img src="@ViewHelpers::get_gravatar($controller->userBindings->user['email'], 48)" />
             </div>
         </div>
 
@@ -37,5 +38,8 @@ use Scabbia\Extensions\I18n\I18n;
         <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Users')</a></li>
         <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Settings')</a></li>
         -->
+        @foreach ($pages as $page) {
+        <li><a href="@Http::url('projects/pages/' . $projectId . '/' . $page['name'])"><i class="icon-share"></i> @$page['title']</a></li>
+        }
     </ul>
 </nav>

@@ -1,6 +1,7 @@
 @{
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\I18n\I18n;
+use App\Includes\ViewHelpers;
 }
 <nav id="secondary" class="main-nav">
 
@@ -8,7 +9,7 @@ use Scabbia\Extensions\I18n\I18n;
 
         <div class="pull-left">
             <div class="avatar">
-                <img src="@$root/assets/images/avatar.png" />
+                <img src="@ViewHelpers::get_gravatar($controller->userBindings->user['email'], 48)" />
             </div>
         </div>
 

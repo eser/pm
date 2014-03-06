@@ -49,6 +49,7 @@ use App\Includes\ViewHelpers;
                             <th>@I18n::_('Name')</th>
                             <th>@I18n::_('Title')</th>
                             <th>@I18n::_('Project')</th>
+                            <th>@I18n::_('Type')</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -56,7 +57,7 @@ use App\Includes\ViewHelpers;
                         @foreach ($data as $page) {
                         <tr class="gradeX">
                             <td>@$page['name']</td>
-                            <td>@$page['title']</td>
+                            <td>@ViewHelpers::printPage($page)</td>
                             <td>
 								@if ($page['project'] === '0') {
                                     -
@@ -64,6 +65,7 @@ use App\Includes\ViewHelpers;
                                     @ViewHelpers::printProject($projects[$page['project']])
                                 }
                             </td>
+                            <td>@$types[$page['type']]</td>
                             <td><div class="btn-group pull-right">
 
                                     <a href="@Http::url('manage/pages/edit/' . $page['id'])" class="button blue">@I18n::_('Edit')</a>
