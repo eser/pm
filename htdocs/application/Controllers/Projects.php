@@ -409,7 +409,7 @@ class Projects extends PmController
         }
 
         $this->load('App\\Models\\PageModel');
-        $tPage = $this->pageModel->getByName($uPageName);
+        $tPage = $this->pageModel->getByNameAndProject($uPageName, $uId, array('unlisted', 'menu'));
         if ($tPage === false) {
             return false;
         }

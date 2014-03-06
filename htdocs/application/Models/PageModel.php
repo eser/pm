@@ -79,14 +79,32 @@ class PageModel extends Model
     /**
      * @ignore
      */
-    public function getByName($uName)
+    public function getByName($uName, $uTypeFilter)
     {
         $tResult = $this->db->createQuery()
             ->setTable('pages')
             ->setFields('*')
-            ->setWhere(array('name=:name'))
+            ->setWhere(array('name=:name', _AND, array('type', _IN, $uTypeFilter)))
             ->setLimit(1)
             ->addParameter('name', $uName)
+            ->get()
+            ->row();
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
+    public function getByNameAndProject($uName, $uProjectId, $uTypeFilter)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('pages')
+            ->setFields('*')
+            ->setWhere(array('name=:name', _AND, 'project=:project', _AND, array('type', _IN, $uTypeFilter)))
+            ->setLimit(1)
+            ->addParameter('name', $uName)
+            ->addParameter('project', $uProjectId)
             ->get()
             ->row();
 

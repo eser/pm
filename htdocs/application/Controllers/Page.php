@@ -38,7 +38,7 @@ class Page extends PmController
     public function otherwise()
     {
 		$this->load('App\\Models\\PageModel');
-        $tPage = $this->pageModel->getByName($this->route['action']);
+        $tPage = $this->pageModel->getByName($this->route['action'], array('unlisted', 'menu'));
 		if ($tPage === false) {
 			return false;
 		}

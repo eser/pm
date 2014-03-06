@@ -581,6 +581,8 @@ class Manage extends PmController
 
         $this->set('projects', $tProjects);
 
+        $this->load('App\\Models\\PageModel');
+
         if (Request::$method === 'post') {
             $tHTMLConfig = \HTMLPurifier_Config::createDefault();
             $tPurifier = new \HTMLPurifier($tHTMLConfig);
@@ -608,8 +610,6 @@ class Manage extends PmController
                     )
                 );
             } else {
-                $this->load('App\\Models\\PageModel');
-
                 $tId = $this->pageModel->insert($tData);
 
                 Session::set(
@@ -635,7 +635,6 @@ class Manage extends PmController
         }
 
         $this->set('data', $tData);
-
         $this->set('types', $this->pageModel->types);
 
         $this->breadcrumbs[I18n::_('Page Add')] = array(null, 'manage/pages/add');
