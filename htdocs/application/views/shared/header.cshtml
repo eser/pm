@@ -2,6 +2,7 @@
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Views\Views;
 use Scabbia\Extensions\I18n\I18n;
+use Scabbia\Framework;
 }
 @Views::viewFile('{app}views/shared/header_plain.cshtml')
 
@@ -40,6 +41,7 @@ use Scabbia\Extensions\I18n\I18n;
             </div>
         </div>
     </div>
+    @if (Framework::$variables['route']['controller'] !== 'Page') {
     <nav id="primary" class="main-nav">
         <ul>
 
@@ -64,3 +66,4 @@ use Scabbia\Extensions\I18n\I18n;
 
         </ul>
     </nav>
+    }

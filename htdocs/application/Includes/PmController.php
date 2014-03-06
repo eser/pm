@@ -66,5 +66,6 @@ class PmController extends Controller
 
         // no need since 'controller' already has been registered to variables.
         // Framework::$variables['userBindings'] = $this->userBindings;
+        Framework::$variables['route'] = $this->route;
     }
 }

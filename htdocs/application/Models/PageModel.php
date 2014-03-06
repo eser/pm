@@ -69,6 +69,23 @@ class PageModel extends Model
     /**
      * @ignore
      */
+    public function getByName($uName)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('pages')
+            ->setFields('*')
+            ->setWhere(array('name=:name'))
+            ->setLimit(1)
+            ->addParameter('name', $uName)
+            ->get()
+            ->row();
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
     public function insert($insert)
     {
         $tResult = $this->db->createQuery()
