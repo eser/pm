@@ -68,6 +68,18 @@ class ViewHelpers
     /**
      * @ignore
      */
+    public static function printGroup($uGroup)
+    {
+        if ($uGroup === null) {
+            return I18n::_('(Unassigned)');
+        }
+
+        return '<a href="#">' . $uGroup['name'] . '</a>'; // ' . Http::url('groups/show/' . $uGroup['id']) . '
+    }
+
+    /**
+     * @ignore
+     */
     public static function printUserId($uUserId, $uUserName)
     {
         if ($uUserId === 0) {

@@ -69,6 +69,21 @@ class GroupModel extends Model
     /**
      * @ignore
      */
+    public function getRange($uIdRange)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('groups')
+            ->setFields('*')
+            ->setWhere(array('id', _IN, $uIdRange))
+            ->get()
+            ->allWithKey('id');
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
     public function insert($insert)
     {
         $tResult = $this->db->createQuery()

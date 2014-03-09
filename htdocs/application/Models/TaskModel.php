@@ -166,6 +166,35 @@ class TaskModel extends Model
     /**
      * @ignore
      */
+    public function getTasksAllOf($uUserId, $uGroupIds)
+    {
+        return $this->db->createQuery()
+            ->setTable('tasks t')
+            ->joinTable('projects p', 'p.id=t.project', 'LEFT')
+            ->joinTable('task_relatives tr', 'tr.task=t.id', 'LEFT')
+            ->addField('t.*, p.name AS projectname, p.title AS projecttitle')
+            ->setWhere(
+                array(
+                    array(
+                        't.assignee=:assignee',
+                        _OR,
+                        array('tr.type=\'user\'', _AND, 'tr.targetid=:assignee'),
+                        _OR,
+                        array('tr.type=\'group\'', _AND, array('tr.targetid', _IN, $uGroupIds))
+                    ),
+                    _AND,
+                    '((SELECT type FROM constants WHERE id=t.status) = \'open_task_type\')'
+                )
+            )
+            ->setGroupBy('t.id')
+            ->addParameter('assignee', $uUserId)
+            ->get()
+            ->allWithKey('id');
+    }
+
+    /**
+     * @ignore
+     */
     public function get($uId)
     {
         $tResult = $this->db->createQuery()
@@ -258,5 +287,44 @@ class TaskModel extends Model
             ->execute();
 
         return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
+    public function getRelatives($uTaskId)
+    {
+        return $this->db->createQuery()
+            ->setTable('task_relatives')
+            ->addField('*')
+            ->setWhere(array('task=:taskid'))
+            ->addParameter('taskid', $uTaskId)
+            ->get()
+            ->all();
+    }
+
+    /**
+     * @ignore
+     */
+    public function saveRelatives($uTaskId, $uRelatives)
+    {
+        $this->db->createQuery()
+            ->setTable('task_relatives')
+            ->setWhere(array('task=:taskid'))
+            ->addParameter('taskid', $uTaskId)
+            ->delete()
+            ->execute();
+
+        foreach ($uRelatives as $tRelative) {
+            $this->db->createQuery()
+                ->setTable('task_relatives')
+                ->setFields(array(
+                    'task'	    => $uTaskId,
+                    'type'	    => $tRelative['type'],
+                    'targetid'  => $tRelative['targetid']
+                ))
+                ->insert()
+                ->execute(true);
+        }
     }
 }

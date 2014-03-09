@@ -409,19 +409,19 @@ class Projects extends PmController
         }
 
         $this->load('App\\Models\\PageModel');
-        $tPage = $this->pageModel->getByNameAndProject($uPageName, $uId, array('unlisted', 'menu'));
-        if ($tPage === false) {
+        $tPagee = $this->pageModel->getByNameAndProject($uPageName, $uId, array('unlisted', 'menu'));
+        if ($tPagee === false) {
             return false;
         }
 
         $this->loadPages($uId);
 
         $this->breadcrumbs[$tProject['title']] = array(null, 'projects/show/' . $tProject['id']);
-        $this->breadcrumbs[$tPage['title']] = array(null, 'projects/pages/' . $tProject['id'] . '/' . $tPage['name']);
+        $this->breadcrumbs[$tPagee['title']] = array(null, 'projects/pages/' . $tProject['id'] . '/' . $tPagee['name']);
 
         $this->set('projectId', $uId);
         $this->set('project', $tProject);
-        $this->set('page', $tPage);
+        $this->set('pagee', $tPagee);
 
         $this->view();
     }
@@ -1042,10 +1042,11 @@ class Projects extends PmController
             $tHTMLConfig = \HTMLPurifier_Config::createDefault();
             $tPurifier = new \HTMLPurifier($tHTMLConfig);
 
-            $tRevisions = Request::post('revisions', null, null);
             $tDueDate = rtrim(Request::post('duedate', '', null));
             $tEndDate = rtrim(Request::post('enddate', '', null));
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
+            $tRevisions = Request::post('revisions', null, null);
+            $tRelatives = Request::post('relatives', array(), null);
 
             $tData = array(
                 'project' => $uProjectId,
@@ -1062,6 +1063,8 @@ class Projects extends PmController
                 'estimatedtime' => Request::post('estimatedtime', null, null),
                 'enddate' => ($tEndDate == '') ? null : Date::toDb($tEndDate, 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null),
+                'revisions' => $tRevisions,
+                'relatives' => $tRelatives,
 
                 'created' => Date::toDb(time()),
                 'owner' => $this->userBindings->user['id']
@@ -1086,12 +1089,32 @@ class Projects extends PmController
                 for ($i = count($tRevs) - 1; $i >= 0; $i--) {
                     $tRevs[$i] = trim($tRevs[$i]);
                 }
+                unset($tData['revisions']);
+
+                unset($tData['relatives']);
 
                 $tId = $this->taskModel->insert($tData, $tRevs);
+
+                $tRelativesArray = array();
+                foreach ($tRelatives as $tRelative) {
+                    $tChar = substr($tRelative, 0, 1);
+
+                    if ($tChar === 'u') {
+                        $tRelativesArray[] = array('type' => 'user', 'targetid' => substr($tRelative, 1));
+                    } elseif ($tChar === 'g') {
+                        $tRelativesArray[] = array('type' => 'group', 'targetid' => substr($tRelative, 1));
+                    }
+                }
+
+                $this->taskModel->saveRelatives(
+                    $tId,
+                    $tRelativesArray
+                );
 
                 $tData['revisions'] = $tRevisions;
 
                 $this->load('App\\Models\\LogModel');
+
                 $this->logModel->insert(
                     array(
                         'targetid' => $tId,
@@ -1133,7 +1156,8 @@ class Projects extends PmController
                 'assignee' => '',
                 'created' => Date::toDb(time()),
                 'owner' => $this->userBindings->user['id'],
-                'revisions' => ''
+                'revisions' => '',
+                'relatives' => array()
             );
         }
 
@@ -1151,6 +1175,9 @@ class Projects extends PmController
 
         $this->load('App\\Models\\ProjectMemberModel');
         $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
+
+        $this->load('App\\Models\\GroupModel');
+        $this->set('groups', $this->groupModel->getGroups());
 
         $this->breadcrumbs[I18n::_('New Task')] = array(null, 'projects/tasks/' . $tProject['id'] . '/add');
 
@@ -1179,9 +1206,14 @@ class Projects extends PmController
                 return;
             }
 
+            $tHTMLConfig = \HTMLPurifier_Config::createDefault();
+            $tPurifier = new \HTMLPurifier($tHTMLConfig);
+
             $tDueDate = rtrim(Request::post('duedate', '', null));
             $tEndDate = rtrim(Request::post('enddate', '', null));
+            $tDescription = $tPurifier->purify(Request::post('description', null, null));
             $tRevisions = Request::post('revisions', null, null);
+            $tRelatives = Request::post('relatives', array(), null);
 
             $tData = array(
                 'project' => $uProjectId,
@@ -1189,7 +1221,7 @@ class Projects extends PmController
                 'section' => Request::post('section', null, null),
                 'milestone' => Request::post('milestone', null, null),
                 'subject' => Request::post('subject', null, null),
-                'description' => Request::post('description', null, null),
+                'description' => $tDescription,
                 'status' => Request::post('status', null, null),
                 'priority' => Request::post('priority', null, null),
                 'progress' => Request::post('progress', '0', null),
@@ -1197,7 +1229,9 @@ class Projects extends PmController
                 'duedate' => ($tDueDate == '') ? null : Date::toDb($tDueDate, 'd/m/Y'),
                 'estimatedtime' => Request::post('estimatedtime', null, null),
                 'enddate' => ($tEndDate == '') ? null : Date::toDb($tEndDate, 'd/m/Y'),
-                'assignee' => Request::post('assignee', null, null)
+                'assignee' => Request::post('assignee', null, null),
+                'revisions' => $tRevisions,
+                'relatives' => $tRelatives
             );
 
             Validation::addRule('subject')->isRequired()->errorMessage(I18n::_('Subject field is required.'));
@@ -1218,11 +1252,30 @@ class Projects extends PmController
                 for ($i = count($tRevs) - 1; $i >= 0; $i--) {
                     $tRevs[$i] = trim($tRevs[$i]);
                 }
+                unset($tData['revisions']);
+
+                unset($tData['relatives']);
 
                 $this->taskModel->update(
                     $uId,
                     $tData,
                     $tRevs
+                );
+
+                $tRelativesArray = array();
+                foreach ($tRelatives as $tRelative) {
+                    $tChar = substr($tRelative, 0, 1);
+
+                    if ($tChar === 'u') {
+                        $tRelativesArray[] = array('type' => 'user', 'targetid' => substr($tRelative, 1));
+                    } elseif ($tChar === 'g') {
+                        $tRelativesArray[] = array('type' => 'group', 'targetid' => substr($tRelative, 1));
+                    }
+                }
+
+                $this->taskModel->saveRelatives(
+                    $uId,
+                    $tRelativesArray
                 );
                 
                 $tData['revisions'] = $tRevisions;
@@ -1254,6 +1307,11 @@ class Projects extends PmController
 			}
         } else {
             $tData = $tOriginalData;
+
+            $tData['relatives'] = array();
+            foreach ($this->taskModel->getRelatives($uId) as $tRelative) {
+                $tData['relatives'][] = (($tRelative['type'] === 'user') ? 'u' : 'g') . $tRelative['targetid'];
+            }
         }
 
         $this->set('id', $uId);
@@ -1269,6 +1327,9 @@ class Projects extends PmController
 
         $this->load('App\\Models\\ProjectMemberModel');
         $this->set('users', $this->projectMemberModel->getMembersWithDetails($uProjectId));
+
+        $this->load('App\\Models\\GroupModel');
+        $this->set('groups', $this->groupModel->getGroups());
 
         $this->set('files', $this->fileModel->getFiles('task', $uId));
         $this->set('notes', $this->noteModel->getNotes('task', $uId));
@@ -1322,7 +1383,16 @@ class Projects extends PmController
 
         $this->set('id', $uId);
         $this->set('projectId', $uProjectId);
+
         $this->set('data', $tData);
+        $tRelatives = Arrays::categorize($this->taskModel->getRelatives($uId), 'type');
+
+        $this->load('App\\Models\\UserModel');
+        $this->load('App\\Models\\GroupModel');
+        $tRelatedUsers = isset($tRelatives['user']) ? $this->userModel->getRange(Arrays::column($tRelatives['user'], 'targetid')) : array();
+        $tRelatedGroups = isset($tRelatives['group']) ? $this->groupModel->getRange(Arrays::column($tRelatives['group'], 'targetid')) : array();
+        $this->set('relatedUsers', $tRelatedUsers);
+        $this->set('relatedGroups', $tRelatedGroups);
 
         $this->load('App\\Models\\ConstantModel');
         $tConstants = $this->constantModel->getConstants();

@@ -38,14 +38,14 @@ class Page extends PmController
     public function otherwise()
     {
 		$this->load('App\\Models\\PageModel');
-        $tPage = $this->pageModel->getByName($this->route['action'], array('unlisted', 'menu'));
-		if ($tPage === false) {
+        $tPagee = $this->pageModel->getByName($this->route['action'], array('unlisted', 'menu'));
+		if ($tPagee === false) {
 			return false;
 		}
 		
-		$this->breadcrumbs[$tPage['title']] = array(null, 'page/' . $tPage['name']);
+		$this->breadcrumbs[$tPagee['title']] = array(null, 'page/' . $tPagee['name']);
 		
-		$this->set('page', $tPage);
+		$this->set('pagee', $tPagee);
 		
 		$this->view('page/show.cshtml');
     }

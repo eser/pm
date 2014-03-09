@@ -135,6 +135,21 @@ use App\Includes\ViewHelpers;
                                     </div>
                                </div>
                             </div>
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="input">
+                                        <label for="Relatives" class="caption">@I18n::_('Relatives')</label>
+                                        <select name="relatives[]" id="Relatives" placeholder="@I18n::_('Relatives')" class="fill-up chzn-select" multiple="multiple">
+                                        @foreach ($groups as $group) {
+                                            <option value="g@$group['id']"@{ if (in_array('g' . $group['id'], $data['relatives'])) { echo ' selected="selected"'; } }>@$group['name']</option>
+                                        }
+                                        @foreach ($users as $user) {
+                                            <option value="u@$user['id']"@{ if (in_array('u' . $user['id'], $data['relatives'])) { echo ' selected="selected"'; } }>@$user['name']</option>
+                                        }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-actions">
                                 <div class="pull-right">
                                     <button type="submit" name="asNew" value="1" class="button">@I18n::_('Add as New')</button>

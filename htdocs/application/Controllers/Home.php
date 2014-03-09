@@ -16,9 +16,12 @@ class Home extends PmController
      */
     public function index()
     {
+        $this->load('App\\Models\\UserModel');
+        $tGroupIds = $this->userModel->getGroups($this->userBindings->user['id']);
+
         $this->load('App\\Models\\TaskModel');
 
-        $tTasks = $this->taskModel->getTasksOf($this->userBindings->user['id']);
+        $tTasks = $this->taskModel->getTasksAllOf($this->userBindings->user['id'], $tGroupIds);
         $this->set('tasks', $tTasks);
 
         $this->load('App\\Models\\ConstantModel');

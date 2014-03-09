@@ -54,23 +54,23 @@ use App\Includes\ViewHelpers;
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($data as $page) {
+                        @foreach ($data as $pagee) {
                         <tr class="gradeX">
-                            <td>@$page['name']</td>
-                            <td>@ViewHelpers::printPage($page)</td>
+                            <td>@$pagee['name']</td>
+                            <td>@ViewHelpers::printPage($pagee)</td>
                             <td>
-								@if ($page['project'] === '0') {
+								@if ($pagee['project'] === '0') {
                                     -
                                 } else {
-                                    @ViewHelpers::printProject($projects[$page['project']])
+                                    @ViewHelpers::printProject($projects[$pagee['project']])
                                 }
                             </td>
-                            <td>@$types[$page['type']]</td>
+                            <td>@$types[$pagee['type']]</td>
                             <td><div class="btn-group pull-right">
 
-                                    <a href="@Http::url('manage/pages/edit/' . $page['id'])" class="button blue">@I18n::_('Edit')</a>
+                                    <a href="@Http::url('manage/pages/edit/' . $pagee['id'])" class="button blue">@I18n::_('Edit')</a>
 
-                                    <a href="@Http::url('manage/pages/remove/' . $page['id'])" class="remove-button button red">@I18n::_('Delete')</a>
+                                    <a href="@Http::url('manage/pages/remove/' . $pagee['id'])" class="remove-button button red">@I18n::_('Delete')</a>
 
                                 </div></td>
                         </tr>

@@ -69,6 +69,21 @@ class UserModel extends Model
     /**
      * @ignore
      */
+    public function getRange($uIdRange)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('users')
+            ->setFields('*')
+            ->setWhere(array('id', _IN, $uIdRange))
+            ->get()
+            ->allWithKey('id');
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
     public function getByUsername($uUsername)
     {
         $tResult = $this->db->createQuery()
