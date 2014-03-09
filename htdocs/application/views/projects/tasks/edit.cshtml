@@ -91,7 +91,7 @@ use App\Includes\ViewHelpers;
                                 <div class="span4">
                                     <div class="input">
                                         <label for="DueDate" class="caption">@I18n::_('Due Date')</label>
-                                        <input name="duedate" type="text" placeholder="@I18n::_('Due Date')" class="datetimepicker fill-up" value="">
+                                        <input name="duedate" type="text" placeholder="@I18n::_('Due Date')" class="datetimepicker fill-up" value="@Date::convert($data['duedate'], 'Y-m-d H:i:s', 'd/m/Y')">
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@ use App\Includes\ViewHelpers;
                                 <div class="span4">
                                     <div class="input">
                                         <label for="EndDate" class="caption">@I18n::_('End Date')</label>
-                                        <input name="enddate" type="text" placeholder="@I18n::_('End Date')" class="datetimepicker fill-up" value="">
+                                        <input name="enddate" type="text" placeholder="@I18n::_('End Date')" class="datetimepicker fill-up" value="@Date::convert($data['enddate'], 'Y-m-d H:i:s', 'd/m/Y')">
                                     </div>
                                 </div>
                                 <div class="span4">

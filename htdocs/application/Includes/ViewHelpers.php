@@ -56,6 +56,14 @@ class ViewHelpers
     /**
      * @ignore
      */
+    public static function printTask($uTask)
+    {
+        return '<a href="' . Http::url('projects/tasks/' . $uTask['project'] . '/detail/' . $uTask['id']) . '">' . $uTask['subject'] . '</a>';
+    }
+
+    /**
+     * @ignore
+     */
     public static function printUser($uUser)
     {
         if ($uUser === null) {
@@ -129,18 +137,104 @@ class ViewHelpers
      * Get either a Gravatar URL or complete image tag for a specified email address.
      *
      * @param string $email The email address
-     * @param string $s Size in pixels, defaults to 80px [ 1 - 2048 ]
+     * @param int $s Size in pixels, defaults to 80px [ 1 - 2048 ]
      * @param string $d Default imageset to use [ 404 | mm | identicon | monsterid | wavatar ]
      * @param string $r Maximum rating (inclusive) [ g | pg | r | x ]
-
      * @return String containing either just a URL or a complete image tag
      * @source http://gravatar.com/site/implement/images/php/
      */
-    public static function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g' ) {
+    public static function get_gravatar($email, $s = 80, $d = 'mm', $r = 'g')
+    {
         $url = 'http://www.gravatar.com/avatar/';
         $url .= md5( strtolower( trim( $email ) ) );
         $url .= "?s=$s&d=$d&r=$r";
 
         return $url;
+    }
+
+    /* draws a calendar */
+    public static function draw_calendar($month, $year, $data)
+    {
+
+        /* draw table */
+        $calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
+
+        /* table headings */
+        $headings = array(
+            I18n::_('Sunday'),
+            I18n::_('Monday'),
+            I18n::_('Tuesday'),
+            I18n::_('Wednesday'),
+            I18n::_('Thursday'),
+            I18n::_('Friday'),
+            I18n::_('Saturday')
+        );
+
+        $calendar.= '<tr class="calendar-row"><td class="calendar-day-head">' .
+            implode('</td><td class="calendar-day-head">', $headings) .
+            '</td></tr>';
+
+        /* days and weeks vars now ... */
+        $running_day = date('w', mktime(0, 0, 0, $month, 1, $year));
+        $days_in_month = date('t', mktime(0, 0, 0, $month, 1, $year));
+        $days_in_this_week = 1;
+        $day_counter = 0;
+        $dates_array = array();
+
+        /* row for week one */
+        $calendar .= '<tr class="calendar-row">';
+
+        /* print "blank" days until the first of the current week */
+        for($x = 0; $x < $running_day; $x++) {
+            $calendar .= '<td class="calendar-day-np"><ul class="entries"></ul></td>';
+            $days_in_this_week++;
+        }
+
+        /* keep going with days.... */
+        for($list_day = 1; $list_day <= $days_in_month; $list_day++) {
+            $calendar .= '<td class="calendar-day">';
+            /* add in the day number */
+            $calendar .= '<div class="day-number">' . $list_day . '</div>';
+
+            /** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
+            $calendar .= '<ul class="entries">';
+            if (isset($data[$list_day])) {
+                foreach ($data[$list_day] as $tEntry) {
+                    $calendar .= '<li>' . $tEntry . '</li>';
+                }
+            }
+            $calendar .= '</ul>';
+
+            $calendar.= '</td>';
+            if($running_day == 6) {
+                $calendar .= '</tr>';
+                if(($day_counter + 1) != $days_in_month) {
+                    $calendar .= '<tr class="calendar-row">';
+                }
+
+                $running_day = -1;
+                $days_in_this_week = 0;
+            }
+
+            $days_in_this_week++;
+            $running_day++;
+            $day_counter++;
+        }
+
+        /* finish the rest of the days in the week */
+        if($days_in_this_week < 8) {
+            for($x = 1; $x <= (8 - $days_in_this_week); $x++) {
+                $calendar.= '<td class="calendar-day-np"><ul class="entries"></ul></td>';
+            }
+        }
+
+        /* final row */
+        $calendar.= '</tr>';
+
+        /* end the table */
+        $calendar.= '</table>';
+
+        /* all done, return result */
+        return $calendar;
     }
 }

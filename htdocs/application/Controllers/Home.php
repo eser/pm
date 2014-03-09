@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Includes\PmController;
+use App\Includes\ViewHelpers;
+use Scabbia\Extensions\Helpers\Date;
+use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Helpers\Arrays;
 
@@ -31,6 +34,44 @@ class Home extends PmController
         $this->load('App\\Models\\ProjectConstantModel');
         $tProjectConstants = $this->projectConstantModel->getAllConstants();
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
+
+        $tCalendar = array();
+        $tCalendarMonth = date('m');
+        $tCalendarYear = date('Y');
+
+        foreach ($tTasks as $tTask) {
+            if ($tTask['startdate'] !== null) {
+                $tStartDate = Date::fromDb($tTask['startdate']);
+                if (date('m.Y', $tStartDate) === $tCalendarMonth . '.' . $tCalendarYear) {
+                    $tDay = (int)date('d', $tStartDate);
+                    if (!isset($tCalendar[$tDay])) {
+                        $tCalendar[$tDay] = array();
+                    }
+
+                    $tCalendar[$tDay][] =
+                        ViewHelpers::printProjectId($tTask['project'], $tTask['projectname'], $tTask['projecttitle']) .
+                        '<br /><strong>' . I18n::_('Start') . '</strong>: ' . $tTask['subject'];
+                }
+            }
+
+            if ($tTask['duedate'] !== null) {
+                $tDueDate = Date::fromDb($tTask['duedate']);
+                if (date('m.Y', $tDueDate) === $tCalendarMonth . '.' . $tCalendarYear) {
+                    $tDay = (int)date('d', $tDueDate);
+                    if (!isset($tCalendar[$tDay])) {
+                        $tCalendar[$tDay] = array();
+                    }
+
+                    $tCalendar[$tDay][] =
+                        ViewHelpers::printProjectId($tTask['project'], $tTask['projectname'], $tTask['projecttitle']) .
+                        '<br /><strong>' . I18n::_('Due Date') . '</strong>: ' . $tTask['subject'];
+                }
+            }
+        }
+
+        $this->set('calendar', $tCalendar);
+        $this->set('calendarMonth', $tCalendarMonth);
+        $this->set('calendarYear', $tCalendarYear);
 
         $this->view();
     }
