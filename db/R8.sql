@@ -1,7 +1,0 @@
-ALTER TABLE `groups` CHANGE COLUMN `name` `name` VARCHAR(45) NOT NULL;
-
-CREATE TABLE `pages` LIKE `groups`;
-
-ALTER TABLE `pages` ADD COLUMN `title` VARCHAR(255) NOT NULL AFTER `name`,
-	ADD COLUMN `html` TEXT NOT NULL AFTER `title`,
-	ADD COLUMN `project` INT UNSIGNED NOT NULL AFTER `html`;

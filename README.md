@@ -29,9 +29,10 @@ php scabbia update
 ```
 
 **Step 3:**
-Make `application/writable` and `application/locale` directories writable.
+Make `uploads`, `application/writable` and `application/locale` directories writable.
 
 ``` bash
+chmod 0777 -R uploads
 chmod 0777 -R application/writable
 chmod 0777 -R application/locale
 ```
