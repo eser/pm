@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 22:25+0200\n"
-"PO-Revision-Date: 2014-02-09 22:27+0200\n"
+"POT-Creation-Date: 2014-03-10 03:17+0200\n"
+"PO-Revision-Date: 2014-03-10 03:22+0200\n"
 "Last-Translator: Eser Ozvataf <eser@sent.com>\n"
 "Language-Team: \n"
 "Language: tr\n"
@@ -15,993 +15,943 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
-"X-Poedit-SearchPath-0: Q:\\webroot\\pm\\htdocs\\application\n"
+"X-Poedit-SearchPath-0: /var/www/pm/htdocs/application\n"
 
-#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:43
-msgid "E-mail address cannot be empty."
-msgstr "E-posta adresleri boş olamaz."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:45
-msgid "Please check your e-mail address again."
-msgstr "Lütfen e-posta adresini tekrar kontrol ediniz."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:48
-msgid "Please check your username again."
-msgstr "Lütfen kullanıcı isminizi tekrar kontrol ediniz."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:52
-msgid "Password cannot be empty."
-msgstr "Parola boş olamaz."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:76
-msgid "Invalid username or e-mail."
-msgstr "Geçersiz kullanıcı ismi veya e-posta."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:85
-msgid "Invalid password."
-msgstr "Geçersiz parola."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Gate.php:94
-msgid "User is disabled."
-msgstr "Kullanıcı pasif durumda."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:45
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:29
-msgid "My Projects"
-msgstr "Projelerim"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Home.php:68
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:30
-msgid "Assigned Tasks"
-msgstr "Atanmış Görevler"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:24
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bd360c00-index.cshtml:14
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:49
-msgid "Manage"
-msgstr "Yönet"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:38
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:28
-msgid "Users"
-msgstr "Kullanıcılar"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:66
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:80
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:29
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:80
-msgid "Groups"
-msgstr "Gruplar"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:88
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:30
-msgid "Roles"
-msgstr "Roller"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:110
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:292
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:32
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fdbd0dd3-manage.cshtml:31
-msgid "Constants"
-msgstr "Sabitler"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:169
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:262
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:383
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:440
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:544
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:613
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:716
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:775
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:88
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:176
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:607
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:666
-msgid "Name field is required."
-msgstr "İsim alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:170
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:263
-msgid "Username field is required."
-msgstr "Kullanıcı ismi alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:171
-msgid "Password field is required."
-msgstr "Parola alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:172
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:265
-msgid "E-mail field should be filled in valid e-mail format."
-msgstr "E-posta alanı doğru bir biçimde girilmelidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:195
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:402
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:563
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:734
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:111
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:452
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:625
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:891
-msgid "Record added."
-msgstr "Kayıt eklendi."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:229
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:42
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:27
-msgid "User Add"
-msgstr "Kullanıcı Ekle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:294
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:460
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:633
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:796
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:200
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:521
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:687
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:1010
-msgid "Record updated."
-msgstr "Kayıt güncellendi."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:316
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:27
-msgid "User Edit"
-msgstr "Kullanıcı Düzelt"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:341
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:496
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:669
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:833
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:238
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:559
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:724
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:1061
-msgid "Record removed."
-msgstr "Kayıt kaldırıldı."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:418
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:43
-msgid "Group Add"
-msgstr "Grup Ekle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:471
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:26
-msgid "Group Edit"
-msgstr "Grup Düzelt"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:585
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:26
-msgid "Role Add"
-msgstr "Rol Ekle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:644
-msgid "Role Edit"
-msgstr "Rol Düzelt"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:717
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:776
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:608
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:667
-msgid "Invalid type."
-msgstr "Geçersiz tip."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:752
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:643
-msgid "Constants Add"
-msgstr "Sabit Ekle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Manage.php:808
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:699
-msgid "Constants Edit"
-msgstr "Sabit Düzelt"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:48
-msgid "Projects"
-msgstr "Projeler"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:89
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:177
-msgid "Title field is required."
-msgstr "Başlık alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:90
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:178
-msgid "Subtitle field is required."
-msgstr "Altbaşlık alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:91
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:179
-msgid "Short Description field is required."
-msgstr "Kısa Açıklama alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:92
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:180
-msgid "Description is required."
-msgstr "Açıklama alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:137
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:43
-msgid "Add Project"
-msgstr "Proje Ekle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:212
-msgid "Edit Project"
-msgstr "Proje Düzelt"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:261
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:31
-msgid "Members"
-msgstr "Üyeler"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:323
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:29
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:34
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:48
-msgid "Tasks"
-msgstr "Görevler"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:434
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:500
-msgid "Invalid user."
-msgstr "Geçersiz kullanıcı."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:435
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:501
-msgid "Invalid relation type."
-msgstr "Geçersiz ilişki tipi."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:471
-msgid "Members Add"
-msgstr "Üye Ekle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:534
-msgid "Members Edit"
-msgstr "Üye Düzenle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:854
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:967
-msgid "Subject field is required."
-msgstr "Konu alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:855
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:968
-msgid "Description field is required."
-msgstr "Açıklama alanı gereklidir."
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:932
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:28
-msgid "New Task"
-msgstr "Yeni Görev"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:1036
-msgid "Task Edit"
-msgstr "Görev Düzenle"
-
-#: Q:\webroot\pm\htdocs\application/Controllers/Projects.php:1099
-msgid "Task Detail"
-msgstr "Görev Detayı"
-
-#: Q:\webroot\pm\htdocs\application/Includes/PmController.php:56
+#: /var/www/pm/htdocs/application/Includes/PmController.php:56
 msgid "Home"
 msgstr "Giriş"
 
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:19
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:37
-msgid "Sunday"
-msgstr "Pazar"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:20
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:38
-msgid "Monday"
-msgstr "Pazartesi"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:21
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:39
-msgid "Tuesday"
-msgstr "Salı"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:22
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:40
-msgid "Wednesday"
-msgstr "Çarşamba"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:23
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:41
-msgid "Thursday"
-msgstr "Perşembe"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:24
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:42
-msgid "Friday"
-msgstr "Cuma"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:25
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:43
-msgid "Saturday"
-msgstr "Cumartesi"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:45
-msgid "Change"
-msgstr "Değiştir"
-
-#: Q:\webroot\pm\htdocs\application/Includes/Translations.php:46
-msgid "Remove"
-msgstr "Kaldır"
-
-#: Q:\webroot\pm\htdocs\application/Includes/ViewHelpers.php:20
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:22
 msgid "Yes"
 msgstr "Evet"
 
-#: Q:\webroot\pm\htdocs\application/Includes/ViewHelpers.php:23
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:25
 msgid "No"
 msgstr "Hayır"
 
-#: Q:\webroot\pm\htdocs\application/Models/ConstantModel.php:27
-msgid "Task Type"
-msgstr "Görev Tipi"
-
-#: Q:\webroot\pm\htdocs\application/Models/ConstantModel.php:28
-msgid "Project Type"
-msgstr "Proje Tipi"
-
-#: Q:\webroot\pm\htdocs\application/Models/ConstantModel.php:29
-msgid "Open Task Type"
-msgstr "Açık Görev Tipi"
-
-#: Q:\webroot\pm\htdocs\application/Models/ConstantModel.php:30
-msgid "Closed Task Type"
-msgstr "Kapalı Görev Tipi"
-
-#: Q:\webroot\pm\htdocs\application/Models/ConstantModel.php:31
-msgid "Priority Type"
-msgstr "Önem Tipi"
-
-#: Q:\webroot\pm\htdocs\application/Models/ConstantModel.php:32
-msgid "Project Relation Type"
-msgstr "Proje İlişki Tipi"
-
-#: Q:\webroot\pm\htdocs\application/Models/ProjectConstantModel.php:27
-msgid "Milestone"
-msgstr "Faz"
-
-#: Q:\webroot\pm\htdocs\application/Models/ProjectConstantModel.php:28
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:54
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:40
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:54
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:34
-msgid "Section"
-msgstr "Bölüm"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:26
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:33
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:33
-msgid "Role List"
-msgstr "Rol Listesi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:50
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:50
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:45
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:51
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:45
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:51
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:32
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:50
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:41
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:42
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:42
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:44
-msgid "Name"
-msgstr "İsim"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:51
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:49
-msgid "Create Project"
-msgstr "Proje Oluştur"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:52
-msgid "Create User"
-msgstr "Kullanıcı Oluştur"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:55
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:55
-msgid "Delete User"
-msgstr "Kullanıcı Sil"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:54
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:58
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:58
-msgid "Administer"
-msgstr "Yönet"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:55
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:50
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:61
-msgid "Login"
-msgstr "Login"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:56
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:61
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:99
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:102
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:64
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:99
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:102
-msgid "Active"
-msgstr "Aktif"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:72
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:67
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:60
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:84
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:78
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4fbb101b-index.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:59
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:58
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:78
-msgid "Edit"
-msgstr "Düzelt"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:74
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:69
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:62
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:65
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4fbb101b-index.cshtml:65
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:65
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:80
-msgid "Delete"
-msgstr "Sil"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0d1a0e54-index.cshtml:97
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:92
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:85
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:107
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:101
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:88
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4fbb101b-index.cshtml:88
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:88
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:82
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:81
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:103
-msgid "Are you sure to delete this record?"
-msgstr "Bu kaydı silmek istediğinizden emin misiniz?"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:28
-msgid "Overview"
-msgstr "Genel"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:30
-msgid "Closed Tasks"
-msgstr "Tamamlanmış Görevler"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:35
-msgid "Roadmap"
-msgstr "Yol Haritası"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:36
-msgid "Pages"
-msgstr "Sayfalar"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:37
-msgid "Files"
-msgstr "Dosyalar"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dd60e61-project.cshtml:39
-msgid "Settings"
-msgstr "Ayarlar"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:34
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d230ecf-index.cshtml:26
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:34
-msgid "Group List"
-msgstr "Grup Listesi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0dda0e5d-edit.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:111
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:60
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f260fa9-edit.cshtml:64
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:60
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:101
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:72
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:109
-msgid "Update"
-msgstr "Güncelle"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:26
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:35
-msgid "User List"
-msgstr "Kullanıcı Listesi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:48
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:48
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:49
-msgid "Username"
-msgstr "Kullanıcı ismi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:50
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:30
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:58
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:59
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:58
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:59
-msgid "E-mail"
-msgstr "E-posta"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:51
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:75
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:76
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:75
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:76
-msgid "SCM ID"
-msgstr "SCM ID"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/0de70e61-index.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:64
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:64
-msgid "Phone"
-msgstr "Telefon"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:36
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:48
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:50
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:34
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:48
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:50
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:76
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:77
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:76
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:77
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:54
-msgid "Type"
-msgstr "Tip"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:47
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:34
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:33
-msgid "Subject"
-msgstr "Konu"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:56
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:57
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:56
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:57
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:51
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:64
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:64
-msgid "Description"
-msgstr "Açıklama"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:64
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:64
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:55
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:58
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:55
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:36
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:35
-msgid "Status"
-msgstr "Durum"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:74
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:75
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:74
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:75
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:56
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:68
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:37
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:36
-msgid "Priority"
-msgstr "Önem"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:80
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:81
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:80
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:81
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:57
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:72
-msgid "Assignee"
-msgstr "Atanan"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:89
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:90
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:89
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:90
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:82
-msgid "Start Date"
-msgstr "Başlangıç Tarihi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:94
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:95
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:94
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:95
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:87
-msgid "End Date"
-msgstr "Bitiş Tarihi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:99
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:100
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:99
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:100
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:99
-msgid "Estimated Time"
-msgstr "Tahmini Süre"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:104
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:105
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:104
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:105
-msgid "Related Revisions"
-msgstr "İlgili Revizyonlar"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/10c50e67-add.cshtml:111
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:59
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2eba0f2c-add.cshtml:63
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:59
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:101
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:69
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:109
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/feab0de0-add.cshtml:51
-msgid "Create"
-msgstr "Oluştur"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d160ed4-projects.cshtml:28
-msgid "List All"
-msgstr "Tümünü Listele"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/1d160ed4-projects.cshtml:29
-msgid "Create New"
-msgstr "Yeni Oluştur"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:28
-msgid "Edit Task"
-msgstr "Görev Düzenle"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:65
-msgid "Open"
-msgstr "Açık"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:68
-msgid "Closed"
-msgstr "Kapalı"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:82
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:70
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:70
-msgid "(None)"
-msgstr "(Yok)"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/206c0ee4-edit.cshtml:120
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:109
-msgid "Task History"
-msgstr "Görev Geçmişi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:44
-msgid "Constant Add"
-msgstr "Sabit Ekle"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2be80f1d-add.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4ccb100c-index.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/510c101e-add.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/73f1110d-index.cshtml:27
-msgid "Constant List"
-msgstr "Sabit Listesi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2eba0f2c-add.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4fbb101b-index.cshtml:44
-msgid "Member Add"
-msgstr "Üye Ekle"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2eba0f2c-add.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f260fa9-edit.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4fbb101b-index.cshtml:27
-msgid "Member List"
-msgstr "Üye Listesi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2eba0f2c-add.cshtml:43
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2eba0f2c-add.cshtml:45
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f260fa9-edit.cshtml:44
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f260fa9-edit.cshtml:46
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4fbb101b-index.cshtml:51
-msgid "User"
-msgstr "Kullanıcı"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2eba0f2c-add.cshtml:51
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/2eba0f2c-add.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f260fa9-edit.cshtml:52
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f260fa9-edit.cshtml:54
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/4fbb101b-index.cshtml:52
-msgid "Relation Type"
-msgstr "İlişki Tipi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:28
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:28
-msgid "Task List"
-msgstr "Görev Listesi"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:45
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:45
-msgid "Task Add"
-msgstr "Görev Ekle"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:72
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:64
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:125
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:72
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:52
-msgid "Unknown"
-msgstr "Bilinmiyor"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:78
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:76
-msgid "(Unassigned)"
-msgstr "(Atanmamış)"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/303c0f56-index.cshtml:85
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:79
-msgid "Del"
-msgstr "Sil"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3c450f9a-edit.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/626a109b-edit.cshtml:27
-msgid "Constant Edit"
-msgstr "Sabit Düzenle"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f260fa9-edit.cshtml:27
-msgid "Member Edit"
-msgstr "Üye Düzenle"
-
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:91
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:34
 msgid "(Unspecified)"
 msgstr "(Belirtilmemiş)"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:95
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:56
-msgid "Revisions"
-msgstr "Revizyonlar"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:70
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:82
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:94
+msgid "(Unassigned)"
+msgstr "(Atanmamış)"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fed0fb8-closed.cshtml:57
-msgid "Date Closed"
-msgstr "Kapatılma Tarihi"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:110
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:124
+msgid "Unspecified"
+msgstr "Belirtilmemiş"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/3fee0fd8-top_navigation.cshtml:25
-msgid "Search..."
-msgstr "Arama..."
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:164
+#: /var/www/pm/htdocs/application/Includes/Translations.php:19
+#: /var/www/pm/htdocs/application/Includes/Translations.php:37
+msgid "Sunday"
+msgstr "Pazar"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:20
-msgid "Username or E-mail"
-msgstr "Kullanıcı ismi veya E-posta"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:165
+#: /var/www/pm/htdocs/application/Includes/Translations.php:20
+#: /var/www/pm/htdocs/application/Includes/Translations.php:38
+msgid "Monday"
+msgstr "Pazartesi"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:21
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:34
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:54
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:54
-msgid "Password"
-msgstr "Parola"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:166
+#: /var/www/pm/htdocs/application/Includes/Translations.php:21
+#: /var/www/pm/htdocs/application/Includes/Translations.php:39
+msgid "Tuesday"
+msgstr "Salı"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:23
-msgid "Sign in"
-msgstr "Giriş yap"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:167
+#: /var/www/pm/htdocs/application/Includes/Translations.php:22
+#: /var/www/pm/htdocs/application/Includes/Translations.php:40
+msgid "Wednesday"
+msgstr "Çarşamba"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:31
-msgid "First Name"
-msgstr "İsim"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:168
+#: /var/www/pm/htdocs/application/Includes/Translations.php:23
+#: /var/www/pm/htdocs/application/Includes/Translations.php:41
+msgid "Thursday"
+msgstr "Perşembe"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:32
-msgid "Last Name"
-msgstr "Soyisim"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:169
+#: /var/www/pm/htdocs/application/Includes/Translations.php:24
+#: /var/www/pm/htdocs/application/Includes/Translations.php:42
+msgid "Friday"
+msgstr "Cuma"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:33
-msgid "Confirm Password"
-msgstr "Parolayı Doğrulayın"
+#: /var/www/pm/htdocs/application/Includes/ViewHelpers.php:170
+#: /var/www/pm/htdocs/application/Includes/Translations.php:25
+#: /var/www/pm/htdocs/application/Includes/Translations.php:43
+msgid "Saturday"
+msgstr "Cumartesi"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:36
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:51
-msgid "Register"
-msgstr "Kayıt ol"
+#: /var/www/pm/htdocs/application/Includes/Translations.php:45
+msgid "Change"
+msgstr "Değiştir"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:45
-msgid "Recover"
-msgstr "Kurtar"
+#: /var/www/pm/htdocs/application/Includes/Translations.php:46
+msgid "Remove"
+msgstr "Kaldır"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:52
-msgid "Forgot Password?"
-msgstr "Parolayı Unuttunuz?"
+#: /var/www/pm/htdocs/application/Controllers/Gate.php:43
+msgid "E-mail address cannot be empty."
+msgstr "E-posta adresleri boş olamaz."
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a58c0b39-login.cshtml:74
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cb5b0c85-footer.cshtml:24
-msgid "Dismiss all"
-msgstr "Tümünü kaldır"
+#: /var/www/pm/htdocs/application/Controllers/Gate.php:45
+msgid "Please check your e-mail address again."
+msgstr "Lütfen e-posta adresini tekrar kontrol ediniz."
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:27
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/e2c60d13-home.cshtml:28
-msgid "Dashboard"
-msgstr "Pano"
+#: /var/www/pm/htdocs/application/Controllers/Gate.php:48
+msgid "Please check your username again."
+msgstr "Lütfen kullanıcı isminizi tekrar kontrol ediniz."
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a5f30b40-index.cshtml:33
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/a68c0b4e-tasks.cshtml:32
-msgid "Project"
-msgstr "Proje"
+#: /var/www/pm/htdocs/application/Controllers/Gate.php:52
+msgid "Password cannot be empty."
+msgstr "Parola boş olamaz."
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:35
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:27
+#: /var/www/pm/htdocs/application/Controllers/Gate.php:76
+msgid "Invalid username or e-mail."
+msgstr "Geçersiz kullanıcı ismi veya e-posta."
+
+#: /var/www/pm/htdocs/application/Controllers/Gate.php:85
+msgid "Invalid password."
+msgstr "Geçersiz parola."
+
+#: /var/www/pm/htdocs/application/Controllers/Gate.php:94
+msgid "User is disabled."
+msgstr "Kullanıcı pasif durumda."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:29
+msgid "Projects"
+msgstr "Projeler"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:91
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:179
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:692
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:756
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:191
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:289
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:410
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:472
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:599
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:684
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:793
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:867
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:970
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:1034
+msgid "Name field is required."
+msgstr "İsim alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:92
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:180
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:600
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:685
+msgid "Title field is required."
+msgstr "Başlık alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:93
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:181
+msgid "Subtitle field is required."
+msgstr "Altbaşlık alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:94
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:182
+msgid "Short Description field is required."
+msgstr "Kısa Açıklama alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:95
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:183
+msgid "Description is required."
+msgstr "Açıklama alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:114
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:533
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:710
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1133
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:217
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:429
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:619
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:812
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:988
+msgid "Record added."
+msgstr "Kayıt eklendi."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:143
+msgid "Add Project"
+msgstr "Proje Ekle"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:203
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:607
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:777
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1300
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:321
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:492
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:707
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:887
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:1055
+msgid "Record updated."
+msgstr "Kayıt güncellendi."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:218
+msgid "Edit Project"
+msgstr "Proje Düzelt"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:244
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:644
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:814
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1363
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:368
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:528
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:745
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:923
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:1092
+msgid "Record removed."
+msgstr "Kayıt kaldırıldı."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:269
+msgid "Members"
+msgstr "Üyeler"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:302
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:132
+msgid "Constants"
+msgstr "Sabitler"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:335
+msgid "Tasks"
+msgstr "Görevler"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:515
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:586
+msgid "Invalid user."
+msgstr "Geçersiz kullanıcı."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:551
+msgid "Members Add"
+msgstr "Üye Ekle"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:619
+msgid "Members Edit"
+msgstr "Üye Düzenle"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:693
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:757
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:971
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:1035
+msgid "Invalid type."
+msgstr "Geçersiz tip."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:728
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:1006
+msgid "Constants Add"
+msgstr "Sabit Ekle"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:789
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:1067
+msgid "Constants Edit"
+msgstr "Sabit Düzelt"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:951
+msgid "Note added."
+msgstr "Not eklendi."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1019
+msgid "File added."
+msgstr "Dosya eklendi."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1073
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1237
+msgid "Subject field is required."
+msgstr "Konu alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1074
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1238
+msgid "Description field is required."
+msgstr "Açıklama alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1182
+msgid "New Task"
+msgstr "Yeni Görev"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1338
+msgid "Task Edit"
+msgstr "Görev Düzenle"
+
+#: /var/www/pm/htdocs/application/Controllers/Projects.php:1415
+msgid "Task Detail"
+msgstr "Görev Detayı"
+
+#: /var/www/pm/htdocs/application/Controllers/Home.php:53
+msgid "Start"
+msgstr "Başlangıç"
+
+#: /var/www/pm/htdocs/application/Controllers/Home.php:67
+msgid "Due Date"
+msgstr "Tamamlanma Tarihi"
+
+#: /var/www/pm/htdocs/application/Controllers/Home.php:89
+msgid "My Projects"
+msgstr "Projelerim"
+
+#: /var/www/pm/htdocs/application/Controllers/Home.php:112
+msgid "Assigned Tasks"
+msgstr "Atanmış Görevler"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:24
+msgid "Manage"
+msgstr "Yönet"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:44
+msgid "Users"
+msgstr "Kullanıcılar"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:66
+msgid "Groups"
+msgstr "Gruplar"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:88
+msgid "Pages"
+msgstr "Sayfalar"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:110
+msgid "Roles"
+msgstr "Roller"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:192
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:290
+msgid "Username field is required."
+msgstr "Kullanıcı ismi alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:193
+msgid "Password field is required."
+msgstr "Parola alanı gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:194
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:292
+msgid "E-mail field should be filled in valid e-mail format."
+msgstr "E-posta alanı doğru bir biçimde girilmelidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:251
+msgid "User Add"
+msgstr "Kullanıcı Ekle"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:343
+msgid "User Edit"
+msgstr "Kullanıcı Düzelt"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:445
+msgid "Group Add"
+msgstr "Grup Ekle"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:503
+msgid "Group Edit"
+msgstr "Grup Düzelt"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:601
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:686
+msgid "HTML is required."
+msgstr "HTML gereklidir."
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:602
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:687
+msgid "Type should be valid."
+msgstr "Tip geçerli olmalı."
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:640
+msgid "Page Add"
+msgstr "Sayfa Ekle"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:720
+msgid "Page Edit"
+msgstr "Sayfa Düzenle"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:834
+msgid "Role Add"
+msgstr "Rol Ekle"
+
+#: /var/www/pm/htdocs/application/Controllers/Manage.php:898
+msgid "Role Edit"
+msgstr "Rol Düzelt"
+
+#: /var/www/pm/htdocs/application/Models/ProjectConstantModel.php:27
+msgid "Milestone"
+msgstr "Faz"
+
+#: /var/www/pm/htdocs/application/Models/ProjectConstantModel.php:28
+msgid "Section"
+msgstr "Bölüm"
+
+#: /var/www/pm/htdocs/application/Models/ConstantModel.php:27
+msgid "Task Type"
+msgstr "Görev Tipi"
+
+#: /var/www/pm/htdocs/application/Models/ConstantModel.php:28
+msgid "Project Type"
+msgstr "Proje Tipi"
+
+#: /var/www/pm/htdocs/application/Models/ConstantModel.php:29
+msgid "Open Task Type"
+msgstr "Açık Görev Tipi"
+
+#: /var/www/pm/htdocs/application/Models/ConstantModel.php:30
+msgid "Closed Task Type"
+msgstr "Kapalı Görev Tipi"
+
+#: /var/www/pm/htdocs/application/Models/ConstantModel.php:31
+msgid "Priority Type"
+msgstr "Önem Tipi"
+
+#: /var/www/pm/htdocs/application/Models/ConstantModel.php:32
+msgid "Project Relation Type"
+msgstr "Proje İlişki Tipi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/4fbb101b-index.cshtml:27
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/2eba0f2c-add.cshtml:35
+msgid "Member List"
+msgstr "Üye Listesi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/4fbb101b-index.cshtml:44
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/2eba0f2c-add.cshtml:27
+msgid "Member Add"
+msgstr "Üye Ekle"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/4fbb101b-index.cshtml:51
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/2eba0f2c-add.cshtml:43
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/2eba0f2c-add.cshtml:45
+msgid "User"
+msgstr "Kullanıcı"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/4fbb101b-index.cshtml:52
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/2eba0f2c-add.cshtml:51
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/2eba0f2c-add.cshtml:53
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cbad0c92-projects.cshtml:33
+msgid "Relation Type"
+msgstr "İlişki Tipi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/4fbb101b-index.cshtml:63
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:72
+msgid "Edit"
+msgstr "Düzelt"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/4fbb101b-index.cshtml:65
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:74
+msgid "Delete"
+msgstr "Sil"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/4fbb101b-index.cshtml:88
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:97
+msgid "Are you sure to delete this record?"
+msgstr "Bu kaydı silmek istediğinizden emin misiniz?"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:35
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:35
 msgid "Project List"
 msgstr "Proje Listesi"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:48
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:33
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:48
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:49
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:51
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:43
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:44
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:47
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:48
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cbad0c92-projects.cshtml:32
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:48
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:49
 msgid "Title"
 msgstr "Başlık"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:54
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:53
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:54
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:48
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:49
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:53
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:54
 msgid "Subtitle"
 msgstr "Altbaşlık"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:58
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:59
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:58
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:59
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:53
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:54
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:58
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:59
 msgid "Short Description"
 msgstr "Kısa Açıklama"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:68
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:69
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:68
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:69
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:58
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:59
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:66
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:67
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:68
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:63
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:64
+msgid "Description"
+msgstr "Açıklama"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:63
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:64
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:68
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:69
 msgid "Parent Project"
 msgstr "Üst Proje"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:84
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:84
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:65
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:59
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:70
+msgid "(None)"
+msgstr "(Yok)"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:71
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:72
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:43
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:35
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:36
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:51
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:52
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/510c101e-add.cshtml:48
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/510c101e-add.cshtml:49
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:49
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:50
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:76
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:77
+msgid "Type"
+msgstr "Tip"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:79
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:84
 msgid "Sourceforge"
 msgstr "Sourceforge"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:87
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:87
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:82
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:87
 msgid "Public"
 msgstr "Açık"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:92
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/bf850c12-add.cshtml:93
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:92
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ccd70c8f-edit.cshtml:93
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:55
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:87
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:88
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:92
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:93
 msgid "License"
 msgstr "Lisans"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:20
-msgid "Close"
-msgstr "Kapat"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:96
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:156
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:60
+msgid "Add as New"
+msgstr "Yeni Olarak Ekle"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:21
-msgid "Save changes"
-msgstr "Değişiklikleri kaydet"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ccd70c8f-edit.cshtml:97
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:157
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:61
+msgid "Update"
+msgstr "Güncelle"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:47
-msgid "Desktop"
-msgstr "Masaüstü"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/2eba0f2c-add.cshtml:63
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:73
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/510c101e-add.cshtml:59
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:101
+msgid "Create"
+msgstr "Oluştur"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:52
-msgid "More"
-msgstr "Diğer"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:62
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:63
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:64
+msgid "Subject"
+msgstr "Konu"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/c9c30c5f-header.cshtml:61
-msgid "Log out"
-msgstr "Çıkış"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:73
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:74
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:75
+msgid "Status"
+msgstr "Durum"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:34
-msgid "Task Count"
-msgstr "Görev Adeti"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:81
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:88
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:89
+msgid "Start Date"
+msgstr "Başlangıç Tarihi"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/cbad0c92-projects.cshtml:46
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:95
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:102
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:103
+msgid "Priority"
+msgstr "Önem"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:101
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:111
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:112
+msgid "End Date"
+msgstr "Bitiş Tarihi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:107
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:117
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:118
+msgid "Estimated Time"
+msgstr "Tahmini Süre"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:115
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:125
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:126
+msgid "Assignee"
+msgstr "Atanan"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:127
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:134
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:135
+msgid "Related Revisions"
+msgstr "İlgili Revizyonlar"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:135
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:142
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:143
+msgid "Relatives"
+msgstr "İlişkililer"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:152
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:166
+msgid "Task Attachments"
+msgstr "Görev Eklentileri"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:155
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:169
+msgid "Files"
+msgstr "Dosyalar"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:156
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:170
+msgid "Notes"
+msgstr "Notlar"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:157
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:171
+msgid "History"
+msgstr "Geçmiş"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:163
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:177
+msgid "No files uploaded"
+msgstr "Hiç dosya yüklenmemiş"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:179
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:183
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:193
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:197
+msgid "File"
+msgstr "Dosya"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:187
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:220
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:201
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:234
+msgid "Send"
+msgstr "Gönder"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:195
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:209
+msgid "No notes left"
+msgstr "Hiç not bırakılmamış"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:212
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:216
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:226
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:230
+msgid "Note"
+msgstr "Not"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f8d0fb1-detail.cshtml:228
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:242
+msgid "No history"
+msgstr "Geçmiş yok"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:28
+msgid "Edit Task"
+msgstr "Görev Düzenle"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:77
+msgid "Open"
+msgstr "Açık"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:80
+msgid "Closed"
+msgstr "Kapalı"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/206c0ee4-edit.cshtml:127
+msgid "Unassigned"
+msgstr "Atanmamış"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:35
+msgid "Page List"
+msgstr "Sayfa Listesi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:43
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:44
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:50
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/510c101e-add.cshtml:43
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/510c101e-add.cshtml:44
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:44
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:45
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:43
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/bf850c12-add.cshtml:44
+msgid "Name"
+msgstr "İsim"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:57
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:58
+msgid "Project"
+msgstr "Proje"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:64
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/ee600d50-add.cshtml:65
+msgid "HTML"
+msgstr "HTML"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:26
+msgid "Role List"
+msgstr "Rol Listesi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:51
+msgid "Create Project"
+msgstr "Proje Oluştur"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:52
+msgid "Create User"
+msgstr "Kullanıcı Oluştur"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:53
+msgid "Delete User"
+msgstr "Kullanıcı Sil"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:54
+msgid "Administer"
+msgstr "Yönet"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:55
+msgid "Login"
+msgstr "Login"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0d1a0e54-index.cshtml:56
+msgid "Active"
+msgstr "Aktif"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cbad0c92-projects.cshtml:44
 msgid "Project Page"
 msgstr "Proje Sayfası"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:52
-msgid "Parent"
-msgstr "Üst"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/510c101e-add.cshtml:27
+msgid "Constant Add"
+msgstr "Sabit Ekle"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/da520d01-index.cshtml:53
-msgid "Created"
-msgstr "Oluşturulma"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/510c101e-add.cshtml:35
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:35
+msgid "Constant List"
+msgstr "Sabit Listesi"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/ef980d65-add.cshtml:46
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fe3d0de2-edit.cshtml:46
-msgid "Privileges"
-msgstr "Yetkier"
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3c450f9a-edit.cshtml:27
+msgid "Constant Edit"
+msgstr "Sabit Düzenle"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:68
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:69
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:68
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:69
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:35
+msgid "User List"
+msgstr "Kullanıcı Listesi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:48
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:49
+msgid "Username"
+msgstr "Kullanıcı ismi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:53
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:54
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:21
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:34
+msgid "Password"
+msgstr "Parola"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:58
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:59
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:30
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:43
+msgid "E-mail"
+msgstr "E-posta"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:63
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:64
+msgid "Phone"
+msgstr "Telefon"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:68
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:69
 msgid "Role"
 msgstr "Rol"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:89
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:90
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:89
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:90
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:75
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:76
+msgid "SCM ID"
+msgstr "SCM ID"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:89
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:90
 msgid "Page"
 msgstr "Sayfa"
 
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:94
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/f04b0d72-add.cshtml:95
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:94
-#: Q:\webroot\pm\htdocs\application/writable/cache/cshtml/fefd0def-edit.cshtml:95
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:94
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/f04b0d72-add.cshtml:95
 msgid "Bio"
 msgstr "Hakkında"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/1d230ecf-index.cshtml:26
+msgid "Group List"
+msgstr "Grup Listesi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/303c0f56-index.cshtml:28
+msgid "Task List"
+msgstr "Görev Listesi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/303c0f56-index.cshtml:45
+msgid "Task Add"
+msgstr "Görev Ekle"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/303c0f56-index.cshtml:77
+msgid "Del"
+msgstr "Sil"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3fee0fd8-top_navigation.cshtml:25
+msgid "Search..."
+msgstr "Arama..."
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0dd60e61-project.cshtml:29
+msgid "Overview"
+msgstr "Genel"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0dd60e61-project.cshtml:31
+msgid "Closed Tasks"
+msgstr "Tamamlanmış Görevler"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0dd60e61-project.cshtml:36
+msgid "Roadmap"
+msgstr "Yol Haritası"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/0dd60e61-project.cshtml:40
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/da520d01-index.cshtml:51
+msgid "Parent"
+msgstr "Üst"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/da520d01-index.cshtml:52
+msgid "Created"
+msgstr "Oluşturulma"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:20
+msgid "Username or E-mail"
+msgstr "Kullanıcı ismi veya E-posta"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:23
+msgid "Sign in"
+msgstr "Giriş yap"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:31
+msgid "First Name"
+msgstr "İsim"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:32
+msgid "Last Name"
+msgstr "Soyisim"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:33
+msgid "Confirm Password"
+msgstr "Parolayı Doğrulayın"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:36
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:51
+msgid "Register"
+msgstr "Kayıt ol"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:45
+msgid "Recover"
+msgstr "Kurtar"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:52
+msgid "Forgot Password?"
+msgstr "Parolayı Unuttunuz?"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a58c0b39-login.cshtml:74
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cb5b0c85-footer.cshtml:24
+msgid "Dismiss all"
+msgstr "Tümünü kaldır"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/e2c60d13-home.cshtml:29
+msgid "Dashboard"
+msgstr "Pano"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/1d160ed4-projects.cshtml:29
+msgid "List All"
+msgstr "Tümünü Listele"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/1d160ed4-projects.cshtml:30
+msgid "Create New"
+msgstr "Yeni Oluştur"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/fe3d0de2-edit.cshtml:46
+msgid "Privileges"
+msgstr "Yetkier"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3f260fa9-edit.cshtml:27
+msgid "Member Edit"
+msgstr "Üye Düzenle"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cde70caa-show.cshtml:28
+msgid "Project Overview"
+msgstr "Proje Değerlendirmesi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cde70caa-show.cshtml:34
+msgid "Open Tasks"
+msgstr "Açık Görevler"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cde70caa-show.cshtml:48
+msgid "no one"
+msgstr "hiçkimse"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/cde70caa-show.cshtml:50
+msgid "assigned to:"
+msgstr "atanan:"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/a5f30b40-index.cshtml:27
+msgid "Calendar"
+msgstr "Takvim"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3fed0fb8-closed.cshtml:56
+msgid "Revisions"
+msgstr "Revizyonlar"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3fed0fb8-closed.cshtml:57
+msgid "Date Closed"
+msgstr "Kapatılma Tarihi"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/3fed0fb8-closed.cshtml:72
+msgid "Unknown"
+msgstr "Bilinmiyor"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/c9c30c5f-header.cshtml:21
+msgid "Close"
+msgstr "Kapat"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/c9c30c5f-header.cshtml:22
+msgid "Save changes"
+msgstr "Değişiklikleri kaydet"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/c9c30c5f-header.cshtml:49
+msgid "Desktop"
+msgstr "Masaüstü"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/c9c30c5f-header.cshtml:54
+msgid "More"
+msgstr "Diğer"
+
+#: /var/www/pm/htdocs/application/writable/cache/cshtml/c9c30c5f-header.cshtml:63
+msgid "Log out"
+msgstr "Çıkış"
+
+#~ msgid "Invalid relation type."
+#~ msgstr "Geçersiz ilişki tipi."
+
+#~ msgid "Task Count"
+#~ msgstr "Görev Adeti"
 
 #~ msgid "Assigned Issues"
 #~ msgstr "Atanmış Görevler"

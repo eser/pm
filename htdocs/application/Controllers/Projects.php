@@ -55,8 +55,8 @@ class Projects extends PmController
         $this->set('page', $tPage);
 
         $this->load('App\\Models\\ConstantModel');
-        $tProjectTypes = $this->constantModel->getConstantsByType('project_type');
-        $this->set('projectTypes', $tProjectTypes);
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
 
         $this->loadMenu();
         $this->view();
@@ -67,9 +67,6 @@ class Projects extends PmController
      */
     public function add()
     {
-        $this->load('App\\Models\\ConstantModel');
-        $tProjectTypes = $this->constantModel->getConstantsByType('project_type');
-
         if (Request::$method === 'post') {
             $tHTMLConfig = \HTMLPurifier_Config::createDefault();
             $tPurifier = new \HTMLPurifier($tHTMLConfig);
@@ -138,7 +135,10 @@ class Projects extends PmController
         }
 
         $this->set('data', $tData);
-        $this->set('projectTypes', $tProjectTypes);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
 
         $this->breadcrumbs[I18n::_('Add Project')] = array(null, 'projects/add');
 
@@ -151,9 +151,6 @@ class Projects extends PmController
      */
     public function edit($uId)
     {
-        $this->load('App\\Models\\ConstantModel');
-        $tProjectTypes = $this->constantModel->getConstantsByType('project_type');
-
         $this->load('App\\Models\\ProjectModel');
 
         $tOriginalData = $this->projectModel->get($uId);
@@ -213,7 +210,10 @@ class Projects extends PmController
 
         $this->set('projectId', $uId);
         $this->set('data', $tData);
-        $this->set('projectTypes', $tProjectTypes);
+
+        $this->load('App\\Models\\ConstantModel');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
 
         $this->breadcrumbs[I18n::_('Edit Project')] = array(null, 'projects/edit/' . $uId);
 
@@ -475,8 +475,8 @@ class Projects extends PmController
         $this->set('users', $tUsers);
 
         $this->load('App\\Models\\ConstantModel');
-        $tRelationTypes = $this->constantModel->getConstantsByType('project_relation_type');
-        $this->set('relationtypes', $tRelationTypes);
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
 
         $this->load('App\\Models\\ProjectMemberModel');
 
@@ -500,7 +500,8 @@ class Projects extends PmController
         $tUsers = $this->userModel->getUsers();
 
         $this->load('App\\Models\\ConstantModel');
-        $tRelationTypes = $this->constantModel->getConstantsByType('project_relation_type');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
 
         if (Request::$method === 'post') {
             $this->load('App\\Models\\ProjectMemberModel');
@@ -512,7 +513,7 @@ class Projects extends PmController
             );
 
             Validation::addRule('user')->inKeys($tUsers)->errorMessage(I18n::_('Invalid user.'));
-            Validation::addRule('relation')->inKeys($tRelationTypes)->errorMessage(I18n::_('Invalid relation type.'));
+            // Validation::addRule('relation')->inKeys($tConstants['project_relation_type'])->errorMessage(I18n::_('Invalid relation type.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -545,7 +546,6 @@ class Projects extends PmController
         }
 
         $this->set('users', $tUsers);
-        $this->set('relationtypes', $tRelationTypes);
         $this->set('data', $tData);
 
         $this->breadcrumbs[I18n::_('Members Add')] = array(null, 'projects/members/' . $uProjectId . '/add');
@@ -562,7 +562,8 @@ class Projects extends PmController
         $tUsers = $this->userModel->getUsers();
 
         $this->load('App\\Models\\ConstantModel');
-        $tRelationTypes = $this->constantModel->getConstantsByType('project_relation_type');
+        $tConstants = $this->constantModel->getConstants();
+        $this->set('constants', Arrays::categorize($tConstants, 'type', true));
 
         $this->load('App\\Models\\ProjectMemberModel');
 
@@ -583,7 +584,7 @@ class Projects extends PmController
             );
 
             Validation::addRule('user')->inKeys($tUsers)->errorMessage(I18n::_('Invalid user.'));
-            Validation::addRule('relation')->inKeys($tRelationTypes)->errorMessage(I18n::_('Invalid relation type.'));
+            // Validation::addRule('relation')->inKeys($tConstants['project_relation_type'])->errorMessage(I18n::_('Invalid relation type.'));
 
             if (!Validation::validate($tData)) {
                 Session::set(
@@ -613,7 +614,6 @@ class Projects extends PmController
 
         $this->set('id', $uId);
         $this->set('users', $tUsers);
-        $this->set('relationtypes', $tRelationTypes);
         $this->set('data', $tData);
 
         $this->breadcrumbs[I18n::_('Members Edit')] = array(null, 'projects/members/' . $uProjectId . '/edit/' . $uId);

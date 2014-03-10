@@ -161,13 +161,13 @@ class ViewHelpers
 
         /* table headings */
         $headings = array(
-            I18n::_('Sunday'),
             I18n::_('Monday'),
             I18n::_('Tuesday'),
             I18n::_('Wednesday'),
             I18n::_('Thursday'),
             I18n::_('Friday'),
-            I18n::_('Saturday')
+            I18n::_('Saturday'),
+            I18n::_('Sunday')
         );
 
         $calendar.= '<tr class="calendar-row"><td class="calendar-day-head">' .
@@ -175,7 +175,7 @@ class ViewHelpers
             '</td></tr>';
 
         /* days and weeks vars now ... */
-        $running_day = date('w', mktime(0, 0, 0, $month, 1, $year));
+        $running_day = date('N', mktime(0, 0, 0, $month, 1, $year)) - 1;
         $days_in_month = date('t', mktime(0, 0, 0, $month, 1, $year));
         $days_in_this_week = 1;
         $day_counter = 0;

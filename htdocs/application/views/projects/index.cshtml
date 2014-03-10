@@ -69,7 +69,7 @@ use App\Includes\ViewHelpers;
                             <td>
                                 @ViewHelpers::printDate($project['created'])
                             </td>
-                            <td>@$projectTypes[$project['type']]['name']</td>
+                            <td>@ViewHelpers::printConstant($constants, 'project_type', $project['type'])</td>
                             <td>@$project['license']</td>
                             <td>@ViewHelpers::printBool($project['public'])</td>
                             <td>
