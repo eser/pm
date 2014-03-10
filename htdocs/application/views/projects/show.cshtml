@@ -34,19 +34,21 @@ use App\Includes\ViewHelpers;
                         </div>
 
                         <h2>@$project['title']</h2>
+                        <h4>@$project['subtitle']</h4>
                     </div>
 
                     <div class="padded">
                         @foreach ($data as $milestone => $tasks) {
                             <h4>@ViewHelpers::printConstant($projectConstants, 'milestone_type', $milestone)</h4>
                             @foreach ($tasks as $task) {
-                                <div class="taskitem@{ if (isset($constants['closed_task_type'][$task['status']])) { echo ' strike'; } }">
+                                <div class="taskitem@{ if (isset($constants['closed_task_type']) && isset($constants['closed_task_type'][$task['status']])) { echo ' strike'; } }">
                                     #@$task['id'] @ViewHelpers::printTask($task)
                                     @{
+                                        echo I18n::_('assigned to:') . ' ';
                                         if ((int)$task['assignee'] === 0) {
                                             echo I18n::_('no one');
                                         } else {
-                                            echo I18n::_('assigned to:') . ' ' . ViewHelpers::printUser($users[$task['assignee']]);
+                                            echo ViewHelpers::printUser($users[$task['assignee']]);
                                         }
                                     }
                                 </div>

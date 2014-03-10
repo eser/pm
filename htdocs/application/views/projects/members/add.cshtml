@@ -50,7 +50,9 @@ use App\Includes\ViewHelpers;
                                         <label for="RelationType" class="caption">@I18n::_('Relation Type')</label>
 
                                         <select name="relation" id="RelationType" placeholder="@I18n::_('Relation Type')" class="fill-up chzn-select">
+                                        @if (isset($constants['project_relation_type'])) {
                                             @Html::selectOptions($constants['project_relation_type'], $data['relation'], 'name')
+                                        }
                                         </select>
                                     </div>
 

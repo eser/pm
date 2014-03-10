@@ -33,8 +33,10 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Type" class="caption">@I18n::_('Type')</label>
                                         <select name="type" id="Type" placeholder="@I18n::_('Type')" class="fill-up chzn-select">
-                                        <option value="0">- @I18n::_('Unspecified')</option>
-                                        @Html::selectOptions($constants['task_type'], (int)$data['type'], 'name')
+                                            <option value="0">- @I18n::_('Unspecified')</option>
+                                            @if (isset($constants['task_type'])) {
+                                                @Html::selectOptions($constants['task_type'], (int)$data['type'], 'name')
+                                            }
                                         </select>
                                     </div>
                                 </div>
@@ -73,12 +75,16 @@ use App\Includes\ViewHelpers;
                                         <label for="Status" class="caption">@I18n::_('Status')</label>
                                         <select name="status" id="Status" placeholder="@I18n::_('Status')" class="fill-up chzn-select">
                                             <option value="0">- @I18n::_('Unspecified')</option>
-                                            <optgroup label="@I18n::_('Open')">
-                                                @Html::selectOptions($constants['open_task_type'], (int)$data['status'], 'name')
-                                            </optgroup>
-                                            <optgroup label="@I18n::_('Closed')">
-                                                @Html::selectOptions($constants['closed_task_type'], (int)$data['status'], 'name')
-                                            </optgroup>
+                                            @if (isset($constants['open_task_type'])) {
+                                                <optgroup label="@I18n::_('Open')">
+                                                    @Html::selectOptions($constants['open_task_type'], (int)$data['status'], 'name')
+                                                </optgroup>
+                                            }
+                                            @if (isset($constants['closed_task_type'])) {
+                                                <optgroup label="@I18n::_('Closed')">
+                                                    @Html::selectOptions($constants['closed_task_type'], (int)$data['status'], 'name')
+                                                </optgroup>
+                                            }
                                         </select>
                                     </div>
                                 </div>
@@ -100,8 +106,10 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Priority" class="caption">@I18n::_('Priority')</label>
                                         <select name="priority" id="Priority" placeholder="@I18n::_('Priority')" class="fill-up chzn-select">
-                                        <option value="0">- @I18n::_('Unspecified')</option>
-                                        @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
+                                            <option value="0">- @I18n::_('Unspecified')</option>
+                                            @if (isset($constants['priority_type'])) {
+                                                @Html::selectOptions($constants['priority_type'], (int)$data['priority'], 'name')
+                                            }
                                         </select>
                                     </div>
                                 </div>

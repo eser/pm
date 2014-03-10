@@ -216,7 +216,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 INSERT INTO `projects` VALUES
-(1,'ornek-proje','Örnek Proje','...','Sisteminin yeni yazılıma geçirilmesi','description',0,'2013-09-27 11:16:52',22,0,0,'',0);
+(1,'ornek-proje','Örnek Proje','...','Sisteminin yeni yazılıma geçirilmesi','description',0,'2013-09-27 11:16:52',4,0,0,'',0);
 UNLOCK TABLES;
 
 --
