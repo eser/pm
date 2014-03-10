@@ -61,7 +61,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Parent" class="caption">@I18n::_('Parent Project')</label>
                                         <select name="parent" id="Parent" placeholder="@I18n::_('Parent Project')" class="fill-up chzn-select">
-                                        <option value="">@I18n::_('(None)')</option>
+                                        <option value="0">@I18n::_('(None)')</option>
                                         @Html::selectOptions($projects, (int)$data['parent'], 'displayname')
                                         </select>
 

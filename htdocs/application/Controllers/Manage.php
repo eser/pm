@@ -592,7 +592,7 @@ class Manage extends PmController
                 'name' => Request::post('name', null, null),
                 'title' => Request::post('title', null, null),
                 'html' => $tHtml,
-                'project' => Request::post('project', null, null),
+                'project' => Request::post('project', '0', null),
                 'type' => Request::post('type', null, null)
             );
 
@@ -629,7 +629,7 @@ class Manage extends PmController
                 'name' => '',
                 'title' => '',
                 'html' => '',
-                'project' => null,
+                'project' => '0',
                 'type' => 'unlisted'
             );
         }
@@ -677,7 +677,7 @@ class Manage extends PmController
                 'name' => Request::post('name', null, null),
                 'title' => Request::post('title', null, null),
                 'html' => $tHtml,
-                'project' => Request::post('project', null, null),
+                'project' => Request::post('project', '0', null),
                 'type' => Request::post('type', null, null)
             );
 

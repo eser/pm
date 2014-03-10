@@ -56,7 +56,7 @@ use App\Includes\ViewHelpers;
                                     <div class="input">
                                         <label for="Project" class="caption">@I18n::_('Project')</label>
                                         <select name="project" id="Project" placeholder="@I18n::_('Project')" class="fill-up chzn-select">
-                                        <option value="">@I18n::_('(None)')</option>
+                                        <option value="0">@I18n::_('(None)')</option>
                                         @Html::selectOptions($projects, (int)$data['project'], 'displayname')
                                         </select>
                                     </div>
