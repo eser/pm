@@ -1,8 +1,6 @@
-Project Management Tool
-=======================
+# Project Management Tool
 
-Information
------------
+## Information
 
 PM tool is designed to be a basic project management tool. It's only contains most essential parts of project management such as managing users and their roles on created projects, assigning tasks and tracking the overall progress.
 
@@ -11,45 +9,35 @@ Since most of the good PM alternatives were written in Ruby and Java, we started
 Built on [Scabbia Framework 1.5](https://github.com/larukedi/Scabbia-Framework).
 
 
-Installation
-------------
-##### Alternative 1: Zip Package #####
+## Installation
 
-Download [PM](https://github.com/larukedi/pm/archive/master.zip) and launch `php scabbia update`.
-
-##### Alternative 2: Git #####
+**Step 1:**
 
 On Terminal or Command Prompt:
 ``` bash
 git clone https://github.com/larukedi/pm pm
+```
+
+Alternatively [PM](https://github.com/larukedi/pm/archive/master.zip) package can be downloaded directly.
+
+**Step 2:**
+
+``` bash
 cd pm
+cd htdocs
 php scabbia update
 ```
 
-##### Alternative 3: Composer #####
+**Step 3:**
+Make `application/writable` and `application/locale` directories writable.
 
-On *nix:
 ``` bash
-php -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
-php composer.phar create-project larukedi/pm -s dev pm
-```
-
-On Windows:
-Download and install [Composer-Setup.exe](http://getcomposer.org/Composer-Setup.exe) then run:
-``` bat
-composer create-project larukedi/pm -s dev pm
+chmod 0777 -R application/writable
+chmod 0777 -R application/locale
 ```
 
 
-Update
-------
-``` bash
-php scabbia update
-```
-
-
-Requirements
-------------
+## Requirements
 * PHP 5.3.3+ (http://www.php.net/)
 * Composer Dependency Manager** (http://getcomposer.org/)
 * Scabbia Framework** (http://larukedi.github.com/Scabbia-Framework/)
@@ -57,13 +45,11 @@ Requirements
 ** Will be auto-installed during composer execution
 
 
-License
--------
+## License
 See [license.txt](license.txt)
 
 
-Contributing
-------------
+## Contributing
 It is publicly open for any contribution. Bugfixes, new features and extra modules are welcome.
 
 * Fork the repo, push your changes to your fork, and submit a pull request.
