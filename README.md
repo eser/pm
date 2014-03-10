@@ -37,6 +37,33 @@ chmod 0777 -R application/writable
 chmod 0777 -R application/locale
 ```
 
+**Step 4:**
+Import an mysql dump file depending on your language choice.
+For english data: `db/en/R00_base.sql`
+For turkish data: `db/tr/R00_base.sql`
+
+**Step 5:**
+Open `application/config/datasources.json` file to update the database configuration parameters.
+
+a sample mysql database configuration:
+```json
+{
+    "datasourceList": [
+        {
+            "id":           "dbconn",
+            "interface":    "pdo",
+            "persistent":   true,
+            "overrideCase": "natural",
+            "pdoString":    "mysql:host=localhost;dbname=pm",
+            "username":     "root",
+            "password":     "123456",
+            "initCommand":  "SET NAMES utf8",
+            "errors":       "exception"
+        }
+    ]
+}
+```
+
 
 ## Requirements
 * PHP 5.3.3+ (http://www.php.net/)
