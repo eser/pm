@@ -1,2 +1,0 @@
-* homepage calendar.
-* passive/unlisted/listed projects.

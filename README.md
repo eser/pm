@@ -29,6 +29,7 @@ php scabbia update
 ```
 
 **Step 3:**
+
 Make `uploads`, `application/writable` and `application/locale` directories writable.
 
 ``` bash
@@ -38,11 +39,14 @@ chmod 0777 -R application/locale
 ```
 
 **Step 4:**
-Import an mysql dump file depending on your language choice.
-For english data: `db/en/R00_base.sql`
-For turkish data: `db/tr/R00_base.sql`
+
+Import a mysql dump file depending on your language choice.
+
+* English mysql dump: `db/en/R00_base.sql`
+* Turkish mysql dump: `db/tr/R00_base.sql`
 
 **Step 5:**
+
 Open `application/config/datasources.json` file to update the database configuration parameters.
 
 a sample mysql database configuration:
@@ -73,12 +77,14 @@ a sample mysql database configuration:
 ** Will be auto-installed during composer execution
 
 
-## License
-See [license.txt](license.txt)
+## Links
+* [Contributor List](contributors.md)
+* [License Information](LICENSE)
 
 
 ## Contributing
 It is publicly open for any contribution. Bugfixes, new features and extra modules are welcome.
 
-* Fork the repo, push your changes to your fork, and submit a pull request.
-* If something does not work, please report it using GitHub issues.
+* To contribute to code: Fork the repo, push your changes to your fork, and submit a pull request.
+* To report a bug: If something does not work, please report it using GitHub issues.
+* To support: [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3UTMAW956HJ7A)
