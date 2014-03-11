@@ -6,7 +6,7 @@ PM tool is designed to be a basic project management tool. It's only contains mo
 
 Since most of the good PM alternatives were written in Ruby and Java, we started to develop one with PHP to enable ease of maintenance for PHP developers.
 
-Built on [Scabbia Framework 1.5](https://github.com/larukedi/Scabbia-Framework).
+Built on [Scabbia Framework 1.5](//github.com/larukedi/Scabbia-Framework).
 
 
 ## Installation
@@ -18,7 +18,7 @@ On Terminal or Command Prompt:
 git clone https://github.com/larukedi/pm pm
 ```
 
-Alternatively [PM](https://github.com/larukedi/pm/archive/master.zip) package can be downloaded directly.
+Alternatively [PM](//github.com/larukedi/pm/archive/master.zip) package can be downloaded directly.
 
 **Step 2:**
 
@@ -72,7 +72,7 @@ a sample mysql database configuration:
 ## Requirements
 * PHP 5.3.3+ (http://www.php.net/)
 * Composer Dependency Manager** (http://getcomposer.org/)
-* Scabbia Framework** (http://larukedi.github.com/Scabbia-Framework/)
+* Scabbia Framework** (//github.com/larukedi/Scabbia-Framework/)
 
 ** Will be auto-installed during composer execution
 
@@ -83,7 +83,7 @@ a sample mysql database configuration:
 
 
 ## Contributing
-It is publicly open for any contribution. Bugfixes, new features and extra modules are welcome.
+It is publicly open for any contribution. Bugfixes, new features and extra modules are welcome. All contributions should be filed on the [larukedi/pm](//github.com/larukedi/pm) repository.
 
 * To contribute to code: Fork the repo, push your changes to your fork, and submit a pull request.
 * To report a bug: If something does not work, please report it using GitHub issues.
