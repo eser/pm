@@ -1,5 +1,6 @@
 @{
 use Scabbia\Extensions\Http\Http;
+use Scabbia\Extensions\Helpers\Arrays;
 use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Session\Session;
@@ -24,6 +25,21 @@ use App\Includes\ViewHelpers;
 
                 <div class="box" style="position:relative;">
                     <div class="tab-header"> @I18n::_('Calendar')
+                    </div>
+
+                    <div class="date-picker">
+                        <form action="@Http::url('home/index')" method="get">
+                            <select name="month">
+                            @Html::selectOptions(ViewHelpers::$months, $calendarMonth)
+                            </select>
+
+                            <select name="year">
+                            @{ $tCurYear = (int)date('Y'); }
+                            @Html::selectOptions(Arrays::range($tCurYear - 10, $tCurYear + 10, 1, true), (int)$calendarYear)
+                            </select>
+
+                            <input class="btn btn-small" type="submit" value="@I18n::_('Show')" />
+                        </form>
                     </div>
 
                     @ViewHelpers::draw_calendar($calendarMonth, $calendarYear, $calendar)

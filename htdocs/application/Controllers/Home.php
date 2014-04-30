@@ -8,6 +8,7 @@ use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Helpers\Arrays;
+use Scabbia\Request;
 
 /**
  * @ignore
@@ -36,8 +37,9 @@ class Home extends PmController
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
         $tCalendar = array();
-        $tCalendarMonth = date('m');
-        $tCalendarYear = date('Y');
+
+        $tCalendarMonth = Request::get('month', date('m'));
+        $tCalendarYear = Request::get('year', date('Y'));
 
         foreach ($tTasks as $tTask) {
             if ($tTask['startdate'] !== null) {
