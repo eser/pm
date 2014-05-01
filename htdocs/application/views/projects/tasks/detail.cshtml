@@ -121,10 +121,16 @@ use App\Includes\ViewHelpers;
                                     </span>
                                 </div>
                             </div>
-                            <div class="span8">
+                            <div class="span4">
                                 <div class="field">
                                     <label for="Revisions" class="caption">@I18n::_('Related Revisions')</label>
                                     <span class="value">@$data['revisions']</span>
+                                </div>
+                           </div>
+                           <div class="span4">
+                                <div class="field">
+                                    <label for="Percentage" class="caption">@I18n::_('Percentage')</label>
+                                    <span class="value">@String::htmlEscape($data['progress'])</span>
                                 </div>
                            </div>
                         </div>

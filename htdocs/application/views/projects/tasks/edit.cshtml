@@ -136,10 +136,16 @@ use App\Includes\ViewHelpers;
                                         </select>
                                     </div>
                                 </div>
-                                <div class="span8">
+                                <div class="span4">
                                     <div class="input">
                                         <label for="Revisions" class="caption">@I18n::_('Related Revisions')</label>
                                         <input type="text" placeholder="@I18n::_('Related Revisions')" name="revisions" value="@$data['revisions']" />
+                                    </div>
+                               </div>
+                               <div class="span4">
+                                    <div class="input">
+                                        <label for="Percentage" class="caption">@I18n::_('Percentage')</label>
+                                        <input type="text" placeholder="@I18n::_('Percentage')" name="progress" value="@String::htmlEscape($data['progress'])" />
                                     </div>
                                </div>
                             </div>
@@ -160,8 +166,8 @@ use App\Includes\ViewHelpers;
                             </div>
                             <div class="form-actions">
                                 <div class="pull-right">
-                                    <button type="submit" name="asNew" value="1" class="button">@I18n::_('Add as New')</button>
                                     <button type="submit" name="asNew" value="0" class="button blue">@I18n::_('Update')</button>
+                                    <button type="submit" name="asNew" value="1" class="button">@I18n::_('Add as New')</button>
                                 </div>
                             </div>
                         </form>

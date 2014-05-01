@@ -1046,6 +1046,14 @@ class Projects extends PmController
             $tEndDate = rtrim(Request::post('enddate', '', null));
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
             $tRevisions = Request::post('revisions', null, null);
+
+            $tProgress = intval(Request::post('progress', '0', null));
+            if ($tProgress < 0) {
+                $tProgress = 0;
+            } elseif ($tProgress > 100) {
+                $tProgress = 100;
+            }
+
             $tRelatives = Request::post('relatives', array(), null);
 
             $tData = array(
@@ -1064,6 +1072,7 @@ class Projects extends PmController
                 'enddate' => ($tEndDate == '') ? null : Date::toDb($tEndDate, 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null),
                 'revisions' => $tRevisions,
+                'progress' => $tProgress,
                 'relatives' => $tRelatives,
 
                 'created' => Date::toDb(time()),
@@ -1148,7 +1157,6 @@ class Projects extends PmController
                 'description' => '',
                 'status' => '',
                 'priority' => null,
-                'progress' => '0',
                 'startdate' => Date::toDb(time()),
                 'duedate' => null,
                 'estimatedtime' => '',
@@ -1157,6 +1165,7 @@ class Projects extends PmController
                 'created' => Date::toDb(time()),
                 'owner' => $this->userBindings->user['id'],
                 'revisions' => '',
+                'progress' => '0',
                 'relatives' => array()
             );
         }
@@ -1213,6 +1222,14 @@ class Projects extends PmController
             $tEndDate = rtrim(Request::post('enddate', '', null));
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
             $tRevisions = Request::post('revisions', null, null);
+
+            $tProgress = intval(Request::post('progress', '0', null));
+            if ($tProgress < 0) {
+                $tProgress = 0;
+            } elseif ($tProgress > 100) {
+                $tProgress = 100;
+            }
+
             $tRelatives = Request::post('relatives', array(), null);
 
             $tData = array(
@@ -1231,6 +1248,7 @@ class Projects extends PmController
                 'enddate' => ($tEndDate == '') ? null : Date::toDb($tEndDate, 'd/m/Y'),
                 'assignee' => Request::post('assignee', null, null),
                 'revisions' => $tRevisions,
+                'progress' => $tProgress,
                 'relatives' => $tRelatives
             );
 

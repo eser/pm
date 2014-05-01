@@ -23,6 +23,15 @@ use App\Includes\ViewHelpers;
                 </div>
                 }
 
+                <div class="big-button-bar">
+                @foreach ($projects as $project) {
+                    <a class="button large" href="@Http::url('projects/show/' . $project['id'])">
+                      <i class="icon-bookmark"></i>
+                      <span>@$project['title']</span>
+                    </a>
+                }
+                </div>
+
                 <div class="box" style="position:relative;">
                     <div class="tab-header"> @I18n::_('Calendar')
                     </div>

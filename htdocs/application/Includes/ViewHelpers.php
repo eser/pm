@@ -72,9 +72,14 @@ class ViewHelpers
     /**
      * @ignore
      */
-    public static function printTask($uTask)
+    public static function printTask($uTask, $uAlwaysShowPercentage = false)
     {
-        return '<a href="' . Http::url('projects/tasks/' . $uTask['project'] . '/detail/' . $uTask['id']) . '">' . $uTask['subject'] . '</a>';
+        $tReturn = '<a href="' . Http::url('projects/tasks/' . $uTask['project'] . '/detail/' . $uTask['id']) . '">' . $uTask['subject'] . '</a>';
+        if ($uAlwaysShowPercentage || $uTask['progress'] > 0 && $uTask['progress'] < 100) {
+            $tReturn .= ' (' . $uTask['progress'] . '%)';
+        }
+
+        return $tReturn;
     }
 
     /**

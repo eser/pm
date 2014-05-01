@@ -25,11 +25,11 @@ use App\Includes\ViewHelpers;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('projects/show/' . $projectId)"><i class="icon-bar-chart"></i> @I18n::_('Overview')</a></li>
-        <li><a href="@Http::url('projects/tasks/' . $projectId)"><i class="icon-share"></i> @I18n::_('Tasks')</a></li>
-        <li><a href="@Http::url('projects/tasks/' . $projectId . '/closed')"><i class="icon-share"></i>@I18n::_('Closed Tasks')</a></li>
-        <li><a href="@Http::url('projects/members/' . $projectId)"><i class="icon-list"></i> @I18n::_('Members')</a></li>
-        <li><a href="@Http::url('projects/constants/' . $projectId)"><i class="icon-list"></i> @I18n::_('Constants')</a></li>
+        <li@{ if ($controller->route['action'] == 'show') { echo ' class="active"'; } }><a href="@Http::url('projects/show/' . $projectId)"><i class="icon-bar-chart"></i> @I18n::_('Overview')</a></li>
+        <li@{ if ($controller->route['action'] == 'tasks' && !(count($controller->route['params']) == 2 && $controller->route['params'][1] == 'closed')) { echo ' class="active"'; } }><a href="@Http::url('projects/tasks/' . $projectId)"><i class="icon-share"></i> @I18n::_('Tasks')</a></li>
+        <li@{ if ($controller->route['action'] == 'tasks' && (count($controller->route['params']) == 2 && $controller->route['params'][1] == 'closed')) { echo ' class="active"'; } }><a href="@Http::url('projects/tasks/' . $projectId . '/closed')"><i class="icon-share"></i>@I18n::_('Closed Tasks')</a></li>
+        <li@{ if ($controller->route['action'] == 'members') { echo ' class="active"'; } }><a href="@Http::url('projects/members/' . $projectId)"><i class="icon-list"></i> @I18n::_('Members')</a></li>
+        <li@{ if ($controller->route['action'] == 'constants') { echo ' class="active"'; } }><a href="@Http::url('projects/constants/' . $projectId)"><i class="icon-list"></i> @I18n::_('Constants')</a></li>
         <!--
         <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Tasks')</a></li>
         <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Roadmap')</a></li>
@@ -39,7 +39,7 @@ use App\Includes\ViewHelpers;
         <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Settings')</a></li>
         -->
         @foreach ($pages as $pageitem) {
-        <li><a href="@Http::url('projects/pages/' . $projectId . '/' . $pageitem['name'])"><i class="icon-share"></i> @$pageitem['title']</a></li>
+        <li@{ if ($controller->route['action'] == 'pages' && count($controller->route['params']) == 2 && $controller->route['params'][1] == $pageitem['name']) { echo ' class="active"'; } }><a href="@Http::url('projects/pages/' . $projectId . '/' . $pageitem['name'])"><i class="icon-share"></i> @$pageitem['title']</a></li>
         }
     </ul>
 </nav>

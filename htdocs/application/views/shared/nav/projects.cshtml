@@ -25,8 +25,8 @@ use App\Includes\ViewHelpers;
 
     </div>
     <ul class="secondary-nav-menu">
-        <li><a href="@Http::url('projects')"><i class="icon-bar-chart"></i> @I18n::_('List All')</a></li>
-        <li><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Create New')</a></li>
+        <li@{ if ($controller->route['action'] == 'index') { echo ' class="active"'; } }><a href="@Http::url('projects')"><i class="icon-bar-chart"></i> @I18n::_('List All')</a></li>
+        <li@{ if ($controller->route['action'] == 'add') { echo ' class="active"'; } }><a href="@Http::url('projects/add')"><i class="icon-share"></i> @I18n::_('Create New')</a></li>
         @foreach ($projects as $project) {
         <li><a href="@Http::url('projects/show/' . $project['id'])"><i class="icon-file"></i> @$project['title']</a></li>
         }

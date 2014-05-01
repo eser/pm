@@ -23,6 +23,11 @@ class Home extends PmController
         $this->load('App\\Models\\UserModel');
         $tGroupIds = $this->userModel->getGroups($this->userBindings->user['id']);
 
+        $this->load('App\\Models\\ProjectModel');
+
+        $tProjects = $this->projectModel->getProjectsOf($this->userBindings->user['id']);
+        $this->set('projects', $tProjects);
+
         $this->load('App\\Models\\TaskModel');
 
         $tTasks = $this->taskModel->getTasksAllOf($this->userBindings->user['id'], $tGroupIds);

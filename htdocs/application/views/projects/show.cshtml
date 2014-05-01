@@ -39,19 +39,34 @@ use App\Includes\ViewHelpers;
 
                     <div class="padded">
                         @foreach ($data as $milestone => $tasks) {
-                            <h4>@ViewHelpers::printConstant($projectConstants, 'milestone_type', $milestone)</h4>
-                            @foreach ($tasks as $task) {
-                                <div class="taskitem@{ if (isset($constants['closed_task_type']) && isset($constants['closed_task_type'][$task['status']])) { echo ' strike'; } }">
-                                    #@$task['id'] @ViewHelpers::printTask($task)
-                                    @{
-                                        echo I18n::_('assigned to:') . ' ';
-                                        if ((int)$task['assignee'] === 0) {
-                                            echo I18n::_('no one');
-                                        } else {
-                                            echo ViewHelpers::printUser($users[$task['assignee']]);
-                                        }
+                            @{
+                                $tOutput = '';
+                                $tPercentage = 0;
+                                foreach ($tasks as $task) {
+                                    $tOutput .= '<div class="taskitem';
+
+                                    if (isset($constants['closed_task_type']) && isset($constants['closed_task_type'][$task['status']])) {
+                                        $tOutput .= ' strike';
+                                        $tPercentage += 100;
+                                    } else {
+                                        $tPercentage += intval($task['progress']);
                                     }
-                                </div>
+
+                                    $tOutput .= '">#' . $task['id'] . ' ' . ViewHelpers::printTask($task, true) . ' ' . I18n::_('assigned to:') . ' ';
+                                    if ((int)$task['assignee'] === 0) {
+                                        $tOutput .= I18n::_('no one');
+                                    } else {
+                                        $tOutput .= ViewHelpers::printUser($users[$task['assignee']]);
+                                    }
+                                    $tOutput .= '</div>';
+                                }
+
+                                $tProgress = ($tPercentage / count($tasks)) . '%';
+                                echo '<h4>', ViewHelpers::printConstant($projectConstants, 'milestone_type', $milestone), ' (', $tProgress, ')</h4>',
+                                     '<div class="progress progress-info progress-striped">',
+                                     '    <div class="bar" style="width: ', $tProgress, '"></div>',
+                                     '</div>',
+                                     $tOutput;
                             }
                         }
                     </div>
