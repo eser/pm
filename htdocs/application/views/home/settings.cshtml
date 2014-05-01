@@ -14,7 +14,7 @@ use App\Includes\ViewHelpers;
 <section id="main">
 @Views::viewFile('{app}views/shared/top_navigation.cshtml', $model)
 
-    <div class="container-fluid">
+    <div class="container-fluid content-area">
         <div class="row-fluid">
             <div class="span6">
                 @if (!is_null($alert = Session::getFlash('alert'))) {

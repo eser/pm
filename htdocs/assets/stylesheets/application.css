@@ -7287,7 +7287,7 @@ a:hover {
 
 /* line 24, base.css.scss */
 .container-fluid {
-  overflow-x: hidden; }
+  /* overflow-x: hidden; */}
 
 /* line 9, typography.css.scss */
 p {
@@ -10788,3 +10788,9 @@ td.calendar-day, td.calendar-day-np
 .date-picker select { margin-bottom: 0px; }
 
 .text-center { text-align: center; }
+
+.content-area { min-height: 100%; }
+
+#main > .container-fluid {
+    height: 80%;
+}
