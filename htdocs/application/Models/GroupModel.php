@@ -84,6 +84,19 @@ class GroupModel extends Model
     /**
      * @ignore
      */
+    public function getUsersRange($uIdRange)
+    {
+        return $this->db->createQuery()
+            ->setTable('user_groups')
+            ->setFields('userid')
+            ->setWhere(array('groupid', _IN, $uIdRange))
+            ->get()
+            ->column('userid');
+    }
+
+    /**
+     * @ignore
+     */
     public function insert($insert)
     {
         $tResult = $this->db->createQuery()

@@ -1,5 +1,8 @@
 {
     "pm": {
+        "emails:": {
+            "sender": "eser@sent.com"
+        },
         "usesSourceforge": false
     }
 }
