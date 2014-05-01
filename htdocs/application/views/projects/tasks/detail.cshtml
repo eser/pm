@@ -157,13 +157,41 @@ use App\Includes\ViewHelpers;
                     <div class="tab-header">@I18n::_('Task Attachments')</div>
                     <div class="padded">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tabfiles" data-toggle="tab">@I18n::_('Files') (@count($files))</a></li>
-                          <li><a href="#tabnotes" data-toggle="tab">@I18n::_('Notes') (@count($notes))</a></li>
+                          <li class="active"><a href="#tabnotes" data-toggle="tab">@I18n::_('Notes') (@count($notes))</a></li>
+                          <li><a href="#tabfiles" data-toggle="tab">@I18n::_('Files') (@count($files))</a></li>
                           <li><a href="#tabhistory" data-toggle="tab">@I18n::_('History') (@count($logs))</a></li>
                         </ul>
 
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tabfiles">
+                            <div class="tab-pane active" id="tabnotes">
+                                @if (count($notes) === 0) {
+                                    @I18n::_('No notes left')
+                                }
+                                @foreach ($notes as $note) {
+                                <div class="row-fluid row-border">
+                                    <div class="span2">@ViewHelpers::printUserId($note['user'], $note['usersname'])</div>
+                                    <div class="span2">@ViewHelpers::printDate($note['created'], true)</div>
+                                    <div class="span8">
+                                        <a class="close remove-button" class="pull-right" href="@Http::url('projects/tasks/' . $projectId . '/removenote/' . $id . '/' . $note['id'])">&times;</a>
+                                        @$note['description']
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                }
+
+                                <hr />
+                                <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/addnote/' . $id)">
+                                    <div class="field"><label for="Note" class="caption">@I18n::_('Post a new note')</label></div>
+                                    <div class="input">
+                                        <textarea id="Note" class="cleditor" name="description"></textarea>
+                                    </div>
+                                    <div class="buttons pull-right">
+                                        <button type="submit" class="button blue">@I18n::_('Send')</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="tab-pane" id="tabfiles">
                                 @if (count($files) === 0) {
                                     @I18n::_('No files uploaded')
                                 }
@@ -172,7 +200,10 @@ use App\Includes\ViewHelpers;
                                     <div class="span2">@ViewHelpers::printUserId($file['user'], $file['usersname'])</div>
                                     <div class="span2">@ViewHelpers::printDate($file['created'], true)</div>
                                     <div class="span2"><a href="@$root/@$file['path']">@$file['filename']</a> (@$file['mimetype'])</div>
-                                    <div class="span6">@$file['description']</div>
+                                    <div class="span6">
+                                        <a class="close remove-button" class="pull-right" href="@Http::url('projects/tasks/' . $projectId . '/removefile/' . $id . '/' . $file['id'])">&times;</a>
+                                        @$file['description']
+                                    </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 }
@@ -186,39 +217,6 @@ use App\Includes\ViewHelpers;
                                         <div class="span6">
                                             <div class="input">
                                                 <input id="File" type="file" name="file" placeholder="@I18n::_('File')" />
-                                            </div>
-                                        </div>
-                                        <div class="span1">
-                                            <button type="submit" class="button">@I18n::_('Send')</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="tab-pane" id="tabnotes">
-                                @if (count($notes) === 0) {
-                                    @I18n::_('No notes left')
-                                }
-                                @foreach ($notes as $note) {
-                                <div class="row-fluid row-border">
-                                    <div class="span2">@ViewHelpers::printUserId($note['user'], $note['usersname'])</div>
-                                    <div class="span2">@ViewHelpers::printDate($note['created'], true)</div>
-                                    <div class="span8">
-                                        @$note['description']
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                }
-
-                                <hr />
-                                <form class="fill-up" method="post" action="@Http::url('projects/tasks/' . $projectId . '/addnote/' . $id)">
-                                    <div class="row-fluid">
-                                        <div class="span1">
-                                            <label for="Note" class="caption">@I18n::_('Note')</label>
-                                        </div>
-                                        <div class="span6">
-                                            <div class="input">
-                                                <input id="Note" type="text" name="description" value="" placeholder="@I18n::_('Note')" />
                                             </div>
                                         </div>
                                         <div class="span1">
@@ -266,5 +264,19 @@ use App\Includes\ViewHelpers;
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    $l.ready(function() {
+        $l.dom.setEvent(
+            $l(['.remove-button']),
+            'click',
+            function(ev, elem) {
+                if (!confirm('@I18n::_('Are you sure to delete this record?')')) {
+                    return false;
+                }
+            }
+        )
+    });
+</script>
 
 @Views::viewFile('{app}views/shared/footer.cshtml')

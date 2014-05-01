@@ -319,7 +319,7 @@ class Projects extends PmController
     /**
      * @ignore
      */
-    public function tasks($uProjectId, $uSubpage = 'index', $id = 0)
+    public function tasks($uProjectId, $uSubpage = 'index', $id = 0, $id2 = 0)
     {
         // Auth::checkRedirect('user');
         $this->load('App\\Models\\ProjectModel');
@@ -350,8 +350,12 @@ class Projects extends PmController
             return $this->tasks_closed($uProjectId, $id);
         } elseif ($uSubpage === 'addnote') {
             return $this->tasks_addnote($uProjectId, $id);
+        } elseif ($uSubpage === 'removenote') {
+            return $this->tasks_removenote($uProjectId, $id, $id2);
         } elseif ($uSubpage === 'addfile') {
             return $this->tasks_addfile($uProjectId, $id);
+        } elseif ($uSubpage === 'removefile') {
+            return $this->tasks_removefile($uProjectId, $id, $id2);
         }
 
         return false;
@@ -961,6 +965,42 @@ class Projects extends PmController
     /**
      * @ignore
      */
+    private function tasks_removenote($uProjectId, $uTaskId, $uId)
+    {
+        $this->load('App\\Models\\TaskModel');
+
+        $tOriginalData = $this->taskModel->get($uTaskId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->load('App\\Models\\NoteModel');
+
+        $tOriginalNote = $this->noteModel->get($uId);
+        if ($tOriginalNote === false || $tOriginalNote['targetid'] !== $uTaskId) {
+            return false;
+        }
+
+        $this->noteModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                I18n::_('Note removed.')
+            )
+        );
+
+        // redirect to list
+        Http::redirect('projects/tasks/' . $uProjectId . '/detail/' . $uTaskId, true); //  . '#tabnotes'
+        return;
+    }
+
+    /**
+     * @ignore
+     */
     private function tasks_addfile($uProjectId, $uId)
     {
         $this->load('App\\Models\\TaskModel');
@@ -1023,6 +1063,45 @@ class Projects extends PmController
 
         // redirect to list
         Http::redirect('projects/tasks/' . $uProjectId . '/detail/' . $uId, true); //  . '#tabfiles'
+        return;
+    }
+
+    /**
+     * @ignore
+     */
+    private function tasks_removefile($uProjectId, $uTaskId, $uId)
+    {
+        $this->load('App\\Models\\TaskModel');
+
+        $tOriginalData = $this->taskModel->get($uTaskId);
+        if ($tOriginalData === false || $tOriginalData['project'] !== $uProjectId) {
+            return false;
+        }
+
+        $this->load('App\\Models\\FileModel');
+
+        $tOriginalFile = $this->fileModel->get($uId);
+        if ($tOriginalFile === false || $tOriginalFile['targetid'] !== $uTaskId) {
+            return false;
+        }
+
+        $tAbsolutePath = Io::translatePath('{base}' . $tOriginalFile['path']);
+        Io::destroy($tAbsolutePath);
+
+        $this->fileModel->delete(
+            $uId
+        );
+
+        Session::set(
+            'alert',
+            array(
+                'success',
+                I18n::_('File removed.')
+            )
+        );
+
+        // redirect to list
+        Http::redirect('projects/tasks/' . $uProjectId . '/detail/' . $uTaskId, true); //  . '#tabfiles'
         return;
     }
 
