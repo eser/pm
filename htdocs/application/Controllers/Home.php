@@ -9,6 +9,8 @@ use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\I18n\I18n;
 use Scabbia\Extensions\Helpers\Arrays;
+use Scabbia\Extensions\Session\Session;
+use Scabbia\Extensions\Validation\Validation;
 use Scabbia\Request;
 
 /**
@@ -118,6 +120,81 @@ class Home extends PmController
         $this->set('projectConstants', Arrays::categorize($tProjectConstants, 'type', true));
 
         $this->breadcrumbs[I18n::_('Assigned Tasks')] = array(null, 'home/tasks');
+
+        $this->view();
+    }
+
+    /**
+     * @ignore
+     */
+    public function settings()
+    {
+        if (Request::$method === 'post') {
+            $tData = array(
+                'username' => $this->userBindings->user['username'],
+                'password' => Request::post('password', null, null),
+                'password2' => Request::post('password2', null, null),
+                'name' => Request::post('name', null, null),
+                'phone' => Request::post('phone', null, null),
+                'email' => Request::post('email', null, null),
+                'page' => Request::post('page', null, null),
+                'scmid' => Request::post('scmid', null, null),
+                'bio' => Request::post('bio', null, null),
+                'language' => Request::post('language', null, null),
+                'sendmails' => Request::post('sendmails', null, null)
+            );
+
+            Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
+            // Validation::addRule('password')->isRequired()->errorMessage(I18n::_('Password field is required.'));
+            Validation::addRule('email')->isEmail()->errorMessage(I18n::_('E-mail field should be filled in valid e-mail format.'));
+            Validation::addRule('password')->isEqual($tData['password2'])->errorMessage(I18n::_('Passwords should match.'));
+
+            if (!Validation::validate($tData)) {
+                Session::set(
+                    'alert',
+                    array(
+                        'error',
+                        implode('<br />', Validation::getErrorMessages(true))
+                    )
+                );
+            } else {
+                $this->load('App\\Models\\UserModel');
+
+                unset($tData['username']);
+                if (strlen($tData['password']) === 0) {
+                    unset($tData['password']);
+                }
+                unset($tData['password2']);
+
+                $this->userModel->update(
+                    $this->userBindings->user['id'],
+                    $tData
+                );
+
+                $this->userBindings->setUserFromDatabase($this->userBindings->user['id']);
+
+                Session::set(
+                    'alert',
+                    array(
+                        'success',
+                        I18n::_('Record updated.')
+                    )
+                );
+
+                $tData['username'] = $this->userBindings->user['username'];
+                $tData['password'] = '';
+                $tData['password2'] = '';
+            }
+
+        } else {
+            $tData = $this->userBindings->user;
+            $tData['password'] = '';
+            $tData['password2'] = '';
+        }
+
+        $this->set('data', $tData);
+
+        $this->breadcrumbs[I18n::_('Settings')] = array(null, 'home/settings');
 
         $this->view();
     }

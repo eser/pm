@@ -39,30 +39,30 @@ use App\Includes\ViewHelpers;
                                 <div class="padded">
 
                                     <div class="input">
-                                        <label for="Name" class="caption">@I18n::_('Name')</label>
-                                        <input type="text" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
-
-                                    </div>
-                                    <div class="input">
                                         <label for="Username" class="caption">@I18n::_('Username')</label>
                                         <input type="text" placeholder="@I18n::_('Username')" name="username" value="@String::htmlEscape($data['username'])" />
-
                                     </div>
+
                                     <div class="input">
                                         <label for="Password" class="caption">@I18n::_('Password')</label>
                                         <input type="password" placeholder="@I18n::_('Password')" name="password" value="@String::htmlEscape($data['password'])" />
-
                                     </div>
+
+                                    <div class="input">
+                                        <label for="Name" class="caption">@I18n::_('Name')</label>
+                                        <input type="text" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
+                                    </div>
+
                                     <div class="input">
                                         <label for="E-mail" class="caption">@I18n::_('E-mail')</label>
                                         <input type="text" placeholder="@I18n::_('E-mail')" name="email" value="@String::htmlEscape($data['email'])" />
-
                                     </div>
+
                                     <div class="input">
                                         <label for="Phone" class="caption">@I18n::_('Phone')</label>
                                         <input type="text" placeholder="@I18n::_('Phone')" name="phone" value="@String::htmlEscape($data['phone'])" />
-
                                     </div>
+
                                     <div class="input">
                                         <label for="Role" class="caption">@I18n::_('Role')</label>
                                         <select name="role" id="Role" placeholder="@I18n::_('Role')" class="fill-up chzn-select">
@@ -71,8 +71,10 @@ use App\Includes\ViewHelpers;
                                     </div>
 
                                     <div class="input">
-                                        <label for="Scmid" class="caption">@I18n::_('SCM ID')</label>
-                                        <input type="text" placeholder="@I18n::_('SCM ID')" name="scmid" value="@String::htmlEscape($data['scmid'])" />
+                                        <label for="Language" class="caption">@I18n::_('Language')</label>
+                                        <select name="language" id="Language" placeholder="@I18n::_('Language')" class="fill-up chzn-select">
+                                        @Html::selectOptions(I18n::$languages, $data['language'], 'name')
+                                        </select>
                                     </div>
 
                                     <div class="input row-fluid">
@@ -90,15 +92,23 @@ use App\Includes\ViewHelpers;
                                     </div>
 
                                     <div class="input">
+                                        <label for="Scmid" class="caption">@I18n::_('SCM ID')</label>
+                                        <input type="text" placeholder="@I18n::_('SCM ID')" name="scmid" value="@String::htmlEscape($data['scmid'])" />
+                                    </div>
+
+                                    <div class="input">
                                         <label for="Bio" class="caption">@I18n::_('Bio')</label>
                                         <textarea placeholder="@I18n::_('Bio')" rows="6" name="bio">@String::htmlEscape($data['bio'])</textarea>
                                     </div>
 
                                     <div class="input">
-                                        <label for="Active" class="caption">@I18n::_('Active')</label>
+                                        <label for="Properties" class="caption">@I18n::_('Properties')</label>
 
                                         <input type="checkbox" class="normal-check" id="Active" name="active" value="1" @{ if ($data['active'] === '1') { echo 'checked="checked" '; } }/>
                                         <label for="Active" class="span4">@I18n::_('Active')</label>
+
+                                        <input type="checkbox" class="normal-check" id="SendMails" name="sendmails" value="1" @{ if ($data['sendmails'] === '1') { echo 'checked="checked" '; } }/>
+                                        <label for="SendMails" class="span4">@I18n::_('Send Mails')</label>
                                     </div>
                                 </div>
                             </div>

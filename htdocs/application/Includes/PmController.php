@@ -40,6 +40,7 @@ class PmController extends Controller
         $this->dbconn->errorHandling = Database::ERROR_EXCEPTION;
         $this->prerender->add(array(&$this, 'defaultPrerender'));
 
+        /*
         if (isset($_GET['lang']) && strlen($_GET['lang']) > 0) {
             $tLanguage = $_GET['lang'];
             I18n::setLanguage($tLanguage);
@@ -50,7 +51,8 @@ class PmController extends Controller
         } else {
             $tLanguage = Request::cookie('lang', 'en');
             I18n::setLanguage($tLanguage);
-        }        
+        }
+        */
 
         $this->breadcrumbs = array(
             I18n::_('Home') => array('icon-home', 'home')
@@ -63,6 +65,7 @@ class PmController extends Controller
     public function defaultPrerender()
     {
         $this->userBindings = UserBindings::get($this);
+        I18n::setLanguage($this->userBindings->user['language']);
 
         // no need since 'controller' already has been registered to variables.
         // Framework::$variables['userBindings'] = $this->userBindings;

@@ -9,7 +9,7 @@ use Scabbia\Config;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
-@Views::viewFile('{app}views/shared/nav/projects.cshtml', $model)
+@Views::viewFile('{app}views/shared/nav/home.cshtml', $model)
 
 <section id="main">
 @Views::viewFile('{app}views/shared/top_navigation.cshtml', $model)
@@ -24,76 +24,72 @@ use App\Includes\ViewHelpers;
                 }
 
                 <div class="box">
-                    <div class="tab-header"> Edit Project </div>
-                    <form class="fill-up" method="post" action="@Http::url('projects/edit/' . $projectId)">
+                    <div class="tab-header"> Settings </div>
+                    <form class="fill-up" method="post" action="@Http::url('home/settings')">
                         <div class="row-fluid">
                             <div class="span12">
-                                <div style="padding-right:12px;">
-
-                                    <div class="btn-group pull-right">
-
-                                        <a href="@Http::url('projects')" class="button blue">@I18n::_('Project List')</a>
-
-                                    </div>
-                                </div>
-
                                 <div class="padded">
 
                                     <div class="input">
-                                        <label for="Type" class="caption">@I18n::_('Type')</label>
-                                        <select name="type" id="Type" placeholder="@I18n::_('Type')" class="fill-up chzn-select">
-                                        @if (isset($constants['project_type'])) {
-                                            @Html::selectOptions($constants['project_type'], $data['type'], 'name')
-                                        }
+                                        <label for="Username" class="caption">@I18n::_('Username')</label>
+                                        <input type="text" id="Username" placeholder="@I18n::_('Username')" name="username" value="@String::htmlEscape($data['username'])" disabled="disabled" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Password" class="caption">@I18n::_('Password')</label>
+                                        <input type="password" id="Password" placeholder="@I18n::_('Password')" name="password" value="@String::htmlEscape($data['password'])" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Password2" class="caption">@I18n::_('Password Again')</label>
+                                        <input type="password" id="Password2" placeholder="@I18n::_('Password Again')" name="password2" value="@String::htmlEscape($data['password2'])" />
+                                    </div>
+
+                                    <hr />
+
+                                    <div class="input">
+                                        <label for="Name" class="caption">@I18n::_('Name')</label>
+                                        <input type="text" id="Name" placeholder="@I18n::_('Name')" name="name" value="@String::htmlEscape($data['name'])" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Email" class="caption">@I18n::_('E-Mail')</label>
+                                        <input type="text" id="Email" placeholder="@I18n::_('E-Mail')" name="email" value="@String::htmlEscape($data['email'])" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Phone" class="caption">@I18n::_('Phone')</label>
+                                        <input type="text" id="Phone" placeholder="@I18n::_('Phone')" name="phone" value="@String::htmlEscape($data['phone'])" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Page" class="caption">@I18n::_('Page')</label>
+                                        <input type="text" id="Page" placeholder="@I18n::_('Page')" name="page" value="@String::htmlEscape($data['page'])" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Scmid" class="caption">@I18n::_('SCM ID')</label>
+                                        <input type="text" id="Scmid" placeholder="@I18n::_('SCM ID')" name="scmid" value="@String::htmlEscape($data['scmid'])" />
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Bio" class="caption">@I18n::_('Bio')</label>
+                                        <textarea id="Bio" placeholder="@I18n::_('Bio')" name="bio">@String::htmlEscape($data['bio'])</textarea>
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Language" class="caption">@I18n::_('Language')</label>
+                                        <select name="language" id="Language" placeholder="@I18n::_('Language')" class="fill-up chzn-select">
+                                        @Html::selectOptions(I18n::$languages, $data['language'], 'name')
                                         </select>
                                     </div>
 
                                     <div class="input">
-                                        <label for="Parent" class="caption">@I18n::_('Parent Project')</label>
-                                        <select name="parent" id="Parent" placeholder="@I18n::_('Parent Project')" class="fill-up chzn-select">
-                                        <option value="0">@I18n::_('(None)')</option>
-                                        @Html::selectOptions($projects, (int)$data['parent'], 'name')
-                                        </select>
+                                        <label for="Properties" class="caption">@I18n::_('Settings')</label>
+
+                                        <input type="checkbox" class="normal-check" id="SendMails" name="sendmails" value="1" @{ if ($data['sendmails'] === '1') { echo 'checked="checked" '; } }/>
+                                        <label for="SendMails" class="span4">@I18n::_('Send Mails')</label>
                                     </div>
-
-                                    <div class="input row-fluid">
-                                        <label class="caption">@I18n::_('Properties')</label>
-
-                                        @if(Config::get('pm/usesSourceforge')) {
-                                        <input type="checkbox" id="Sourceforge" name="sourceforge" value="1" class="normal-check" @{ if (isset($data['sourceforge']) && $data['sourceforge'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="Sourceforge" class="span4">@I18n::_('Sourceforge')</label>
-                                        }
-
-                                        <input type="checkbox" id="Public" name="public" value="1" class="normal-check" @{ if (isset($data['public']) && $data['public'] === '1') { echo 'checked="checked" '; } }/>
-                                        <label for="Public" class="span4">@I18n::_('Public')</label>
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="Title" class="caption">@I18n::_('Title')</label>
-                                        <input type="text" placeholder="@I18n::_('Title')" name="title" value="@String::htmlEscape($data['title'])" />
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="Password" class="caption">@I18n::_('Subtitle')</label>
-                                        <input type="text" placeholder="@I18n::_('Subtitle')" name="subtitle" value="@String::htmlEscape($data['subtitle'])" />
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="ShortDescription" class="caption" style="float:none">@I18n::_('Short Description')</label>
-                                        <textarea placeholder="@I18n::_('Short Description')" rows="6" name="shortdescription">@String::htmlEscape($data['shortdescription'])</textarea>
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="Description" class="caption">@I18n::_('Description')</label>
-                                        <textarea placeholder="@I18n::_('Description')" rows="6" name="description" class="cleditor">@String::htmlEscape($data['description'])</textarea>
-                                    </div>
-
-                                    @if(Config::get('pm/usesSourceforge')) {
-                                    <div class="input">
-                                        <label for="License" class="caption">@I18n::_('License')</label>
-                                        <input type="text" placeholder="@I18n::_('License')" name="license" value="@String::htmlEscape($data['license'])" />
-                                    </div>
-                                    }
 
                                 </div>
                             </div>
@@ -101,7 +97,6 @@ use App\Includes\ViewHelpers;
                         <div class="form-actions">
                             <div class="pull-right">
                                 <button type="submit" name="asNew" value="0" class="button blue">@I18n::_('Update')</button>
-                                <button type="submit" name="asNew" value="1" class="button">@I18n::_('Add as New')</button>
                             </div>
                         </div>
                     </form>

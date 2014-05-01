@@ -183,7 +183,9 @@ class Manage extends PmController
                 'role' => Request::post('role', null, null),
                 'bio' => Request::post('bio', null, null),
                 'page' => Request::post('page', null, null),
-                'active' => Request::post('active', '0', null)
+                'active' => Request::post('active', '1', null),
+                'language' => Request::post('language', null, null),
+                'sendmails' => Request::post('sendmails', '1', null)
             );
 
             $tUserGroups = array_keys(Request::post('groups', array(), null));
@@ -233,7 +235,9 @@ class Manage extends PmController
                 'role' => '',
                 'bio' => '',
                 'page' => '',
-                'active' => '1'
+                'active' => '1',
+                'language' => I18n::$language['key'],
+                'sendmails' => '1'
             );
 
             $tUserGroups = array();
@@ -281,7 +285,9 @@ class Manage extends PmController
                 'role' => Request::post('role', null, null),
                 'bio' => Request::post('bio', null, null),
                 'page' => Request::post('page', null, null),
-                'active' => Request::post('active', null, null)
+                'active' => Request::post('active', null, null),
+                'language' => Request::post('language', null, null),
+                'sendmails' => Request::post('sendmails', null, null)
             );
 
             $tUserGroups = array_keys(Request::post('groups', array(), null));
