@@ -45,9 +45,9 @@ use Scabbia\Framework;
     <nav id="primary" class="main-nav">
         <ul>
 
-            <li><a href="@Http::url('home')"><i class="icon-picture"></i> @I18n::_('Desktop')</a></li>
-            <li><a href="@Http::url('projects')"><i class="icon-bar-chart"></i> @I18n::_('Projects')</a></li>
-            <li><a href="@Http::url('manage')"><i class="icon-cogs"></i> @I18n::_('Manage')</a></li>
+            <li@{ if ($controller->route['controller'] == 'Home') { echo ' class="active"'; } }><a href="@Http::url('home')"><i class="icon-picture"></i> @I18n::_('Desktop')</a></li>
+            <li@{ if ($controller->route['controller'] == 'Projects') { echo ' class="active"'; } }><a href="@Http::url('projects')"><i class="icon-bar-chart"></i> @I18n::_('Projects')</a></li>
+            <li@{ if ($controller->route['controller'] == 'Manage') { echo ' class="active"'; } }><a href="@Http::url('manage')"><i class="icon-cogs"></i> @I18n::_('Manage')</a></li>
 
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt"></i>@I18n::_('More') <span class="caret"></span></a>
