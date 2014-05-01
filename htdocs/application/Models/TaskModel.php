@@ -226,13 +226,13 @@ class TaskModel extends Model
             ->insert()
             ->execute(true);
             
-        $id=$this->db->lastInsertId();
+        $id = $this->db->lastInsertId();
         
         foreach($revs as $rev) {
 			$this->db->createQuery()
 				->setTable('task_revisions')
 				->setFields(array(
-					'revision'	=> (int)$rev,
+					'revision'	=> $rev,
 					'task'	    => $id,
                     'relation'  => 'related'
 				))
@@ -268,7 +268,7 @@ class TaskModel extends Model
 			$this->db->createQuery()
 				->setTable('task_revisions')
 				->setFields(array(
-					'revision'	=> (int)$rev,
+					'revision'	=> $rev,
 					'task'	    => $id,
                     'relation'  => 'related'
 				))
