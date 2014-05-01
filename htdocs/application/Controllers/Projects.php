@@ -71,6 +71,7 @@ class Projects extends PmController
             $tHTMLConfig = \HTMLPurifier_Config::createDefault();
             $tPurifier = new \HTMLPurifier($tHTMLConfig);
             $tDescription = $tPurifier->purify(Request::post('description', null, null));
+            $tMembers = Request::post('members', array(), null);
 
             $tData = array(
                 'name' => String::slug(Request::post('title', null, null)),
@@ -83,6 +84,7 @@ class Projects extends PmController
                 'sourceforge' => Request::post('sourceforge', '0', null),
                 'public' => Request::post('public', '0', null),
                 'license' => Request::post('license', '', null),
+                'members' => $tMembers,
 
                 'created' => Date::toDb(time()),
                 'owner' => $this->userBindings->user['id']
@@ -105,7 +107,35 @@ class Projects extends PmController
             } else {
                 $this->load('App\\Models\\ProjectModel');                
 
+                unset($tData['members']);
+
                 $tId = $this->projectModel->insert($tData);
+
+                if (count($tMembers) > 0) {
+                    $this->load('App\\Models\\ProjectConstantModel');
+
+                    /*
+                    $tRelationId = $this->projectConstantModel->insert(
+                        array(
+                            'name' => I18n::_('Member'),
+                            'type' => 'project_relation_type',
+                            'project' => $tId
+                        )
+                    );
+                    */
+
+                    $this->load('App\\Models\\ProjectMemberModel');
+
+                    foreach ($tMembers as $tMember) {
+                        $this->projectMemberModel->insert(
+                            array(
+                                'user' => $tMember,
+                                'relation' => 0, // $tRelationId,
+                                'project' => $tId
+                            )
+                        );
+                    }
+                }
                 
                 Session::set(
                     'alert',
@@ -130,7 +160,8 @@ class Projects extends PmController
                 'type' => '',
                 'sourceforge' => '0',
                 'public' => '0',
-                'license' => ''
+                'license' => '',
+                'members' => array()
             );
         }
 
@@ -139,6 +170,9 @@ class Projects extends PmController
         $this->load('App\\Models\\ConstantModel');
         $tConstants = $this->constantModel->getConstants();
         $this->set('constants', Arrays::categorize($tConstants, 'type', true));
+
+        $this->load('App\\Models\\UserModel');
+        $this->set('users', $this->userModel->getUsers());
 
         $this->breadcrumbs[I18n::_('Add Project')] = array(null, 'projects/add');
 

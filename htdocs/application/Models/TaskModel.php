@@ -61,9 +61,10 @@ class TaskModel extends Model
     public function getTasks($uProjectId)
     {
         return $this->db->createQuery()
-            ->setTable('tasks')
-            ->addField('*')
-            ->setWhere(array('project=:projectid', _AND, '((SELECT type FROM constants WHERE id=tasks.status) = \'open_task_type\')'))
+            ->setTable('tasks t')
+            ->joinTable('constants c', 'c.id=t.status', 'LEFT')
+            ->addField('t.*')
+            ->setWhere(array('t.project=:projectid', _AND, array('c.type IS NULL', _OR, 'c.type = \'open_task_type\'')))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->allWithKey('id');
@@ -75,9 +76,10 @@ class TaskModel extends Model
     public function getTasksCount($uProjectId)
     {
         return $this->db->createQuery()
-            ->setTable('tasks')
+            ->setTable('tasks t')
+            ->joinTable('constants c', 'c.id=t.status', 'LEFT')
             ->addField('COUNT(0)')
-            ->setWhere(array('project=:projectid', _AND, '((SELECT type FROM constants WHERE id=tasks.status) = \'open_task_type\')'))
+            ->setWhere(array('t.project=:projectid', _AND, array('c.type IS NULL', _OR, 'c.type = \'open_task_type\'')))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->scalar();
@@ -89,11 +91,12 @@ class TaskModel extends Model
     public function getTasksWithPaging($uProjectId, $uOffset = 0, $uLimit = 20)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('tasks')
-            ->setFields('*')
+            ->setTable('tasks t')
+            ->joinTable('constants c', 'c.id=t.status', 'LEFT')
+            ->setFields('t.*')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
-            ->setWhere(array('project=:projectid', _AND, '((SELECT type FROM constants WHERE id=tasks.status) = \'open_task_type\')'))
+            ->setWhere(array('t.project=:projectid', _AND, array('c.type IS NULL', _OR, 'c.type = \'open_task_type\'')))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->all();
@@ -107,9 +110,10 @@ class TaskModel extends Model
     public function getClosedTasks($uProjectId)
     {
         return $this->db->createQuery()
-            ->setTable('tasks')
-            ->addField('*')
-            ->setWhere(array('project=:projectid', _AND, '((SELECT type FROM constants WHERE id=tasks.status) = \'closed_task_type\')'))
+            ->setTable('tasks t')
+            ->joinTable('constants c', 'c.id=t.status', 'LEFT')
+            ->addField('t.*')
+            ->setWhere(array('t.project=:projectid', _AND, 'c.type = \'closed_task_type\''))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->allWithKey('id');
@@ -121,9 +125,10 @@ class TaskModel extends Model
     public function getClosedTasksCount($uProjectId)
     {
         return $this->db->createQuery()
-            ->setTable('tasks')
+            ->setTable('tasks t')
+            ->joinTable('constants c', 'c.id=t.status', 'LEFT')
             ->addField('COUNT(0)')
-            ->setWhere(array('project=:projectid', _AND, '((SELECT type FROM constants WHERE id=tasks.status) = \'closed_task_type\')'))
+            ->setWhere(array('t.project=:projectid', _AND, 'c.type = \'closed_task_type\''))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->scalar();
@@ -135,11 +140,12 @@ class TaskModel extends Model
     public function getClosedTasksWithPaging($uProjectId, $uOffset = 0, $uLimit = 20)
     {
         $tResult = $this->db->createQuery()
-            ->setTable('tasks')
-            ->setFields('*, (SELECT GROUP_CONCAT(revision SEPARATOR \', \') FROM task_revisions WHERE task=tasks.id) AS revisions')
+            ->setTable('tasks t')
+            ->joinTable('constants c', 'c.id=t.status', 'LEFT')
+            ->setFields('t.*')
             ->setOffset($uOffset)
             ->setLimit($uLimit)
-            ->setWhere(array('project=:projectid', _AND, '((SELECT type FROM constants WHERE id=tasks.status) = \'closed_task_type\')'))
+            ->setWhere(array('t.project=:projectid', _AND, 'c.type = \'closed_task_type\''))
             ->addParameter('projectid', $uProjectId)
             ->get()
             ->all();

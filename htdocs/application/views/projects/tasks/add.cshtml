@@ -45,7 +45,9 @@ use App\Includes\ViewHelpers;
                                         <label for="Section" class="caption">@I18n::_('Section')</label>
                                         <select name="section" id="Section" placeholder="@I18n::_('Section')" class="fill-up chzn-select">
                                         <option value="0">- @I18n::_('Unspecified')</option>
+                                        @if (isset($projectConstants['section_type'])) {
                                         @Html::selectOptions($projectConstants['section_type'], (int)$data['section'], 'name')
+                                        }
                                         </select>
                                     </div>
                                 </div>
@@ -54,7 +56,9 @@ use App\Includes\ViewHelpers;
                                         <label for="Milestone" class="caption">@I18n::_('Milestone')</label>
                                         <select name="milestone" id="Milestone" placeholder="@I18n::_('Milestone')" class="fill-up chzn-select">
                                         <option value="0">- @I18n::_('Unspecified')</option>
+                                        @if (isset($projectConstants['milestone_type'])) {
                                         @Html::selectOptions($projectConstants['milestone_type'], (int)$data['milestone'], 'name')
+                                        }
                                         </select>
                                     </div>
                                 </div>

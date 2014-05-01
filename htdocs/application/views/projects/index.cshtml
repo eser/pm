@@ -5,6 +5,7 @@ use Scabbia\Extensions\Helpers\Html;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
 use Scabbia\Extensions\I18n\I18n;
+use Scabbia\Config;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -50,7 +51,9 @@ use App\Includes\ViewHelpers;
                             <th>@I18n::_('Parent')</th>
                             <th>@I18n::_('Created')</th>
                             <th>@I18n::_('Type')</th>
+                            @if(Config::get('pm/usesSourceforge')) {
                             <th>@I18n::_('License')</th>
+                            }
                             <th>@I18n::_('Public')</th>
                             <th></th>
                         </tr>
@@ -70,7 +73,9 @@ use App\Includes\ViewHelpers;
                                 @ViewHelpers::printDate($project['created'])
                             </td>
                             <td>@ViewHelpers::printConstant($constants, 'project_type', $project['type'])</td>
+                            @if(Config::get('pm/usesSourceforge')) {
                             <td>@$project['license']</td>
+                            }
                             <td>@ViewHelpers::printBool($project['public'])</td>
                             <td>
                                 <div class="btn-group pull-right">
