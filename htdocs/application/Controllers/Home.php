@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Includes\PmController;
 use App\Includes\ViewHelpers;
+use Scabbia\Config;
 use Scabbia\Extensions\Helpers\Date;
 use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\I18n\I18n;

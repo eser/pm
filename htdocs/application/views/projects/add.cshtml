@@ -5,6 +5,7 @@ use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Session\Session;
 use Scabbia\Extensions\Views\Views;
 use Scabbia\Extensions\I18n\I18n;
+use Scabbia\Config;
 use App\Includes\ViewHelpers;
 }
 @Views::viewFile('{app}views/shared/header.cshtml')
@@ -76,18 +77,22 @@ use App\Includes\ViewHelpers;
                                     </div>
 
                                     <div class="input row-fluid">
+                                        @if(Config::get('pm/usesSourceforge')) {
                                         <input type="checkbox" id="Sourceforge" name="sourceforge" value="1" class="normal-check" @{ if (isset($data['sourceforge']) && $data['sourceforge'] === '1') { echo 'checked="checked" '; } }/>
                                         <label for="Sourceforge" class="span4">@I18n::_('Sourceforge')</label>
+                                        }
 
                                         <input type="checkbox" id="Public" name="public" value="1" class="normal-check" @{ if (isset($data['public']) && $data['public'] === '1') { echo 'checked="checked" '; } }/>
                                         <label for="Public" class="span4">@I18n::_('Public')</label>
 
                                     </div>
 
+                                    @if(Config::get('pm/usesSourceforge')) {
                                     <div class="input">
                                         <label for="License" class="caption">@I18n::_('License')</label>
                                         <input type="text" placeholder="@I18n::_('License')" name="license" value="@String::htmlEscape($data['license'])" />
                                     </div>
+                                    }
 
                                 </div>
                             </div>

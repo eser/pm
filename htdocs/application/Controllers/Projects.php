@@ -82,7 +82,7 @@ class Projects extends PmController
                 'type' => Request::post('type', null, null),
                 'sourceforge' => Request::post('sourceforge', '0', null),
                 'public' => Request::post('public', '0', null),
-                'license' => Request::post('license', null, null),
+                'license' => Request::post('license', '', null),
 
                 'created' => Date::toDb(time()),
                 'owner' => $this->userBindings->user['id']
@@ -173,7 +173,7 @@ class Projects extends PmController
                 'type' => Request::post('type', null, null),
                 'sourceforge' => Request::post('sourceforge', '0', null),
                 'public' => Request::post('public', '0', null),
-                'license' => Request::post('license', null, null)
+                'license' => Request::post('license', '', null)
             );
 
             Validation::addRule('name')->isRequired()->errorMessage(I18n::_('Name field is required.'));
