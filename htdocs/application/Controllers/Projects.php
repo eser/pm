@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Includes\StaticHelpers;
+use App\Includes\ViewHelpers;
 use Scabbia\Config;
 use Scabbia\Extensions\Helpers\Arrays;
 use Scabbia\Extensions\Helpers\Date;
@@ -992,6 +993,43 @@ class Projects extends PmController
                     I18n::_('Note added.')
                 )
             );
+
+            // add assignee as a relative, find other relatives and send mail
+            $tRelatives = Arrays::categorize($this->taskModel->getRelatives($uId), 'type');
+            if (!isset($tRelatives['user'])) {
+                $tRelatives['user'] = array();
+            }
+
+            if ($tOriginalData['assignee'] !== null && $tOriginalData['assignee'] !== '0') {
+                $tRelatives['user'][] = array('task' => $uId, 'type' => 'user', 'targetid' => $tOriginalData['assignee']);
+            }
+
+            $tRelativeUsers = StaticHelpers::getRelativeUsersGrouped($tRelatives);
+
+            $tToAddresses = array();
+            foreach ($tRelativeUsers as $tRelativeUser) {
+                if ($tRelativeUser['sendmails'] === '1') {
+                    $tToAddresses[] = '"' . String::removeAccent($tRelativeUser['name']) . '" <' . $tRelativeUser['email'] . '>';
+                }
+            }
+
+            // mail thing
+            if (count($tToAddresses) > 0) {
+                $tUrl = Http::url('projects/tasks/' . $uProjectId . '/detail/' . $uId, true);
+
+                $tNewmail = new Mail();
+                $tNewmail->to = $tToAddresses;
+                $tNewmail->from = Config::get('pm/emails/sender');
+                $tNewmail->subject = '[PM] Task #' . $uId . ' - a new note';
+                $tNewmail->headers['Content-Type'] = 'text/html; charset=utf-8';
+                $tNewmail->content =
+                    '<a href="' . $tUrl . '">' . $tUrl . '</a>' .
+                    '<p><b>User:</b> ' . $this->userBindings->user['name'] . '</p>' .
+                    '<p><b>Date:</b> ' . ViewHelpers::printDate($tData['created']) . '</p>' .
+                    '<p>' . $tDescription . '</p>'
+                ;
+                $tNewmail->send();
+            }
         }
 
         // redirect to list
@@ -1096,6 +1134,45 @@ class Projects extends PmController
                     I18n::_('File added.')
                 )
             );
+
+            // add assignee as a relative, find other relatives and send mail
+            $tRelatives = Arrays::categorize($this->taskModel->getRelatives($uId), 'type');
+            if (!isset($tRelatives['user'])) {
+                $tRelatives['user'] = array();
+            }
+
+            if ($tOriginalData['assignee'] !== null && $tOriginalData['assignee'] !== '0') {
+                $tRelatives['user'][] = array('task' => $uId, 'type' => 'user', 'targetid' => $tOriginalData['assignee']);
+            }
+
+            $tRelativeUsers = StaticHelpers::getRelativeUsersGrouped($tRelatives);
+
+            $tToAddresses = array();
+            foreach ($tRelativeUsers as $tRelativeUser) {
+                if ($tRelativeUser['sendmails'] === '1') {
+                    $tToAddresses[] = '"' . String::removeAccent($tRelativeUser['name']) . '" <' . $tRelativeUser['email'] . '>';
+                }
+            }
+
+            // mail thing
+            if (count($tToAddresses) > 0) {
+                $tUrl = Http::url('projects/tasks/' . $uProjectId . '/detail/' . $uId, true);
+
+                $tNewmail = new Mail();
+                $tNewmail->to = $tToAddresses;
+                $tNewmail->from = Config::get('pm/emails/sender');
+                $tNewmail->subject = '[PM] Task #' . $uId . ' - a new file attachment';
+                $tNewmail->headers['Content-Type'] = 'text/html; charset=utf-8';
+                $tNewmail->content =
+                    '<a href="' . $tUrl . '">' . $tUrl . '</a>' .
+                    '<p><b>User:</b> ' . $this->userBindings->user['name'] . '</p>' .
+                    '<p><b>Date:</b> ' . ViewHelpers::printDate($tData['created']) . '</p>' .
+                    '<p><b>Filename:</b> ' . $tData['filename'] . '</p>' .
+                    '<p><b>Mimetype:</b> ' . $tMimeType . '</p>' .
+                    '<p>' . $tDescription . '</p>'
+                ;
+                $tNewmail->send();
+            }
         }
 
         // redirect to list
@@ -1259,27 +1336,31 @@ class Projects extends PmController
                     )
                 );
 
-                // add assignee as relative, find all relatives and send mail
-                if ($tData['assignee'] !== null) {
+                // add assignee as a relative, find other relatives and send mail
+                if ($tData['assignee'] !== null && $tData['assignee'] !== '0') {
                     $tRelativesArray[] = array('type' => 'user', 'targetid' => $tData['assignee']);
                 }
 
                 $tRelativeUsers = StaticHelpers::getRelativeUsers($tRelativesArray);
                 $tToAddresses = array();
                 foreach ($tRelativeUsers as $tRelativeUser) {
-                    $tToAddresses[] = '"' . String::removeAccent($tRelativeUser['name']) . '" <' . $tRelativeUser['email'] . '>';
+                    if ($tRelativeUser['sendmails'] === '1') {
+                        $tToAddresses[] = '"' . String::removeAccent($tRelativeUser['name']) . '" <' . $tRelativeUser['email'] . '>';
+                    }
                 }
 
                 // mail thing
-                $tUrl = Http::url('projects/tasks/' . $uProjectId . '/detail/' . $tId, true);
+                if (count($tToAddresses) > 0) {
+                    $tUrl = Http::url('projects/tasks/' . $uProjectId . '/detail/' . $tId, true);
 
-                $tNewmail = new Mail();
-                $tNewmail->to = $tToAddresses;
-                $tNewmail->from = Config::get('pm/emails/sender');
-                $tNewmail->subject = '[PM] Task #' . $tId . ' added';
-                $tNewmail->headers['Content-Type'] = 'text/html; charset=utf-8';
-                $tNewmail->content = '<a href="' . $tUrl . '">' . $tUrl . '</a>';
-                $tNewmail->send();
+                    $tNewmail = new Mail();
+                    $tNewmail->to = $tToAddresses;
+                    $tNewmail->from = Config::get('pm/emails/sender');
+                    $tNewmail->subject = '[PM] Task #' . $tId . ' added';
+                    $tNewmail->headers['Content-Type'] = 'text/html; charset=utf-8';
+                    $tNewmail->content = '<a href="' . $tUrl . '">' . $tUrl . '</a>';
+                    $tNewmail->send();
+                }
 
                 // redirect to newly created
                 Http::redirect('projects/tasks/' . $uProjectId, true);
@@ -1299,7 +1380,7 @@ class Projects extends PmController
                 'duedate' => null,
                 'estimatedtime' => '',
                 'enddate' => null,
-                'assignee' => '',
+                'assignee' => null,
                 'created' => Date::toDb(time()),
                 'owner' => $this->userBindings->user['id'],
                 'revisions' => '',
@@ -1459,26 +1540,30 @@ class Projects extends PmController
                 }
 
                 // add assignee as relative, find all relatives and send mail
-                if ($tData['assignee'] !== null) {
+                if ($tData['assignee'] !== null && $tData['assignee'] !== '0') {
                     $tRelativesArray[] = array('type' => 'user', 'targetid' => $tData['assignee']);
                 }
 
                 $tRelativeUsers = StaticHelpers::getRelativeUsers($tRelativesArray);
                 $tToAddresses = array();
                 foreach ($tRelativeUsers as $tRelativeUser) {
-                    $tToAddresses[] = '"' . String::removeAccent($tRelativeUser['name']) . '" <' . $tRelativeUser['email'] . '>';
+                    if ($tRelativeUser['sendmails'] === '1') {
+                        $tToAddresses[] = '"' . String::removeAccent($tRelativeUser['name']) . '" <' . $tRelativeUser['email'] . '>';
+                    }
                 }
 
                 // mail thing
-                $tUrl = Http::url('projects/tasks/' . $uProjectId . '/detail/' . $uId, true);
+                if (count($tToAddresses) > 0) {
+                    $tUrl = Http::url('projects/tasks/' . $uProjectId . '/detail/' . $uId, true);
 
-                $tNewmail = new Mail();
-                $tNewmail->to = $tToAddresses;
-                $tNewmail->from = Config::get('pm/emails/sender');
-                $tNewmail->subject = '[PM] Task #' . $uId . ' has changed';
-                $tNewmail->headers['Content-Type'] = 'text/html; charset=utf-8';
-                $tNewmail->content = '<a href="' . $tUrl . '">' . $tUrl . '</a>';
-                $tNewmail->send();
+                    $tNewmail = new Mail();
+                    $tNewmail->to = $tToAddresses;
+                    $tNewmail->from = Config::get('pm/emails/sender');
+                    $tNewmail->subject = '[PM] Task #' . $uId . ' has changed';
+                    $tNewmail->headers['Content-Type'] = 'text/html; charset=utf-8';
+                    $tNewmail->content = '<a href="' . $tUrl . '">' . $tUrl . '</a>';
+                    $tNewmail->send();
+                }
 
                 Http::redirect('projects/tasks/' . $uProjectId, true);
                 return;
