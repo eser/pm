@@ -27,6 +27,7 @@ use App\Includes\ViewHelpers;
     <ul class="secondary-nav-menu">
         <li@{ if ($controller->route['action'] == 'index') { echo ' class="active"'; } }><a href="@Http::url('home')"><i class="icon-dashboard"></i> @I18n::_('Dashboard')</a></li>
         <li@{ if ($controller->route['action'] == 'projects') { echo ' class="active"'; } }><a href="@Http::url('home/projects')"><i class="icon-bar-chart"></i> @I18n::_('My Projects')</a></li>
-        <li@{ if ($controller->route['action'] == 'tasks') { echo ' class="active"'; } }><a href="@Http::url('home/tasks')"><i class="icon-info-sign"></i> @I18n::_('Assigned Tasks')</a></li>
+        <li@{ if ($controller->route['action'] == 'tasks') { echo ' class="active"'; } }><a href="@Http::url('home/tasks')"><i class="icon-tasks"></i> @I18n::_('Assigned Tasks')</a></li>
+        <li@{ if ($controller->route['action'] == 'settings') { echo ' class="active"'; } }><a href="@Http::url('home/settings')"><i class="icon-cogs"></i> @I18n::_('Settings')</a></li>
     </ul>
 </nav>

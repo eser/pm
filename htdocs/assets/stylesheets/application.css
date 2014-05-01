@@ -10786,3 +10786,5 @@ td.calendar-day, td.calendar-day-np
                         { padding: 5px; border-bottom: 1px solid #999; border-right: 1px solid #999; }
 
 .date-picker select { margin-bottom: 0px; }
+
+.text-center { text-align: center; }

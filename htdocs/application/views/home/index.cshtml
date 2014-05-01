@@ -37,17 +37,41 @@ use App\Includes\ViewHelpers;
                     </div>
 
                     <div class="date-picker">
+                        @{
+                            $tDateTime = new DateTime($calendarYear . '-' . $calendarMonth . '-01');
+                            $tCurYear = (int)$tDateTime->format('Y');
+
+                            $tDateTime->modify('-1 month');
+                            $tPrevMonth = array($tDateTime->format('m'), $tDateTime->format('Y'));
+
+                            $tDateTime->modify('+2 month');
+                            $tNextMonth = array($tDateTime->format('m'), $tDateTime->format('Y'));
+                        }
+
                         <form action="@Http::url('home/index')" method="get">
-                            <select name="month">
-                            @Html::selectOptions(ViewHelpers::$months, $calendarMonth)
-                            </select>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="span1">
+                                        <a class="btn" href="@Http::url('home/index?month=' . $tPrevMonth[0] . '&year=' . $tPrevMonth[1])"><i class="icon-arrow-left"></i></a>
+                                    </div>
 
-                            <select name="year">
-                            @{ $tCurYear = (int)date('Y'); }
-                            @Html::selectOptions(Arrays::range($tCurYear - 10, $tCurYear + 10, 1, true), (int)$calendarYear)
-                            </select>
+                                    <div class="span10 text-center">
+                                        <select name="month">
+                                        @Html::selectOptions(ViewHelpers::$months, $calendarMonth)
+                                        </select>
 
-                            <input class="btn btn-small" type="submit" value="@I18n::_('Show')" />
+                                        <select name="year">
+                                        @Html::selectOptions(Arrays::range($tCurYear - 10, $tCurYear + 10, 1, true), (int)$calendarYear)
+                                        </select>
+
+                                        <input class="btn btn-small" type="submit" value="@I18n::_('Show')" />
+                                    </div>
+
+                                    <div class="span1">
+                                        <a class="btn" href="@Http::url('home/index?month=' . $tNextMonth[0] . '&year=' . $tNextMonth[1])"><i class="icon-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
 
