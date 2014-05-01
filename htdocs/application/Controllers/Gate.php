@@ -66,9 +66,9 @@ class Gate extends PmController
         // kullanici kontrolleri
         $this->load('App\\Models\\UserModel');
         if (strpos($tLogin, '@') !== false) {
-            $user = $this->userModel->getByEmail($tLogin);
+            $user = $this->userModel->getWithRolesByEmail($tLogin);
         } else {
-            $user = $this->userModel->getByUsername($tLogin);
+            $user = $this->userModel->getWithRolesByUsername($tLogin);
         }
 
         if ($user === false) {

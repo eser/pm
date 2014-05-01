@@ -84,7 +84,25 @@ class UserModel extends Model
     /**
      * @ignore
      */
-    public function getByUsername($uUsername)
+    public function getWithRoles($uId)
+    {
+        $tResult = $this->db->createQuery()
+            ->setTable('users u')
+            ->joinTable('roles r', 'r.id=u.role', 'LEFT')
+            ->setFields('u.*, r.login AS rolelogin, r.active AS roleactive, r.administer AS roleadminister')
+            ->setWhere(array('u.id=:id'))
+            ->setLimit(1)
+            ->addParameter('id', $uId)
+            ->get()
+            ->row();
+
+        return $tResult;
+    }
+
+    /**
+     * @ignore
+     */
+    public function getWithRolesByUsername($uUsername)
     {
         $tResult = $this->db->createQuery()
             ->setTable('users u')
@@ -102,7 +120,7 @@ class UserModel extends Model
     /**
      * @ignore
      */
-    public function getByEmail($uEmail)
+    public function getWithRolesByEmail($uEmail)
     {
         $tResult = $this->db->createQuery()
             ->setTable('users u')

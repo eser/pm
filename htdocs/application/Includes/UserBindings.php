@@ -66,7 +66,7 @@ class UserBindings
     public function setUserFromDatabase($uUserId)
     {
         $userModel = Controllers::load('App\\Models\\UserModel');
-        $this->user = $userModel->get($uUserId, false);
+        $this->user = $userModel->getWithRoles($uUserId);
         Session::set('user', $this->user);
 
         $this->reloadUserInfo();
