@@ -15,6 +15,7 @@ use Scabbia\Request;
     <div id="login-manager">
       <div id="login" class="login-wrapper animated">
         <form action="@Http::url('gate/login.json')" method="post" id="loginform">
+          <input type="hidden" name="return" value="@Request::get('return', '')" />
           <div class="input-group">
             <input id="email" type="text" name="login" class="logininput input-transparent" value="@Request::cookie('login', '')" placeholder="@I18n::_('Username or E-mail')" />
             <input id="password" type="password" name="password" class="logininput input-transparent" value="" placeholder="@I18n::_('Password')" />

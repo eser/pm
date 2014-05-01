@@ -36,6 +36,8 @@ class Gate extends PmController
     {
         Auth::clear();
 
+        $tReturn = Request::post('return', '');
+
         $tLogin = Request::post('login');
         $tPassword = Request::post('password');
 
@@ -102,7 +104,11 @@ class Gate extends PmController
         $this->userBindings->setUser($user);
 
         $this->set('success', true);
-        $this->set('redirection', Http::url('home/index'));
+        if (strlen($tReturn) > 0 && $tReturn !== 'gate/login') {
+            $this->set('redirection', Http::url($tReturn));
+        } else {
+            $this->set('redirection', Http::url('home/index'));
+        }
         $this->json();
     }
 }

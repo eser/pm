@@ -2,10 +2,12 @@
 
 namespace App\Includes;
 
+use Scabbia\Extensions\Helpers\String;
 use Scabbia\Extensions\Http\Http;
 use Scabbia\Extensions\Mvc\Controllers;
 use Scabbia\Extensions\Session\Session;
 use App\Includes\PmController;
+use Scabbia\Request;
 
 /**
  * @ignore
@@ -33,7 +35,12 @@ class UserBindings
         if (!isset($newInstance->user)) {
             // if user is not logged in
             if ($uController->authOnly) {
-                Http::redirect('gate/login');
+                if (strlen(Request::$pathInfo) > 0 && Request::$pathInfo !== 'gate/login') {
+                    Http::redirect('gate/login?return=' . Http::encode(Request::$pathInfo));
+                } else {
+                    Http::redirect('gate/login');
+                }
+
                 exit;
             }
         }
