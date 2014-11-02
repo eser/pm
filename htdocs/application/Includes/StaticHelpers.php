@@ -39,6 +39,10 @@ class StaticHelpers
             }
         }
 
+        if (count($tRelativeUsers) === 0) {
+            return array();
+        }
+
         return $tUserModel->getRange($tRelativeUsers);
     }
 
@@ -57,6 +61,10 @@ class StaticHelpers
             foreach ($tGroupModel->getUsersRange($tRelativeGroups) as $tUserId) {
                 $tRelativeUsers[] = $tUserId;
             }
+        }
+
+        if (count($tRelativeUsers) === 0) {
+            return array();
         }
 
         return $tUserModel->getRange($tRelativeUsers);
